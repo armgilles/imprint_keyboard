@@ -243,6 +243,15 @@
             bindings = <&kp RA(E)>, <&world_e_acute_windows>; // macOS par défaut, Windows avec layer 7
             mods = <(MOD_LCTL)>;
         };
+
+        // Macro pour Hyper Key (Shift+Ctrl+Alt+Gui)
+        hyper_key: hyper_key {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, 
+                       <&macro_pause_for_release>,
+                       <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>;
+        };
     };
 
     keymap {
@@ -258,7 +267,7 @@
 &kp LSHFT  &kp Z    &kp X    &kp C    &kp V    &kp B               &kp N    &kp M    &kp COMMA &kp DOT  &kp FSLH  &kp RSHFT
 &trans     &kp GRAVE &kp UP   &kp DOWN &kp LSHFT                           &trans   &kp LBKT  &kp RBKT &kp BSLH  &trans
                                      &thumb 6 ESC   &thumb 1 BACKSPACE &thumb 2 DELETE    &thumb 4 INSERT  &space 5 ENTER  &space 3 SPACE
-                                     &kp LS(LC(LA(LGUI)))  &kp CAPS_WORD    &mo 1       &kp CAPS_WORD  &space 2 TAB     &mo 1
+                                     &hyper_key  &caps_word    &mo 1       &caps_word  &space 2 TAB     &mo 1
             >;
         };
 
