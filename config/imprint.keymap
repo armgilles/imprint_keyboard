@@ -305,7 +305,18 @@
         hyper_key: hyper_key {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LSHFT>, <&kp LCTRL>, <&kp LALT>, <&kp LGUI>, <&macro_pause_for_release>, <&macro_release>, <&kp LSHFT>, <&kp LCTRL>, <&kp LALT>, <&kp LGUI>;
+            bindings
+                = <&macro_press>,
+                  <&kp LSHFT>,
+                  <&kp LCTRL>,
+                  <&kp LALT>,
+                  <&kp LGUI>,
+                  <&macro_pause_for_release>,
+                  <&macro_release>,
+                  <&kp LSHFT>,
+                  <&kp LCTRL>,
+                  <&kp LALT>,
+                  <&kp LGUI>;
         };
 
         // === MACROS BLUETOOTH AVEC RGB ===
@@ -315,7 +326,11 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE>, <&bt BT_SEL 0>, <&rgb_ug RGB_ON>;
+            bindings
+                = <&macro_tap>,
+                  <&out OUT_BLE>,
+                  <&bt BT_SEL 0>,
+                  <&rgb_ug RGB_ON>;
         };
 
         bt_1_connect: bt_1_connect {
@@ -324,7 +339,11 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE>, <&bt BT_SEL 1>, <&rgb_ug RGB_ON>;
+            bindings
+                = <&macro_tap>,
+                  <&out OUT_BLE>,
+                  <&bt BT_SEL 1>,
+                  <&rgb_ug RGB_ON>;
         };
 
         bt_2_connect: bt_2_connect {
@@ -333,7 +352,11 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE>, <&bt BT_SEL 2>, <&rgb_ug RGB_ON>;
+            bindings
+                = <&macro_tap>,
+                  <&out OUT_BLE>,
+                  <&bt BT_SEL 2>,
+                  <&rgb_ug RGB_ON>;
         };
 
         usb_connect: usb_connect {
@@ -342,7 +365,10 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_USB>, <&rgb_ug RGB_OFF>;
+            bindings
+                = <&macro_tap>,
+                  <&out OUT_USB>,
+                  <&rgb_ug RGB_OFF>;
         };
 
         // === MACROS WINDOWS MODE ===
@@ -352,7 +378,10 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&to 7>, <&rgb_ug RGB_ON>;
+            bindings
+                = <&macro_tap>,
+                  <&to 7>,
+                  <&rgb_ug RGB_ON>;
         };
 
         windows_mode_off: windows_mode_off {
@@ -361,7 +390,10 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&to 0>, <&rgb_ug RGB_OFF>;
+            bindings
+                = <&macro_tap>,
+                  <&to 0>,
+                  <&rgb_ug RGB_OFF>;
         };
     };
 
