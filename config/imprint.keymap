@@ -24,13 +24,10 @@
                   <&rgb_ug RGB_OFF>;
         };
 
-        
-        windows_toggle_with_rgb: windows_toggle_with_rgb {
-            label = "WINDOWS_TOGGLE";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&tog 7>;
-        };p-preferred";
+        rmt: right_mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
@@ -41,15 +38,6 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&to 7>;
-        };
-
-        rmt: right_mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            bindings = <&kp>, <&kp>;
         };
 
         
