@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
 
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
@@ -59,7 +60,7 @@
   // é -> É
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
+&sk LG(LA(LC(LSHFT)))
         world_i_base: world_i_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -284,6 +285,18 @@
     macros {
     };
 
+    combos {
+        compatible = "zmk,combos";
+        
+        // Combo SPACE + ENTER → Hyper Key (comme Glove80 combo_sticky_hyper_right)
+        combo_sticky_hyper_right {
+            timeout-ms = <50>;
+            key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
+            bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
+            layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -347,18 +360,18 @@
             >;
         };
 
-        // Layer 4: System
+        // Layer 4: System + RGB Controls
 
         system_layer {
             bindings = <
-&trans  &trans        &trans        &trans        &trans        &trans                       &trans           &trans     &trans       &trans       &trans     &trans
-&trans  &trans        &trans        &trans        &trans        &trans                       &trans           &sk RSHFT  &sk RGUI     &sk RALT     &sk RCTRL  &trans
-&trans  &trans        &trans        &trans        &bt BT_CLR    &kp PAUSE_BREAK              &kp PAUSE_BREAK  &kp C_PWR  &kp C_SLEEP  &trans       &trans     &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp PSCRN                    &kp PSCRN        &trans     &sys_reset   &bootloader  &trans     &trans
-&trans  &bt BT_SEL 4  &trans        &trans        &tog 7        &kp K_APP                    &kp K_APP        &kp SLCK   &kp KP_NUM   &kp CAPS     &tog 7     &trans
-&trans  &trans        &trans        &trans        &trans                                                      &trans     &trans       &trans       &trans     &trans
-                                                  &kp C_PWR     &kp C_SLEEP      &kp CAPS    &trans           &trans     &trans
-                                                  &kp SLCK      &kp KP_NUM       &kp CAPS    &trans           &trans     &trans
+&trans  &trans        &trans        &trans        &trans        &trans                       &trans           &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans       &trans     &trans
+&trans  &trans        &trans        &trans        &trans        &trans                       &trans           &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
+&trans  &trans        &trans        &trans        &kp trans  &bt BT_CLR                   &kp PAUSE_BREAK  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp PSCRN                    &kp PSCRN        &trans           &sys_reset       &bootloader      &trans           &trans
+&trans  &bt BT_SEL 4  &trans        &trans        &tog 7        &kp K_APP                    &kp K_APP        &kp SLCK         &kp KP_NUM       &kp CAPS         &tog 7           &trans
+&trans  &trans        &trans        &trans        &trans                                                      &trans           &trans           &trans           &trans           &trans
+                                                  &kp C_PWR     &kp C_SLEEP      &kp CAPS    &trans           &trans           &trans
+                                                  &kp SLCK      &kp KP_NUM       &kp CAPS    &trans           &trans           &trans
             >;
         };
 
