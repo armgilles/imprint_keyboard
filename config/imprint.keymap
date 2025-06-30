@@ -15,19 +15,32 @@
         lmt: left_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+              windows_mode_off: windows_mode_off {
+            label = "WINDOWS_MODE_OFF";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&to 0>,
+                  <&rgb_ug RGB_OFF>;
+        };
+
+        
+        windows_toggle_with_rgb: windows_toggle_with_rgb {
+            label = "WINDOWS_TOGGLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&tog 7>;
+        };p-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
         };
 
         windows_mode_on: windows_mode_on {
-            label = "WINDOWS_MODE_ON_VIOLET";
+            label = "WINDOWS_MODE_ON";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &to 7 &rgb_ug RGB_ON>;
+            bindings = <&to 7>;
         };
 
         rmt: right_mod_tap {
@@ -330,107 +343,95 @@
         
         
         bt_0_connect: bt_0_connect {
-            label = "BT_0_CONNECT_GREEN";
+            label = "BT_0_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_ON>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 0>;
         };
 
         bt_0_disconnect: bt_0_disconnect {
-            label = "BT_0_DISCONNECT_RED";
+            label = "BT_0_DISCONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 0 &rgb_ug RGB_ON>;
+            bindings = <&bt BT_DISC 0>;
         };
 
         
         bt_1_connect: bt_1_connect {
-            label = "BT_1_CONNECT_GREEN";
+            label = "BT_1_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 1 &rgb_ug RGB_ON>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 1>;
         };
 
         bt_1_disconnect: bt_1_disconnect {
-            label = "BT_1_DISCONNECT_RED";
+            label = "BT_1_DISCONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 1 &rgb_ug RGB_ON>;
+            bindings = <&bt BT_DISC 1>;
         };
 
         
         bt_2_connect: bt_2_connect {
-            label = "BT_2_CONNECT_GREEN";
+            label = "BT_2_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 2 &rgb_ug RGB_ON>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 2>;
         };
 
         bt_2_disconnect: bt_2_disconnect {
-            label = "BT_2_DISCONNECT_RED";
+            label = "BT_2_DISCONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 2 &rgb_ug RGB_ON>;
+            bindings = <&bt BT_DISC 2>;
         };
 
         
         bt_3_connect: bt_3_connect {
-            label = "BT_3_CONNECT_GREEN";
+            label = "BT_3_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 3 &rgb_ug RGB_ON>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 3>;
         };
 
         bt_3_disconnect: bt_3_disconnect {
-            label = "BT_3_DISCONNECT_RED";
+            label = "BT_3_DISCONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 3 &rgb_ug RGB_ON>;
+            bindings = <&bt BT_DISC 3>;
         };
 
         
         bt_4_connect: bt_4_connect {
-            label = "BT_4_CONNECT_GREEN";
+            label = "BT_4_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 4 &rgb_ug RGB_ON>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 4>;
         };
 
         bt_4_disconnect: bt_4_disconnect {
-            label = "BT_4_DISCONNECT_RED";
+            label = "BT_4_DISCONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 4 &rgb_ug RGB_ON>;
+            bindings = <&bt BT_DISC 4>;
         };
 
         
-        bt_clear_all_red: bt_clear_all_red {
-            label = "BT_CLEAR_ALL_RED";
+        bt_clear_all: bt_clear_all {
+            label = "BT_CLEAR_ALL";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_CLR_ALL &rgb_ug RGB_ON>;
+            bindings = <&bt BT_CLR_ALL>;
         };
 
         
