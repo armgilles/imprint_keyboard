@@ -72,8 +72,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        &sk LG(LA(LC(LSHFT)))
-
         world_i_base: world_i_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
