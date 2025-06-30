@@ -306,32 +306,25 @@
         hyper_key: hyper_key {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&macro_press>,
-                  <&kp LSHFT>,
-                  <&kp LCTRL>,
-                  <&kp LALT>,
-                  <&kp LGUI>,
-                  <&macro_pause_for_release>,
-                  <&macro_release>,
-                  <&kp LSHFT>,
-                  <&kp LCTRL>,
-                  <&kp LALT>,
-                  <&kp LGUI>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHFT &kp LCTRL &kp LALT &kp LGUI>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LSHFT &kp LCTRL &kp LALT &kp LGUI>;
         };
 
         // === MACROS BLUETOOTH AVEC RGB ===
+
         bt_0_connect: bt_0_connect {
             label = "BT_0_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&out OUT_BLE>,
-                  <&bt BT_SEL 0>,
-                  <&rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_TOG>;
         };
 
         bt_1_connect: bt_1_connect {
@@ -340,11 +333,9 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&out OUT_BLE>,
-                  <&bt BT_SEL 1>,
-                  <&rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 1 &rgb_ug RGB_TOG>;
         };
 
         bt_2_connect: bt_2_connect {
@@ -353,11 +344,9 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&out OUT_BLE>,
-                  <&bt BT_SEL 2>,
-                  <&rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 2 &rgb_ug RGB_TOG>;
         };
 
         bt_3_connect: bt_3_connect {
@@ -366,11 +355,9 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&out OUT_BLE>,
-                  <&bt BT_SEL 3>,
-                  <&rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 3 &rgb_ug RGB_TOG>;
         };
 
         bt_4_connect: bt_4_connect {
@@ -379,11 +366,9 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&out OUT_BLE>,
-                  <&bt BT_SEL 4>,
-                  <&rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 4 &rgb_ug RGB_TOG>;
         };
 
         usb_connect: usb_connect {
@@ -392,23 +377,18 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&out OUT_USB>,
-                  <&rgb_ug RGB_TOG>;
+            bindings = <&macro_tap>, <&out OUT_USB &rgb_ug RGB_TOG>;
         };
 
         // === MACROS WINDOWS MODE ===
+
         windows_mode_on: windows_mode_on {
             label = "WINDOWS_MODE_ON";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&to 7>,
-                  <&rgb_ug RGB_TOG>;
+            bindings = <&macro_tap>, <&to 7 &rgb_ug RGB_TOG>;
         };
 
         windows_mode_off: windows_mode_off {
@@ -417,23 +397,18 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&to 0>,
-                  <&rgb_ug RGB_TOG>;
+            bindings = <&macro_tap>, <&to 0 &rgb_ug RGB_TOG>;
         };
 
         // === MACRO SIMPLE WINDOWS MODE TOGGLE ===
+
         windows_mode_toggle: windows_mode_toggle {
             label = "WINDOWS_MODE_TOGGLE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_tap>,
-                  <&tog 7>,
-                  <&rgb_ug RGB_TOG>;
+            bindings = <&macro_tap>, <&tog 7 &rgb_ug RGB_TOG>;
         };
     };
 
@@ -448,6 +423,9 @@
             bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
             layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
         };
+    };
+
+    macros {
     };
 
     keymap {
@@ -518,14 +496,14 @@
 
         system_layer {
             bindings = <
-&trans          &trans         &trans         &trans         &trans         &trans                      &trans  &trans           &trans           &trans           &trans           &trans
-&trans          &trans         &trans         &trans         &trans         &trans                      &trans  &rgb_ug RGB_ON   &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
-&bt BT_CLR_ALL &trans       &trans         &trans         &trans         &trans                      &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
-&trans          &bt_0_connect  &bt_1_connect  &bt_2_connect  &bt_3_connect   &usb_connect                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
-&trans          &bt_4_connect  &trans         &trans &windows_mode_toggle         &trans                      &none   &none            &none            &none            &none            &trans
-&trans          &trans         &trans         &trans         &trans                                             &trans           &sys_reset       &bootloader      &trans           &trans
-                                                              &kp K_LOCK     &kp C_SLEEP  &kp C_POWER    &trans  &trans           &trans
-                                                              &none          &none        &none          &trans  &trans           &trans
+&trans          &trans         &trans         &trans         &trans                &trans                       &trans  &trans           &trans           &trans           &trans           &trans
+&trans          &trans         &trans         &trans         &trans                &trans                       &trans  &rgb_ug RGB_ON   &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
+&bt BT_CLR_ALL  &trans         &trans         &trans         &trans                &bt BT_CLR                   &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
+&trans          &bt_0_connect  &bt_1_connect  &bt_2_connect  &bt_3_connect         &usb_connect                 &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
+&trans          &bt_4_connect  &trans         &trans         &windows_mode_toggle  &trans                       &none   &none            &none            &none            &none            &trans
+&trans          &trans         &trans         &trans         &trans                                                     &trans           &sys_reset       &bootloader      &trans           &trans
+                                                             &kp K_LOCK            &kp C_SLEEP   &kp C_POWER    &trans  &trans           &trans
+                                                             &none                 &none         &none          &trans  &trans           &trans
             >;
         };
 
@@ -675,6 +653,7 @@
 // Configuration trackball main droite
 
 &trackball_peripheral_listener {
-    input-processors = <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-                       <&zip_temp_layer 8 500>;
+    input-processors =
+        <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
+        <&zip_temp_layer 8 500>;
 };
