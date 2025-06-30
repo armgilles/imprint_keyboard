@@ -3,6 +3,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
@@ -330,7 +331,7 @@
                 = <&macro_tap>,
                   <&out OUT_BLE>,
                   <&bt BT_SEL 0>,
-                  <&rgb_ug RGB_ON>;
+                  <&rgb_ug RGB_TOG>;
         };
 
         bt_1_connect: bt_1_connect {
@@ -343,7 +344,7 @@
                 = <&macro_tap>,
                   <&out OUT_BLE>,
                   <&bt BT_SEL 1>,
-                  <&rgb_ug RGB_ON>;
+                  <&rgb_ug RGB_TOG>;
         };
 
         bt_2_connect: bt_2_connect {
@@ -356,7 +357,7 @@
                 = <&macro_tap>,
                   <&out OUT_BLE>,
                   <&bt BT_SEL 2>,
-                  <&rgb_ug RGB_ON>;
+                  <&rgb_ug RGB_TOG>;
         };
 
         usb_connect: usb_connect {
@@ -368,7 +369,7 @@
             bindings
                 = <&macro_tap>,
                   <&out OUT_USB>,
-                  <&rgb_ug RGB_OFF>;
+                  <&rgb_ug RGB_TOG>;
         };
 
         // === MACROS WINDOWS MODE ===
@@ -381,7 +382,7 @@
             bindings
                 = <&macro_tap>,
                   <&to 7>,
-                  <&rgb_ug RGB_ON>;
+                  <&rgb_ug RGB_TOG>;
         };
 
         windows_mode_off: windows_mode_off {
@@ -393,7 +394,7 @@
             bindings
                 = <&macro_tap>,
                   <&to 0>,
-                  <&rgb_ug RGB_OFF>;
+                  <&rgb_ug RGB_TOG>;
         };
     };
 
