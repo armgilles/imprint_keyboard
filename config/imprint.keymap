@@ -354,14 +354,14 @@
 
         cursor_layer {
             bindings = <
-&trans     &trans         &trans     &trans         &trans         &trans               &trans    &trans     &trans     &trans      &trans     &trans
-&kp ESC    &kp RET        &kp SPACE  &kp TAB        &kp DEL        &kp INS              &kp INS   &kp DEL    &kp TAB    &kp SPACE   &kp RET    &kp ESC
-&kp LC(K)  &kp LA(LG(E))  &kp LA(R)  &kp LA(V)      &kp LA(A)      &kp LC(X)            &kp BSPC  &kp SPACE  &kp LC(Z)  &kp LC(Y)   &sk LSHFT  &kp LC(K)
-&kp LC(L)  &kp LCTRL      &kp LALT   &kp LGUI       &kp LSHFT      &kp LC(C)            &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &trans     &kp LC(L)
-&kp LC(J)  &kp LC(A)      &kp LA(T)  &kp LA(LG(J))  &kp LA(LG(L))  &kp LC(V)            &trans    &kp F11    &kp PG_UP  &kp PG_DN   &kp END    &kp LC(J)
-&kp LC(H)  &kp LC(F)      &kp LC(Y)  &kp LC(Z)      &kp LC(G)                                     &trans     &kp LC(F)  &kp LS(F3)  &kp F3     &trans
-                                                    &kp LG(DOT)    &trans     &trans    &trans    &trans     &trans
-                                                    &trans         &trans     &trans    &trans    &trans     &trans
+&trans  &trans         &trans      &trans         &trans         &trans               &trans    &trans     &trans      &trans      &trans     &trans
+&trans  &trans         &trans      &trans         &trans         &trans               &trans    &trans     &trans      &trans      &trans     &trans
+&trans  &kp LA(LG(E))  &kp LA(R)   &kp LA(V)      &kp LA(A)      &kp LC(X)            &kp BSPC  &kp SPACE  &kp K_UNDO  &kp K_REDO  &sk LSHFT  &trans
+&trans  &kp LCTRL      &kp LALT    &kp LGUI       &kp LSHFT      &kp LC(C)            &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans     &trans
+&trans  &kp LC(A)      &kp LA(T)   &kp LA(LG(J))  &kp LA(LG(L))  &kp LC(V)            &trans    &kp F11    &kp PG_UP   &kp PG_DN   &kp END    &trans
+&trans  &trans         &kp K_REDO  &kp K_UNDO     &trans                                        &trans     &kp LC(F)   &kp LS(F3)  &trans     &trans
+                                                  &kp LG(DOT)    &trans     &trans    &trans    &trans     &kp ENTER
+                                                  &trans         &trans     &trans    &trans    &kp TAB    &kp SPACE
             >;
         };
 
@@ -557,7 +557,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // Orientation par défaut (axes échangés),
+        // Orientation par défaut (axes échangés),,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
 
     // Activer automatiquement le layer mouse (Layer 8) quand le trackball bouge
