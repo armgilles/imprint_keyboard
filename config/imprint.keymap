@@ -384,14 +384,14 @@
 
         symbol_layer {
             bindings = <
-&trans     &trans     &trans     &trans     &trans     &trans                 &trans     &trans     &trans     &trans     &trans     &trans
-&trans     &trans     &trans     &trans     &trans     &trans                 &trans     &trans     &kp EXCL   &kp EQUAL  &trans     &trans
-&trans     &kp SQT    &kp LPAR   &kp LBKT   &kp DQT    &kp QMARK              &kp SQT    &kp DQT    &kp RBKT   &kp RPAR   &kp AMPS   &trans
-&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR               &kp BSPC   &kp SPACE  &kp TAB    &kp SEMI   &kp AT     &trans
-&kp GRAVE  &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH               &kp GRAVE  &kp DEL    &kp COMMA  &kp DOT    &kp TILDE  &trans
-&trans     &trans     &kp LBRC   &kp RBRC   &kp PLUS                                     &trans     &trans     &trans     &trans     &trans
-                                            &kp BSLH   &kp DOT    &kp STAR    &trans     &trans     &trans
-                                            &kp PRCNT  &kp COLON  &kp AT      &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans     &trans               &trans     &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans     &trans               &trans     &trans     &kp EXCL   &kp EQUAL  &trans     &trans
+&trans     &kp SQT    &kp LPAR   &kp LBKT   &kp DQT    &kp QMARK            &kp SQT    &kp DQT    &kp RBKT   &kp RPAR   &kp AMPS   &trans
+&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR             &kp BSPC   &kp SPACE  &kp TAB    &kp SEMI   &kp AT     &trans
+&kp GRAVE  &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH             &kp GRAVE  &kp DEL    &kp COMMA  &kp DOT    &kp TILDE  &trans
+&trans     &trans     &kp LBRC   &kp RBRC   &trans                                     &trans     &trans     &trans     &trans     &trans
+                                            &kp BSLH   &trans     &trans    &trans     &trans     &trans
+                                            &kp PRCNT  &kp COLON  &trans    &trans     &trans     &trans
             >;
         };
 
@@ -557,7 +557,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // Orientation par défaut (axes échangés),,,,
+        // Orientation par défaut (axes échangés),,,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
 
     // Activer automatiquement le layer mouse (Layer 8) quand le trackball bouge
