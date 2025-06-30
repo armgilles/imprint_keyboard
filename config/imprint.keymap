@@ -654,9 +654,9 @@
             bindings = <
 &trans          &trans         &trans         &trans         &trans         &trans                      &trans  &trans           &trans           &trans           &trans           &trans
 &trans          &trans         &trans         &trans         &trans         &trans                      &trans  &rgb_ug RGB_ON   &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
-&bt_clear_all_red &trans       &trans         &trans         &trans         &bt_0_disconnect           &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
+&bt BT_CLR_ALL   &trans       &trans         &trans         &trans         &bt BT_CLR             &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
 &trans          &bt_0_toggle   &bt_1_toggle   &bt_2_toggle   &bt_3_toggle   &none                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
-&trans          &bt_4_toggle   &trans         &trans         &windows_toggle_with_rgb &windows_mode_off             &none   &none            &none            &none            &none            &trans
+&trans          &bt_4_toggle   &trans         &trans         &windows_toggle_with_rgb &trans                      &none   &none            &none            &none            &none            &trans
 &trans          &trans         &trans         &trans         &trans                                             &trans           &sys_reset       &bootloader      &trans           &trans
                                                               &kp K_LOCK     &kp C_SLEEP  &kp C_POWER    &trans  &trans           &trans
                                                               &none          &none        &none          &trans  &trans           &trans
