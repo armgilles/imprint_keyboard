@@ -10,7 +10,7 @@
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
     behaviors {
-        //         bt_0_connect: bt_0_connect {
+        bt_0_connect: bt_0_connect {
             label = "BT_0_CONNECT_GREEN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -21,7 +21,9 @@
                 , <&out OUT_BLE>           // Force sortie BLE
                 , <&bt BT_SEL 0>           // Sélectionner canal BT 0
                 , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
-        };d-tap behaviors (macOS order: CTRL/ALT/GUI/SHIFT)
+        };
+
+        // Hold-tap behaviors (macOS order: CTRL/ALT/GUI/SHIFT)
 
         lmt: left_mod_tap {
             compatible = "zmk,behavior-hold-tap";
