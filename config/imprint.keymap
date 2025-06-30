@@ -1,7 +1,10 @@
+#include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
@@ -310,7 +313,7 @@
 &none      &lmt LCTRL A  &lmt LALT S  &lmt LGUI D     &lmt LSHFT F  &kp G                                  &kp H            &rmt RSHFT J    &rmt RGUI K     &rmt RALT L  &rmt RCTRL P  &kp SQT
 &none      &kp Z         &kp X        &kp C           &kp V         &kp B                                  &kp N            &kp M           &kp COMMA       &kp DOT      &kp FSLH      &kp RSHFT
 &none      &none         &kp UP       &kp DOWN        &none                                                                 &none           &kp LBKT        &kp RBKT     &none         &none
-                                                      &thumb 6 ESC  &none               &none              &none            &thumb 4 INSERT  &thumb 5 ENTER
+                                                      &thumb 6 ESC  &none               &mo 8              &none            &thumb 4 INSERT  &thumb 5 ENTER
                                                       &thumb 1 BSPC &thumb 2 DEL        &hyper_key         &caps_word       &thumb 2 TAB     &space 3 SPACE
             >;
         };
@@ -419,5 +422,30 @@
                                                                   &trans  &trans  &trans    &trans  &trans                  &tog 7
             >;
         };
+
+        // Layer 8: Mouse (activé automatiquement par trackball)
+        mouse_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &mkp LCLK  &mkp RCLK  &mkp MCLK  &trans  &trans                           &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                                     &trans  &trans  &trans  &trans  &trans
+                                        &mkp LCLK  &mkp RCLK  &mkp MCLK    &trans  &trans  &trans
+                                        &trans     &trans     &trans       &trans  &trans  &trans
+            >;
+        };
     };
+};
+
+// Configuration trackball main droite
+&trackball_peripheral_listener {
+    input-processors =
+        // Orientation par défaut (axes échangés)
+        <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
+    
+    // Activer automatiquement le layer mouse (Layer 8) quand le trackball bouge
+    // Se désactive après 500ms d'inactivité
+    <&zip_temp_layer 8 500>;
 };
