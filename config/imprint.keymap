@@ -10,7 +10,7 @@
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
     behaviors {
-        // Hold-tap behaviors (macOS order: CTRL/ALT/GUI/SHIFT)
+        
 
         lmt: left_mod_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -30,14 +30,14 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // World character behaviors (système complet basé sur Glove80)
+        
 
         world_a_base_perso: world_a_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RA(GRAVE)>, <&world_a_alt>;
 
-            // à -> autres variants
+            
 
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
@@ -47,7 +47,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(A)>, <&kp RA(LS(A))>;
 
-            // á -> Á
+            
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -57,7 +57,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(GRAVE)>, <&world_e_alt>;
 
-            // è -> autres variants
+            
 
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
@@ -67,7 +67,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(E)>, <&kp RA(LS(E))>;
 
-            // é -> É
+            
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -77,7 +77,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(I)>, <&world_i_ctrl>;
 
-            // í -> autres variants
+            
 
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
@@ -87,7 +87,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(LS(U))>, <&kp RA(LS(I))>;
 
-            // î -> Î
+            
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -97,7 +97,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(O)>, <&world_o_alt>;
 
-            // ó -> autres variants
+            
 
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
@@ -107,7 +107,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(LS(I))>, <&kp RA(LS(O))>;
 
-            // ô -> Ô
+            
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -117,7 +117,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(GRAVE)>, <&world_u_ctrl>;
 
-            // ù -> autres variants
+            
 
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
@@ -127,7 +127,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(LS(I))>, <&kp RA(LS(U))>;
 
-            // û -> Û
+            
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -137,7 +137,7 @@
             #binding-cells = <0>;
             bindings = <&kp RA(Y)>, <&kp RA(LS(U))>;
 
-            // ý -> ÿ
+            
 
             mods = <(MOD_LCTL)>;
         };
@@ -147,62 +147,62 @@
             #binding-cells = <0>;
             bindings = <&kp RA(C)>, <&kp RA(LS(C))>;
 
-            // ç -> Ç
+            
 
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
 
-        // Behavior pour é/É (comme dans votre config Glove80)
+        
 
         world_e_acute: world_e_acute {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RA(E)>, <&kp RA(LS(E))>;
 
-            // é -> É
+            
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Behaviors pour caractères Windows US International
+        
 
         world_e_acute_windows: world_e_acute_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SQT &kp E>; // Windows US Intl: ' puis e pour é
+            bindings = <&kp SQT &kp E>; 
         };
 
         world_c_cedilla_windows: world_c_cedilla_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(COMMA)>; // Windows US Intl: AltGr + , pour ç
+            bindings = <&kp RA(COMMA)>; 
         };
 
         world_e_grave_windows: world_e_grave_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp E>; // Windows US Intl: ` puis e pour è
+            bindings = <&kp GRAVE &kp E>; 
         };
 
         world_a_grave_windows: world_a_grave_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp A>; // Windows US Intl: ` puis a pour à
+            bindings = <&kp GRAVE &kp A>; 
         };
 
         world_u_grave_windows: world_u_grave_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp U>; // Windows US Intl: ` puis u pour ù
+            bindings = <&kp GRAVE &kp U>; 
         };
 
         world_o_circumflex_windows: world_o_circumflex_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp CARET &kp O>; // Windows US Intl: ^ puis o pour ô
+            bindings = <&kp CARET &kp O>; 
         };
 
-        // Layer tap behaviors
+        
 
         lt_cursor: layer_tap_cursor {
             compatible = "zmk,behavior-hold-tap";
@@ -258,12 +258,12 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Behaviors pour thumb cluster (comme Glove80)
+        
 
         thumb: thumb_layer_access {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <200>;  // Plus lent que space pour éviter les activations accidentelles
+            tapping-term-ms = <200>;  
             quick-tap-ms = <150>;
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
@@ -272,15 +272,15 @@
         space: thumb_layer_access_spacebar {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <150>;  // Plus rapide que thumb (200ms)
-            quick-tap-ms = <125>;     // Répétition plus rapide pour espace
+            tapping-term-ms = <150>;  
+            quick-tap-ms = <125>;     
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
 
-            retro-tap;               // tap on standalone hold (comme Glove80)
+            retro-tap;               
         };
 
-        // Toggle pour switcher entre macOS et Windows
+        
 
         os_toggle: os_toggle {
             compatible = "zmk,behavior-tri-state";
@@ -288,19 +288,19 @@
             bindings = <&tog 7>, <&none>, <&tog 7>;
         };
 
-        // Behaviors adaptatifs selon l'OS
+        
 
         world_e_acute_adaptive: world_e_acute_adaptive {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RA(E)>, <&world_e_acute_windows>;
 
-            // macOS par défaut, Windows avec layer 7
+            
 
             mods = <(MOD_LCTL)>;
         };
 
-        // Macro pour Hyper Key (Shift+Ctrl+Alt+Gui)
+        
 
         hyper_key: hyper_key {
             compatible = "zmk,behavior-macro";
@@ -315,11 +315,11 @@
     };
 
     macros {
-        // === MACROS BLUETOOTH STYLE GLOVE80 + RGB FORCE ON ===
-        // Force RGB ON puis applique couleur (même si RGB_TOG désactivé)
-        // VERT = Canal connecté | ROUGE = Canal déconnecté
         
-        // Canal 0 - Force RGB ON puis couleur
+        
+        
+        
+        
         bt_0_connect: bt_0_connect {
             label = "BT_0_CONNECT_GREEN";
             compatible = "zmk,behavior-macro";
@@ -328,10 +328,9 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&out OUT_BLE>           // Force sortie BLE (comme Glove80)
-                , <&bt BT_SEL 0>           // Sélectionner canal BT 0
-                , <&rgb_ug RGB_ON>         // Force RGB ON (même si désactivé)
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+                , <&out OUT_BLE>
+                , <&bt BT_SEL 0>
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>;
         };
 
         bt_0_disconnect: bt_0_disconnect {
@@ -342,11 +341,11 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&bt BT_DISC 0>          // Déconnexion canal 0 (comme Glove80)
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+                , <&bt BT_DISC 0>
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;
         };
 
-        // Canal 1
+        
         bt_1_connect: bt_1_connect {
             label = "BT_1_CONNECT_GREEN";
             compatible = "zmk,behavior-macro";
@@ -355,9 +354,9 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&out OUT_BLE>           // Force sortie BLE
-                , <&bt BT_SEL 1>           // Sélectionner canal BT 1
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+                , <&out OUT_BLE>
+                , <&bt BT_SEL 1>
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>;
         };
 
         bt_1_disconnect: bt_1_disconnect {
@@ -368,11 +367,11 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&bt BT_DISC 1>          // Déconnexion canal 1
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+                , <&bt BT_DISC 1>
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;
         };
 
-        // Canal 2
+        
         bt_2_connect: bt_2_connect {
             label = "BT_2_CONNECT_GREEN";
             compatible = "zmk,behavior-macro";
@@ -381,9 +380,9 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&out OUT_BLE>           // Force sortie BLE
-                , <&bt BT_SEL 2>           // Sélectionner canal BT 2
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+                , <&out OUT_BLE>
+                , <&bt BT_SEL 2>
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>;
         };
 
         bt_2_disconnect: bt_2_disconnect {
@@ -394,11 +393,11 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&bt BT_DISC 2>          // Déconnexion canal 2
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+                , <&bt BT_DISC 2>          
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   
         };
 
-        // Canal 3
+        
         bt_3_connect: bt_3_connect {
             label = "BT_3_CONNECT_GREEN";
             compatible = "zmk,behavior-macro";
@@ -407,9 +406,9 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&out OUT_BLE>           // Force sortie BLE
-                , <&bt BT_SEL 3>           // Sélectionner canal BT 3
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+                , <&out OUT_BLE>           
+                , <&bt BT_SEL 3>           
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; 
         };
 
         bt_3_disconnect: bt_3_disconnect {
@@ -420,11 +419,11 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&bt BT_DISC 3>          // Déconnexion canal 3
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+                , <&bt BT_DISC 3>          
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   
         };
 
-        // Canal 4
+        
         bt_4_connect: bt_4_connect {
             label = "BT_4_CONNECT_GREEN";
             compatible = "zmk,behavior-macro";
@@ -433,9 +432,9 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&out OUT_BLE>           // Force sortie BLE
-                , <&bt BT_SEL 4>           // Sélectionner canal BT 4
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+                , <&out OUT_BLE>           
+                , <&bt BT_SEL 4>           
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; 
         };
 
         bt_4_disconnect: bt_4_disconnect {
@@ -446,11 +445,11 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&bt BT_DISC 4>          // Déconnexion canal 4
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+                , <&bt BT_DISC 4>          
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   
         };
 
-        // Clear all avec rouge
+        
         bt_clear_all_red: bt_clear_all_red {
             label = "BT_CLEAR_ALL_RED";
             compatible = "zmk,behavior-macro";
@@ -459,12 +458,12 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&bt BT_CLR_ALL>         // Clear tous les appairages
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Tout déconnecté
+                , <&bt BT_CLR_ALL>         
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   
         };
 
-        // === TAP-DANCE BEHAVIORS POUR BLUETOOTH VERT/ROUGE ===
-        // Tap = Connect (VERT) | Double-tap = Disconnect (ROUGE)
+        
+        
         
         bt_0_toggle: bt_0_toggle {
             compatible = "zmk,behavior-tap-dance";
@@ -506,8 +505,8 @@
             bindings = <&bt_4_connect>, <&bt_4_disconnect>;
         };
 
-        // === MACROS WINDOWS MODE TOGGLE AVEC RGB ===
-        // Mode Windows activé = VIOLET | Mode macOS = RGB OFF
+        
+        
         
         windows_mode_on: windows_mode_on {
             label = "WINDOWS_MODE_ON_PURPLE";
@@ -517,8 +516,8 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&to 7>                  // Activer layer Windows (Layer 7)
-                , <&rgb_ug RGB_COLOR_HSB(300,100,50)>; // VIOLET = Mode Windows
+                , <&to 7>                  
+                , <&rgb_ug RGB_COLOR_HSB(300,100,50)>; 
         };
 
         windows_mode_off: windows_mode_off {
@@ -529,11 +528,11 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&to 0>                  // Retour au layer par défaut (macOS)
-                , <&rgb_ug RGB_OFF>;       // RGB OFF = Mode macOS
+                , <&to 0>                  
+                , <&rgb_ug RGB_OFF>;       
         };
 
-        // Toggle Windows avec détection d'état (simulation)
+        
         windows_toggle_with_rgb: windows_toggle_with_rgb {
             label = "WINDOWS_TOGGLE_RGB";
             compatible = "zmk,behavior-macro";
@@ -542,11 +541,11 @@
             tap-ms = <10>;
             bindings
                 = <&macro_tap>
-                , <&tog 7>                 // Toggle layer Windows
-                , <&rgb_ug RGB_COLOR_HSB(300,100,50)>; // VIOLET par défaut
+                , <&tog 7>                 
+                , <&rgb_ug RGB_COLOR_HSB(300,100,50)>; 
         };
 
-        // Tap-dance pour Windows Mode avec RGB intelligent
+        
         windows_mode_toggle: windows_mode_toggle {
             compatible = "zmk,behavior-tap-dance";
             label = "WINDOWS_MODE_TOGGLE";
@@ -559,20 +558,20 @@
     combos {
         compatible = "zmk,combos";
 
-        // Combo SPACE + ENTER → Hyper Key (comme Glove80 combo_sticky_hyper_right)
+        
 
         combo_sticky_hyper_right {
             timeout-ms = <50>;
-            key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
-            bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
-            layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
+            key-positions = <75 81>; 
+            bindings = <&sk LG(LA(LC(LSHFT)))>; 
+            layers = <0 1 2 3 4 5 6 7>; 
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: QWERTY (thumb cluster complet 6x6 comme Glove80)
+        
 
         qwerty_layer {
             bindings = <
@@ -587,7 +586,7 @@
             >;
         };
 
-        // Layer 1: Cursor/Navigation
+        
 
         cursor_layer {
             bindings = <
@@ -602,7 +601,7 @@
             >;
         };
 
-        // Layer 2: Number
+        
 
         number_layer {
             bindings = <
@@ -617,7 +616,7 @@
             >;
         };
 
-        // Layer 3: Symbol
+        
 
         symbol_layer {
             bindings = <
@@ -632,8 +631,8 @@
             >;
         };
 
-        // Layer 4: System + RGB + Bluetooth Vert/Rouge + Windows Toggle Violet
-        // Tap = Connect (VERT) | Double-tap = Disconnect (ROUGE) | Windows Mode = VIOLET
+        
+        
 
         system_layer {
             bindings = <
@@ -648,7 +647,7 @@
             >;
         };
 
-        // Layer 5: World
+        
 
         world_layer {
             bindings = <
@@ -663,7 +662,7 @@
             >;
         };
 
-        // Layer 6: Function (basé sur layer_Function du Glove80)
+        
 
         function_layer {
             bindings = <
@@ -678,7 +677,7 @@
             >;
         };
 
-        // Layer 7: Windows Mode (quand activé, utilise les séquences Windows)
+        
 
         windows_mode_layer {
             bindings = <
@@ -693,8 +692,8 @@
             >;
         };
 
-        // Layer 8: Mouse + Navigation (inspiré du layer Mouse du Glove80)
-        // Fusionne fonctionnalités souris, wheel, navigation d'éditeur/panel
+        
+        
 
         mouse_layer {
             bindings = <
@@ -710,9 +709,9 @@
         };
     };
 
-    // === MACROS DE NAVIGATION POUR LAYER MOUSE ===
-    // Inspirées du layer Mouse du Glove80 pour la navigation d'éditeur/panel
-    // Navigation entre groupes/panels (style Vim en VS Code)
+    
+    
+    
 
     focus_left_group: focus_left_group {
         label = "FOCUS_LEFT_GROUP";
@@ -750,7 +749,7 @@
         bindings = <&macro_tap>, <&kp LC(E) &kp J>;
     };
 
-    // Division de l'éditeur (split windows)
+    
 
     split_editor_vertical: split_editor_vertical {
         label = "SPLIT_EDITOR_VERTICAL";
@@ -770,7 +769,7 @@
         bindings = <&macro_tap>, <&kp LC(E) &kp S>;
     };
 
-    // Behaviors pour modificateurs dans layer mouse (sticky keys)
+    
 
     right_index_mod: right_index_mod {
         compatible = "zmk,behavior-mod-morph";
@@ -789,13 +788,13 @@
     };
 };
 
-// Configuration trackball main droite
+
 
 &trackball_peripheral_listener {
     input-processors = 
-        // Orientation par défaut (axes échangés)
+        
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // Activer automatiquement le layer mouse (Layer 8) quand le trackball bouge
-        // Se désactive après 500ms d'inactivité
+        
+        
         <&zip_temp_layer 8 500>;
 };
