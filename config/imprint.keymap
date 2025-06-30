@@ -382,8 +382,8 @@
 &trans  &trans               &trans  &trans                        &trans  &trans            &trans         &trans               &trans         &trans         &trans     &trans
 &trans  &trans               &trans  &trans                        &trans  &trans            &trans         &trans               &trans         &trans         &trans     &trans
 &trans  &trans               &trans  &world_e_base_perso           &trans  &trans            &world_y_base  &world_u_base_perso  &world_i_base  &world_o_base  &trans     &trans
-&trans  &world_a_base_perso  &trans  &trans                        &trans  &trans            &trans         &kp LSHFT            &kp LCTRL      &kp RCTRL      &kp RSHFT  &trans
-&trans  &trans               &trans  &world_consonants_base_perso  &trans  &trans            &trans         &trans               &kp LALT       &kp RALT       &trans     &trans
+&trans  &world_a_base_perso  &trans  &trans                        &trans  &trans            &trans         &sk LSHFT            &sk LCTRL      &sk RCTRL      &sk RSHFT  &trans
+&trans  &trans               &trans  &world_consonants_base_perso  &trans  &trans            &trans         &trans               &sk LALT       &sk RALT       &trans     &trans
 &trans  &trans               &trans  &trans                        &trans                                   &trans               &trans         &trans         &trans     &trans
                                                                    &trans  &trans  &trans    &trans         &trans               &trans
                                                                    &trans  &trans  &trans    &trans         &trans               &trans
@@ -412,8 +412,8 @@
 &trans  &trans                  &trans  &trans                    &trans  &trans            &trans  &trans                  &trans     &trans                       &trans     &trans
 &trans  &trans                  &trans  &trans                    &trans  &trans            &trans  &trans                  &trans     &trans                       &trans     &trans
 &trans  &trans                  &trans  &world_e_grave_windows    &trans  &trans            &trans  &world_u_grave_windows  &trans     &world_o_circumflex_windows  &trans     &trans
-&trans  &world_a_grave_windows  &trans  &trans                    &trans  &trans            &trans  &kp LSHFT               &kp LCTRL  &kp RCTRL                    &kp RSHFT  &trans
-&trans  &trans                  &trans  &world_c_cedilla_windows  &trans  &trans            &trans  &trans                  &kp LALT   &kp RALT                     &trans     &trans
+&trans  &world_a_grave_windows  &trans  &trans                    &trans  &trans            &trans  &sk LSHFT               &sk LCTRL  &sk RCTRL                    &sk RSHFT  &trans
+&trans  &trans                  &trans  &world_c_cedilla_windows  &trans  &trans            &trans  &trans                  &sk LALT   &sk RALT                     &trans     &trans
 &trans  &trans                  &trans  &trans                    &trans                            &trans                  &trans     &trans                       &trans     &trans
                                                                   &trans  &trans  &trans    &trans  &trans                  &trans
                                                                   &trans  &trans  &trans    &trans  &trans                  &tog 7
