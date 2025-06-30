@@ -790,7 +790,6 @@
         label = "RIGHT_INDEX_MOD";
         #binding-cells = <0>;
         bindings = <&sk RCTRL>, <&kp RCTRL>;
-
         mods = <(MOD_LALT|MOD_RALT)>;
     };
 
@@ -799,7 +798,6 @@
         label = "RIGHT_PINKY_MOD";
         #binding-cells = <0>;
         bindings = <&sk RSHFT>, <&kp RSHFT>;
-
         mods = <(MOD_LALT|MOD_RALT)>;
     };
 };
@@ -807,14 +805,10 @@
 // Configuration trackball main droite
 
 &trackball_peripheral_listener {
-    input-processors =
-        // Orientation par défaut (axes échangés),,,,,,,
-        <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
-
-    // Activer automatiquement le layer mouse (Layer 8) quand le trackball bouge
-    // Se désactive après 500ms d'inactivité
-
-    <&zip_temp_layer 8
-
-    500 = >;
+    input-processors = 
+        // Orientation par défaut (axes échangés)
+        <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
+        // Activer automatiquement le layer mouse (Layer 8) quand le trackball bouge
+        // Se désactive après 500ms d'inactivité
+        <&zip_temp_layer 8 500>;
 };
