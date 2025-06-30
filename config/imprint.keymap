@@ -360,6 +360,32 @@
                   <&rgb_ug RGB_TOG>;
         };
 
+        bt_3_connect: bt_3_connect {
+            label = "BT_3_CONNECT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>,
+                  <&out OUT_BLE>,
+                  <&bt BT_SEL 3>,
+                  <&rgb_ug RGB_TOG>;
+        };
+
+        bt_4_connect: bt_4_connect {
+            label = "BT_4_CONNECT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>,
+                  <&out OUT_BLE>,
+                  <&bt BT_SEL 4>,
+                  <&rgb_ug RGB_TOG>;
+        };
+
         usb_connect: usb_connect {
             label = "USB_CONNECT";
             compatible = "zmk,behavior-macro";
@@ -394,6 +420,19 @@
             bindings
                 = <&macro_tap>,
                   <&to 0>,
+                  <&rgb_ug RGB_TOG>;
+        };
+
+        // === MACRO SIMPLE WINDOWS MODE TOGGLE ===
+        windows_mode_toggle: windows_mode_toggle {
+            label = "WINDOWS_MODE_TOGGLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>,
+                  <&tog 7>,
                   <&rgb_ug RGB_TOG>;
         };
     };
@@ -481,9 +520,9 @@
             bindings = <
 &trans          &trans         &trans         &trans         &trans         &trans                      &trans  &trans           &trans           &trans           &trans           &trans
 &trans          &trans         &trans         &trans         &trans         &trans                      &trans  &rgb_ug RGB_ON   &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
-&bt_clear_all_red &trans       &trans         &trans         &trans         &bt_0_disconnect           &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
-&trans          &bt_0_toggle   &bt_1_toggle   &bt_2_toggle   &bt_3_toggle   &none                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
-&trans          &bt_4_toggle   &trans         &trans         &windows_toggle_with_rgb &windows_mode_off             &none   &none            &none            &none            &none            &trans
+&bt BT_CLR_ALL &trans       &trans         &trans         &trans         &bt BT_CLR                      &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
+&trans          &bt_0_connect  &bt_1_connect  &bt_2_connect  &bt_3_connect   &usb_connect                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
+&trans          &bt_4_connect  &trans         &windows_mode_toggle &trans         &trans                      &none   &none            &none            &none            &none            &trans
 &trans          &trans         &trans         &trans         &trans                                             &trans           &sys_reset       &bootloader      &trans           &trans
                                                               &kp K_LOCK     &kp C_SLEEP  &kp C_POWER    &trans  &trans           &trans
                                                               &none          &none        &none          &trans  &trans           &trans
