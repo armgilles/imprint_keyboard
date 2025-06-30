@@ -21,7 +21,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &to 7 &rgb_ug RGB_COLOR 0x8000FF>;
+            bindings = <&macro_tap &to 7 &rgb_ug RGB_ON>;
         }; "tap-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
@@ -333,7 +333,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_COLOR 0x00FF00>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_ON>;
         };
 
         bt_0_disconnect: bt_0_disconnect {
@@ -342,7 +342,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 0 &rgb_ug RGB_COLOR 0xFF0000>;
+            bindings = <&macro_tap &bt BT_DISC 0 &rgb_ug RGB_ON>;
         };
 
         
@@ -352,7 +352,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 1 &rgb_ug RGB_COLOR 0x00FF00>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 1 &rgb_ug RGB_ON>;
         };
 
         bt_1_disconnect: bt_1_disconnect {
@@ -361,7 +361,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 1 &rgb_ug RGB_COLOR 0xFF0000>;
+            bindings = <&macro_tap &bt BT_DISC 1 &rgb_ug RGB_ON>;
         };
 
         
@@ -371,7 +371,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 2 &rgb_ug RGB_COLOR 0x00FF00>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 2 &rgb_ug RGB_ON>;
         };
 
         bt_2_disconnect: bt_2_disconnect {
@@ -380,7 +380,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 2 &rgb_ug RGB_COLOR 0xFF0000>;
+            bindings = <&macro_tap &bt BT_DISC 2 &rgb_ug RGB_ON>;
         };
 
         
@@ -390,7 +390,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 3 &rgb_ug RGB_COLOR 0x00FF00>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 3 &rgb_ug RGB_ON>;
         };
 
         bt_3_disconnect: bt_3_disconnect {
@@ -399,7 +399,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 3 &rgb_ug RGB_COLOR 0xFF0000>;
+            bindings = <&macro_tap &bt BT_DISC 3 &rgb_ug RGB_ON>;
         };
 
         
@@ -409,7 +409,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 4 &rgb_ug RGB_COLOR 0x00FF00>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 4 &rgb_ug RGB_ON>;
         };
 
         bt_4_disconnect: bt_4_disconnect {
@@ -418,7 +418,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_DISC 4 &rgb_ug RGB_COLOR 0xFF0000>;
+            bindings = <&macro_tap &bt BT_DISC 4 &rgb_ug RGB_ON>;
         };
 
         
@@ -428,7 +428,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &bt BT_CLR_ALL &rgb_ug RGB_COLOR 0xFF0000>;
+            bindings = <&macro_tap &bt BT_CLR_ALL &rgb_ug RGB_ON>;
         };
 
         
@@ -495,7 +495,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &tog 7 &rgb_ug RGB_COLOR 0x8000FF>;
+            bindings = <&macro_tap &tog 7 &rgb_ug 0x8000ff>;
         };
 
         
