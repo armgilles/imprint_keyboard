@@ -522,7 +522,7 @@
 &trans          &trans         &trans         &trans         &trans         &trans                      &trans  &rgb_ug RGB_ON   &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
 &bt BT_CLR_ALL &trans       &trans         &trans         &trans         &trans                      &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
 &trans          &bt_0_connect  &bt_1_connect  &bt_2_connect  &bt_3_connect   &usb_connect                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
-&trans          &bt_4_connect  &trans         &windows_mode_toggle &trans         &trans                      &none   &none            &none            &none            &none            &trans
+&trans          &bt_4_connect  &trans         &trans &windows_mode_toggle         &trans                      &none   &none            &none            &none            &none            &trans
 &trans          &trans         &trans         &trans         &trans                                             &trans           &sys_reset       &bootloader      &trans           &trans
                                                               &kp K_LOCK     &kp C_SLEEP  &kp C_POWER    &trans  &trans           &trans
                                                               &none          &none        &none          &trans  &trans           &trans
