@@ -423,20 +423,115 @@
             >;
         };
 
-        // Layer 8: Mouse (activé automatiquement par trackball)
+        // Layer 8: Mouse + Navigation (inspiré du layer Mouse du Glove80)
+        // Fusionne fonctionnalités souris, wheel, navigation d'éditeur/panel
         mouse_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &mkp LCLK  &mkp RCLK  &mkp MCLK  &trans  &trans                           &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                                                     &trans  &trans  &trans  &trans  &trans
-                                        &mkp LCLK  &mkp RCLK  &mkp MCLK    &trans  &trans  &trans
-                                        &trans     &trans     &trans       &trans  &trans  &trans
+&trans  &trans  &trans                    &trans                    &trans                      &trans                                                                                         &trans             &trans                    &trans                   &trans              &trans  &trans
+&trans  &trans  &trans                    &trans                    &trans                      &trans                                                                    &trans                &trans             &trans                    &trans                   &trans              &trans  &trans
+&trans  &trans  &msc SCRL_LEFT            &mmv MOVE_UP              &msc SCRL_RIGHT             &kp LC(X)                                                                 &kp LC(N)             &split_editor_horizontal  &split_editor_vertical   &right_index_mod    &right_pinky_mod  &trans
+&trans  &trans  &mmv MOVE_LEFT            &mmv MOVE_DOWN            &mmv MOVE_RIGHT             &kp LC(C)                                                                 &focus_left_group     &focus_down_group         &focus_up_group          &focus_right_group  &mo 8             &trans
+&trans  &trans  &trans                    &trans                    &trans                      &kp LC(V)     &mkp MCLK     &kp K_APP     &mkp MB5      &tog 8        &trans  &trans  &trans                &kp LG(LS(E))             &kp LG(N1)               &kp LC(GRAVE)       &trans  &trans
+&trans  &trans  &msc SCRL_UP              &msc SCRL_DOWN            &trans                                    &mkp LCLK     &mkp RCLK     &mkp MB4                    &trans  &trans                                &trans                    &msc SCRL_UP             &msc SCRL_DOWN      &trans  &trans
+                                                                                                              &mkp LCLK     &mkp RCLK     &mkp MCLK     &trans        &trans  &trans
+                                                                                                              &msc SCRL_UP  &msc SCRL_DOWN &trans       &trans        &trans  &trans
             >;
         };
     };
+
+// === MACROS DE NAVIGATION POUR LAYER MOUSE ===
+        // Inspirées du layer Mouse du Glove80 pour la navigation d'éditeur/panel
+        
+        // Navigation entre groupes/panels (style Vim en VS Code)
+        focus_left_group: focus_left_group {
+            label = "FOCUS_LEFT_GROUP";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp H>;
+        };
+
+        focus_right_group: focus_right_group {
+            label = "FOCUS_RIGHT_GROUP";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp L>;
+        };
+
+        focus_up_group: focus_up_group {
+            label = "FOCUS_UP_GROUP";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp K>;
+        };
+
+        focus_down_group: focus_down_group {
+            label = "FOCUS_DOWN_GROUP";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp J>;
+        };
+
+        // Division de l'éditeur (split windows)
+        split_editor_vertical: split_editor_vertical {
+            label = "SPLIT_EDITOR_VERTICAL";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp V>;
+        };
+
+        split_editor_horizontal: split_editor_horizontal {
+            label = "SPLIT_EDITOR_HORIZONTAL";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <5>;
+            tap-ms = <5>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp S>;
+        };
+
+        // Behaviors pour modificateurs dans layer mouse (sticky keys)
+        right_index_mod: right_index_mod {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RIGHT_INDEX_MOD";
+            #binding-cells = <0>;
+            bindings = <&sk RCTRL>, <&kp RCTRL>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        right_pinky_mod: right_pinky_mod {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RIGHT_PINKY_MOD";
+            #binding-cells = <0>;
+            bindings = <&sk RSHFT>, <&kp RSHFT>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
 };
 
 // Configuration trackball main droite
