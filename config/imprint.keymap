@@ -10,7 +10,18 @@
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
     behaviors {
-        // Simplified mod-tap behaviors (macOS order: CTRL/ALT/GUI/SHIFT)
+        //         bt_0_connect: bt_0_connect {
+            label = "BT_0_CONNECT_GREEN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&out OUT_BLE>           // Force sortie BLE
+                , <&bt BT_SEL 0>           // Sélectionner canal BT 0
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+        };d-tap behaviors (macOS order: CTRL/ALT/GUI/SHIFT)
 
         lmt: left_mod_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -317,6 +328,245 @@
     };
 
     macros {
+        // === MACROS BLUETOOTH STYLE GLOVE80 + RGB FORCE ON ===
+        // Force RGB ON puis applique couleur (même si RGB_TOG désactivé)
+        // VERT = Canal connecté | ROUGE = Canal déconnecté
+        
+        // Canal 0 - Force RGB ON puis couleur
+        bt_0_connect: bt_0_connect {
+            label = "BT_0_CONNECT_GREEN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&out OUT_BLE>           // Force sortie BLE (comme Glove80)
+                , <&bt BT_SEL 0>           // Sélectionner canal BT 0
+                , <&rgb_ug RGB_ON>         // Force RGB ON (même si désactivé)
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+        };
+
+        bt_0_disconnect: bt_0_disconnect {
+            label = "BT_0_DISCONNECT_RED";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&bt BT_DISC 0>          // Déconnexion canal 0 (comme Glove80)
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+        };
+
+        // Canal 1
+        bt_1_connect: bt_1_connect {
+            label = "BT_1_CONNECT_GREEN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&out OUT_BLE>           // Force sortie BLE
+                , <&bt BT_SEL 1>           // Sélectionner canal BT 1
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+        };
+
+        bt_1_disconnect: bt_1_disconnect {
+            label = "BT_1_DISCONNECT_RED";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&bt BT_DISC 1>          // Déconnexion canal 1
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+        };
+
+        // Canal 2
+        bt_2_connect: bt_2_connect {
+            label = "BT_2_CONNECT_GREEN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&out OUT_BLE>           // Force sortie BLE
+                , <&bt BT_SEL 2>           // Sélectionner canal BT 2
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+        };
+
+        bt_2_disconnect: bt_2_disconnect {
+            label = "BT_2_DISCONNECT_RED";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&bt BT_DISC 2>          // Déconnexion canal 2
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+        };
+
+        // Canal 3
+        bt_3_connect: bt_3_connect {
+            label = "BT_3_CONNECT_GREEN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&out OUT_BLE>           // Force sortie BLE
+                , <&bt BT_SEL 3>           // Sélectionner canal BT 3
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+        };
+
+        bt_3_disconnect: bt_3_disconnect {
+            label = "BT_3_DISCONNECT_RED";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&bt BT_DISC 3>          // Déconnexion canal 3
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+        };
+
+        // Canal 4
+        bt_4_connect: bt_4_connect {
+            label = "BT_4_CONNECT_GREEN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&out OUT_BLE>           // Force sortie BLE
+                , <&bt BT_SEL 4>           // Sélectionner canal BT 4
+                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; // VERT = Connecté
+        };
+
+        bt_4_disconnect: bt_4_disconnect {
+            label = "BT_4_DISCONNECT_RED";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&bt BT_DISC 4>          // Déconnexion canal 4
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Déconnecté
+        };
+
+        // Clear all avec rouge
+        bt_clear_all_red: bt_clear_all_red {
+            label = "BT_CLEAR_ALL_RED";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&bt BT_CLR_ALL>         // Clear tous les appairages
+                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   // ROUGE = Tout déconnecté
+        };
+
+        // === TAP-DANCE BEHAVIORS POUR BLUETOOTH VERT/ROUGE ===
+        // Tap = Connect (VERT) | Double-tap = Disconnect (ROUGE)
+        
+        bt_0_toggle: bt_0_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BT_0_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&bt_0_connect>, <&bt_0_disconnect>;
+        };
+
+        bt_1_toggle: bt_1_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BT_1_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&bt_1_connect>, <&bt_1_disconnect>;
+        };
+
+        bt_2_toggle: bt_2_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BT_2_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&bt_2_connect>, <&bt_2_disconnect>;
+        };
+
+        bt_3_toggle: bt_3_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BT_3_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&bt_3_connect>, <&bt_3_disconnect>;
+        };
+
+        bt_4_toggle: bt_4_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BT_4_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&bt_4_connect>, <&bt_4_disconnect>;
+        };
+
+        // === MACROS WINDOWS MODE TOGGLE AVEC RGB ===
+        // Mode Windows activé = VIOLET | Mode macOS = RGB OFF
+        
+        windows_mode_on: windows_mode_on {
+            label = "WINDOWS_MODE_ON_PURPLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&to 7>                  // Activer layer Windows (Layer 7)
+                , <&rgb_ug RGB_COLOR_HSB(300,100,50)>; // VIOLET = Mode Windows
+        };
+
+        windows_mode_off: windows_mode_off {
+            label = "WINDOWS_MODE_OFF_RGB_OFF";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&to 0>                  // Retour au layer par défaut (macOS)
+                , <&rgb_ug RGB_OFF>;       // RGB OFF = Mode macOS
+        };
+
+        // Toggle Windows avec détection d'état (simulation)
+        windows_toggle_with_rgb: windows_toggle_with_rgb {
+            label = "WINDOWS_TOGGLE_RGB";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_tap>
+                , <&tog 7>                 // Toggle layer Windows
+                , <&rgb_ug RGB_COLOR_HSB(300,100,50)>; // VIOLET par défaut
+        };
+
+        // Tap-dance pour Windows Mode avec RGB intelligent
+        windows_mode_toggle: windows_mode_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "WINDOWS_MODE_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&windows_toggle_with_rgb>, <&windows_mode_off>;
+        };
     };
 
     combos {
@@ -395,18 +645,19 @@
             >;
         };
 
-        // Layer 4: System + RGB Controls
+        // Layer 4: System + RGB + Bluetooth Vert/Rouge + Windows Toggle Violet
+        // Tap = Connect (VERT) | Double-tap = Disconnect (ROUGE) | Windows Mode = VIOLET
 
         system_layer {
             bindings = <
-&trans          &trans        &trans        &trans        &trans        &trans                      &trans  &trans           &trans           &trans           &trans           &trans
-&trans          &trans        &trans        &trans        &trans        &trans                      &trans  &none            &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
-&bt BT_CLR_ALL  &trans        &trans        &trans        &trans        &bt BT_CLR                  &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
-&trans          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
-&trans          &bt BT_SEL 4  &trans        &trans        &tog 7        &none                       &none   &none            &none            &none            &none            &trans
-&trans          &trans        &trans        &trans        &trans                                            &trans           &sys_reset       &bootloader      &trans           &trans
-                                                          &kp K_LOCK    &kp C_SLEEP  &kp C_POWER    &trans  &trans           &trans
-                                                          &none         &none        &none          &trans  &trans           &trans
+&trans          &trans         &trans         &trans         &trans         &trans                      &trans  &trans           &trans           &trans           &trans           &trans
+&trans          &trans         &trans         &trans         &trans         &trans                      &trans  &rgb_ug RGB_ON   &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
+&bt_clear_all_red &trans       &trans         &trans         &trans         &bt_0_disconnect           &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
+&trans          &bt_0_toggle   &bt_1_toggle   &bt_2_toggle   &bt_3_toggle   &none                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
+&trans          &bt_4_toggle   &trans         &trans         &windows_toggle_with_rgb &windows_mode_off             &none   &none            &none            &none            &none            &trans
+&trans          &trans         &trans         &trans         &trans                                             &trans           &sys_reset       &bootloader      &trans           &trans
+                                                              &kp K_LOCK     &kp C_SLEEP  &kp C_POWER    &trans  &trans           &trans
+                                                              &none          &none        &none          &trans  &trans           &trans
             >;
         };
 
