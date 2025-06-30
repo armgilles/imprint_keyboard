@@ -326,7 +326,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_COLOR_HSB(120,100,50)>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 0>;
         };
 
         bt_0_disconnect: bt_0_disconnect {
@@ -338,7 +338,7 @@
             bindings
                 = <&macro_tap>
                 , <&bt BT_DISC 0>
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;
+                ;
         };
 
         
@@ -352,7 +352,7 @@
                 = <&macro_tap>
                 , <&out OUT_BLE>
                 , <&bt BT_SEL 1>
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>;
+                ;
         };
 
         bt_1_disconnect: bt_1_disconnect {
@@ -364,7 +364,7 @@
             bindings
                 = <&macro_tap>
                 , <&bt BT_DISC 1>
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;
+                ;
         };
 
         
@@ -378,7 +378,7 @@
                 = <&macro_tap>
                 , <&out OUT_BLE>
                 , <&bt BT_SEL 2>
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>;
+                ;
         };
 
         bt_2_disconnect: bt_2_disconnect {
@@ -390,7 +390,7 @@
             bindings
                 = <&macro_tap>
                 , <&bt BT_DISC 2>          
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   
+                ;   
         };
 
         
@@ -404,7 +404,7 @@
                 = <&macro_tap>
                 , <&out OUT_BLE>           
                 , <&bt BT_SEL 3>           
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; 
+                ; 
         };
 
         bt_3_disconnect: bt_3_disconnect {
@@ -416,7 +416,7 @@
             bindings
                 = <&macro_tap>
                 , <&bt BT_DISC 3>          
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   
+                ;   
         };
 
         
@@ -430,7 +430,7 @@
                 = <&macro_tap>
                 , <&out OUT_BLE>           
                 , <&bt BT_SEL 4>           
-                , <&rgb_ug RGB_COLOR_HSB(120,100,50)>; 
+                ; 
         };
 
         bt_4_disconnect: bt_4_disconnect {
@@ -442,7 +442,7 @@
             bindings
                 = <&macro_tap>
                 , <&bt BT_DISC 4>          
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   
+                ;   
         };
 
         
@@ -455,7 +455,7 @@
             bindings
                 = <&macro_tap>
                 , <&bt BT_CLR_ALL>         
-                , <&rgb_ug RGB_COLOR_HSB(0,100,50)>;   
+                ;   
         };
 
         
@@ -513,7 +513,7 @@
             bindings
                 = <&macro_tap>
                 , <&to 7>                  
-                , <&rgb_ug RGB_COLOR_HSB(300,100,50)>; 
+                ; 
         };
 
         windows_mode_off: windows_mode_off {
@@ -538,7 +538,7 @@
             bindings
                 = <&macro_tap>
                 , <&tog 7>                 
-                , <&rgb_ug RGB_COLOR_HSB(300,100,50)>; 
+                ; 
         };
 
         
