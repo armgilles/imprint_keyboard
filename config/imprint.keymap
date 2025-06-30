@@ -399,14 +399,14 @@
 
         system_layer {
             bindings = <
-&trans  &trans        &trans        &trans        &trans        &trans                      &trans  &trans           &trans           &trans           &trans           &trans
-&trans  &trans        &trans        &trans        &trans        &trans                      &trans  &none            &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &none            &trans
-&trans  &trans        &trans        &trans        &none         &bt BT_CLR                  &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
-&trans  &bt BT_SEL 4  &trans        &trans        &tog 7        &none                       &none   &none            &none            &none            &none            &trans
-&trans  &trans        &trans        &trans        &trans                                            &trans           &sys_reset       &bootloader      &trans           &trans
-                                                  &kp K_LOCK    &kp C_SLEEP  &kp C_POWER    &trans  &trans           &trans
-                                                  &none         &none        &none          &trans  &trans           &trans
+&trans          &trans        &trans        &trans        &trans        &trans                      &trans  &trans           &trans           &trans           &trans           &trans
+&trans          &trans        &trans        &trans        &trans        &trans                      &trans  &none            &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
+&bt BT_CLR_ALL  &trans        &trans        &trans        &trans        &bt BT_CLR                  &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
+&trans          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none                       &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
+&trans          &bt BT_SEL 4  &trans        &trans        &tog 7        &none                       &none   &none            &none            &none            &none            &trans
+&trans          &trans        &trans        &trans        &trans                                            &trans           &sys_reset       &bootloader      &trans           &trans
+                                                          &kp K_LOCK    &kp C_SLEEP  &kp C_POWER    &trans  &trans           &trans
+                                                          &none         &none        &none          &trans  &trans           &trans
             >;
         };
 
@@ -557,7 +557,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // Orientation par défaut (axes échangés),,,,,,
+        // Orientation par défaut (axes échangés),,,,,,,
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
 
     // Activer automatiquement le layer mouse (Layer 8) quand le trackball bouge
