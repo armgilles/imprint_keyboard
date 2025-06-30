@@ -15,19 +15,17 @@
         lmt: left_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        windows_mode_on: windows_mode_on {
+                 windows_mode_on: windows_mode_on {
             label = "WINDOWS_MODE_ON_VIOLET";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&to 7>;
+            bindings = <&macro_tap &to 7 &rgb_ug RGB_COLOR 0x8000FF>;
+        }; "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&kp>, <&kp>;
         };
 
         rmt: right_mod_tap {
@@ -335,7 +333,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE>, <&bt BT_SEL 0>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_COLOR 0x00FF00>;
         };
 
         bt_0_disconnect: bt_0_disconnect {
@@ -344,7 +342,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&bt BT_DISC 0>;
+            bindings = <&macro_tap &bt BT_DISC 0 &rgb_ug RGB_COLOR 0xFF0000>;
         };
 
         
@@ -354,7 +352,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE>, <&bt BT_SEL 1>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 1 &rgb_ug RGB_COLOR 0x00FF00>;
         };
 
         bt_1_disconnect: bt_1_disconnect {
@@ -363,7 +361,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&bt BT_DISC 1>;
+            bindings = <&macro_tap &bt BT_DISC 1 &rgb_ug RGB_COLOR 0xFF0000>;
         };
 
         
@@ -373,7 +371,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE>, <&bt BT_SEL 2>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 2 &rgb_ug RGB_COLOR 0x00FF00>;
         };
 
         bt_2_disconnect: bt_2_disconnect {
@@ -382,7 +380,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&bt BT_DISC 2>;
+            bindings = <&macro_tap &bt BT_DISC 2 &rgb_ug RGB_COLOR 0xFF0000>;
         };
 
         
@@ -392,7 +390,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE>, <&bt BT_SEL 3>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 3 &rgb_ug RGB_COLOR 0x00FF00>;
         };
 
         bt_3_disconnect: bt_3_disconnect {
@@ -401,7 +399,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&bt BT_DISC 3>;
+            bindings = <&macro_tap &bt BT_DISC 3 &rgb_ug RGB_COLOR 0xFF0000>;
         };
 
         
@@ -411,7 +409,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE>, <&bt BT_SEL 4>;
+            bindings = <&macro_tap &out OUT_BLE &bt BT_SEL 4 &rgb_ug RGB_COLOR 0x00FF00>;
         };
 
         bt_4_disconnect: bt_4_disconnect {
@@ -420,7 +418,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&bt BT_DISC 4>;
+            bindings = <&macro_tap &bt BT_DISC 4 &rgb_ug RGB_COLOR 0xFF0000>;
         };
 
         
@@ -430,7 +428,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&bt BT_CLR_ALL>;
+            bindings = <&macro_tap &bt BT_CLR_ALL &rgb_ug RGB_COLOR 0xFF0000>;
         };
 
         
@@ -476,13 +474,18 @@
             bindings = <&bt_4_connect>, <&bt_4_disconnect>;
         };
 
+        
+        
+        
+        
+
         windows_mode_off: windows_mode_off {
             label = "WINDOWS_MODE_OFF_RGB_OFF";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&to 0>, <&rgb_ug RGB_OFF>;
+            bindings = <&macro_tap &to 0 &rgb_ug RGB_OFF>;
         };
 
         
@@ -492,7 +495,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&tog 7>;
+            bindings = <&macro_tap &tog 7 &rgb_ug RGB_COLOR 0x8000FF>;
         };
 
         
@@ -669,7 +672,7 @@
         #binding-cells = <0>;
         wait-ms = <5>;
         tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp H>;
+        bindings = <&macro_tap &kp LC(E) &kp H>;
     };
 
     focus_right_group: focus_right_group {
@@ -678,7 +681,7 @@
         #binding-cells = <0>;
         wait-ms = <5>;
         tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp L>;
+        bindings = <&macro_tap &kp LC(E) &kp L>;
     };
 
     focus_up_group: focus_up_group {
@@ -687,7 +690,7 @@
         #binding-cells = <0>;
         wait-ms = <5>;
         tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp K>;
+        bindings = <&macro_tap &kp LC(E) &kp K>;
     };
 
     focus_down_group: focus_down_group {
@@ -696,7 +699,7 @@
         #binding-cells = <0>;
         wait-ms = <5>;
         tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp J>;
+        bindings = <&macro_tap &kp LC(E) &kp J>;
     };
 
     
@@ -707,7 +710,7 @@
         #binding-cells = <0>;
         wait-ms = <5>;
         tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp V>;
+        bindings = <&macro_tap &kp LC(E) &kp V>;
     };
 
     split_editor_horizontal: split_editor_horizontal {
@@ -716,7 +719,7 @@
         #binding-cells = <0>;
         wait-ms = <5>;
         tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp S>;
+        bindings = <&macro_tap &kp LC(E) &kp S>;
     };
 
     
