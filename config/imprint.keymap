@@ -233,7 +233,7 @@
         thumb: thumb_layer_access {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <200>;  // Plus lent que space pour éviter les activations accidentelles
             quick-tap-ms = <150>;
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
@@ -242,10 +242,11 @@
         space: thumb_layer_access_spacebar {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <150>;  // Plus rapide que thumb (200ms)
+            quick-tap-ms = <125>;     // Répétition plus rapide pour espace
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
+            retro-tap;               // tap on standalone hold (comme Glove80)
         };
 
         // Toggle pour switcher entre macOS et Windows
@@ -296,8 +297,8 @@
 &none      &lmt LCTRL A  &lmt LALT S  &lmt LGUI D     &lmt LSHFT F  &kp G                                  &kp H            &rmt RSHFT J    &rmt RGUI K     &rmt RALT L  &rmt RCTRL P  &kp SQT
 &none      &kp Z         &kp X        &kp C           &kp V         &kp B                                  &kp N            &kp M           &kp COMMA       &kp DOT      &kp FSLH      &kp RSHFT
 &none      &none         &kp UP       &kp DOWN        &none                                                                 &none           &kp LBKT        &kp RBKT     &none         &none
-                                                      &thumb 6 ESC  &thumb 1 BACKSPACE  &thumb 2 DELETE    &thumb 4 INSERT  &space 5 ENTER  &space 3 SPACE
-                                                      &hyper_key    &caps_word          &mo 1              &caps_word       &space 2 TAB    &mo 1
+                                                      &thumb 6 ESC  &none               &none              &none            &thumb 4 INSERT  &thumb 5 ENTER
+                                                      &thumb 1 BSPC &thumb 2 DEL        &hyper_key         &caps_word       &thumb 2 TAB     &space 3 SPACE
             >;
         };
 
