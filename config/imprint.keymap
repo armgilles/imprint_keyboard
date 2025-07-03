@@ -803,18 +803,18 @@
             >;
         };
 
-        // Layer 8: Mouse + Navigation (inspiré du layer Mouse du Glove80)
-        // Fusionne fonctionnalités souris, wheel, navigation d'éditeur/panel
+        // Layer 8: Mouse + Navigation vscode
 
         mouse_layer {
-            bindings = <
-&trans  &trans          &trans          &trans          &trans           &trans                      &trans             &trans                    &trans                  &trans              &trans  &trans
-&trans  &trans          &trans          &trans          &trans           &trans                      &trans             &trans                    &trans                  &trans              &trans  &trans
-&trans  &trans          &trans          &trans          &trans           &kp K_CUT                   &kp LC(N)          &split_editor_horizontal  &split_editor_vertical  &right_index_mod    &none   &none
-&trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT  &kp K_COPY                  &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
+            &trans  &trans     &trans    &trans    &trans     &trans            &trans            &trans            &trans           &trans        &trans   &trans
+&none   &none      &none     &none     &none      &none             &kp C_MEDIA_HOME  &kp C_PLAY        &kp F1           &kp F2        &none    &none
+&trans  &none      &none     &none     &none      &trans            &kp LG(LA(Y))     &kp LG(LA(U))     &kp LG(LA(I))    &kp F9        &kp F10  &kp F13
+&trans  &kp LCTRL  &kp LALT  &kp LGUI  &kp LSHFT  &trans            &kp LS(LG(N4))    &kp LG(KP_MINUS)  &kp LG(KP_PLUS)  &kp F6        &kp F11  &kp F14
+&trans  &none      &trans    &trans    &trans     &trans            &none             &trans            &trans           &kp F3        &kp F12  &kp F15
 &trans  &trans     &trans    &trans    &trans                                         &none             &kp C_BRI_UP     &kp C_BRI_DN  &none    &none
                                        &trans     &trans  &trans    &kp C_PP          &kp C_PREV        &kp C_NEXT
                                        &trans     &trans  &trans    &kp C_MUTE        &kp C_VOL_DN      &kp C_VOL_UP
+
             >;
         };
     };
