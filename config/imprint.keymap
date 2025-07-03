@@ -521,91 +521,42 @@
             bindings = <&macro_tap>, <&tog 7 &rgb_ug RGB_TOG>;
         };
 
-        // Behavior Alt+Tab comme sur Glove80 - AJOUT SEULEMENT
+        // Behavior Alt+Tab comme sur Glove80 - VERSION AMÉLIORÉE
         mod_tab: mod_tab {
             compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <1>;
-            bindings = <&kp>, <&kp>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            #binding-cells = <0>;
+            bindings = <&kp LA(TAB)>, <&kp LA(LS(TAB))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Behavior pour chord Alt+Tab (navigation continue)
+        mod_tab_chord: mod_tab_chord {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&mod_tab>;
         };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        // Combo SPACE + ENTER → Hyper Key (comme Glove80 combo_sticky_hyper_right)
-
+        // Combo SPACE + ENTER → Hyper Key (comme Glove80)
         combo_sticky_hyper_right {
             timeout-ms = <50>;
-            key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
-            bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
-            layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
+            key-positions = <75 81>; // ENTER + SPACE
+            bindings = <&sk LG(LA(LC(LSHFT)))>;
+            layers = <0 1 2 3 4 5 6 7>;
         };
 
-        // Combo Alt+Tab switcher (comme Glove80)
+        // Combo Alt+Tab switcher amélioré (comme Glove80)
         combo_alt_tab_switcher {
             timeout-ms = <50>;
-            key-positions = <66 72>; // ESC (thumb 6) + BSPC (thumb 1) - à ajuster selon votre layout
-            bindings = <&kp LA(TAB)>;
-            layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers
-        };
-    };
-
-    // Macros Windows pour layer 7 (placé avant keymap)
-    macros {
-        world_e_grave_windows: world_e_grave_windows {
-            label = "WORLD_E_GRAVE_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>; // è (Alt+0232)
-        };
-
-        // Ajouter la macro manquante pour é
-        world_e_acute_windows: world_e_acute_windows {
-            label = "WORLD_E_ACUTE_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp SQT &kp E>; // Windows US Intl: ' puis e pour é
-        };
-
-        world_a_grave_windows: world_a_grave_windows {
-            label = "WORLD_A_GRAVE_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>; // à (Alt+0224)
-        };
-
-        world_u_grave_windows: world_u_grave_windows {
-            label = "WORLD_U_GRAVE_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>; // ù (Alt+0249)
-        };
-
-        world_o_circumflex_windows: world_o_circumflex_windows {
-            label = "WORLD_O_CIRCUMFLEX_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>; // ô (Alt+0244)
-        };
-
-        world_c_cedilla_windows: world_c_cedilla_windows {
-            label = "WORLD_C_CEDILLA_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>; // ç (Alt+0231)
+            key-positions = <66 72>; // ESC + BSPC
+            bindings = <&mod_tab_chord 1 0>; // Hold layer 1, tap mod_tab
+            layers = <0 1 2 3 4 5 6 7>;
         };
     };
 
@@ -637,7 +588,7 @@
 &trans  &kp LCTRL      &kp LALT    &kp LGUI       &kp LSHFT      &kp LG(C)            &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans     &trans
 &trans  &kp LC(A)      &kp LA(T)   &kp LA(LG(J))  &kp LA(LG(L))  &kp LG(V)            &trans    &kp F11    &kp PG_UP   &kp PG_DN   &kp END    &trans
 &trans  &trans         &kp K_REDO  &kp K_UNDO     &trans                                        &trans     &kp LC(F)   &kp LS(F3)  &trans     &trans
-                                                  &mod_tab LA(TAB) &trans     &trans    &trans    &trans     &kp ENTER
+                                                  &mod_tab       &trans     &trans    &trans    &trans     &kp ENTER
                                                   &trans         &trans     &trans    &trans    &kp TAB    &kp SPACE
             >;
         };
