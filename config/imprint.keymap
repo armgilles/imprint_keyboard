@@ -58,15 +58,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Ajout des behaviors manquants du world layer
-        world_y_base: world_y_base {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp RA(Y)>, <&kp RA(LS(U))>;
-            // ý -> ÿ
-            mods = <(MOD_LCTL)>;
-        };
-
         world_u_ctrl: world_u_ctrl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
