@@ -7,19 +7,33 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
+// Définir les constantes en premier (avant toute utilisation)
+#define TAPPING_RESOLUTION 140
+#define INDEX_HOLDING_TIME (TAPPING_RESOLUTION + 5)     // 145ms
+#define MIDDY_HOLDING_TIME (TAPPING_RESOLUTION + 40)    // 180ms  
+#define RINGY_HOLDING_TIME (TAPPING_RESOLUTION + 90)    // 230ms
+#define PINKY_HOLDING_TIME (TAPPING_RESOLUTION + 90)    // 230ms
+#define HOMEY_REPEAT_DECAY (TAPPING_RESOLUTION + 150)   // 290ms
+#define INDEX_STREAK_DECAY (TAPPING_RESOLUTION - 50)    // 90ms
+#define HOMEY_STREAK_DECAY TAPPING_RESOLUTION           // 140ms
+
+// Définition des constantes pour les modificateurs Alt+Tab (comme sur Glove80)
+#define _A_TAB  LALT
+#define _G_TAB  LGUI
+#define COMBO_FIRING_DECAY 50
+
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
     behaviors {
-        // Hold-tap behaviors optimisés (macOS order: CTRL/ALT/GUI/SHIFT)
-        
+        // Hold-tap behaviors avec les valeurs exactes du Glove80
         lmt: left_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <175>;        // Plus court comme Glove80
-            quick-tap-ms = <175>;           // Ajusté pour répétition
-            require-prior-idle-ms = <100>;  // Ajouter ce paramètre du Glove80
+            tapping-term-ms = <INDEX_HOLDING_TIME>;     // 145ms pour index (Shift)
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms 
+            require-prior-idle-ms = <INDEX_STREAK_DECAY>; // 90ms
             bindings = <&kp>, <&kp>;
         };
 
@@ -27,9 +41,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <175>;        // Plus court comme Glove80
-            quick-tap-ms = <175>;           // Ajusté pour répétition
-            require-prior-idle-ms = <100>;  // Ajouter ce paramètre du Glove80
+            tapping-term-ms = <INDEX_HOLDING_TIME>;     // 145ms pour index (Shift)
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
+            require-prior-idle-ms = <INDEX_STREAK_DECAY>; // 90ms
             bindings = <&kp>, <&kp>;
         };
 
@@ -313,14 +327,13 @@
             bindings = <&kp RA(E) &kp LS(E)>; // É
         };
 
-        // Layer tap behaviors
-
+        // Layer tap behaviors avec timings Glove80
         lt_cursor: layer_tap_cursor {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms comme Glove80
             bindings = <&mo>, <&kp>;
         };
 
@@ -329,7 +342,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms comme Glove80
             bindings = <&mo>, <&kp>;
         };
 
@@ -338,7 +351,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms comme Glove80
             bindings = <&mo>, <&kp>;
         };
 
@@ -347,7 +360,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms comme Glove80
             bindings = <&mo>, <&kp>;
         };
 
@@ -356,7 +369,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms comme Glove80
             bindings = <&mo>, <&kp>;
         };
 
@@ -365,7 +378,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms comme Glove80
             bindings = <&mo>, <&kp>;
         };
 
@@ -374,8 +387,8 @@
         thumb: thumb_layer_access {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <200>;  // Plus lent que space pour éviter les activations accidentelles
-            quick-tap-ms = <150>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms comme Glove80
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
         };
@@ -383,8 +396,8 @@
         space: thumb_layer_access_spacebar {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <150>;  // Plus rapide que thumb (200ms)
-            quick-tap-ms = <125>;     // Répétition plus rapide pour espace
+            tapping-term-ms = <150>;
+            quick-tap-ms = <(TAPPING_RESOLUTION + 100)>; // 240ms pour spacebar
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
 
@@ -525,118 +538,20 @@
     combos {
         compatible = "zmk,combos";
 
-        // Définition COMBO_FIRING_DECAY comme sur Glove80
-        #ifndef COMBO_FIRING_DECAY
-        #define COMBO_FIRING_DECAY 50
-        #endif
-
-        // Combo Alt+Tab switcher (ESC + BSPC)
+        // Combo Alt+Tab switcher (ESC + BSPC) - utiliser LALT directement
         combo_alt_tab_switcher {
             timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <66 72>; // ESC (position 66) + BSPC (position 72)
-            bindings = <&mod_tab_chord _A_TAB 1>; // Active layer cursor (1)
+            key-positions = <66 72>; // ESC + BSPC
+            bindings = <&mod_tab_chord LALT 1>; // Active layer cursor (1) avec LALT directement
             layers = <0 1 2 3 4 5 6 7>;
         };
 
         // Combo Hyper Key (ENTER + SPACE)
         combo_sticky_hyper_right {
             timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
-            bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
-            layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
-        };
-    };
-
-    // Macros Windows pour layer 7 (placé avant keymap)
-    macros {
-        // Définition des constantes pour les modificateurs Alt+Tab (comme sur Glove80)
-        #define _A_TAB  LALT
-        #define _G_TAB  LGUI
-
-        // Mod+Tab application switcher - hold this down to keep menu open (copié du Glove80)
-        mod_tab: mod_tab_switcher {
-            compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <1>;
-            bindings
-                = <&macro_param_1to1>
-                , <&macro_press &kp MACRO_PLACEHOLDER>
-                , <&macro_tap &kp TAB>
-                , <&macro_pause_for_release>
-                , <&macro_release &kp MACRO_PLACEHOLDER>
-                ;
-        };
-
-        mod_tab_chord: mod_tab_switcher_chord {
-            compatible = "zmk,behavior-macro-two-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <2>;
-            bindings
-                = <&macro_param_1to1>
-                , <&macro_press &kp MACRO_PLACEHOLDER>
-                , <&macro_tap &kp TAB>
-                , <&macro_param_2to1>
-                , <&macro_tap &mo MACRO_PLACEHOLDER>
-                , <&macro_pause_for_release>
-                , <&macro_release &kp MACRO_PLACEHOLDER>
-                ;
-        };
-
-        world_e_grave_windows: world_e_grave_windows {
-            label = "WORLD_E_GRAVE_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>; // è (Alt+0232)
-        };
-
-        // Ajouter la macro manquante pour é
-        world_e_acute_windows: world_e_acute_windows {
-            label = "WORLD_E_ACUTE_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp SQT &kp E>; // Windows US Intl: ' puis e pour é
-        };
-
-        world_a_grave_windows: world_a_grave_windows {
-            label = "WORLD_A_GRAVE_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>; // à (Alt+0224)
-        };
-
-        world_u_grave_windows: world_u_grave_windows {
-            label = "WORLD_U_GRAVE_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>; // ù (Alt+0249)
-        };
-
-        world_o_circumflex_windows: world_o_circumflex_windows {
-            label = "WORLD_O_CIRCUMFLEX_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>; // ô (Alt+0244)
-        };
-
-        world_c_cedilla_windows: world_c_cedilla_windows {
-            label = "WORLD_C_CEDILLA_WINDOWS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>; // ç (Alt+0231)
+            key-positions = <75 81>; // ENTER + SPACE
+            bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key
+            layers = <0 1 2 3 4 5 6 7>;
         };
     };
 
@@ -764,84 +679,23 @@
             >;
         };
 
-        // Layer 8: Mouse + Navigation (inspiré du layer Mouse du Glove80)
-        // Fusionne fonctionnalités souris, wheel, navigation d'éditeur/panel
-
+        // Layer 8: Mouse + Navigation (version corrigée)
         mouse_layer {
             bindings = <
 &trans  &trans          &trans          &trans          &trans           &trans                      &trans             &trans                    &trans                  &trans              &trans  &trans
 &trans  &trans          &trans          &trans          &trans           &trans                      &trans             &trans                    &trans                  &trans              &trans  &trans
 &trans  &trans          &trans          &trans          &trans           &kp K_CUT                   &kp LC(N)          &split_editor_horizontal  &split_editor_vertical  &right_index_mod    &none   &none
 &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT  &kp K_COPY                  &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
-&trans  &trans          &trans          &trans          &trans           &kp K_PASTE                 &none              &kp LG(LS(E))
-
-    // Définition des constantes pour les modificateurs Alt+Tab (comme sur Glove80)
-    #define _A_TAB  LALT
-    #define _G_TAB  LGUI
-
-    // Définition COMBO_FIRING_DECAY comme sur Glove80
-    #ifndef COMBO_FIRING_DECAY
-    #define COMBO_FIRING_DECAY 50
-    #endif
-
-    split_editor_horizontal: split_editor_horizontal {
-        tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp S>;
-    };
-
-    // Mod+Tab application switcher - hold this down to keep menu open (copié du Glove80)
-    mod_tab: mod_tab_switcher {
-        compatible = "zmk,behavior-macro-one-param";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <1>;
-        bindings
-            = <&macro_param_1to1>
-            , <&macro_press &kp MACRO_PLACEHOLDER>
-            , <&macro_tap &kp TAB>
-            , <&macro_pause_for_release>
-            , <&macro_release &kp MACRO_PLACEHOLDER>
-            ;
-    };
-
-    mod_tab_chord: mod_tab_switcher_chord {
-        compatible = "zmk,behavior-macro-two-param";
-        wait-ms = <0>;
-        tap-ms = <0>;
-        #binding-cells = <2>;
-        bindings
-            = <&macro_param_1to1>
-            , <&macro_press &kp MACRO_PLACEHOLDER>
-            , <&macro_tap &kp TAB>
-            , <&macro_param_2to1>
-            , <&macro_tap &mo MACRO_PLACEHOLDER>
-            , <&macro_pause_for_release>
-            , <&macro_release &kp MACRO_PLACEHOLDER>
-            ;
-    };
-
-    // Behaviors pour modificateurs dans layer mouse (sticky keys)
-    right_index_mod: right_index_mod {
-        compatible = "zmk,behavior-mod-morph";
-        label = "RIGHT_INDEX_MOD";
-        #binding-cells = <0>;
-        bindings = <&sk RCTRL>, <&kp RCTRL>;
-
-        mods = <(MOD_LALT|MOD_RALT)>;
-    };
-
-    right_pinky_mod: right_pinky_mod {
-        compatible = "zmk,behavior-mod-morph";
-        label = "RIGHT_PINKY_MOD";
-        #binding-cells = <0>;
-        bindings = <&sk RSHFT>, <&kp RSHFT>;
-
-        mods = <(MOD_LALT|MOD_RALT)>;
+&trans  &trans          &trans          &trans          &trans           &kp K_PASTE                 &none              &kp LG(LS(E))             &none                   &none               &none   &trans
+&trans  &trans          &trans          &trans          &trans                                                          &trans                    &trans                  &trans              &trans  &trans
+                                                        &trans           &trans        &trans        &trans             &trans                    &trans
+                                                        &trans           &trans        &trans        &trans             &trans                    &trans
+            >;
+        };
     };
 };
 
 // Configuration trackball main droite
-
 &trackball_peripheral_listener {
     input-processors =
         <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
