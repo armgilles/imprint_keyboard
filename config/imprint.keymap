@@ -621,7 +621,7 @@
 &trans  &kp LCTRL      &kp LALT    &kp LGUI       &kp LSHFT      &kp LG(C)            &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans     &trans
 &trans  &kp LC(A)      &kp LA(T)   &kp LA(LG(J))  &kp LA(LG(L))  &kp LG(V)            &trans    &kp F11    &kp PG_UP   &kp PG_DN   &kp END    &trans
 &trans  &trans         &kp K_REDO  &kp K_UNDO     &trans                                        &trans     &kp LC(F)   &kp LS(F3)  &trans     &trans
-                                                  &kp LG(DOT)    &trans     &trans    &trans    &trans     &kp ENTER
+                                                  &kp LA(TAB)    &trans     &trans    &trans    &trans     &kp ENTER
                                                   &trans         &trans     &trans    &trans    &kp TAB    &kp SPACE
             >;
         };
