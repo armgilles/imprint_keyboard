@@ -520,6 +520,14 @@
             tap-ms = <10>;
             bindings = <&macro_tap>, <&tog 7 &rgb_ug RGB_TOG>;
         };
+
+        // Behavior Alt+Tab comme sur Glove80 - AJOUT SEULEMENT
+        mod_tab: mod_tab {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <1>;
+            bindings = <&kp>, <&kp>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
     };
 
     combos {
@@ -532,6 +540,14 @@
             key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
             bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
             layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
+        };
+
+        // Combo Alt+Tab switcher (comme Glove80)
+        combo_alt_tab_switcher {
+            timeout-ms = <50>;
+            key-positions = <66 72>; // ESC (thumb 6) + BSPC (thumb 1) - à ajuster selon votre layout
+            bindings = <&kp LA(TAB)>;
+            layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers
         };
     };
 
@@ -621,7 +637,7 @@
 &trans  &kp LCTRL      &kp LALT    &kp LGUI       &kp LSHFT      &kp LG(C)            &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans     &trans
 &trans  &kp LC(A)      &kp LA(T)   &kp LA(LG(J))  &kp LA(LG(L))  &kp LG(V)            &trans    &kp F11    &kp PG_UP   &kp PG_DN   &kp END    &trans
 &trans  &trans         &kp K_REDO  &kp K_UNDO     &trans                                        &trans     &kp LC(F)   &kp LS(F3)  &trans     &trans
-                                                  &kp LA(TAB)    &trans     &trans    &trans    &trans     &kp ENTER
+                                                  &mod_tab LA(TAB) &trans     &trans    &trans    &trans     &kp ENTER
                                                   &trans         &trans     &trans    &trans    &kp TAB    &kp SPACE
             >;
         };
