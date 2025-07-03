@@ -966,19 +966,6 @@
 // Configuration trackball main droite
 &trackball_peripheral_listener {
     input-processors =
-        // Option 1: Essayer d'inverser X pour corriger la dérive vers la gauche
-        <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+         <&zip_xy_to_scroll_mapper>,
         <&zip_temp_layer 8 500>;
-        
-        // Option 2: Si le problème persiste, essayer Y aussi
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP INPUT_TRANSFORM_X_INVERT INPUT_TRANSFORM_Y_INVERT>,
-        // <&zip_temp_layer 8 500>;
-        
-        // Option 3: Essayer sans le SWAP si le problème vient de l'orientation
-        // <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-        // <&zip_temp_layer 8 500>;
-        
-        // Option 4: Configuration originale (pour comparaison)
-        // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
-        // <&zip_temp_layer 8 500>;
 };
