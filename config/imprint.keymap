@@ -58,6 +58,23 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        // Ajout des behaviors manquants du world layer
+        world_y_base: world_y_base {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(Y)>, <&kp RA(LS(U))>;
+            // ý -> ÿ
+            mods = <(MOD_LCTL)>;
+        };
+
+        world_u_ctrl: world_u_ctrl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(LS(I))>, <&kp RA(LS(U))>;
+            // û -> Û
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
         // Correction pour è/È
         world_e_grave_macro: world_e_grave_macro {
             compatible = "zmk,behavior-macro";
@@ -174,10 +191,11 @@
         world_consonants_base_perso: world_consonants_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&world_c_cedilla_macro>, <&world_c_cedilla_upper_macro>;
+            bindings = <&kp RA(C)>, <&kp RA(LS(C))>;
+            // ç -> Ç (basé sur votre ancien code)
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
+        
         // Behavior pour é/É (version corrigée pour macOS US)
         world_e_acute: world_e_acute {
             compatible = "zmk,behavior-macro";
