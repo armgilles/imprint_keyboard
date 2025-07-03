@@ -33,174 +33,181 @@
 
         // World character behaviors (système complet basé sur Glove80)
 
+        // Correction pour à/À
+        world_a_grave_macro: world_a_grave_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp A>; // à
+        };
+
+        world_a_grave_upper_macro: world_a_grave_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp LS(A)>; // À
+        };
+
         world_a_base_perso: world_a_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(GRAVE)>, <&world_a_alt>;
-
-            // à -> autres variants
-
-            mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
+            bindings = <&world_a_grave_macro>, <&world_a_grave_upper_macro>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        world_a_alt: world_a_alt {
-            compatible = "zmk,behavior-mod-morph";
+        // Correction pour è/È
+        world_e_grave_macro: world_e_grave_macro {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(A)>, <&kp RA(LS(A))>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp E>; // è
+        };
 
-            // á -> Á
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+        world_e_grave_upper_macro: world_e_grave_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp LS(E)>; // È
         };
 
         world_e_base_perso: world_e_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(GRAVE)>, <&world_e_alt>;
-
-            // è -> autres variants
-
-            mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
+            bindings = <&world_e_grave_macro>, <&world_e_grave_upper_macro>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        world_e_alt: world_e_alt {
-            compatible = "zmk,behavior-mod-morph";
+        // Correction pour í/Í
+        world_i_acute_macro: world_i_acute_macro {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(E)>, <&kp RA(LS(E))>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp I>; // í
+        };
 
-            // é -> É
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+        world_i_acute_upper_macro: world_i_acute_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp LS(I)>; // Í
         };
 
         world_i_base: world_i_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(I)>, <&world_i_ctrl>;
-
-            // í -> autres variants
-
-            mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
+            bindings = <&world_i_acute_macro>, <&world_i_acute_upper_macro>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        world_i_ctrl: world_i_ctrl {
-            compatible = "zmk,behavior-mod-morph";
+        // Correction pour ó/Ó
+        world_o_acute_macro: world_o_acute_macro {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(LS(U))>, <&kp RA(LS(I))>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp O>; // ó
+        };
 
-            // î -> Î
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+        world_o_acute_upper_macro: world_o_acute_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp LS(O)>; // Ó
         };
 
         world_o_base: world_o_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(O)>, <&world_o_alt>;
-
-            // ó -> autres variants
-
-            mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
+            bindings = <&world_o_acute_macro>, <&world_o_acute_upper_macro>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        world_o_alt: world_o_alt {
-            compatible = "zmk,behavior-mod-morph";
+        // Correction pour ù/Ù
+        world_u_grave_macro: world_u_grave_macro {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(LS(I))>, <&kp RA(LS(O))>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp U>; // ù
+        };
 
-            // ô -> Ô
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+        world_u_grave_upper_macro: world_u_grave_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp LS(U)>; // Ù
         };
 
         world_u_base_perso: world_u_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(GRAVE)>, <&world_u_ctrl>;
-
-            // ù -> autres variants
-
-            mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
-        };
-
-        world_u_ctrl: world_u_ctrl {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp RA(LS(I))>, <&kp RA(LS(U))>;
-
-            // û -> Û
-
+            bindings = <&world_u_grave_macro>, <&world_u_grave_upper_macro>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        world_y_base: world_y_base {
-            compatible = "zmk,behavior-mod-morph";
+        // Correction pour ç/Ç
+        world_c_cedilla_macro: world_c_cedilla_macro {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(Y)>, <&kp RA(LS(U))>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(C) &kp C>; // ç (sur macOS US: Alt+C puis C)
+        };
 
-            // ý -> ÿ
-
-            mods = <(MOD_LCTL)>;
+        world_c_cedilla_upper_macro: world_c_cedilla_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(C) &kp LS(C)>; // Ç
         };
 
         world_consonants_base_perso: world_consonants_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(C)>, <&kp RA(LS(C))>;
-
-            // ç -> Ç
-
-            mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
-        };
-
-        // Behavior pour é/É (comme dans votre config Glove80)
-
-        world_e_acute: world_e_acute {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp RA(E)>, <&kp RA(LS(E))>;
-
-            // é -> É
-
+            bindings = <&world_c_cedilla_macro>, <&world_c_cedilla_upper_macro>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Behaviors pour caractères Windows US International
-
-        world_e_acute_windows: world_e_acute_windows {
+        // Behavior pour é/É (version corrigée pour macOS US)
+        world_e_acute: world_e_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SQT &kp E>; // Windows US Intl: ' puis e pour é
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp E>; // Alt + E puis E pour é sur macOS US
         };
 
-        world_c_cedilla_windows: world_c_cedilla_windows {
-            compatible = "zmk,behavior-macro";
+        // Version avec support Shift pour É
+        world_e_acute_with_shift: world_e_acute_with_shift {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(COMMA)>; // Windows US Intl: AltGr + , pour ç
+            bindings = <&world_e_acute_macro>, <&world_e_acute_upper_macro>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        world_e_grave_windows: world_e_grave_windows {
+        world_e_acute_macro: world_e_acute_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp E>; // Windows US Intl: ` puis e pour è
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp E>; // é
         };
 
-        world_a_grave_windows: world_a_grave_windows {
+        world_e_acute_upper_macro: world_e_acute_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp A>; // Windows US Intl: ` puis a pour à
-        };
-
-        world_u_grave_windows: world_u_grave_windows {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp U>; // Windows US Intl: ` puis u pour ù
-        };
-
-        world_o_circumflex_windows: world_o_circumflex_windows {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp CARET &kp O>; // Windows US Intl: ^ puis o pour ô
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp LS(E)>; // É
         };
 
         // Layer tap behaviors
@@ -425,7 +432,52 @@
         };
     };
 
+    // Macros Windows pour layer 7 (placé avant keymap)
     macros {
+        world_e_grave_windows: world_e_grave_windows {
+            label = "WORLD_E_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>; // è (Alt+0232)
+        };
+
+        world_a_grave_windows: world_a_grave_windows {
+            label = "WORLD_A_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>; // à (Alt+0224)
+        };
+
+        world_u_grave_windows: world_u_grave_windows {
+            label = "WORLD_U_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>; // ù (Alt+0249)
+        };
+
+        world_o_circumflex_windows: world_o_circumflex_windows {
+            label = "WORLD_O_CIRCUMFLEX_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>; // ô (Alt+0244)
+        };
+
+        world_c_cedilla_windows: world_c_cedilla_windows {
+            label = "WORLD_C_CEDILLA_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>; // ç (Alt+0231)
+        };
     };
 
     keymap {
@@ -436,13 +488,13 @@
         qwerty_layer {
             bindings = <
 &none  &none         &none        &none           &none          &none                       &none       &none            &none           &none        &none         &none
-&none  &kp N1        &kp N2       &world_e_acute  &kp SQT        &kp N5                      &kp N6      &kp N7           &kp N8          &kp N9       &kp N0        &none
+&none  &kp N1        &kp N2       &world_e_acute_with_shift  &kp SQT        &kp N5                      &kp N6      &kp N7           &kp N8          &kp N9       &kp N0        &none
 &none  &kp Q         &kp W        &kp E           &kp R          &kp T                       &kp Y       &kp U            &kp I           &kp O        &kp SEMI      &none
 &none  &lmt LCTRL A  &lmt LALT S  &lmt LGUI D     &lmt LSHFT F   &kp G                       &kp H       &rmt RSHFT J     &rmt RGUI K     &rmt RALT L  &rmt RCTRL P  &none
 &none  &kp Z         &kp X        &kp C           &kp V          &kp B                       &kp N       &kp M            &kp COMMA       &kp DOT      &kp FSLH      &none
 &none  &none         &kp UP       &kp DOWN        &none                                                  &none            &kp LBKT        &kp RBKT     &none         &none
-                                                  &thumb 6 ESC   &none         &mo 8         &none       &thumb 4 INSERT  &thumb 5 ENTER
-                                                  &thumb 1 BSPC  &thumb 2 DEL  &hyper_key    &caps_word  &thumb 2 TAB     &space 3 SPACE
+                                                  &thumb 6 ESC   &none         &none         &none       &thumb 4 INSERT  &thumb 5 ENTER
+                                                  &thumb 1 BSPC  &thumb 2 DEL  &hyper_key    &caps_word  &thumb 8 TAB     &space 3 SPACE
             >;
         };
 
