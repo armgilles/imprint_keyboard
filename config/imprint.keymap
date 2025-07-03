@@ -829,10 +829,7 @@
     };
 };
 
-// Configuration trackball main droite - version simplifiée
+// Configuration trackball main droite - version simplifiée pour un seul trackball
 &trackball_peripheral_listener {
     input-processors = <&zip_temp_layer 8 500>;
-};
-//         <&zip_temp_layer 8 500>;
-// };
 };
