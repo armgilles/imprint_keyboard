@@ -290,7 +290,9 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RA(E) &kp Y>, <&kp RA(U) &kp Y>;
- // ý -> ÿ
+
+            // ý -> ÿ
+
             mods = <(MOD_LCTL)>;
         };
 
@@ -670,7 +672,8 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>;
- // è (Alt+0232)
+
+            // è (Alt+0232)
         };
 
         // Ajouter la macro manquante pour é
@@ -682,7 +685,8 @@
             wait-ms = <10>;
             tap-ms = <10>;
             bindings = <&macro_tap>, <&kp SQT &kp E>;
- // Windows US Intl: ' puis e pour é
+
+            // Windows US Intl: ' puis e pour é
         };
 
         world_a_grave_windows: world_a_grave_windows {
@@ -694,7 +698,8 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>;
- // à (Alt+0224)
+
+            // à (Alt+0224)
         };
 
         world_u_grave_windows: world_u_grave_windows {
@@ -706,7 +711,8 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>;
- // ù (Alt+0249)
+
+            // ù (Alt+0249)
         };
 
         world_o_circumflex_windows: world_o_circumflex_windows {
@@ -718,7 +724,8 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>;
- // ô (Alt+0244)
+
+            // ô (Alt+0244)
         };
 
         world_c_cedilla_windows: world_c_cedilla_windows {
@@ -730,7 +737,8 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>;
- // ç (Alt+0231)
+
+            // ç (Alt+0231)
         };
     };
 
@@ -868,7 +876,7 @@
 &trans  &kp LCTRL  &kp LALT        &kp LGUI        &kp LSHFT        &kp LG(C)            &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
 &trans  &none      &none           &none           &none            &kp LG(V)            &none              &kp LS(LG(E))             &kp LG(NUMBER_1)        &kp LC(GRAVE)       &none   &none
 &trans  &trans     &msc SCRL_DOWN  &msc SCRL_UP    &trans                                                   &none                     &msc SCRL_DOWN          &msc SCRL_UP        &none   &none
-                                                   &mkp MCLK        &trans     &trans    &none              &none                     &none
+                                                   &trans           &mkp MCLK  &trans    &none              &none                     &none
                                                    &mkp LCLK        &mkp RCLK  &trans    &none              &none                     &none
             >;
         };
