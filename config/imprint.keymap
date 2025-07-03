@@ -12,6 +12,7 @@
 
     behaviors {
         // Constantes temporelles du Glove80 (DIFFICULTY_LEVEL = 0)
+
         #define TAPPING_RESOLUTION 140
         #define INDEX_HOLDING_TIME (TAPPING_RESOLUTION + 5)     // 145ms
         #define MIDDY_HOLDING_TIME (TAPPING_RESOLUTION + 40)    // 180ms  
@@ -20,8 +21,8 @@
         #define HOMEY_REPEAT_DECAY (TAPPING_RESOLUTION + 150)   // 290ms
         #define INDEX_STREAK_DECAY (TAPPING_RESOLUTION - 50)    // 90ms
         #define HOMEY_STREAK_DECAY TAPPING_RESOLUTION           // 140ms
-        
         // Hold-tap behaviors avec les valeurs exactes du Glove80 par doigt
+
         lmt: left_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -30,6 +31,7 @@
             quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms 
             require-prior-idle-ms = <INDEX_STREAK_DECAY>; // 90ms
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 57 74>; // Main droite + thumbs
             hold-trigger-on-release;
         };
@@ -42,11 +44,13 @@
             quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
             require-prior-idle-ms = <INDEX_STREAK_DECAY>; // 90ms
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 64 65 66 67 68 69 52>; // Main gauche + thumbs
             hold-trigger-on-release;
         };
 
         // Behaviors différenciés par doigt pour appliquer les bonnes valeurs temporelles
+
         lmt_pinky: left_mod_tap_pinky {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -55,6 +59,7 @@
             quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
             require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 57 74>;
             hold-trigger-on-release;
         };
@@ -67,6 +72,7 @@
             quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
             require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 57 74>;
             hold-trigger-on-release;
         };
@@ -79,11 +85,13 @@
             quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
             require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 57 74>;
             hold-trigger-on-release;
         };
 
         // Idem pour la main droite
+
         rmt_pinky: right_mod_tap_pinky {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -92,6 +100,7 @@
             quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
             require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 64 65 66 67 68 69 52>;
             hold-trigger-on-release;
         };
@@ -104,6 +113,7 @@
             quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
             require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 64 65 66 67 68 69 52>;
             hold-trigger-on-release;
         };
@@ -116,13 +126,14 @@
             quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
             require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 64 65 66 67 68 69 52>;
             hold-trigger-on-release;
         };
 
         // World character behaviors (système complet basé sur Glove80)
-
         // Correction pour à/À
+
         world_a_grave_macro: world_a_grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -138,14 +149,17 @@
             tap-ms = <10>;
             bindings = <&kp RA(GRAVE) &kp LS(A)>; // À
         };
+
         world_a_base_perso: world_a_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_grave_macro>, <&world_a_grave_upper_macro>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // Correction pour è/È - définir les macros AVANT world_e_base_perso
+
         world_e_grave_macro: world_e_grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -166,6 +180,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_grave_macro>, <&world_e_grave_upper_macro>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -173,11 +188,14 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RA(I)>, <&kp RA(LS(I))>;
+
             // û -> Û (Option+I puis u/U pour macOS)
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // Correction pour ë/Ë (tréma)
+
         world_e_diaeresis_macro: world_e_diaeresis_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -195,6 +213,7 @@
         };
 
         // Correction pour ê/Ê (circonflexe)
+
         world_e_circumflex_macro: world_e_circumflex_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -212,6 +231,7 @@
         };
 
         // Correction pour ï/Ï (tréma sur i)
+
         world_i_diaeresis_macro: world_i_diaeresis_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -229,6 +249,7 @@
         };
 
         // Correction pour ô/Ô (circonflexe sur o)
+
         world_o_circumflex_macro: world_o_circumflex_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -246,6 +267,7 @@
         };
 
         // Correction pour æ/Æ
+
         world_ae_macro: world_ae_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -263,14 +285,17 @@
         };
 
         // Mise à jour des behaviors existants pour utiliser les bonnes séquences
+
         world_y_base: world_y_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(E) &kp Y>, <&kp RA(U) &kp Y>; // ý -> ÿ
+            bindings = <&kp RA(E) &kp Y>, <&kp RA(U) &kp Y>;
+ // ý -> ÿ
             mods = <(MOD_LCTL)>;
         };
 
         // Correction pour í/Í
+
         world_i_acute_macro: world_i_acute_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -291,10 +316,12 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_i_acute_macro>, <&world_i_acute_upper_macro>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // Correction pour ó/Ó
+
         world_o_acute_macro: world_o_acute_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -315,10 +342,12 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_o_acute_macro>, <&world_o_acute_upper_macro>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // Correction pour ù/Ù
+
         world_u_grave_macro: world_u_grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -339,10 +368,12 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_u_grave_macro>, <&world_u_grave_upper_macro>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // Correction pour ç/Ç
+
         world_c_cedilla_macro: world_c_cedilla_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -363,11 +394,14 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RA(C)>, <&kp RA(LS(C))>;
+
             // ç -> Ç (simplifié)
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        
+
         // Behavior pour é/É (version corrigée pour macOS US)
+
         world_e_acute: world_e_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -377,10 +411,12 @@
         };
 
         // Version avec support Shift pour É
+
         world_e_acute_with_shift: world_e_acute_with_shift {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_acute_macro>, <&world_e_acute_upper_macro>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -623,6 +659,7 @@
     };
 
     // Macros Windows pour layer 7 (placé avant keymap)
+
     macros {
         world_e_grave_windows: world_e_grave_windows {
             label = "WORLD_E_GRAVE_WINDOWS";
@@ -630,17 +667,22 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>; // è (Alt+0232)
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>;
+ // è (Alt+0232)
         };
 
         // Ajouter la macro manquante pour é
+
         world_e_acute_windows: world_e_acute_windows {
             label = "WORLD_E_ACUTE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp SQT &kp E>; // Windows US Intl: ' puis e pour é
+            bindings = <&macro_tap>, <&kp SQT &kp E>;
+ // Windows US Intl: ' puis e pour é
         };
 
         world_a_grave_windows: world_a_grave_windows {
@@ -649,7 +691,10 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>; // à (Alt+0224)
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>;
+ // à (Alt+0224)
         };
 
         world_u_grave_windows: world_u_grave_windows {
@@ -658,7 +703,10 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>; // ù (Alt+0249)
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>;
+ // ù (Alt+0249)
         };
 
         world_o_circumflex_windows: world_o_circumflex_windows {
@@ -667,7 +715,10 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>; // ô (Alt+0244)
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>;
+ // ô (Alt+0244)
         };
 
         world_c_cedilla_windows: world_c_cedilla_windows {
@@ -676,7 +727,10 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>; // ç (Alt+0231)
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>;
+ // ç (Alt+0231)
         };
     };
 
@@ -684,16 +738,17 @@
         compatible = "zmk,keymap";
 
         // Layer 0: QWERTY avec home row mods différenciés par doigt
+
         qwerty_layer {
             bindings = <
-&none  &none         &none        &none           &none          &none                       &none       &none            &none           &none        &none         &none
-&none  &kp N1        &kp N2       &world_e_acute_with_shift  &kp SQT        &kp N5                      &kp N6      &kp N7           &kp N8          &kp N9       &kp N0        &none
-&none  &kp Q         &kp W        &kp E           &kp R          &kp T                       &kp Y       &kp U            &kp I           &kp O        &kp SEMI      &none
-&none  &lmt_pinky LCTRL A  &lmt_ringy LALT S  &lmt_middy LGUI D     &lmt LSHFT F   &kp G                       &kp H       &rmt RSHFT J     &rmt_middy RGUI K     &rmt_ringy RALT L  &rmt_pinky RCTRL P  &none
-&none  &kp Z         &kp X        &kp C           &kp V          &kp B                       &kp N       &kp M            &kp COMMA       &kp DOT      &kp FSLH      &none
-&none  &none         &kp UP       &kp DOWN        &none                                                  &none            &kp LBKT        &kp RBKT     &none         &none
-                                                  &thumb 6 ESC   &none         &none         &none       &thumb 4 INSERT  &thumb 5 ENTER
-                                                  &thumb 1 BSPC  &thumb 2 DEL  &hyper_key    &caps_word  &thumb 8 TAB     &space 3 SPACE
+&none  &none               &none              &none                      &none          &none                       &none       &none            &none              &none              &none               &none
+&none  &kp N1              &kp N2             &world_e_acute_with_shift  &kp SQT        &kp N5                      &kp N6      &kp N7           &kp N8             &kp N9             &kp N0              &none
+&none  &kp Q               &kp W              &kp E                      &kp R          &kp T                       &kp Y       &kp U            &kp I              &kp O              &kp SEMI            &none
+&none  &lmt_pinky LCTRL A  &lmt_ringy LALT S  &lmt_middy LGUI D          &lmt LSHFT F   &kp G                       &kp H       &rmt RSHFT J     &rmt_middy RGUI K  &rmt_ringy RALT L  &rmt_pinky RCTRL P  &none
+&none  &kp Z               &kp X              &kp C                      &kp V          &kp B                       &kp N       &kp M            &kp COMMA          &kp DOT            &kp FSLH            &none
+&none  &none               &kp UP             &kp DOWN                   &none                                                  &none            &kp LBKT           &kp RBKT           &none               &none
+                                                                         &thumb 6 ESC   &none         &none         &none       &thumb 4 INSERT  &thumb 5 ENTER
+                                                                         &thumb 1 BSPC  &thumb 2 DEL  &hyper_key    &caps_word  &thumb 8 TAB     &space 3 SPACE
             >;
         };
 
@@ -806,15 +861,15 @@
         // Layer 8: Mouse + Navigation vscode
 
         mouse_layer {
-             bindings = <
-&trans  &trans     &trans    &trans    &trans     &trans            &trans            &trans            &trans           &trans        &trans   &trans
-&none   &none      &none     &none     &none      &none             &kp C_MEDIA_HOME  &kp C_PLAY        &kp F1           &kp F2        &none    &none
-&trans  &none      &none     &none     &none      &trans            &kp LG(LA(Y))     &kp LG(LA(U))     &kp LG(LA(I))    &kp F9        &kp F10  &kp F13
-&trans  &kp LCTRL  &kp LALT  &kp LGUI  &kp LSHFT  &trans            &kp LS(LG(N4))    &kp LG(KP_MINUS)  &kp LG(KP_PLUS)  &kp F6        &kp F11  &kp F14
-&trans  &none      &trans    &trans    &trans     &trans            &none             &trans            &trans           &kp F3        &kp F12  &kp F15
-&trans  &trans     &trans    &trans    &trans                                         &none             &kp C_BRI_UP     &kp C_BRI_DN  &none    &none
-                                            &trans     &trans  &trans    &kp C_PP          &kp C_PREV        &kp C_NEXT
-                                            &trans     &trans  &trans    &kp C_MUTE        &kp C_VOL_DN      &kp C_VOL_UP
+            bindings = <
+&trans  &trans     &trans          &trans          &trans           &trans               &msc SCRL_DOWN     &msc SCRL_UP              &trans                  &trans              &trans  &trans
+&none   &none      &none           &none           &none            &none                &none              &none                     &none                   &none               &none   &none
+&trans  &none      &none           &msc SCRL_LEFT  &msc SCRL_RIGHT  &kp LG(X)            &kp LG(N)          &split_editor_horizontal  &split_editor_vertical  &none               &none   &none
+&trans  &kp LCTRL  &kp LALT        &kp LGUI        &kp LSHFT        &kp LG(C)            &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
+&trans  &none      &none           &none           &none            &kp LG(V)            &none              &kp LS(LG(E))             &kp LG(NUMBER_1)        &kp LC(GRAVE)       &none   &none
+&trans  &trans     &msc SCRL_DOWN  &msc SCRL_UP    &trans                                                   &none                     &msc SCRL_DOWN          &msc SCRL_UP        &none   &none
+                                                   &mkp MCLK        &trans     &trans    &none              &none                     &none
+                                                   &mkp LCLK        &mkp RCLK  &trans    &none              &none                     &none
             >;
         };
     };
