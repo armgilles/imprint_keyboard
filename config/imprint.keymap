@@ -966,6 +966,5 @@
 // Configuration trackball main droite
 &trackball_peripheral_listener {
     input-processors =
-         <&zip_xy_to_scroll_mapper>,
         <&zip_temp_layer 8 500>;
 };
