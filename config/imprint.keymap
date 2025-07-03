@@ -58,6 +58,30 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        // Correction pour è/È - définir les macros AVANT world_e_base_perso
+        world_e_grave_macro: world_e_grave_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp E>; // è
+        };
+
+        world_e_grave_upper_macro: world_e_grave_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp LS(E)>; // È
+        };
+
+        world_e_base_perso: world_e_base_perso {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_grave_macro>, <&world_e_grave_upper_macro>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
         world_u_ctrl: world_u_ctrl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -157,13 +181,6 @@
             #binding-cells = <0>;
             bindings = <&kp RA(E) &kp Y>, <&kp RA(U) &kp Y>; // ý -> ÿ
             mods = <(MOD_LCTL)>;
-        };
-
-        world_e_base_perso: world_e_base_perso {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&world_e_grave_macro>, <&world_e_grave_upper_macro>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // Correction pour í/Í
