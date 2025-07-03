@@ -617,9 +617,9 @@
             bindings = <
 &trans  &trans         &trans      &trans         &trans         &trans               &trans    &trans     &trans      &trans      &trans     &trans
 &trans  &trans         &trans      &trans         &trans         &trans               &trans    &trans     &trans      &trans      &trans     &trans
-&trans  &kp LA(LG(E))  &kp LA(R)   &kp LA(V)      &kp LA(A)      &kp _CUT            &kp BSPC  &kp SPACE  &kp K_UNDO  &kp K_REDO  &sk LSHFT  &trans
-&trans  &kp LCTRL      &kp LALT    &kp LGUI       &kp LSHFT      &kp _COPY            &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans     &trans
-&trans  &kp LC(A)      &kp LA(T)   &kp LA(LG(J))  &kp LA(LG(L))  &kp _PASTE            &trans    &kp F11    &kp PG_UP   &kp PG_DN   &kp END    &trans
+&trans  &kp LA(LG(E))  &kp LA(R)   &kp LA(V)      &kp LA(A)      &kp LG(X)            &kp BSPC  &kp SPACE  &kp K_UNDO  &kp K_REDO  &sk LSHFT  &trans
+&trans  &kp LCTRL      &kp LALT    &kp LGUI       &kp LSHFT      &kp LG(c)            &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans     &trans
+&trans  &kp LC(A)      &kp LA(T)   &kp LA(LG(J))  &kp LA(LG(L))  &kp LG(v)            &trans    &kp F11    &kp PG_UP   &kp PG_DN   &kp END    &trans
 &trans  &trans         &kp K_REDO  &kp K_UNDO     &trans                                        &trans     &kp LC(F)   &kp LS(F3)  &trans     &trans
                                                   &kp LG(DOT)    &trans     &trans    &trans    &trans     &kp ENTER
                                                   &trans         &trans     &trans    &trans    &kp TAB    &kp SPACE
