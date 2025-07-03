@@ -967,7 +967,7 @@
 &trackball_peripheral_listener {
     input-processors =
         // Option 1: Essayer d'inverser X pour corriger la dérive vers la gauche
-        <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP INPUT_TRANSFORM_X_INVERT>,
+        <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
         <&zip_temp_layer 8 500>;
         
         // Option 2: Si le problème persiste, essayer Y aussi
