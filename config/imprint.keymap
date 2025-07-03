@@ -829,9 +829,10 @@
     };
 };
 
-// Configuration trackball main droite - axes complètement inversés
+// Configuration trackball main droite - version simplifiée
 &trackball_peripheral_listener {
-    input-processors =
-        <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP INPUT_TRANSFORM_X_INVERT>,
-        <&zip_temp_layer 8 500>;
+    input-processors = <&zip_temp_layer 8 500>;
+};
+//         <&zip_temp_layer 8 500>;
+// };
 };
