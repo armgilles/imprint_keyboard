@@ -525,10 +525,22 @@
     combos {
         compatible = "zmk,combos";
 
-        // Combo SPACE + ENTER → Hyper Key (comme Glove80 combo_sticky_hyper_right)
+        // Définition COMBO_FIRING_DECAY comme sur Glove80
+        #ifndef COMBO_FIRING_DECAY
+        #define COMBO_FIRING_DECAY 50
+        #endif
 
+        // Combo Alt+Tab switcher (ESC + BSPC)
+        combo_alt_tab_switcher {
+            timeout-ms = <COMBO_FIRING_DECAY>;
+            key-positions = <66 72>; // ESC (position 66) + BSPC (position 72)
+            bindings = <&mod_tab_chord _A_TAB 1>; // Active layer cursor (1)
+            layers = <0 1 2 3 4 5 6 7>;
+        };
+
+        // Combo Hyper Key (ENTER + SPACE)
         combo_sticky_hyper_right {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_FIRING_DECAY>;
             key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
             bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
             layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
@@ -537,6 +549,41 @@
 
     // Macros Windows pour layer 7 (placé avant keymap)
     macros {
+        // Définition des constantes pour les modificateurs Alt+Tab (comme sur Glove80)
+        #define _A_TAB  LALT
+        #define _G_TAB  LGUI
+
+        // Mod+Tab application switcher - hold this down to keep menu open (copié du Glove80)
+        mod_tab: mod_tab_switcher {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <1>;
+            bindings
+                = <&macro_param_1to1>
+                , <&macro_press &kp MACRO_PLACEHOLDER>
+                , <&macro_tap &kp TAB>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp MACRO_PLACEHOLDER>
+                ;
+        };
+
+        mod_tab_chord: mod_tab_switcher_chord {
+            compatible = "zmk,behavior-macro-two-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <2>;
+            bindings
+                = <&macro_param_1to1>
+                , <&macro_press &kp MACRO_PLACEHOLDER>
+                , <&macro_tap &kp TAB>
+                , <&macro_param_2to1>
+                , <&macro_tap &mo MACRO_PLACEHOLDER>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp MACRO_PLACEHOLDER>
+                ;
+        };
+
         world_e_grave_windows: world_e_grave_windows {
             label = "WORLD_E_GRAVE_WINDOWS";
             compatible = "zmk,behavior-macro";
@@ -728,16 +775,21 @@
 &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT  &kp K_COPY                  &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
 &trans  &trans          &trans          &trans          &trans           &kp K_PASTE                 &none              &kp LG(LS(E))
 
-    // Définition des constantes pour les modificateurs Alt+Tab
+    // Définition des constantes pour les modificateurs Alt+Tab (comme sur Glove80)
     #define _A_TAB  LALT
     #define _G_TAB  LGUI
+
+    // Définition COMBO_FIRING_DECAY comme sur Glove80
+    #ifndef COMBO_FIRING_DECAY
+    #define COMBO_FIRING_DECAY 50
+    #endif
 
     split_editor_horizontal: split_editor_horizontal {
         tap-ms = <5>;
         bindings = <&macro_tap>, <&kp LC(E) &kp S>;
     };
 
-    // Mod+Tab application switcher - hold this down to keep menu open
+    // Mod+Tab application switcher - hold this down to keep menu open (copié du Glove80)
     mod_tab: mod_tab_switcher {
         compatible = "zmk,behavior-macro-one-param";
         wait-ms = <0>;
