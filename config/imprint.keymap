@@ -444,6 +444,16 @@
             bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>; // è (Alt+0232)
         };
 
+        // Ajouter la macro manquante pour é
+        world_e_acute_windows: world_e_acute_windows {
+            label = "WORLD_E_ACUTE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp SQT &kp E>; // Windows US Intl: ' puis e pour é
+        };
+
         world_a_grave_windows: world_a_grave_windows {
             label = "WORLD_A_GRAVE_WINDOWS";
             compatible = "zmk,behavior-macro";
