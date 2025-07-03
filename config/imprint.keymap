@@ -520,43 +520,76 @@
             tap-ms = <10>;
             bindings = <&macro_tap>, <&tog 7 &rgb_ug RGB_TOG>;
         };
-
-        // Behavior Alt+Tab comme sur Glove80 - VERSION AMÉLIORÉE
-        mod_tab: mod_tab {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LA(TAB)>, <&kp LA(LS(TAB))>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // Behavior pour chord Alt+Tab (navigation continue)
-        mod_tab_chord: mod_tab_chord {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            bindings = <&mo>, <&mod_tab>;
-        };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        // Combo SPACE + ENTER → Hyper Key (comme Glove80)
+        // Combo SPACE + ENTER → Hyper Key (comme Glove80 combo_sticky_hyper_right)
+
         combo_sticky_hyper_right {
             timeout-ms = <50>;
-            key-positions = <75 81>; // ENTER + SPACE
-            bindings = <&sk LG(LA(LC(LSHFT)))>;
-            layers = <0 1 2 3 4 5 6 7>;
+            key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
+            bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
+            layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
+        };
+    };
+
+    // Macros Windows pour layer 7 (placé avant keymap)
+    macros {
+        world_e_grave_windows: world_e_grave_windows {
+            label = "WORLD_E_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>; // è (Alt+0232)
         };
 
-        // Combo Alt+Tab switcher amélioré (comme Glove80)
-        combo_alt_tab_switcher {
-            timeout-ms = <50>;
-            key-positions = <66 72>; // ESC + BSPC
-            bindings = <&mod_tab_chord 1 0>; // Hold layer 1, tap mod_tab
-            layers = <0 1 2 3 4 5 6 7>;
+        // Ajouter la macro manquante pour é
+        world_e_acute_windows: world_e_acute_windows {
+            label = "WORLD_E_ACUTE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp SQT &kp E>; // Windows US Intl: ' puis e pour é
+        };
+
+        world_a_grave_windows: world_a_grave_windows {
+            label = "WORLD_A_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>; // à (Alt+0224)
+        };
+
+        world_u_grave_windows: world_u_grave_windows {
+            label = "WORLD_U_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>; // ù (Alt+0249)
+        };
+
+        world_o_circumflex_windows: world_o_circumflex_windows {
+            label = "WORLD_O_CIRCUMFLEX_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>; // ô (Alt+0244)
+        };
+
+        world_c_cedilla_windows: world_c_cedilla_windows {
+            label = "WORLD_C_CEDILLA_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>; // ç (Alt+0231)
         };
     };
 
@@ -588,7 +621,7 @@
 &trans  &kp LCTRL      &kp LALT    &kp LGUI       &kp LSHFT      &kp LG(C)            &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans     &trans
 &trans  &kp LC(A)      &kp LA(T)   &kp LA(LG(J))  &kp LA(LG(L))  &kp LG(V)            &trans    &kp F11    &kp PG_UP   &kp PG_DN   &kp END    &trans
 &trans  &trans         &kp K_REDO  &kp K_UNDO     &trans                                        &trans     &kp LC(F)   &kp LS(F3)  &trans     &trans
-                                                  &mod_tab       &trans     &trans    &trans    &trans     &kp ENTER
+                                                  &kp LA(TAB)    &trans     &trans    &trans    &trans     &kp ENTER
                                                   &trans         &trans     &trans    &trans    &kp TAB    &kp SPACE
             >;
         };
@@ -694,73 +727,48 @@
 &trans  &trans          &trans          &trans          &trans           &kp K_CUT                   &kp LC(N)          &split_editor_horizontal  &split_editor_vertical  &right_index_mod    &none   &none
 &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT  &kp K_COPY                  &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
 &trans  &trans          &trans          &trans          &trans           &kp K_PASTE                 &none              &kp LG(LS(E))
-                                                        &mkp LCLK        &mkp RCLK          &none    &none              &trans                    &trans
-            >;
-        };
-    };
 
-    // === MACROS DE NAVIGATION POUR LAYER MOUSE ===
-    // Inspirées du layer Mouse du Glove80 pour la navigation d'éditeur/panel
-    // Navigation entre groupes/panels (style Vim en VS Code)
-
-    focus_left_group: focus_left_group {
-        label = "FOCUS_LEFT_GROUP";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <5>;
-        tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp H>;
-    };
-
-    focus_right_group: focus_right_group {
-        label = "FOCUS_RIGHT_GROUP";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <5>;
-        tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp L>;
-    };
-
-    focus_up_group: focus_up_group {
-        label = "FOCUS_UP_GROUP";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <5>;
-        tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp K>;
-    };
-
-    focus_down_group: focus_down_group {
-        label = "FOCUS_DOWN_GROUP";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <5>;
-        tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp J>;
-    };
-
-    // Division de l'éditeur (split windows)
-
-    split_editor_vertical: split_editor_vertical {
-        label = "SPLIT_EDITOR_VERTICAL";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <5>;
-        tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(E) &kp V>;
-    };
+    // Définition des constantes pour les modificateurs Alt+Tab
+    #define _A_TAB  LALT
+    #define _G_TAB  LGUI
 
     split_editor_horizontal: split_editor_horizontal {
-        label = "SPLIT_EDITOR_HORIZONTAL";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <5>;
         tap-ms = <5>;
         bindings = <&macro_tap>, <&kp LC(E) &kp S>;
     };
 
-    // Behaviors pour modificateurs dans layer mouse (sticky keys)
+    // Mod+Tab application switcher - hold this down to keep menu open
+    mod_tab: mod_tab_switcher {
+        compatible = "zmk,behavior-macro-one-param";
+        wait-ms = <0>;
+        tap-ms = <0>;
+        #binding-cells = <1>;
+        bindings
+            = <&macro_param_1to1>
+            , <&macro_press &kp MACRO_PLACEHOLDER>
+            , <&macro_tap &kp TAB>
+            , <&macro_pause_for_release>
+            , <&macro_release &kp MACRO_PLACEHOLDER>
+            ;
+    };
 
+    mod_tab_chord: mod_tab_switcher_chord {
+        compatible = "zmk,behavior-macro-two-param";
+        wait-ms = <0>;
+        tap-ms = <0>;
+        #binding-cells = <2>;
+        bindings
+            = <&macro_param_1to1>
+            , <&macro_press &kp MACRO_PLACEHOLDER>
+            , <&macro_tap &kp TAB>
+            , <&macro_param_2to1>
+            , <&macro_tap &mo MACRO_PLACEHOLDER>
+            , <&macro_pause_for_release>
+            , <&macro_release &kp MACRO_PLACEHOLDER>
+            ;
+    };
+
+    // Behaviors pour modificateurs dans layer mouse (sticky keys)
     right_index_mod: right_index_mod {
         compatible = "zmk,behavior-mod-morph";
         label = "RIGHT_INDEX_MOD";
