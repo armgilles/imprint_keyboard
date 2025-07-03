@@ -70,26 +70,102 @@
         world_u_ctrl: world_u_ctrl {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(LS(I))>, <&kp RA(LS(U))>;
-            // û -> Û
+            bindings = <&kp RA(I)>, <&kp RA(LS(I))>;
+            // û -> Û (Option+I puis u/U pour macOS)
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Correction pour è/È
-        world_e_grave_macro: world_e_grave_macro {
+        // Correction pour ë/Ë (tréma)
+        world_e_diaeresis_macro: world_e_diaeresis_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp E>; // è
+            bindings = <&kp RA(U) &kp E>; // Option+U puis E pour ë
         };
 
-        world_e_grave_upper_macro: world_e_grave_upper_macro {
+        world_e_diaeresis_upper_macro: world_e_diaeresis_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp LS(E)>; // È
+            bindings = <&kp RA(U) &kp LS(E)>; // Option+U puis Shift+E pour Ë
+        };
+
+        // Correction pour ê/Ê (circonflexe)
+        world_e_circumflex_macro: world_e_circumflex_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp E>; // Option+I puis E pour ê
+        };
+
+        world_e_circumflex_upper_macro: world_e_circumflex_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp LS(E)>; // Option+I puis Shift+E pour Ê
+        };
+
+        // Correction pour ï/Ï (tréma sur i)
+        world_i_diaeresis_macro: world_i_diaeresis_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(U) &kp I>; // Option+U puis I pour ï
+        };
+
+        world_i_diaeresis_upper_macro: world_i_diaeresis_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(U) &kp LS(I)>; // Option+U puis Shift+I pour Ï
+        };
+
+        // Correction pour ô/Ô (circonflexe sur o)
+        world_o_circumflex_macro: world_o_circumflex_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp O>; // Option+I puis O pour ô
+        };
+
+        world_o_circumflex_upper_macro: world_o_circumflex_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp LS(O)>; // Option+I puis Shift+O pour Ô
+        };
+
+        // Correction pour æ/Æ
+        world_ae_macro: world_ae_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(SQT)>; // Option+' pour æ sur macOS
+        };
+
+        world_ae_upper_macro: world_ae_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(LS(SQT))>; // Option+Shift+' pour Æ sur macOS
+        };
+
+        // Mise à jour des behaviors existants pour utiliser les bonnes séquences
+        world_y_base: world_y_base {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(E) &kp Y>, <&kp RA(U) &kp Y>; // ý -> ÿ
+            mods = <(MOD_LCTL)>;
         };
 
         world_e_base_perso: world_e_base_perso {
@@ -192,7 +268,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RA(C)>, <&kp RA(LS(C))>;
-            // ç -> Ç (basé sur votre ancien code)
+            // ç -> Ç (simplifié)
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         
