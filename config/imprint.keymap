@@ -11,14 +11,15 @@
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
     behaviors {
-        // Hold-tap behaviors (macOS order: CTRL/ALT/GUI/SHIFT)
-
+        // Hold-tap behaviors optimisés (macOS order: CTRL/ALT/GUI/SHIFT)
+        
         lmt: left_mod_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <175>;        // Plus court comme Glove80
+            quick-tap-ms = <175>;           // Ajusté pour répétition
+            require-prior-idle-ms = <100>;  // Ajouter ce paramètre du Glove80
             bindings = <&kp>, <&kp>;
         };
 
@@ -26,8 +27,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <175>;        // Plus court comme Glove80
+            quick-tap-ms = <175>;           // Ajusté pour répétition
+            require-prior-idle-ms = <100>;  // Ajouter ce paramètre du Glove80
             bindings = <&kp>, <&kp>;
         };
 
@@ -49,7 +51,6 @@
             tap-ms = <10>;
             bindings = <&kp RA(GRAVE) &kp LS(A)>; // À
         };
-
         world_a_base_perso: world_a_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -613,9 +614,7 @@
 &trans  &trans          &trans          &trans          &trans           &trans                      &trans             &trans                    &trans                  &trans              &trans  &trans
 &trans  &trans          &trans          &trans          &trans           &kp K_CUT                   &kp LC(N)          &split_editor_horizontal  &split_editor_vertical  &right_index_mod    &none   &none
 &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT  &kp K_COPY                  &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
-&trans  &trans          &trans          &trans          &trans           &kp K_PASTE                 &none              &kp LG(LS(E))             &kp LG(NUMBER_1)        &kp LC(GRAVE)       &none   &trans
-&trans  &trans          &msc SCRL_UP    &msc SCRL_DOWN  &none                                                           &trans                    &msc SCRL_UP            &msc SCRL_DOWN      &trans  &trans
-                                                        &mkp MCLK        &kt K_APPLICATION  &none    &none              &none                     &trans
+&trans  &trans          &trans          &trans          &trans           &kp K_PASTE                 &none              &kp LG(LS(E))
                                                         &mkp LCLK        &mkp RCLK          &none    &none              &trans                    &trans
             >;
         };
