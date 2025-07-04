@@ -283,7 +283,7 @@
                 #if OPERATING_SYSTEM == 'L'
                     bindings = COMPOSE_SEQ_LINUX(&kp CARET &kp LS(E));
                 #elif OPERATING_SYSTEM == 'M'
-                    bindings = COMPOSE_SEQ_MACOS(&kp RA(I) &kp LS(E));
+                    COMPOSE_SEQ_MACOS(&kp LA(I) &kp E)
                 #elif OPERATING_SYSTEM == 'W'
                     bindings = <&macro_tap &kp CARET &kp LS(E)>;
                 #endif
@@ -398,7 +398,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
-            tap-ms = <10>;
+            tap-ms = <10>;imprint_right-assimilator-bt-zmk.uf2
             bindings = <&kp RA(E) &kp LS(O)>; // Ó
         };
 
