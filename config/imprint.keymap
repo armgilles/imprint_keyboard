@@ -958,7 +958,7 @@ combos {
   #ifndef COMBO_FIRING_DECAY
   #define COMBO_FIRING_DECAY 50
   #endif
-  #ifdef LAYER_Cursor
+  
   #ifdef _A_TAB
   combo_alt_tab_switcher {
     timeout-ms = <COMBO_FIRING_DECAY>;
