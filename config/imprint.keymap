@@ -132,57 +132,58 @@
         };
 
         // World character behaviors (système complet basé sur Glove80)
-        // Correction pour à/À
+        // === MACROS UNICODE POUR macOS ===
+        // Délais pour la saisie Unicode
+        #ifndef UNICODE_TAP_DELAY
+        #define UNICODE_TAP_DELAY 10
+        #endif
 
+        // Correction pour à/À - Unicode
         world_a_grave_macro: world_a_grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp A>; // à
+            wait-ms = <UNICODE_TAP_DELAY>;
+            tap-ms = <UNICODE_TAP_DELAY>;
+            // Séquence Unicode pour à (0x00E0) sur macOS
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N0>, <&macro_release &kp LALT>;
         };
 
         world_a_grave_upper_macro: world_a_grave_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp LS(A)>; // À
+            wait-ms = <UNICODE_TAP_DELAY>;
+            tap-ms = <UNICODE_TAP_DELAY>;
+            // Séquence Unicode pour À (0x00C0) sur macOS
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N0>, <&macro_release &kp LALT>;
         };
 
         world_a_base_perso: world_a_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_grave_macro>, <&world_a_grave_upper_macro>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Correction pour è/È - définir les macros AVANT world_e_base_perso
-
+        // Correction pour è/È (grave) - Unicode
         world_e_grave_macro: world_e_grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp E>; // è
+            wait-ms = <UNICODE_TAP_DELAY>;
+            tap-ms = <UNICODE_TAP_DELAY>;
+            // Séquence Unicode pour è (0x00E8) sur macOS
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N8>, <&macro_release &kp LALT>;
         };
 
         world_e_grave_upper_macro: world_e_grave_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp LS(E)>; // È
+            wait-ms = <UNICODE_TAP_DELAY>;
+            tap-ms = <UNICODE_TAP_DELAY>;
+            // Séquence Unicode pour È (0x00C8) sur macOS
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N8>, <&macro_release &kp LALT>;
         };
 
-        // === CORRECTION DES MACROS UNICODE POUR macOS ===
-        // Délais pour la saisie Unicode
-        #ifndef UNICODE_TAP_DELAY
-        #define UNICODE_TAP_DELAY 10
-        #endif
-
-        // Correction pour ê/Ê (circonflexe) - macros utilisées par world_e_base_perso
+        // Correction pour ê/Ê (circonflexe) - Unicode
         world_e_circumflex_macro: world_e_circumflex_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -209,42 +210,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Créer aussi un behavior world_e_circumflex pour utilisation directe si besoin
-        world_e_circumflex: world_e_circumflex {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&world_e_circumflex_macro>, <&world_e_circumflex_upper_macro>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // Correction pour è/È (grave) - nouvelles macros Unicode
-        world_e_grave_macro: world_e_grave_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <UNICODE_TAP_DELAY>;
-            tap-ms = <UNICODE_TAP_DELAY>;
-            // Séquence Unicode pour è (0x00E8) sur macOS
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N8>, <&macro_release &kp LALT>;
-        };
-
-        world_e_grave_upper_macro: world_e_grave_upper_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <UNICODE_TAP_DELAY>;
-            tap-ms = <UNICODE_TAP_DELAY>;
-            // Séquence Unicode pour È (0x00C8) sur macOS
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N8>, <&macro_release &kp LALT>;
-        };
-
-        // Behavior pour è/È si vous en avez besoin séparément
-        world_e_grave: world_e_grave {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&world_e_grave_macro>, <&world_e_grave_upper_macro>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // Correction pour é/É (aigu) - nouvelles macros Unicode
+        // Correction pour é/É (aigu) - Unicode
         world_e_acute_macro: world_e_acute_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -263,7 +229,7 @@
             bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N9>, <&macro_release &kp LALT>;
         };
 
-        // Version avec support Shift pour É
+        // Version avec support Shift pour é/É
         world_e_acute_with_shift: world_e_acute_with_shift {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -271,144 +237,187 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // World character behaviors (système complet basé sur Glove80)
-        // Correction pour à/À
+        // Behaviors supplémentaires pour autres caractères
+        world_u_ctrl: world_u_ctrl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(I)>, <&kp RA(LS(I))>;
+            // û -> Û (Option+I puis u/U pour macOS)
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
-        world_a_grave_macro: world_a_grave_macro {
+        world_e_diaeresis_macro: world_e_diaeresis_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp A>; // à
+            bindings = <&kp RA(U) &kp E>; // Option+U puis E pour ë
         };
 
-        world_a_grave_upper_macro: world_a_grave_upper_macro {
+        world_e_diaeresis_upper_macro: world_e_diaeresis_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp LS(A)>; // À
+            bindings = <&kp RA(U) &kp LS(E)>; // Option+U puis Shift+E pour Ë
         };
 
-        world_a_base_perso: world_a_base_perso {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&world_a_grave_macro>, <&world_a_grave_upper_macro>;
-
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // Correction pour è/È - définir les macros AVANT world_e_base_perso
-
-        world_e_grave_macro: world_e_grave_macro {
+        world_i_diaeresis_macro: world_i_diaeresis_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp E>; // è
+            bindings = <&kp RA(U) &kp I>; // Option+U puis I pour ï
         };
 
-        world_e_grave_upper_macro: world_e_grave_upper_macro {
+        world_i_diaeresis_upper_macro: world_i_diaeresis_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&kp RA(GRAVE) &kp LS(E)>; // È
+            bindings = <&kp RA(U) &kp LS(I)>; // Option+U puis Shift+I pour Ï
         };
 
-        // === CORRECTION DES MACROS UNICODE POUR macOS ===
-        // Délais pour la saisie Unicode
-        #ifndef UNICODE_TAP_DELAY
-        #define UNICODE_TAP_DELAY 10
-        #endif
-
-        // Correction pour ê/Ê (circonflexe) - macros utilisées par world_e_base_perso
-        world_e_circumflex_macro: world_e_circumflex_macro {
+        world_o_circumflex_macro: world_o_circumflex_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <UNICODE_TAP_DELAY>;
-            tap-ms = <UNICODE_TAP_DELAY>;
-            // Séquence Unicode pour ê (0x00EA) sur macOS
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp A>, <&macro_release &kp LALT>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp O>; // Option+I puis O pour ô
         };
 
-        world_e_circumflex_upper_macro: world_e_circumflex_upper_macro {
+        world_o_circumflex_upper_macro: world_o_circumflex_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <UNICODE_TAP_DELAY>;
-            tap-ms = <UNICODE_TAP_DELAY>;
-            // Séquence Unicode pour Ê (0x00CA) sur macOS
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp A>, <&macro_release &kp LALT>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp LS(O)>; // Option+I puis Shift+O pour Ô
         };
 
-        // Mettre à jour world_e_base_perso pour utiliser les nouvelles macros Unicode
-        world_e_base_perso: world_e_base_perso {
+        world_ae_macro: world_ae_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(SQT)>; // Option+' pour æ sur macOS
+        };
+
+        world_ae_upper_macro: world_ae_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(LS(SQT))>; // Option+Shift+' pour Æ sur macOS
+        };
+
+        world_y_base: world_y_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&world_e_circumflex_macro>, <&world_e_circumflex_upper_macro>;
+            bindings = <&kp RA(E) &kp Y>, <&kp RA(U) &kp Y>;
+            // ý -> ÿ
+            mods = <(MOD_LCTL)>;
+        };
+
+        world_i_acute_macro: world_i_acute_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp I>; // í
+        };
+
+        world_i_acute_upper_macro: world_i_acute_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp LS(I)>; // Í
+        };
+
+        world_i_base: world_i_base {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_acute_macro>, <&world_i_acute_upper_macro>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Créer aussi un behavior world_e_circumflex pour utilisation directe si besoin
-        world_e_circumflex: world_e_circumflex {
+        world_o_acute_macro: world_o_acute_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp O>; // ó
+        };
+
+        world_o_acute_upper_macro: world_o_acute_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp LS(O)>; // Ó
+        };
+
+        world_o_base: world_o_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&world_e_circumflex_macro>, <&world_e_circumflex_upper_macro>;
+            bindings = <&world_o_acute_macro>, <&world_o_acute_upper_macro>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Correction pour è/È (grave) - nouvelles macros Unicode
-        world_e_grave_macro: world_e_grave_macro {
+        world_u_grave_macro: world_u_grave_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <UNICODE_TAP_DELAY>;
-            tap-ms = <UNICODE_TAP_DELAY>;
-            // Séquence Unicode pour è (0x00E8) sur macOS
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N8>, <&macro_release &kp LALT>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp U>; // ù
         };
 
-        world_e_grave_upper_macro: world_e_grave_upper_macro {
+        world_u_grave_upper_macro: world_u_grave_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <UNICODE_TAP_DELAY>;
-            tap-ms = <UNICODE_TAP_DELAY>;
-            // Séquence Unicode pour È (0x00C8) sur macOS
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N8>, <&macro_release &kp LALT>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp LS(U)>; // Ù
         };
 
-        // Behavior pour è/È si vous en avez besoin séparément
-        world_e_grave: world_e_grave {
+        world_u_base_perso: world_u_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&world_e_grave_macro>, <&world_e_grave_upper_macro>;
+            bindings = <&world_u_grave_macro>, <&world_u_grave_upper_macro>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Correction pour é/É (aigu) - nouvelles macros Unicode
-        world_e_acute_macro: world_e_acute_macro {
+        world_c_cedilla_macro: world_c_cedilla_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <UNICODE_TAP_DELAY>;
-            tap-ms = <UNICODE_TAP_DELAY>;
-            // Séquence Unicode pour é (0x00E9) sur macOS
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp N9>, <&macro_release &kp LALT>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(C) &kp C>; // ç (sur macOS US: Alt+C puis C)
         };
 
-        world_e_acute_upper_macro: world_e_acute_upper_macro {
+        world_c_cedilla_upper_macro: world_c_cedilla_upper_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <UNICODE_TAP_DELAY>;
-            tap-ms = <UNICODE_TAP_DELAY>;
-            // Séquence Unicode pour É (0x00C9) sur macOS
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp N9>, <&macro_release &kp LALT>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(C) &kp LS(C)>; // Ç
         };
 
-        // Version avec support Shift pour É
-        world_e_acute_with_shift: world_e_acute_with_shift {
+        world_consonants_base_perso: world_consonants_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&world_e_acute_macro>, <&world_e_acute_upper_macro>;
+            bindings = <&kp RA(C)>, <&kp RA(LS(C))>;
+            // ç -> Ç (simplifié)
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Behavior pour é/É (version corrigée pour macOS US)
+        world_e_acute: world_e_acute {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp E>; // Alt + E puis E pour é sur macOS US
         };
 
         // Layer tap behaviors
