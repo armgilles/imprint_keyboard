@@ -7,6 +7,49 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
+//
+// WORLD_USE_COMPOSE uses OS-native Compose keycodes instead of Unicode
+// for characters in the "compositions" section of the world layer.
+//
+#define WORLD_USE_COMPOSE
+
+//
+// COMPOSE_KEY_LINUX specifies the keycode for Compose key in Linux,
+// which may be RALT by default but can be reconfigured.
+//
+#ifndef COMPOSE_KEY_LINUX
+#define COMPOSE_KEY_LINUX RALT
+#endif
+
+//
+// COMPOSE_SEQ_LINUX() prefixes keystrokes with the Linux Compose key.
+//
+#ifndef COMPOSE_SEQ_LINUX
+#define COMPOSE_SEQ_LINUX(keystrokes) \
+    <&macro_tap &kp COMPOSE_KEY_LINUX keystrokes>
+#endif
+
+//
+// COMPOSE_SEQ_MACOS() formats keystrokes for macOS character entry.
+//
+#ifndef COMPOSE_SEQ_MACOS
+#define COMPOSE_SEQ_MACOS(keystrokes) \
+    <&macro_tap keystrokes>
+#endif
+
+//
+// COMPOSE_SEQ_WINDOWS() wraps keystrokes in Windows AltCode sequence.
+//
+#ifndef COMPOSE_SEQ_WINDOWS
+#define COMPOSE_SEQ_WINDOWS(keystrokes) \
+    <&macro_release &kp LALT>
+#endif
+
+// Detect operating system (default to macOS for now)
+#ifndef OPERATING_SYSTEM
+#define OPERATING_SYSTEM 'M'
+#endif
+
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
@@ -212,13 +255,23 @@
             bindings = <&kp RA(U) &kp LS(E)>; // Option+U puis Shift+E pour Ë
         };
 
-        // Correction pour ê/Ê (circonflexe) - système Unicode Glove80
+        // Correction pour ê/Ê (circonflexe) - utilise WORLD_USE_COMPOSE
         world_e_circumflex_macro: world_e_circumflex_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp A>, <&macro_release &kp LALT>;
+            #ifdef WORLD_USE_COMPOSE
+                #if OPERATING_SYSTEM == 'L'
+                    bindings = COMPOSE_SEQ_LINUX(&kp CARET &kp E);
+                #elif OPERATING_SYSTEM == 'M'
+                    bindings = COMPOSE_SEQ_MACOS(&kp RA(I) &kp E);
+                #elif OPERATING_SYSTEM == 'W'
+                    bindings = <&macro_tap &kp CARET &kp E>;
+                #endif
+            #else
+                bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp A>, <&macro_release &kp LALT>;
+            #endif
         };
 
         world_e_circumflex_upper_macro: world_e_circumflex_upper_macro {
@@ -226,7 +279,17 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp A>, <&macro_release &kp LALT>;
+            #ifdef WORLD_USE_COMPOSE
+                #if OPERATING_SYSTEM == 'L'
+                    bindings = COMPOSE_SEQ_LINUX(&kp CARET &kp LS(E));
+                #elif OPERATING_SYSTEM == 'M'
+                    bindings = COMPOSE_SEQ_MACOS(&kp RA(I) &kp LS(E));
+                #elif OPERATING_SYSTEM == 'W'
+                    bindings = <&macro_tap &kp CARET &kp LS(E)>;
+                #endif
+            #else
+                bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp A>, <&macro_release &kp LALT>;
+            #endif
         };
 
         // Correction pour ï/Ï (tréma sur i)
