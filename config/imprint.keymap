@@ -10889,6 +10889,33 @@ UNICODE_MORPH_MODS
     };
 };
 
+/ {
+    behaviors {
+        // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
+        // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
+        lower: lower {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_TAP_DANCE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo LAYER_Lower>, <&to LAYER_Lower>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        magic: magic {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MAGIC_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+    };
+};
+
 /* Automatically generated combos definitions */
 
 
