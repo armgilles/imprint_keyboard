@@ -614,7 +614,6 @@
         // === MACROS BLUETOOTH AVEC RGB ===
 
         bt_0_connect: bt_0_connect {
-            label = "BT_0_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -625,7 +624,6 @@
         };
 
         bt_1_connect: bt_1_connect {
-            label = "BT_1_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -636,7 +634,6 @@
         };
 
         bt_2_connect: bt_2_connect {
-            label = "BT_2_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -647,7 +644,6 @@
         };
 
         bt_3_connect: bt_3_connect {
-            label = "BT_3_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -658,7 +654,6 @@
         };
 
         bt_4_connect: bt_4_connect {
-            label = "BT_4_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -669,7 +664,6 @@
         };
 
         usb_connect: usb_connect {
-            label = "USB_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -726,7 +720,6 @@
 
     macros {
         world_e_grave_windows: world_e_grave_windows {
-            label = "WORLD_E_GRAVE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -734,25 +727,19 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>;
-
-            // è (Alt+0232)
         };
 
         // Ajouter la macro manquante pour é
 
         world_e_acute_windows: world_e_acute_windows {
-            label = "WORLD_E_ACUTE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
             bindings = <&macro_tap>, <&kp SQT &kp E>;
-
-            // Windows US Intl: ' puis e pour é
         };
 
         world_a_grave_windows: world_a_grave_windows {
-            label = "WORLD_A_GRAVE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -760,12 +747,9 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>;
-
-            // à (Alt+0224)
         };
 
         world_u_grave_windows: world_u_grave_windows {
-            label = "WORLD_U_GRAVE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -773,12 +757,9 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>;
-
-            // ù (Alt+0249)
         };
 
         world_o_circumflex_windows: world_o_circumflex_windows {
-            label = "WORLD_O_CIRCUMFLEX_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -786,12 +767,9 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>;
-
-            // ô (Alt+0244)
         };
 
         world_c_cedilla_windows: world_c_cedilla_windows {
-            label = "WORLD_C_CEDILLA_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -799,8 +777,6 @@
             bindings =
                 <&macro_tap>,
                 <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>;
-
-            // ç (Alt+0231)
         };
     };
 
@@ -949,7 +925,6 @@
     // Navigation entre groupes/panels (style Vim en VS Code)
 
     focus_left_group: focus_left_group {
-        label = "FOCUS_LEFT_GROUP";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -958,7 +933,6 @@
     };
 
     focus_right_group: focus_right_group {
-        label = "FOCUS_RIGHT_GROUP";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -967,7 +941,6 @@
     };
 
     focus_up_group: focus_up_group {
-        label = "FOCUS_UP_GROUP";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -976,7 +949,6 @@
     };
 
     focus_down_group: focus_down_group {
-        label = "FOCUS_DOWN_GROUP";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -984,10 +956,7 @@
         bindings = <&macro_tap>, <&kp LC(E) &kp J>;
     };
 
-    // Division de l'éditeur (split windows)
-
     split_editor_vertical: split_editor_vertical {
-        label = "SPLIT_EDITOR_VERTICAL";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -996,7 +965,6 @@
     };
 
     split_editor_horizontal: split_editor_horizontal {
-        label = "SPLIT_EDITOR_HORIZONTAL";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -1004,9 +972,7 @@
         bindings = <&macro_tap>, <&kp LC(E) &kp S>;
     };
 
-    // To increase / decrease current view VsCode
     increase_vscode_view: increase_vscode_view {
-        label = "&increase_vscode_view";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -1018,6 +984,40 @@
     };
 
     decrease_vscode_view: decrease_vscode_view {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings
+            = <&macro_tap>
+            , <&kp LC(T)>
+            , <&kp KP_MINUS>;
+    };
+
+    // Behaviors pour modificateurs dans layer mouse (sticky keys)
+
+    right_index_mod: right_index_mod {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&sk RCTRL>, <&kp RCTRL>;
+
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
+
+    right_pinky_mod: right_pinky_mod {
+        compatible = "zmk,behavior-mod-morph";
+        #binding-cells = <0>;
+        bindings = <&sk RSHFT>, <&kp RSHFT>;
+
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
+};
+
+// Configuration trackball main droite
+&trackball_peripheral_listener {
+    input-processors =
+        <&zip_temp_layer 8 500>;
+};
         label = "&decrease_vscode_view";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
