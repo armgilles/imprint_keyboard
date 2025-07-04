@@ -1,3 +1,4 @@
+
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
@@ -42,113 +43,12 @@
 //
 #ifndef COMPOSE_SEQ_WINDOWS
 #define COMPOSE_SEQ_WINDOWS(keystrokes) \
-    <&macro_press &kp LALT>, <&macro_tap keystrokes>, <&macro_release &kp LALT>
+    <&macro_release &kp LALT>
 #endif
 
 // Detect operating system (default to macOS for now)
 #ifndef OPERATING_SYSTEM
 #define OPERATING_SYSTEM 'M'
-#endif
-
-//
-// Exact Glove80 macro generation for world characters
-//
-#if OPERATING_SYSTEM == 'L'
-    #ifdef WORLD_USE_COMPOSE
-    #define WORLD_USE_COMPOSE_FOR_world_e_circumflex_lower
-    #define world_e_circumflex_lower_bindings COMPOSE_SEQ_LINUX(&kp CARET &kp E)
-    #else
-    #define world_e_circumflex_lower_bindings UNICODE_SEQ_LINUX(&kp _NE &kp _NA)
-    #endif
-#elif OPERATING_SYSTEM == 'M'
-    #ifdef WORLD_USE_COMPOSE
-    #define WORLD_USE_COMPOSE_FOR_world_e_circumflex_lower
-    #define world_e_circumflex_lower_bindings COMPOSE_SEQ_MACOS(&kp LA(I) &kp E)
-    #else
-    #define world_e_circumflex_lower_bindings UNICODE_SEQ_MACOS(&kp _N0 &kp _N0 &kp _NE &kp _NA)
-    #endif
-#elif OPERATING_SYSTEM == 'W'
-    #ifdef WORLD_USE_COMPOSE
-    #define WORLD_USE_COMPOSE_FOR_world_e_circumflex_lower
-    #define world_e_circumflex_lower_bindings COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N4)
-    #else
-    #define world_e_circumflex_lower_bindings UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _NA)
-    #endif
-#endif
-
-#if OPERATING_SYSTEM == 'L'
-    #ifdef WORLD_USE_COMPOSE
-    #define WORLD_USE_COMPOSE_FOR_world_e_circumflex_upper
-    #define world_e_circumflex_upper_bindings COMPOSE_SEQ_LINUX(&kp CARET &kp LS(E))
-    #else
-    #define world_e_circumflex_upper_bindings UNICODE_SEQ_LINUX(&kp _NC &kp _NA)
-    #endif
-#elif OPERATING_SYSTEM == 'M'
-    #ifdef WORLD_USE_COMPOSE
-    #define WORLD_USE_COMPOSE_FOR_world_e_circumflex_upper
-    #define world_e_circumflex_upper_bindings COMPOSE_SEQ_MACOS(&kp LA(I) &kp LS(E))
-    #else
-    #define world_e_circumflex_upper_bindings UNICODE_SEQ_MACOS(&kp _N0 &kp _N0 &kp _NC &kp _NA)
-    #endif
-#elif OPERATING_SYSTEM == 'W'
-    #ifdef WORLD_USE_COMPOSE
-    #define WORLD_USE_COMPOSE_FOR_world_e_circumflex_upper
-    #define world_e_circumflex_upper_bindings COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N2)
-    #else
-    #define world_e_circumflex_upper_bindings UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NC &kp _NA)
-    #endif
-#endif
-
-//
-// Unicode constants (from Glove80)
-//
-#ifndef _N0
-#define _N0 N0
-#endif
-#ifndef _N1
-#define _N1 N1
-#endif
-#ifndef _N2
-#define _N2 N2
-#endif
-#ifndef _N3
-#define _N3 N3
-#endif
-#ifndef _N4
-#define _N4 N4
-#endif
-#ifndef _N5
-#define _N5 N5
-#endif
-#ifndef _N6
-#define _N6 N6
-#endif
-#ifndef _N7
-#define _N7 N7
-#endif
-#ifndef _N8
-#define _N8 N8
-#endif
-#ifndef _N9
-#define _N9 N9
-#endif
-#ifndef _NA
-#define _NA A
-#endif
-#ifndef _NB
-#define _NB B
-#endif
-#ifndef _NC
-#define _NC C
-#endif
-#ifndef _ND
-#define _ND D
-#endif
-#ifndef _NE
-#define _NE E
-#endif
-#ifndef _NF
-#define _NF F
 #endif
 
 / {
@@ -320,36 +220,11 @@
             bindings = <&kp RA(GRAVE) &kp LS(E)>; // È
         };
 
-        // Correction pour ê/Ê (circonflexe) - utilise les macros C définies
-        world_e_circumflex_lower_macro: world_e_circumflex_lower_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = world_e_circumflex_lower_bindings;
-        };
-
-        world_e_circumflex_upper_macro: world_e_circumflex_upper_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <10>;
-            tap-ms = <10>;
-            bindings = world_e_circumflex_upper_bindings;
-        };
-
-        // Behavior pour ê/Ê avec support Shift
-        world_e_circumflex: world_e_circumflex {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&world_e_circumflex_lower_macro>, <&world_e_circumflex_upper_macro>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // Mise à jour de world_e_base_perso pour utiliser ê/Ê au lieu de è/È
         world_e_base_perso: world_e_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&world_e_circumflex_lower_macro>, <&world_e_circumflex_upper_macro>;
+            bindings = <&world_e_grave_macro>, <&world_e_grave_upper_macro>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -379,6 +254,43 @@
             wait-ms = <10>;
             tap-ms = <10>;
             bindings = <&kp RA(U) &kp LS(E)>; // Option+U puis Shift+E pour Ë
+        };
+
+        // Correction pour ê/Ê (circonflexe) - utilise WORLD_USE_COMPOSE
+        world_e_circumflex_macro: world_e_circumflex_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            #ifdef WORLD_USE_COMPOSE
+                #if OPERATING_SYSTEM == 'L'
+                    bindings = COMPOSE_SEQ_LINUX(&kp CARET &kp E);
+                #elif OPERATING_SYSTEM == 'M'
+                    bindings = COMPOSE_SEQ_MACOS(&kp RA(I) &kp E);
+                #elif OPERATING_SYSTEM == 'W'
+                    bindings = <&macro_tap &kp CARET &kp E>;
+                #endif
+            #else
+                bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp A>, <&macro_release &kp LALT>;
+            #endif
+        };
+
+        world_e_circumflex_upper_macro: world_e_circumflex_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            #ifdef WORLD_USE_COMPOSE
+                #if OPERATING_SYSTEM == 'L'
+                    bindings = COMPOSE_SEQ_LINUX(&kp CARET &kp LS(E));
+                #elif OPERATING_SYSTEM == 'M'
+                    bindings = COMPOSE_SEQ_MACOS(&kp LA(I) &kp LS(E));
+                #elif OPERATING_SYSTEM == 'W'
+                    bindings = <&macro_tap &kp CARET &kp LS(E)>;
+                #endif
+            #else
+                bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp A>, <&macro_release &kp LALT>;
+            #endif
         };
 
         // Correction pour ï/Ï (tréma sur i)
@@ -703,46 +615,62 @@
         // === MACROS BLUETOOTH AVEC RGB ===
 
         bt_0_connect: bt_0_connect {
+            label = "BT_0_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_TOG>;
         };
 
         bt_1_connect: bt_1_connect {
+            label = "BT_1_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE &bt BT_SEL 1 &rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 1 &rgb_ug RGB_TOG>;
         };
 
         bt_2_connect: bt_2_connect {
+            label = "BT_2_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE &bt BT_SEL 2 &rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 2 &rgb_ug RGB_TOG>;
         };
 
         bt_3_connect: bt_3_connect {
+            label = "BT_3_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE &bt BT_SEL 3 &rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 3 &rgb_ug RGB_TOG>;
         };
 
         bt_4_connect: bt_4_connect {
+            label = "BT_4_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap>, <&out OUT_BLE &bt BT_SEL 4 &rgb_ug RGB_TOG>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 4 &rgb_ug RGB_TOG>;
         };
 
         usb_connect: usb_connect {
+            label = "USB_CONNECT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -753,6 +681,7 @@
         // === MACROS WINDOWS MODE ===
 
         windows_mode_on: windows_mode_on {
+            label = "WINDOWS_MODE_ON";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -761,6 +690,7 @@
         };
 
         windows_mode_off: windows_mode_off {
+            label = "WINDOWS_MODE_OFF";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -771,6 +701,7 @@
         // === MACRO SIMPLE WINDOWS MODE TOGGLE ===
 
         windows_mode_toggle: windows_mode_toggle {
+            label = "WINDOWS_MODE_TOGGLE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -796,6 +727,7 @@
 
     macros {
         world_e_grave_windows: world_e_grave_windows {
+            label = "WORLD_E_GRAVE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -810,6 +742,7 @@
         // Ajouter la macro manquante pour é
 
         world_e_acute_windows: world_e_acute_windows {
+            label = "WORLD_E_ACUTE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -820,6 +753,7 @@
         };
 
         world_a_grave_windows: world_a_grave_windows {
+            label = "WORLD_A_GRAVE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -832,6 +766,7 @@
         };
 
         world_u_grave_windows: world_u_grave_windows {
+            label = "WORLD_U_GRAVE_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -844,6 +779,7 @@
         };
 
         world_o_circumflex_windows: world_o_circumflex_windows {
+            label = "WORLD_O_CIRCUMFLEX_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -856,6 +792,7 @@
         };
 
         world_c_cedilla_windows: world_c_cedilla_windows {
+            label = "WORLD_C_CEDILLA_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -871,17 +808,18 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: QWERTY avec home row mods style Glove80
+        // Layer 0: QWERTY avec home row mods différenciés par doigt
+
         qwerty_layer {
             bindings = <
 &none  &none               &none              &none                      &none          &none                       &none       &none            &none              &none              &none               &none
 &none  &kp N1              &kp N2             &world_e_acute_with_shift  &kp SQT        &kp N5                      &kp N6      &kp N7           &kp N8             &kp N9             &kp N0              &none
 &none  &kp Q               &kp W              &kp E                      &kp R          &kp T                       &kp Y       &kp U            &kp I              &kp O              &kp SEMI            &none
-&none  &lmt_pinky LCTRL A  &lmt_ringy LALT S  &lmt_middy LGUI D          &lmt INDEX LSHFT F   &kp G             &kp H       &rmt INDEX RSHFT J     &rmt_middy RGUI K  &rmt_ringy RALT L  &rmt_pinky RCTRL P  &none
+&none  &lmt_pinky LCTRL A  &lmt_ringy LALT S  &lmt_middy LGUI D          &lmt LSHFT F   &kp G                       &kp H       &rmt RSHFT J     &rmt_middy RGUI K  &rmt_ringy RALT L  &rmt_pinky RCTRL P  &none
 &none  &kp Z               &kp X              &kp C                      &kp V          &kp B                       &kp N       &kp M            &kp COMMA          &kp DOT            &kp FSLH            &none
 &none  &none               &kp UP             &kp DOWN                   &none                                                  &none            &kp LBKT           &kp RBKT           &none               &none
                                                                          &thumb 6 ESC   &none         &none         &none       &thumb 4 INSERT  &thumb 5 ENTER
-                                                                         &thumb 1 BSPC  &thumb 2 DEL  &magic 24 0   &caps_word  &thumb 8 TAB     &space 3 SPACE
+                                                                         &thumb 1 BSPC  &thumb 2 DEL  &hyper_key    &caps_word  &thumb 8 TAB     &space 3 SPACE
             >;
         };
 
@@ -1012,6 +950,7 @@
     // Navigation entre groupes/panels (style Vim en VS Code)
 
     focus_left_group: focus_left_group {
+        label = "FOCUS_LEFT_GROUP";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -1020,6 +959,7 @@
     };
 
     focus_right_group: focus_right_group {
+        label = "FOCUS_RIGHT_GROUP";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -1028,6 +968,7 @@
     };
 
     focus_up_group: focus_up_group {
+        label = "FOCUS_UP_GROUP";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -1036,6 +977,7 @@
     };
 
     focus_down_group: focus_down_group {
+        label = "FOCUS_DOWN_GROUP";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -1046,6 +988,7 @@
     // Division de l'éditeur (split windows)
 
     split_editor_vertical: split_editor_vertical {
+        label = "SPLIT_EDITOR_VERTICAL";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -1054,6 +997,7 @@
     };
 
     split_editor_horizontal: split_editor_horizontal {
+        label = "SPLIT_EDITOR_HORIZONTAL";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
@@ -1063,25 +1007,34 @@
 
     // To increase / decrease current view VsCode
     increase_vscode_view: increase_vscode_view {
+        label = "&increase_vscode_view";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
         tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(T)>, <&kp KP_PLUS>;
+        bindings
+            = <&macro_tap>
+            , <&kp LC(T)>
+            , <&kp KP_PLUS>;
     };
 
     decrease_vscode_view: decrease_vscode_view {
+        label = "&decrease_vscode_view";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <5>;
         tap-ms = <5>;
-        bindings = <&macro_tap>, <&kp LC(T)>, <&kp KP_MINUS>;
+        bindings
+            = <&macro_tap>
+            , <&kp LC(T)>
+            , <&kp KP_MINUS>;
     };
 
     // Behaviors pour modificateurs dans layer mouse (sticky keys)
 
     right_index_mod: right_index_mod {
         compatible = "zmk,behavior-mod-morph";
+        label = "RIGHT_INDEX_MOD";
         #binding-cells = <0>;
         bindings = <&sk RCTRL>, <&kp RCTRL>;
 
@@ -1090,6 +1043,7 @@
 
     right_pinky_mod: right_pinky_mod {
         compatible = "zmk,behavior-mod-morph";
+        label = "RIGHT_PINKY_MOD";
         #binding-cells = <0>;
         bindings = <&sk RSHFT>, <&kp RSHFT>;
 
@@ -1102,3 +1056,4 @@
     input-processors =
         <&zip_temp_layer 8 500>;
 };
+
