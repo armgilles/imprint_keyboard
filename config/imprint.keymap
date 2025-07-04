@@ -398,7 +398,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
-            tap-ms = <10>;imprint_right-assimilator-bt-zmk.uf2
+            tap-ms = <10>;
             bindings = <&kp RA(E) &kp LS(O)>; // Ó
         };
 
