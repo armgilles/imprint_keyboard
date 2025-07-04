@@ -283,7 +283,7 @@
                 #if OPERATING_SYSTEM == 'L'
                     bindings = COMPOSE_SEQ_LINUX(&kp CARET &kp LS(E));
                 #elif OPERATING_SYSTEM == 'M'
-                    COMPOSE_SEQ_MACOS(&kp LA(I) &kp E)
+                    bindings = COMPOSE_SEQ_MACOS(&kp LA(I) &kp E)
                 #elif OPERATING_SYSTEM == 'W'
                     bindings = <&macro_tap &kp CARET &kp LS(E)>;
                 #endif
