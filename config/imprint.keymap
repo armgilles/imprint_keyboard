@@ -321,7 +321,7 @@
         };
 
         // Correction pour ê/Ê (circonflexe) - utilise les macros C définies
-        world_e_circumflex_macro: world_e_circumflex_macro {
+        world_e_circumflex_lower_macro: world_e_circumflex_lower_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
