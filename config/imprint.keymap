@@ -158,7 +158,7 @@
 };
 
 
-* Custom Defined Behaviors */
+/* Custom Defined Behaviors */
 / {
 // NOTE: Use the many #define settings below to customize this keymap!
 #define MOUSE_SCALER_FAST 3 1
