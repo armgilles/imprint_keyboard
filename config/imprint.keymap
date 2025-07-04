@@ -10872,7 +10872,18 @@ UNICODE_MORPH_MODS
 /* Automatically generated behavior definitions */
 / {
     behaviors {
-
+        // Définir tous vos behaviors custom ici
+        LeftPinky: LeftPinky {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_PINKY";
+            #binding-cells = <1>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+        
+        // Répéter pour LeftRingy, LeftMiddy, LeftIndex, etc.
+        // ...existing code...
     };
 };
 
