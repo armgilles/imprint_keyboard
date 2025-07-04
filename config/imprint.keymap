@@ -10914,11 +10914,10 @@ UNICODE_MORPH_MODS
     };
 };
 
-/* Automatically generated combos definitions */
 
-
-/* Automatically generated keymap */
 / {
+    chosen { zmk,matrix-transform = &imprint_function_row;
+    };
     keymap {
         compatible = "zmk,keymap";
 
