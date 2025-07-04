@@ -212,13 +212,13 @@
             bindings = <&kp RA(U) &kp LS(E)>; // Option+U puis Shift+E pour Ë
         };
 
-        // Correction pour ê/Ê (circonflexe) - système Unicode Glove80
+        // Correction pour ê/Ê (circonflexe) - séquence macOS comme Glove80
         world_e_circumflex_macro: world_e_circumflex_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp E &kp A>, <&macro_release &kp LALT>;
+            bindings = <&kp LA(I) &kp E>; // Option+I puis E pour ê
         };
 
         world_e_circumflex_upper_macro: world_e_circumflex_upper_macro {
@@ -226,7 +226,7 @@
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp N0 &kp N0 &kp C &kp A>, <&macro_release &kp LALT>;
+            bindings = <&kp LA(I) &kp LS(E)>; // Option+I puis Shift+E pour Ê
         };
 
         // Correction pour ï/Ï (tréma sur i)
@@ -892,7 +892,6 @@
         wait-ms = <5>;
         tap-ms = <5>;
         bindings = <&macro_tap>, <&kp LC(E) &kp H>;
-    };
 
     focus_right_group: focus_right_group {
         label = "FOCUS_RIGHT_GROUP";
