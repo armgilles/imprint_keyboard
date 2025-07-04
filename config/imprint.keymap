@@ -984,10 +984,10 @@
 
         mods = <(MOD_LALT|MOD_RALT)>;
     };
-
-    // Configuration trackball main droite
-    &trackball_peripheral_listener {
-        input-processors =
-            <&zip_temp_layer 8 500>;
-    };
 };
+
+// Configuration trackball main droite - Commenté temporairement pour corriger l'erreur de build
+// &trackball_peripheral_listener {
+//     input-processors =
+//         <&zip_temp_layer 8 500>;
+// };
