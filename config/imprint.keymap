@@ -1,46 +1,15 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
-/* Include all behavior includes needed */
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
-/* On demand includes */
 
 
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
-
-    combos {
-        compatible = "zmk,combos";
-
-        //
-        // COMBO_FIRING_DECAY defines how much time you have left (milliseconds)
-        // after pressing the first key in a ZMK combo to finish the whole chord.
-        //
-        #ifndef COMBO_FIRING_DECAY
-        #define COMBO_FIRING_DECAY 50
-        #endif
-        
-        #ifdef _A_TAB
-        combo_alt_tab_switcher {
-            timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <76 70>; // BACKSPACE (position 76) + ESC (position 70)
-            bindings = <&mod_tab_chord _A_TAB LAYER_Cursor>;
-            layers = <0 1 2 3 4 5 6 7>;
-        };
-        #endif
-
-        combo_sticky_hyper_right {
-            timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
-            bindings = <&sk LG(LA(LC(LSHFT)))>;
-            layers = <0 1 2 3 4 5 6 7>;
-        };
-
-    };
 
     behaviors {
         #define LAYER_QWERTY 0
@@ -2676,6 +2645,35 @@
             N1 N2 N3 N4 N5 N6 N7 N8 N9 N0
             >;
         };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        //
+        // COMBO_FIRING_DECAY defines how much time you have left (milliseconds)
+        // after pressing the first key in a ZMK combo to finish the whole chord.
+        //
+        #ifndef COMBO_FIRING_DECAY
+        #define COMBO_FIRING_DECAY 50
+        #endif
+        
+        #ifdef _A_TAB
+        combo_alt_tab_switcher {
+            timeout-ms = <COMBO_FIRING_DECAY>;
+            key-positions = <76 70>; // BACKSPACE (position 76) + ESC (position 70)
+            bindings = <&mod_tab_chord _A_TAB LAYER_Cursor>;
+            layers = <0 1 2 3 4 5 6 7>;
+        };
+        #endif
+
+        combo_sticky_hyper_right {
+            timeout-ms = <COMBO_FIRING_DECAY>;
+            key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
+            bindings = <&sk LG(LA(LC(LSHFT)))>;
+            layers = <0 1 2 3 4 5 6 7>;
+        };
+
     };
 
     macros {
