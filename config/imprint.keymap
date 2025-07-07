@@ -604,6 +604,7 @@
         #define KEY_LH_C2R3 R
         #define KEY_LH_C1R3 T
         #define KEY_RH_C1R3 Y
+
         #define KEY_LH_C5R4 A
         #define KEY_LH_C4R4 S
         #define KEY_LH_C3R4 D
