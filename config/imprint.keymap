@@ -2500,11 +2500,31 @@
         #define STICKY_1SHOT_DECAY 500
         #endif
 
-        //
-        // STICKY_HOLDING_TIME defines how long you need to hold (milliseconds)
-        // sticky one-shot keys in order to trigger their hold (not tap) action.
-        //
-
+        sticky_key_modtap: sticky_key_modtap {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "tap-preferred";
+            tapping-term-ms = <STICKY_HOLDING_TIME>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&sticky_key_oneshot>;
+        };
+        sticky_key_oneshot: sticky_key_oneshot_macro {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <1>;
+            bindings
+            = <&macro_param_1to1>
+            , <&macro_tap &sticky_key_quickrel MACRO_PLACEHOLDER>
+            ;
+        };
+        sticky_key_quickrel: sticky_key_quick_release {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <STICKY_1SHOT_DECAY>;
+            quick-release;
+            ignore-modifiers;
+        };
 
     };
 
