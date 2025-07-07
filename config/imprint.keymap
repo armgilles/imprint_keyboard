@@ -10,249 +10,6 @@
 /* On demand includes */
 
 
-/* Automatically generated layer name #define */
-#define LAYER_QWERTY 0
-#define LAYER_Typing 1
-#define LAYER_LeftPinky 2
-#define LAYER_LeftRingy 3
-#define LAYER_LeftMiddy 4
-#define LAYER_LeftIndex 5
-#define LAYER_RightPinky 6
-#define LAYER_RightRingy 7
-#define LAYER_RightMiddy 8
-#define LAYER_RightIndex 9
-#define LAYER_Cursor 10
-#define LAYER_Number 11
-#define LAYER_Function 12
-#define LAYER_Emoji 13
-#define LAYER_Symbol 14
-#define LAYER_Mouse 15
-#define LAYER_MouseSlow 16
-#define LAYER_MouseFast 17
-#define LAYER_MouseWarp 18
-#define LAYER_System 19
-#define LAYER_World 20
-#define LAYER_Gaming 21
-#define LAYER_Factory 22
-#define LAYER_Lower 23
-#define LAYER_Magic 24
-
-/* Custom Defined Behaviors */
-    
-// NOTE: Use the many #define settings below to customize this keymap!
-    #define MOUSE_SCALER_FAST 3 1
-    #define MOUSE_SCALER_WARP 12 1
-    #define MOUSE_SCALER_SLOW 1 9
-    #define ENABLE_MOUSE_KEYS  // requires v24.12-beta or newer firmware
-    #define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
-    #define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
-    #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
-    #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
-    //#define SPACE_FORGIVENESS    // allow lingering taps on the space bar
-    //#define THUMB_FORGIVENESS  // allow lingering taps on the thumb keys
-    //#define SHIFT_FORGIVENESS  // requires v24.08-beta or newer firmware
-    #define WORLD_USE_COMPOSE    // use native Compose in place of Unicode
-    //#define WORLD_HOST_AZERTY  // host computer is set to AZERTY locale
-    //#define WORLD_SHIFT_NUMBER // apply Shift to type number row digits
-    // TIP: Add more setting overrides here instead of editing them below.
-
-    //////////////////////////////////////////////////////////////////////////////
-    //
-    // Sunaku's Keymap v41 -- "Glorious Engrammer"
-    // - https://github.com/sunaku/glove80-keymaps
-    //
-    //////////////////////////////////////////////////////////////////////////////
-
-    //
-    // OPERATING_SYSTEM defines which operating system you intend to use
-    // with this keymap, because shortcuts vary across operating systems.
-    //
-    // - https://zmk.dev/docs/codes
-    // - https://en.wikipedia.org/wiki/Table_of_keyboard_shortcuts
-    //
-    // This setting also affects the UNICODE() function defined below, as
-    // each OS has different shortcuts for typing Unicode hex characters.
-    //
-    // NOTE: You may need to enable Unicode hexadecimal input in your OS:
-    // - (macOS) https://uknowit.uwgb.edu/page.php?id=22623
-    //     and   https://github.com/ldanet/unicode-hex-input-fix
-    // - (Linux) https://help.ubuntu.com/stable/ubuntu-help/tips-specialchars.html.en#ctrlshiftu
-    // - (Windows) https://github.com/samhocevar/wincompose
-    //
-    // Specifically, Windows users should be running the WinCompose tool,
-    // which lets you type Unicode characters via hexadecimal codepoints.
-    //
-    #ifndef OPERATING_SYSTEM
-    #define OPERATING_SYSTEM 'L' // linux
-    //#define OPERATING_SYSTEM 'M' // macos
-    //#define OPERATING_SYSTEM 'W' // windows
-    #endif
-    #if OPERATING_SYSTEM == 'M'
-    #define _C      LG
-    #define _A_TAB  LGUI
-    #define _G_TAB  LALT
-    #define _REDO   _C(LS(Z))
-    #define _POWER  K_POWER
-    #define _W      LA
-    #define _HOME   _C(LEFT)
-    #define _END    _C(RIGHT)
-    #define _EMOJI  LG(LC(SPACE))
-    #else
-    #define _C      LC
-    #define _A_TAB  LALT
-    #define _G_TAB  LGUI
-    #define _REDO   _C(Y)
-    #define _POWER  C_POWER
-    #define _W      _C
-    #define _HOME   HOME
-    #define _END    END
-    #define _EMOJI  LG(DOT)
-    #endif
-    #define _SLEEP      C_SLEEP
-    #if OPERATING_SYSTEM == 'W'
-    #define _LOCK   LG(L)
-    #elif OPERATING_SYSTEM == 'M'
-    #define _LOCK   _C(LC(Q))
-    #elif OPERATING_SYSTEM == 'L'
-    #define _LOCK   K_LOCK
-    #endif
-    #define _UNDO       _C(Z)
-    #define _CUT        _C(X)
-    #define _COPY       _C(C)
-    #define _PASTE      _C(V)
-    #define _FIND       _C(F)
-    #define _FIND_NEXT  _C(G)
-    #define _FIND_PREV  _C(LS(G))
-
-    //
-    // USE_NUMPAD_KEYCODES puts `KP_*` keycodes into the Number layer.
-    //
-    #ifdef USE_NUMPAD_KEYCODES
-    #define _KP_N0 KP_N0
-    #define _KP_N1 KP_N1
-    #define _KP_N2 KP_N2
-    #define _KP_N3 KP_N3
-    #define _KP_N4 KP_N4
-    #define _KP_N5 KP_N5
-    #define _KP_N6 KP_N6
-    #define _KP_N7 KP_N7
-    #define _KP_N8 KP_N8
-    #define _KP_N9 KP_N9
-    #define _KP_PLUS KP_PLUS
-    #define _KP_MINUS KP_MINUS
-    #define _KP_ASTERISK KP_ASTERISK
-    #define _KP_SLASH KP_SLASH
-    #define _KP_COMMA KP_COMMA
-    #define _KP_DOT KP_DOT
-    #define _KP_EQUAL KP_EQUAL
-    #define _KP_ENTER KP_ENTER
-    #else
-    #define _KP_N0 N0
-    #define _KP_N1 N1
-    #define _KP_N2 N2
-    #define _KP_N3 N3
-    #define _KP_N4 N4
-    #define _KP_N5 N5
-    #define _KP_N6 N6
-    #define _KP_N7 N7
-    #define _KP_N8 N8
-    #define _KP_N9 N9
-    #define _KP_PLUS PLUS
-    #define _KP_MINUS MINUS
-    #define _KP_ASTERISK ASTERISK
-    #define _KP_SLASH SLASH
-    #define _KP_COMMA COMMA
-    #define _KP_DOT DOT
-    #define _KP_EQUAL EQUAL
-    #define _KP_ENTER ENTER
-    #endif
-
-    //
-    // Keymap specific knowledge of the base layer's alpha + ZMK layout
-    //
-    #if defined(LAYER_QWERTY) && LAYER_QWERTY == 0
-    #define KEY_LH_C6R1 UP
-    #define KEY_LH_C5R1 DOWN
-    #define KEY_LH_C4R1 A
-    #define KEY_LH_C3R1 B
-    #define KEY_LH_C2R1 C
-    #define KEY_RH_C2R1 D
-    #define KEY_RH_C3R1 E
-    #define KEY_RH_C4R1 F
-    #define KEY_RH_C5R1 LEFT
-    #define KEY_RH_C6R1 RIGHT
-    #define KEY_LH_C6R2 EQUAL
-    #define KEY_LH_C5R2 N1
-    #define KEY_LH_C4R2 N2
-    #define KEY_LH_C3R2 N3
-    #define KEY_LH_C2R2 N4
-    #define KEY_LH_C1R2 N5
-    #define KEY_RH_C1R2 N6
-    #define KEY_RH_C2R2 N7
-    #define KEY_RH_C3R2 N8
-    #define KEY_RH_C4R2 N9
-    #define KEY_RH_C5R2 N0
-    #define KEY_RH_C6R2 MINUS
-    #define KEY_LH_C6R3 TAB
-    #define KEY_LH_C5R3 Q
-    #define KEY_LH_C4R3 W
-    #define KEY_LH_C3R3 E
-    #define KEY_LH_C2R3 R
-    #define KEY_LH_C1R3 T
-    #define KEY_RH_C1R3 Y
-    #define KEY_RH_C2R3 U
-    #define KEY_RH_C3R3 I
-    #define KEY_RH_C4R3 O
-    #define KEY_RH_C5R3 SEMI // was P
-    #define KEY_RH_C6R3 BSLH
-    #define KEY_LH_C6R4 CAPS
-    #define KEY_LH_C5R4 A
-    #define KEY_LH_C4R4 S
-    #define KEY_LH_C3R4 D
-    #define KEY_LH_C2R4 F
-    #define KEY_LH_C1R4 G
-    #define KEY_RH_C1R4 H
-    #define KEY_RH_C2R4 J
-    #define KEY_RH_C3R4 K
-    #define KEY_RH_C4R4 L
-    #define KEY_RH_C5R4 P // was SEMI
-    #define KEY_RH_C6R4 SQT
-    #define KEY_LH_C6R5 LSFT
-    #define KEY_LH_C5R5 Z
-    #define KEY_LH_C4R5 X
-    #define KEY_LH_C3R5 C
-    #define KEY_LH_C2R5 V
-    #define KEY_LH_C1R5 B
-    #define KEY_LH_T1 ESC
-    #define KEY_LH_T2 K_APP
-    #define KEY_LH_T3 0
-    #define KEY_RH_T3 0
-    #define KEY_RH_T2 INSERT
-    #define KEY_RH_T1 ENTER
-    #define KEY_RH_C1R5 N
-    #define KEY_RH_C2R5 M
-    #define KEY_RH_C3R5 COMMA
-    #define KEY_RH_C4R5 DOT
-    #define KEY_RH_C5R5 FSLH
-    #define KEY_RH_C6R5 RSFT
-    #define KEY_LH_C6R6 0
-    #define KEY_LH_C5R6 GRAVE
-    #define KEY_LH_C4R6 LBKT
-    #define KEY_LH_C3R6 RBKT
-    #define KEY_LH_C2R6 LSFT
-    #define KEY_LH_T4 BACKSPACE
-    #define KEY_LH_T5 DELETE
-    #define KEY_LH_T6 0
-    #define KEY_RH_T6 0
-    #define KEY_RH_T5 TAB
-    #define KEY_RH_T4 SPACE
-    #define KEY_RH_C2R6 RSFT
-    #define KEY_RH_C3R6 LPAR
-    #define KEY_RH_C4R6 RPAR
-    #define KEY_RH_C5R6 BSLH
-    #define KEY_RH_C6R6 0
-    #endif
-
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
@@ -286,6 +43,247 @@
     };
 
     behaviors {
+        #define LAYER_QWERTY 0
+        #define LAYER_Typing 1
+        #define LAYER_LeftPinky 2
+        #define LAYER_LeftRingy 3
+        #define LAYER_LeftMiddy 4
+        #define LAYER_LeftIndex 5
+        #define LAYER_RightPinky 6
+        #define LAYER_RightRingy 7
+        #define LAYER_RightMiddy 8
+        #define LAYER_RightIndex 9
+        #define LAYER_Cursor 10
+        #define LAYER_Number 11
+        #define LAYER_Function 12
+        #define LAYER_Emoji 13
+        #define LAYER_Symbol 14
+        #define LAYER_Mouse 15
+        #define LAYER_MouseSlow 16
+        #define LAYER_MouseFast 17
+        #define LAYER_MouseWarp 18
+        #define LAYER_System 19
+        #define LAYER_World 20
+        #define LAYER_Gaming 21
+        #define LAYER_Factory 22
+        #define LAYER_Lower 23
+        #define LAYER_Magic 24
+
+        /* Custom Defined Behaviors */
+            
+        // NOTE: Use the many #define settings below to customize this keymap!
+        #define MOUSE_SCALER_FAST 3 1
+        #define MOUSE_SCALER_WARP 12 1
+        #define MOUSE_SCALER_SLOW 1 9
+        #define ENABLE_MOUSE_KEYS  // requires v24.12-beta or newer firmware
+        #define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
+        #define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
+        #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
+        #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
+        //#define SPACE_FORGIVENESS    // allow lingering taps on the space bar
+        //#define THUMB_FORGIVENESS  // allow lingering taps on the thumb keys
+        //#define SHIFT_FORGIVENESS  // requires v24.08-beta or newer firmware
+        #define WORLD_USE_COMPOSE    // use native Compose in place of Unicode
+        //#define WORLD_HOST_AZERTY  // host computer is set to AZERTY locale
+        //#define WORLD_SHIFT_NUMBER // apply Shift to type number row digits
+        // TIP: Add more setting overrides here instead of editing them below.
+
+        //////////////////////////////////////////////////////////////////////////////
+        //
+        // Sunaku's Keymap v41 -- "Glorious Engrammer"
+        // - https://github.com/sunaku/glove80-keymaps
+        //
+        //////////////////////////////////////////////////////////////////////////////
+
+        //
+        // OPERATING_SYSTEM defines which operating system you intend to use
+        // with this keymap, because shortcuts vary across operating systems.
+        //
+        // - https://zmk.dev/docs/codes
+        // - https://en.wikipedia.org/wiki/Table_of_keyboard_shortcuts
+        //
+        // This setting also affects the UNICODE() function defined below, as
+        // each OS has different shortcuts for typing Unicode hex characters.
+        //
+        // NOTE: You may need to enable Unicode hexadecimal input in your OS:
+        // - (macOS) https://uknowit.uwgb.edu/page.php?id=22623
+        //     and   https://github.com/ldanet/unicode-hex-input-fix
+        // - (Linux) https://help.ubuntu.com/stable/ubuntu-help/tips-specialchars.html.en#ctrlshiftu
+        // - (Windows) https://github.com/samhocevar/wincompose
+        //
+        // Specifically, Windows users should be running the WinCompose tool,
+        // which lets you type Unicode characters via hexadecimal codepoints.
+        //
+        #ifndef OPERATING_SYSTEM
+        #define OPERATING_SYSTEM 'L' // linux
+        //#define OPERATING_SYSTEM 'M' // macos
+        //#define OPERATING_SYSTEM 'W' // windows
+        #endif
+        #if OPERATING_SYSTEM == 'M'
+        #define _C      LG
+        #define _A_TAB  LGUI
+        #define _G_TAB  LALT
+        #define _REDO   _C(LS(Z))
+        #define _POWER  K_POWER
+        #define _W      LA
+        #define _HOME   _C(LEFT)
+        #define _END    _C(RIGHT)
+        #define _EMOJI  LG(LC(SPACE))
+        #else
+        #define _C      LC
+        #define _A_TAB  LALT
+        #define _G_TAB  LGUI
+        #define _REDO   _C(Y)
+        #define _POWER  C_POWER
+        #define _W      _C
+        #define _HOME   HOME
+        #define _END    END
+        #define _EMOJI  LG(DOT)
+        #endif
+        #define _SLEEP      C_SLEEP
+        #if OPERATING_SYSTEM == 'W'
+        #define _LOCK   LG(L)
+        #elif OPERATING_SYSTEM == 'M'
+        #define _LOCK   _C(LC(Q))
+        #elif OPERATING_SYSTEM == 'L'
+        #define _LOCK   K_LOCK
+        #endif
+        #define _UNDO       _C(Z)
+        #define _CUT        _C(X)
+        #define _COPY       _C(C)
+        #define _PASTE      _C(V)
+        #define _FIND       _C(F)
+        #define _FIND_NEXT  _C(G)
+        #define _FIND_PREV  _C(LS(G))
+
+        //
+        // USE_NUMPAD_KEYCODES puts `KP_*` keycodes into the Number layer.
+        //
+        #ifdef USE_NUMPAD_KEYCODES
+        #define _KP_N0 KP_N0
+        #define _KP_N1 KP_N1
+        #define _KP_N2 KP_N2
+        #define _KP_N3 KP_N3
+        #define _KP_N4 KP_N4
+        #define _KP_N5 KP_N5
+        #define _KP_N6 KP_N6
+        #define _KP_N7 KP_N7
+        #define _KP_N8 KP_N8
+        #define _KP_N9 KP_N9
+        #define _KP_PLUS KP_PLUS
+        #define _KP_MINUS KP_MINUS
+        #define _KP_ASTERISK KP_ASTERISK
+        #define _KP_SLASH KP_SLASH
+        #define _KP_COMMA KP_COMMA
+        #define _KP_DOT KP_DOT
+        #define _KP_EQUAL KP_EQUAL
+        #define _KP_ENTER KP_ENTER
+        #else
+        #define _KP_N0 N0
+        #define _KP_N1 N1
+        #define _KP_N2 N2
+        #define _KP_N3 N3
+        #define _KP_N4 N4
+        #define _KP_N5 N5
+        #define _KP_N6 N6
+        #define _KP_N7 N7
+        #define _KP_N8 N8
+        #define _KP_N9 N9
+        #define _KP_PLUS PLUS
+        #define _KP_MINUS MINUS
+        #define _KP_ASTERISK ASTERISK
+        #define _KP_SLASH SLASH
+        #define _KP_COMMA COMMA
+        #define _KP_DOT DOT
+        #define _KP_EQUAL EQUAL
+        #define _KP_ENTER ENTER
+        #endif
+
+        //
+        // Keymap specific knowledge of the base layer's alpha + ZMK layout
+        //
+        #if defined(LAYER_QWERTY) && LAYER_QWERTY == 0
+        #define KEY_LH_C6R1 UP
+        #define KEY_LH_C5R1 DOWN
+        #define KEY_LH_C4R1 A
+        #define KEY_LH_C3R1 B
+        #define KEY_LH_C2R1 C
+        #define KEY_RH_C2R1 D
+        #define KEY_RH_C3R1 E
+        #define KEY_RH_C4R1 F
+        #define KEY_RH_C5R1 LEFT
+        #define KEY_RH_C6R1 RIGHT
+        #define KEY_LH_C6R2 EQUAL
+        #define KEY_LH_C5R2 N1
+        #define KEY_LH_C4R2 N2
+        #define KEY_LH_C3R2 N3
+        #define KEY_LH_C2R2 N4
+        #define KEY_LH_C1R2 N5
+        #define KEY_RH_C1R2 N6
+        #define KEY_RH_C2R2 N7
+        #define KEY_RH_C3R2 N8
+        #define KEY_RH_C4R2 N9
+        #define KEY_RH_C5R2 N0
+        #define KEY_RH_C6R2 MINUS
+        #define KEY_LH_C6R3 TAB
+        #define KEY_LH_C5R3 Q
+        #define KEY_LH_C4R3 W
+        #define KEY_LH_C3R3 E
+        #define KEY_LH_C2R3 R
+        #define KEY_LH_C1R3 T
+        #define KEY_RH_C1R3 Y
+        #define KEY_RH_C2R3 U
+        #define KEY_RH_C3R3 I
+        #define KEY_RH_C4R3 O
+        #define KEY_RH_C5R3 SEMI // was P
+        #define KEY_RH_C6R3 BSLH
+        #define KEY_LH_C6R4 CAPS
+        #define KEY_LH_C5R4 A
+        #define KEY_LH_C4R4 S
+        #define KEY_LH_C3R4 D
+        #define KEY_LH_C2R4 F
+        #define KEY_LH_C1R4 G
+        #define KEY_RH_C1R4 H
+        #define KEY_RH_C2R4 J
+        #define KEY_RH_C3R4 K
+        #define KEY_RH_C4R4 L
+        #define KEY_RH_C5R4 P // was SEMI
+        #define KEY_RH_C6R4 SQT
+        #define KEY_LH_C6R5 LSFT
+        #define KEY_LH_C5R5 Z
+        #define KEY_LH_C4R5 X
+        #define KEY_LH_C3R5 C
+        #define KEY_LH_C2R5 V
+        #define KEY_LH_C1R5 B
+        #define KEY_LH_T1 ESC
+        #define KEY_LH_T2 K_APP
+        #define KEY_LH_T3 0
+        #define KEY_RH_T3 0
+        #define KEY_RH_T2 INSERT
+        #define KEY_RH_T1 ENTER
+        #define KEY_RH_C1R5 N
+        #define KEY_RH_C2R5 M
+        #define KEY_RH_C3R5 COMMA
+        #define KEY_RH_C4R5 DOT
+        #define KEY_RH_C5R5 FSLH
+        #define KEY_RH_C6R5 RSFT
+        #define KEY_LH_C6R6 0
+        #define KEY_LH_C5R6 GRAVE
+        #define KEY_LH_C4R6 LBKT
+        #define KEY_LH_C3R6 RBKT
+        #define KEY_LH_C2R6 LSFT
+        #define KEY_LH_T4 BACKSPACE
+        #define KEY_LH_T5 DELETE
+        #define KEY_LH_T6 0
+        #define KEY_RH_T6 0
+        #define KEY_RH_T5 TAB
+        #define KEY_RH_T4 SPACE
+        #define KEY_RH_C2R6 RSFT
+        #define KEY_RH_C3R6 LPAR
+        #define KEY_RH_C4R6 RPAR
+        #define KEY_RH_C5R6 BSLH
+        #define KEY_RH_C6R6 0
+        #endif
 
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
@@ -2679,7 +2677,6 @@
             >;
         };
     };
-
 
     macros {
 
