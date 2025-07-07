@@ -578,6 +578,224 @@
         #define THUMB_KEYS          \
                             70 71 72   73 74 75               \
                             76 77 78   79 80 81
+        
+        #define LEFT_PINKY_KEY  KEY_LH_C5R4
+        #define LEFT_RINGY_KEY  KEY_LH_C4R4
+        #define LEFT_MIDDY_KEY  KEY_LH_C3R4
+        #define LEFT_INDEX_KEY  KEY_LH_C2R4
+
+        #define RIGHT_PINKY_KEY KEY_RH_C5R4
+        #define RIGHT_RINGY_KEY KEY_RH_C4R4
+        #define RIGHT_MIDDY_KEY KEY_RH_C3R4
+        #define RIGHT_INDEX_KEY KEY_RH_C2R4
+
+        //
+        // Home row mods with bilateral combinations support
+        //
+        #ifndef PINKY_HOLDING_TYPE
+        #define PINKY_HOLDING_TYPE HOMEY_HOLDING_TYPE
+        #endif
+        #ifndef PINKY_CHORD_HOLDING_TYPE
+        #define PINKY_CHORD_HOLDING_TYPE CHORD_HOLDING_TYPE
+        #endif
+        #ifndef LEFT_PINKY_CHORD_HOLDING_TYPE
+        #define LEFT_PINKY_CHORD_HOLDING_TYPE PINKY_CHORD_HOLDING_TYPE
+        #endif
+        #ifndef RIGHT_PINKY_CHORD_HOLDING_TYPE
+        #define RIGHT_PINKY_CHORD_HOLDING_TYPE PINKY_CHORD_HOLDING_TYPE
+        #endif
+        #ifndef PINKY_HOLDING_TIME
+        #define PINKY_HOLDING_TIME HOMEY_HOLDING_TIME
+        #endif
+        #ifndef PINKY_CHORD_HOLDING_TIME
+        #define PINKY_CHORD_HOLDING_TIME CHORD_HOLDING_TIME
+        #endif
+        #ifndef LEFT_PINKY_CHORD_HOLDING_TIME
+        #define LEFT_PINKY_CHORD_HOLDING_TIME PINKY_CHORD_HOLDING_TIME
+        #endif
+        #ifndef RIGHT_PINKY_CHORD_HOLDING_TIME
+        #define RIGHT_PINKY_CHORD_HOLDING_TIME PINKY_CHORD_HOLDING_TIME
+        #endif
+        #ifndef PINKY_STREAK_DECAY
+        #define PINKY_STREAK_DECAY HOMEY_STREAK_DECAY
+        #endif
+        #ifndef PINKY_CHORD_STREAK_DECAY
+        #define PINKY_CHORD_STREAK_DECAY CHORD_STREAK_DECAY
+        #endif
+        #ifndef LEFT_PINKY_CHORD_STREAK_DECAY
+        #define LEFT_PINKY_CHORD_STREAK_DECAY PINKY_CHORD_STREAK_DECAY
+        #endif
+        #ifndef RIGHT_PINKY_CHORD_STREAK_DECAY
+        #define RIGHT_PINKY_CHORD_STREAK_DECAY PINKY_CHORD_STREAK_DECAY
+        #endif
+        #ifndef PINKY_REPEAT_DECAY
+        #define PINKY_REPEAT_DECAY HOMEY_REPEAT_DECAY
+        #endif
+        #ifndef PINKY_CHORD_REPEAT_DECAY
+        #define PINKY_CHORD_REPEAT_DECAY CHORD_REPEAT_DECAY
+        #endif
+        #ifndef LEFT_PINKY_CHORD_REPEAT_DECAY
+        #define LEFT_PINKY_CHORD_REPEAT_DECAY PINKY_CHORD_REPEAT_DECAY
+        #endif
+        #ifndef RIGHT_PINKY_CHORD_REPEAT_DECAY
+        #define RIGHT_PINKY_CHORD_REPEAT_DECAY PINKY_CHORD_REPEAT_DECAY
+        #endif
+        #ifndef RINGY_HOLDING_TYPE
+        #define RINGY_HOLDING_TYPE HOMEY_HOLDING_TYPE
+        #endif
+        #ifndef RINGY_CHORD_HOLDING_TYPE
+        #define RINGY_CHORD_HOLDING_TYPE CHORD_HOLDING_TYPE
+        #endif
+        #ifndef LEFT_RINGY_CHORD_HOLDING_TYPE
+        #define LEFT_RINGY_CHORD_HOLDING_TYPE RINGY_CHORD_HOLDING_TYPE
+        #endif
+        #ifndef RIGHT_RINGY_CHORD_HOLDING_TYPE
+        #define RIGHT_RINGY_CHORD_HOLDING_TYPE RINGY_CHORD_HOLDING_TYPE
+        #endif
+        #ifndef RINGY_HOLDING_TIME
+        #define RINGY_HOLDING_TIME HOMEY_HOLDING_TIME
+        #endif
+        #ifndef RINGY_CHORD_HOLDING_TIME
+        #define RINGY_CHORD_HOLDING_TIME CHORD_HOLDING_TIME
+        #endif
+        #ifndef LEFT_RINGY_CHORD_HOLDING_TIME
+        #define LEFT_RINGY_CHORD_HOLDING_TIME RINGY_CHORD_HOLDING_TIME
+        #endif
+        #ifndef RIGHT_RINGY_CHORD_HOLDING_TIME
+        #define RIGHT_RINGY_CHORD_HOLDING_TIME RINGY_CHORD_HOLDING_TIME
+        #endif
+        #ifndef RINGY_STREAK_DECAY
+        #define RINGY_STREAK_DECAY HOMEY_STREAK_DECAY
+        #endif
+        #ifndef RINGY_CHORD_STREAK_DECAY
+        #define RINGY_CHORD_STREAK_DECAY CHORD_STREAK_DECAY
+        #endif
+        #ifndef LEFT_RINGY_CHORD_STREAK_DECAY
+        #define LEFT_RINGY_CHORD_STREAK_DECAY RINGY_CHORD_STREAK_DECAY
+        #endif
+        #ifndef RIGHT_RINGY_CHORD_STREAK_DECAY
+        #define RIGHT_RINGY_CHORD_STREAK_DECAY RINGY_CHORD_STREAK_DECAY
+        #endif
+        #ifndef RINGY_REPEAT_DECAY
+        #define RINGY_REPEAT_DECAY HOMEY_REPEAT_DECAY
+        #endif
+        #ifndef RINGY_CHORD_REPEAT_DECAY
+        #define RINGY_CHORD_REPEAT_DECAY CHORD_REPEAT_DECAY
+        #endif
+        #ifndef LEFT_RINGY_CHORD_REPEAT_DECAY
+        #define LEFT_RINGY_CHORD_REPEAT_DECAY RINGY_CHORD_REPEAT_DECAY
+        #endif
+        #ifndef RIGHT_RINGY_CHORD_REPEAT_DECAY
+        #define RIGHT_RINGY_CHORD_REPEAT_DECAY RINGY_CHORD_REPEAT_DECAY
+        #endif
+        #ifndef MIDDY_HOLDING_TYPE
+        #define MIDDY_HOLDING_TYPE HOMEY_HOLDING_TYPE
+        #endif
+        #ifndef MIDDY_CHORD_HOLDING_TYPE
+        #define MIDDY_CHORD_HOLDING_TYPE CHORD_HOLDING_TYPE
+        #endif
+        #ifndef LEFT_MIDDY_CHORD_HOLDING_TYPE
+        #define LEFT_MIDDY_CHORD_HOLDING_TYPE MIDDY_CHORD_HOLDING_TYPE
+        #endif
+        #ifndef RIGHT_MIDDY_CHORD_HOLDING_TYPE
+        #define RIGHT_MIDDY_CHORD_HOLDING_TYPE MIDDY_CHORD_HOLDING_TYPE
+        #endif
+        #ifndef MIDDY_HOLDING_TIME
+        #define MIDDY_HOLDING_TIME HOMEY_HOLDING_TIME
+        #endif
+        #ifndef MIDDY_CHORD_HOLDING_TIME
+        #define MIDDY_CHORD_HOLDING_TIME CHORD_HOLDING_TIME
+        #endif
+        #ifndef LEFT_MIDDY_CHORD_HOLDING_TIME
+        #define LEFT_MIDDY_CHORD_HOLDING_TIME MIDDY_CHORD_HOLDING_TIME
+        #endif
+        #ifndef RIGHT_MIDDY_CHORD_HOLDING_TIME
+        #define RIGHT_MIDDY_CHORD_HOLDING_TIME MIDDY_CHORD_HOLDING_TIME
+        #endif
+        #ifndef MIDDY_STREAK_DECAY
+        #define MIDDY_STREAK_DECAY HOMEY_STREAK_DECAY
+        #endif
+        #ifndef MIDDY_CHORD_STREAK_DECAY
+        #define MIDDY_CHORD_STREAK_DECAY CHORD_STREAK_DECAY
+        #endif
+        #ifndef LEFT_MIDDY_CHORD_STREAK_DECAY
+        #define LEFT_MIDDY_CHORD_STREAK_DECAY MIDDY_CHORD_STREAK_DECAY
+        #endif
+        #ifndef RIGHT_MIDDY_CHORD_STREAK_DECAY
+        #define RIGHT_MIDDY_CHORD_STREAK_DECAY MIDDY_CHORD_STREAK_DECAY
+        #endif
+        #ifndef MIDDY_REPEAT_DECAY
+        #define MIDDY_REPEAT_DECAY HOMEY_REPEAT_DECAY
+        #endif
+        #ifndef MIDDY_CHORD_REPEAT_DECAY
+        #define MIDDY_CHORD_REPEAT_DECAY CHORD_REPEAT_DECAY
+        #endif
+        #ifndef LEFT_MIDDY_CHORD_REPEAT_DECAY
+        #define LEFT_MIDDY_CHORD_REPEAT_DECAY MIDDY_CHORD_REPEAT_DECAY
+        #endif
+        #ifndef RIGHT_MIDDY_CHORD_REPEAT_DECAY
+        #define RIGHT_MIDDY_CHORD_REPEAT_DECAY MIDDY_CHORD_REPEAT_DECAY
+        #endif
+        #ifndef INDEX_HOLDING_TYPE
+        #define INDEX_HOLDING_TYPE HOMEY_HOLDING_TYPE
+        #endif
+        #ifndef INDEX_CHORD_HOLDING_TYPE
+        #define INDEX_CHORD_HOLDING_TYPE CHORD_HOLDING_TYPE
+        #endif
+        #ifndef LEFT_INDEX_CHORD_HOLDING_TYPE
+        #define LEFT_INDEX_CHORD_HOLDING_TYPE INDEX_CHORD_HOLDING_TYPE
+        #endif
+        #ifndef RIGHT_INDEX_CHORD_HOLDING_TYPE
+        #define RIGHT_INDEX_CHORD_HOLDING_TYPE INDEX_CHORD_HOLDING_TYPE
+        #endif
+        #ifndef INDEX_HOLDING_TIME
+        #define INDEX_HOLDING_TIME HOMEY_HOLDING_TIME
+        #endif
+        #ifndef INDEX_CHORD_HOLDING_TIME
+        #define INDEX_CHORD_HOLDING_TIME CHORD_HOLDING_TIME
+        #endif
+        #ifndef LEFT_INDEX_CHORD_HOLDING_TIME
+        #define LEFT_INDEX_CHORD_HOLDING_TIME INDEX_CHORD_HOLDING_TIME
+        #endif
+        #ifndef RIGHT_INDEX_CHORD_HOLDING_TIME
+        #define RIGHT_INDEX_CHORD_HOLDING_TIME INDEX_CHORD_HOLDING_TIME
+        #endif
+        #ifndef INDEX_STREAK_DECAY
+        #define INDEX_STREAK_DECAY HOMEY_STREAK_DECAY
+        #endif
+        #ifndef INDEX_CHORD_STREAK_DECAY
+        #define INDEX_CHORD_STREAK_DECAY CHORD_STREAK_DECAY
+        #endif
+        #ifndef LEFT_INDEX_CHORD_STREAK_DECAY
+        #define LEFT_INDEX_CHORD_STREAK_DECAY INDEX_CHORD_STREAK_DECAY
+        #endif
+        #ifndef RIGHT_INDEX_CHORD_STREAK_DECAY
+        #define RIGHT_INDEX_CHORD_STREAK_DECAY INDEX_CHORD_STREAK_DECAY
+        #endif
+        #ifndef INDEX_REPEAT_DECAY
+        #define INDEX_REPEAT_DECAY HOMEY_REPEAT_DECAY
+        #endif
+        #ifndef INDEX_CHORD_REPEAT_DECAY
+        #define INDEX_CHORD_REPEAT_DECAY CHORD_REPEAT_DECAY
+        #endif
+        #ifndef LEFT_INDEX_CHORD_REPEAT_DECAY
+        #define LEFT_INDEX_CHORD_REPEAT_DECAY INDEX_CHORD_REPEAT_DECAY
+        #endif
+        #ifndef RIGHT_INDEX_CHORD_REPEAT_DECAY
+        #define RIGHT_INDEX_CHORD_REPEAT_DECAY INDEX_CHORD_REPEAT_DECAY
+        #endif
+        #ifndef LEFT_PINKY_HOLDING_TYPE
+        #define LEFT_PINKY_HOLDING_TYPE PINKY_HOLDING_TYPE
+        #endif
+        #ifndef LEFT_PINKY_HOLDING_TIME
+        #define LEFT_PINKY_HOLDING_TIME PINKY_HOLDING_TIME
+        #endif
+        #ifndef LEFT_PINKY_STREAK_DECAY
+        #define LEFT_PINKY_STREAK_DECAY PINKY_STREAK_DECAY
+        #endif
+        #ifndef LEFT_PINKY_REPEAT_DECAY
+        #define LEFT_PINKY_REPEAT_DECAY PINKY_REPEAT_DECAY
+        #endif
 
     };
 
