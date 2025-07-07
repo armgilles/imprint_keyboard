@@ -6920,6 +6920,94 @@
                 &none                     &kp GRAVE                        &kp UP                      &kp DOWN      &stumb LAYER_Typing LSFT          &thumb LAYER_Cursor BACKSPACE  &thumb LAYER_Number DELETE  &kp LS(LC(LA(LGUI)))  &caps_word      &thumb LAYER_Mouse TAB  &space LAYER_Symbol SPACE                                  &none                       &kp LBKT                       &kp RBKT                       &kp BSLH                         &none
             >;
         };
+
+        layer_LeftPinky {
+            bindings = <
+ &left_pinky_tap KEY_LH_C6R1  &left_pinky_tap KEY_LH_C5R1  &left_pinky_tap KEY_LH_C4R1  &left_pinky_tap KEY_LH_C3R1  &left_pinky_tap KEY_LH_C2R1                                                                                                    &trans               &trans               &trans               &trans  &trans
+ &left_pinky_tap KEY_LH_C6R2  &left_pinky_tap KEY_LH_C5R2  &left_pinky_tap KEY_LH_C4R2  &left_pinky_tap KEY_LH_C3R2  &left_pinky_tap KEY_LH_C2R2  &left_pinky_tap KEY_LH_C1R2                                                  &trans               &trans               &trans               &trans               &trans  &trans
+ &left_pinky_tap KEY_LH_C6R3  &left_pinky_tap KEY_LH_C5R3  &left_pinky_tap KEY_LH_C4R3  &left_pinky_tap KEY_LH_C3R3  &left_pinky_tap KEY_LH_C2R3  &left_pinky_tap KEY_LH_C1R3                                                  &trans               &trans               &trans               &trans               &trans  &trans
+ &left_pinky_tap KEY_LH_C6R4                        &none              &LeftPinkyRingy              &LeftPinkyMiddy              &LeftPinkyIndex  &left_pinky_tap KEY_LH_C1R4                                                  &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+                      &trans  &left_pinky_tap KEY_LH_C5R5  &left_pinky_tap KEY_LH_C4R5  &left_pinky_tap KEY_LH_C3R5  &left_pinky_tap KEY_LH_C2R5  &left_pinky_tap KEY_LH_C1R5  &trans  &trans  &trans  &trans  &trans  &trans  &trans               &trans               &trans               &trans               &trans  &trans
+                      &trans  &left_pinky_tap KEY_LH_C5R6  &left_pinky_tap KEY_LH_C4R6  &left_pinky_tap KEY_LH_C3R6  &left_pinky_tap KEY_LH_C2R6                               &trans  &trans  &trans  &trans  &trans  &trans                       &trans               &trans               &trans               &trans  &trans
+            >;
+        };
+
+        layer_LeftRingy {
+            bindings = <
+ &left_ringy_tap KEY_LH_C6R1  &left_ringy_tap KEY_LH_C5R1  &left_ringy_tap KEY_LH_C4R1  &left_ringy_tap KEY_LH_C3R1  &left_ringy_tap KEY_LH_C2R1                                                                                                    &trans               &trans               &trans               &trans  &trans
+ &left_ringy_tap KEY_LH_C6R2  &left_ringy_tap KEY_LH_C5R2  &left_ringy_tap KEY_LH_C4R2  &left_ringy_tap KEY_LH_C3R2  &left_ringy_tap KEY_LH_C2R2  &left_ringy_tap KEY_LH_C1R2                                                  &trans               &trans               &trans               &trans               &trans  &trans
+ &left_ringy_tap KEY_LH_C6R3  &left_ringy_tap KEY_LH_C5R3  &left_ringy_tap KEY_LH_C4R3  &left_ringy_tap KEY_LH_C3R3  &left_ringy_tap KEY_LH_C2R3  &left_ringy_tap KEY_LH_C1R3                                                  &trans               &trans               &trans               &trans               &trans  &trans
+ &left_ringy_tap KEY_LH_C6R4              &LeftRingyPinky                        &none              &LeftRingyMiddy              &LeftRingyIndex  &left_ringy_tap KEY_LH_C1R4                                                  &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+                      &trans  &left_ringy_tap KEY_LH_C5R5  &left_ringy_tap KEY_LH_C4R5  &left_ringy_tap KEY_LH_C3R5  &left_ringy_tap KEY_LH_C2R5  &left_ringy_tap KEY_LH_C1R5  &trans  &trans  &trans  &trans  &trans  &trans  &trans               &trans               &trans               &trans               &trans  &trans
+                      &trans  &left_ringy_tap KEY_LH_C5R6  &left_ringy_tap KEY_LH_C4R6  &left_ringy_tap KEY_LH_C3R6  &left_ringy_tap KEY_LH_C2R6                               &trans  &trans  &trans  &trans  &trans  &trans                       &trans               &trans               &trans               &trans  &trans
+            >;
+        };
+
+        layer_LeftMiddy {
+            bindings = <
+ &left_middy_tap KEY_LH_C6R1  &left_middy_tap KEY_LH_C5R1  &left_middy_tap KEY_LH_C4R1  &left_middy_tap KEY_LH_C3R1  &left_middy_tap KEY_LH_C2R1                                                                                                    &trans               &trans               &trans               &trans  &trans
+ &left_middy_tap KEY_LH_C6R2  &left_middy_tap KEY_LH_C5R2  &left_middy_tap KEY_LH_C4R2  &left_middy_tap KEY_LH_C3R2  &left_middy_tap KEY_LH_C2R2  &left_middy_tap KEY_LH_C1R2                                                  &trans               &trans               &trans               &trans               &trans  &trans
+ &left_middy_tap KEY_LH_C6R3  &left_middy_tap KEY_LH_C5R3  &left_middy_tap KEY_LH_C4R3  &left_middy_tap KEY_LH_C3R3  &left_middy_tap KEY_LH_C2R3  &left_middy_tap KEY_LH_C1R3                                                  &trans               &trans               &trans               &trans               &trans  &trans
+ &left_middy_tap KEY_LH_C6R4              &LeftMiddyPinky              &LeftMiddyRingy                        &none              &LeftMiddyIndex  &left_middy_tap KEY_LH_C1R4                                                  &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+                      &trans  &left_middy_tap KEY_LH_C5R5  &left_middy_tap KEY_LH_C4R5  &left_middy_tap KEY_LH_C3R5  &left_middy_tap KEY_LH_C2R5  &left_middy_tap KEY_LH_C1R5  &trans  &trans  &trans  &trans  &trans  &trans  &trans               &trans               &trans               &trans               &trans  &trans
+                      &trans  &left_middy_tap KEY_LH_C5R6  &left_middy_tap KEY_LH_C4R6  &left_middy_tap KEY_LH_C3R6  &left_middy_tap KEY_LH_C2R6                               &trans  &trans  &trans  &trans  &trans  &trans                       &trans               &trans               &trans               &trans  &trans
+            >;
+        };
+
+        layer_LeftIndex {
+            bindings = <
+ &left_index_tap KEY_LH_C6R1  &left_index_tap KEY_LH_C5R1  &left_index_tap KEY_LH_C4R1  &left_index_tap KEY_LH_C3R1  &left_index_tap KEY_LH_C2R1                                                                                                    &trans               &trans               &trans               &trans  &trans
+ &left_index_tap KEY_LH_C6R2  &left_index_tap KEY_LH_C5R2  &left_index_tap KEY_LH_C4R2  &left_index_tap KEY_LH_C3R2  &left_index_tap KEY_LH_C2R2  &left_index_tap KEY_LH_C1R2                                                  &trans               &trans               &trans               &trans               &trans  &trans
+ &left_index_tap KEY_LH_C6R3  &left_index_tap KEY_LH_C5R3  &left_index_tap KEY_LH_C4R3  &left_index_tap KEY_LH_C3R3  &left_index_tap KEY_LH_C2R3  &left_index_tap KEY_LH_C1R3                                                  &trans               &trans               &trans               &trans               &trans  &trans
+ &left_index_tap KEY_LH_C6R4              &LeftIndexPinky              &LeftIndexRingy              &LeftIndexMiddy                        &none  &left_index_tap KEY_LH_C1R4                                                  &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+                      &trans  &left_index_tap KEY_LH_C5R5  &left_index_tap KEY_LH_C4R5  &left_index_tap KEY_LH_C3R5  &left_index_tap KEY_LH_C2R5  &left_index_tap KEY_LH_C1R5  &trans  &trans  &trans  &trans  &trans  &trans  &trans               &trans               &trans               &trans               &trans  &trans
+                      &trans  &left_index_tap KEY_LH_C5R6  &left_index_tap KEY_LH_C4R6  &left_index_tap KEY_LH_C3R6  &left_index_tap KEY_LH_C2R6                               &trans  &trans  &trans  &trans  &trans  &trans                       &trans               &trans               &trans               &trans  &trans
+            >;
+        };
+
+        layer_RightPinky {
+            bindings = <
+ &trans              &trans              &trans              &trans              &trans                                                                                        &right_pinky_tap KEY_RH_C2R1  &right_pinky_tap KEY_RH_C3R1  &right_pinky_tap KEY_RH_C4R1  &right_pinky_tap KEY_RH_C5R1  &right_pinky_tap KEY_RH_C6R1
+ &trans              &trans              &trans              &trans              &trans  &trans                                                  &right_pinky_tap KEY_RH_C1R2  &right_pinky_tap KEY_RH_C2R2  &right_pinky_tap KEY_RH_C3R2  &right_pinky_tap KEY_RH_C4R2  &right_pinky_tap KEY_RH_C5R2  &right_pinky_tap KEY_RH_C6R2
+ &trans              &trans              &trans              &trans              &trans  &trans                                                  &right_pinky_tap KEY_RH_C1R3  &right_pinky_tap KEY_RH_C2R3  &right_pinky_tap KEY_RH_C3R3  &right_pinky_tap KEY_RH_C4R3  &right_pinky_tap KEY_RH_C5R3  &right_pinky_tap KEY_RH_C6R3
+ &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans                                                  &right_pinky_tap KEY_RH_C1R4              &RightPinkyIndex              &RightPinkyMiddy              &RightPinkyRingy                         &none  &right_pinky_tap KEY_RH_C6R4
+ &trans              &trans              &trans              &trans              &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &right_pinky_tap KEY_RH_C1R5  &right_pinky_tap KEY_RH_C2R5  &right_pinky_tap KEY_RH_C3R5  &right_pinky_tap KEY_RH_C4R5  &right_pinky_tap KEY_RH_C5R5                        &trans
+ &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans  &trans  &trans  &trans                                &right_pinky_tap KEY_RH_C2R6  &right_pinky_tap KEY_RH_C3R6  &right_pinky_tap KEY_RH_C4R6  &right_pinky_tap KEY_RH_C5R6                        &trans
+            >;
+        };
+
+        layer_RightRingy {
+            bindings = <
+ &trans              &trans              &trans              &trans              &trans                                                                                        &right_ringy_tap KEY_RH_C2R1  &right_ringy_tap KEY_RH_C3R1  &right_ringy_tap KEY_RH_C4R1  &right_ringy_tap KEY_RH_C5R1  &right_ringy_tap KEY_RH_C6R1
+ &trans              &trans              &trans              &trans              &trans  &trans                                                  &right_ringy_tap KEY_RH_C1R2  &right_ringy_tap KEY_RH_C2R2  &right_ringy_tap KEY_RH_C3R2  &right_ringy_tap KEY_RH_C4R2  &right_ringy_tap KEY_RH_C5R2  &right_ringy_tap KEY_RH_C6R2
+ &trans              &trans              &trans              &trans              &trans  &trans                                                  &right_ringy_tap KEY_RH_C1R3  &right_ringy_tap KEY_RH_C2R3  &right_ringy_tap KEY_RH_C3R3  &right_ringy_tap KEY_RH_C4R3  &right_ringy_tap KEY_RH_C5R3  &right_ringy_tap KEY_RH_C6R3
+ &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans                                                  &right_ringy_tap KEY_RH_C1R4              &RightRingyIndex              &RightRingyMiddy                         &none              &RightRingyPinky  &right_ringy_tap KEY_RH_C6R4
+ &trans              &trans              &trans              &trans              &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &right_ringy_tap KEY_RH_C1R5  &right_ringy_tap KEY_RH_C2R5  &right_ringy_tap KEY_RH_C3R5  &right_ringy_tap KEY_RH_C4R5  &right_ringy_tap KEY_RH_C5R5                        &trans
+ &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans  &trans  &trans  &trans                                &right_ringy_tap KEY_RH_C2R6  &right_ringy_tap KEY_RH_C3R6  &right_ringy_tap KEY_RH_C4R6  &right_ringy_tap KEY_RH_C5R6                        &trans
+            >;
+        };
+
+        layer_RightMiddy {
+            bindings = <
+ &trans              &trans              &trans              &trans              &trans                                                                                        &right_middy_tap KEY_RH_C2R1  &right_middy_tap KEY_RH_C3R1  &right_middy_tap KEY_RH_C4R1  &right_middy_tap KEY_RH_C5R1  &right_middy_tap KEY_RH_C6R1
+ &trans              &trans              &trans              &trans              &trans  &trans                                                  &right_middy_tap KEY_RH_C1R2  &right_middy_tap KEY_RH_C2R2  &right_middy_tap KEY_RH_C3R2  &right_middy_tap KEY_RH_C4R2  &right_middy_tap KEY_RH_C5R2  &right_middy_tap KEY_RH_C6R2
+ &trans              &trans              &trans              &trans              &trans  &trans                                                  &right_middy_tap KEY_RH_C1R3  &right_middy_tap KEY_RH_C2R3  &right_middy_tap KEY_RH_C3R3  &right_middy_tap KEY_RH_C4R3  &right_middy_tap KEY_RH_C5R3  &right_middy_tap KEY_RH_C6R3
+ &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans                                                  &right_middy_tap KEY_RH_C1R4              &RightMiddyIndex                         &none              &RightMiddyRingy              &RightMiddyPinky  &right_middy_tap KEY_RH_C6R4
+ &trans              &trans              &trans              &trans              &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &right_middy_tap KEY_RH_C1R5  &right_middy_tap KEY_RH_C2R5  &right_middy_tap KEY_RH_C3R5  &right_middy_tap KEY_RH_C4R5  &right_middy_tap KEY_RH_C5R5                        &trans
+ &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans  &trans  &trans  &trans                                &right_middy_tap KEY_RH_C2R6  &right_middy_tap KEY_RH_C3R6  &right_middy_tap KEY_RH_C4R6  &right_middy_tap KEY_RH_C5R6                        &trans
+            >;
+        };
+
+        layer_RightIndex {
+            bindings = <
+ &trans              &trans              &trans              &trans              &trans                                                                                        &right_index_tap KEY_RH_C2R1  &right_index_tap KEY_RH_C3R1  &right_index_tap KEY_RH_C4R1  &right_index_tap KEY_RH_C5R1  &right_index_tap KEY_RH_C6R1
+ &trans              &trans              &trans              &trans              &trans  &trans                                                  &right_index_tap KEY_RH_C1R2  &right_index_tap KEY_RH_C2R2  &right_index_tap KEY_RH_C3R2  &right_index_tap KEY_RH_C4R2  &right_index_tap KEY_RH_C5R2  &right_index_tap KEY_RH_C6R2
+ &trans              &trans              &trans              &trans              &trans  &trans                                                  &right_index_tap KEY_RH_C1R3  &right_index_tap KEY_RH_C2R3  &right_index_tap KEY_RH_C3R3  &right_index_tap KEY_RH_C4R3  &right_index_tap KEY_RH_C5R3  &right_index_tap KEY_RH_C6R3
+ &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans                                                  &right_index_tap KEY_RH_C1R4                         &none              &RightIndexMiddy              &RightIndexRingy              &RightIndexPinky  &right_index_tap KEY_RH_C6R4
+ &trans              &trans              &trans              &trans              &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &right_index_tap KEY_RH_C1R5  &right_index_tap KEY_RH_C2R5  &right_index_tap KEY_RH_C3R5  &right_index_tap KEY_RH_C4R5  &right_index_tap KEY_RH_C5R5                        &trans
+ &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans  &trans  &trans  &trans                                &right_index_tap KEY_RH_C2R6  &right_index_tap KEY_RH_C3R6  &right_index_tap KEY_RH_C4R6  &right_index_tap KEY_RH_C5R6                        &trans
+            >;
+        };
     };
 };
 
