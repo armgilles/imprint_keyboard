@@ -2527,18 +2527,15 @@
         // - https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html
         // - https://github.com/manna-harbour/miryoku/discussions/259
         //
-
-        ZMK_MACRO(
-
-        linux_magic_sysrq,
-        wait-ms = <0>;
-        tap-ms = <0>;
-        bindings =
-            <&macro_press &mo 0 &kp RALT>,
-            <&macro_tap &kp PRINTSCREEN>,
-            <&macro_pause_for_release>,
-            <&macro_release &mo 0 &kp RALT>;
-
+        ZMK_MACRO(linux_magic_sysrq,
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings
+            = <&macro_press &mo 0 &kp RALT>
+            , <&macro_tap &kp PRINTSCREEN>
+            , <&macro_pause_for_release>
+            , <&macro_release &mo 0 &kp RALT>
+            ;
         )
 
         //
@@ -2599,13 +2596,10 @@
 
         #define select_all kp _C(A)
 
-        ZMK_MACRO(
-
-        select_none,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>;
-
+        ZMK_MACRO(select_none,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp DOWN &kp UP &kp RIGHT &kp LEFT>;
         )
 
         //
@@ -2619,22 +2613,15 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
-        ZMK_MACRO(
-
-        select_word_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _W(RIGHT) &kp _W(LEFT) &kp _W(LS(RIGHT))>;
-
+        ZMK_MACRO(select_word_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _W(RIGHT) &kp _W(LEFT) &kp _W(LS(RIGHT))>;
         )
-        ZMK_MACRO(
-
-        select_word_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _W(LEFT) &kp _W(RIGHT) &kp _W(LS(LEFT))>;
-
+        ZMK_MACRO(select_word_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _W(LEFT) &kp _W(RIGHT) &kp _W(LS(LEFT))>;
         )
 
         //
@@ -2648,22 +2635,15 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
-        ZMK_MACRO(
-
-        extend_word_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _W(LS(RIGHT))>;
-
+        ZMK_MACRO(extend_word_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _W(LS(RIGHT))>;
         )
-        ZMK_MACRO(
-
-        extend_word_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _W(LS(LEFT))>;
-
+        ZMK_MACRO(extend_word_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _W(LS(LEFT))>;
         )
 
         //
@@ -2677,22 +2657,15 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
-        ZMK_MACRO(
-
-        select_line_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _HOME &kp LS(_END)>;
-
+        ZMK_MACRO(select_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _HOME &kp LS(_END)>;
         )
-        ZMK_MACRO(
-
-        select_line_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _END &kp LS(_HOME)>;
-
+        ZMK_MACRO(select_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _END &kp LS(_HOME)>;
         )
 
         //
@@ -2706,22 +2679,15 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
-        ZMK_MACRO(
-
-        extend_line_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp LS(DOWN) &kp LS(_END)>;
-
+        ZMK_MACRO(extend_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp LS(DOWN) &kp LS(_END)>;
         )
-        ZMK_MACRO(
-
-        extend_line_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp LS(UP) &kp LS(_HOME)>;
-
+        ZMK_MACRO(extend_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp LS(UP) &kp LS(_HOME)>;
         )
 
         //////////////////////////////////////////////////////////////////////////
@@ -2780,14 +2746,11 @@
         #endif
 
         #define UNICODE(name, ...) \
-            ZMK_MACRO(name,
-
-        wait-ms = <UNICODE_TAP_DELAY>;
-        tap-ms = <UNICODE_TAP_DELAY>;
-        bindings =
-        __VA_ARGS__;
-
-        )
+            ZMK_MACRO(name, \
+            wait-ms = <UNICODE_TAP_DELAY>; \
+            tap-ms = <UNICODE_TAP_DELAY>; \
+            bindings = __VA_ARGS__; \
+            )
 
         //
         // UNICODE_SEQ_LINUX() specifies how Unicode hexadecimal codepoint
