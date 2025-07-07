@@ -41,6 +41,8 @@
 
 
 / {
+    chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
+
     /* System behavior and Macros */
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
@@ -159,7 +161,7 @@
 
 
     /* Custom Defined Behaviors */
-    / {
+    {
     // NOTE: Use the many #define settings below to customize this keymap!
     #define MOUSE_SCALER_FAST 3 1
     #define MOUSE_SCALER_WARP 12 1
