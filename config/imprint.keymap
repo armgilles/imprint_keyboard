@@ -12,6 +12,52 @@
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
     // behaviors
+    behaviors {
+        #define LAYER_QWERTY 0
+        #define LAYER_Typing 1
+        #define LAYER_LeftPinky 2
+        #define LAYER_LeftRingy 3
+        #define LAYER_LeftMiddy 4
+        #define LAYER_LeftIndex 5
+        #define LAYER_RightPinky 6
+        #define LAYER_RightRingy 7
+        #define LAYER_RightMiddy 8
+        #define LAYER_RightIndex 9
+        #define LAYER_Cursor 10
+        #define LAYER_Number 11
+        #define LAYER_Function 12
+        #define LAYER_Emoji 13
+        #define LAYER_Symbol 14
+        #define LAYER_Mouse 15
+        #define LAYER_MouseSlow 16
+        #define LAYER_MouseFast 17
+        #define LAYER_MouseWarp 18
+        #define LAYER_System 19
+        #define LAYER_World 20
+        #define LAYER_Gaming 21
+        #define LAYER_Factory 22
+        #define LAYER_Lower 23
+        #define LAYER_Magic 24
+
+        /* Custom Defined Behaviors */
+            
+        // NOTE: Use the many #define settings below to customize this keymap!
+        #define MOUSE_SCALER_FAST 3 1
+        #define MOUSE_SCALER_WARP 12 1
+        #define MOUSE_SCALER_SLOW 1 9
+        #define ENABLE_MOUSE_KEYS  // requires v24.12-beta or newer firmware
+        #define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
+        #define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
+        #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
+        #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
+        //#define SPACE_FORGIVENESS    // allow lingering taps on the space bar
+        //#define THUMB_FORGIVENESS  // allow lingering taps on the thumb keys
+        //#define SHIFT_FORGIVENESS  // requires v24.08-beta or newer firmware
+        #define WORLD_USE_COMPOSE    // use native Compose in place of Unicode
+        //#define WORLD_HOST_AZERTY  // host computer is set to AZERTY locale
+        //#define WORLD_SHIFT_NUMBER // apply Shift to type number row digits
+        // TIP: Add more setting overrides here instead of editing them below.
+    };
 
     combos {
         compatible = "zmk,combos";
