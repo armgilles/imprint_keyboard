@@ -168,6 +168,8 @@
         #define _KP_EQUAL EQUAL
         #define _KP_ENTER ENTER
         #endif
+        
+        // todo
 
         //////////////////////////////////////////////////////////////////////////
         //
@@ -211,6 +213,334 @@
         //
         #ifndef TAPPING_RESOLUTION
         #define TAPPING_RESOLUTION 140
+        #endif
+
+        //
+        // ENFORCE_BILATERAL cancels out single-handed home row mods activation by
+        // releasing any currently pressed mods and replacing them with plain taps.
+        //
+        // NOTE: You may still encounter "flashing mods" where an operating system
+        // action is triggered by the release of mods, such as LGUI which launches
+        // the Windows Start Menu and LALT which opens the Microsoft Office Ribbon.
+        //
+        //#define ENFORCE_BILATERAL
+
+        //
+        // SHIFT_FORGIVENESS taps when home row shift is merely held and released,
+        // without any other key having been tapped while the shift was held down.
+        // For example, suppose you hold a home row shift key and, before pressing
+        // another key, you suddenly decide that you don't want the shift anymore:
+        //
+        // <1> If this setting is enabled, the underlying tap behavior is triggered
+        //     to type a single character when you release that home row shift key.
+        //
+        // <2> Otherwise, nothing happens when you release that home row shift key.
+        //
+        // This requires the "hold-while-undecided" ZMK feature in a beta firmware:
+        // please select "v24.08-beta1" or newer from the drop-down menu located at
+        // Glove80 Layout Editor > Settings > Advanced Settings > Firmware Version.
+        //
+        // CAUTION: This can interfere with mod-click mouse usage where you hold a
+        // home row shift key and perform mouse actions (move, click, drag & drop):
+        // when you release that home row shift key, its underlying character would
+        // be typed, potentially triggering an unexpected action on your selection!
+        // To prevent the underlying character from being typed, press another key
+        // (such as a dedicated shift key, a neighboring home row mod key, or even
+        // a layer access key) before you release the original home row shift key.
+        //
+        // NOTE: You may potentially encounter "flashing mods" where an application
+        // or operating system action is triggered by a standalone tap of a shift,
+        // but this is unlikely as people regularly tap shift without consequence.
+        //
+        //#define SHIFT_FORGIVENESS
+
+        //
+        // THUMB_FORGIVENESS taps when a thumb layer access key is merely held and
+        // released, without any other key having been tapped while thumb was held.
+        // For example, suppose you hold the cursor layer key and, before pressing
+        // another key, you suddenly decide that you don't want the layer anymore:
+        //
+        // <1> If this setting is enabled, the underlying tap behavior is triggered
+        //     to type a single character when you release that layer access key.
+        //
+        // <2> Otherwise, nothing happens when you release that layer access key.
+        //
+        // NOTE: This setting interferes with (and effectively disables) per-key
+        // RGB indicators (PR30) for layers accessed via thumb layer access keys.
+        //
+        //#define THUMB_FORGIVENESS
+
+        //
+        // SPACE_FORGIVENESS taps when the symbol layer access key is merely held
+        // and released, without any symbol been tapped while the access was held.
+        // For example, suppose you hold the symbol layer key and, before pressing
+        // another key, you suddenly decide that you don't want the layer anymore:
+        //
+        // <1> If this setting is enabled, the underlying tap behavior is triggered
+        //     to type a single character when you release that layer access key.
+        //
+        // <2> Otherwise, nothing happens when you release that layer access key.
+        //
+        // NOTE: This setting interferes with (and effectively disables) per-key
+        // RGB indicators (PR30) for layers accessed via thumb layer access keys.
+        //
+        //#define SPACE_FORGIVENESS
+
+        //
+        // The *_FINGER_MOD specify which modifiers are used by home row mod keys.
+        // Here, we use Miryoku's "GACS" (Win, Alt, Ctrl, Shift) order by default,
+        // unless OPERATING_SYSTEM is macOS, in which case Win & Ctrl are swapped,
+        // unless MACOS_USE_GACS is also defined to suppress that Win & Ctrl swap.
+        //
+        #ifndef PINKY_FINGER_MOD
+            #if OPERATING_SYSTEM == 'M' && !defined(MACOS_USE_GACS)
+            #define PINKY_FINGER_MOD LCTL
+            #else
+            #define PINKY_FINGER_MOD LGUI
+            #endif
+        #endif
+        #ifndef RINGY_FINGER_MOD
+        #define RINGY_FINGER_MOD LALT
+        #endif
+        #ifndef MIDDY_FINGER_MOD
+            #if OPERATING_SYSTEM == 'M' && !defined(MACOS_USE_GACS)
+            #define MIDDY_FINGER_MOD LGUI
+            #else
+            #define MIDDY_FINGER_MOD LCTL
+            #endif
+        #endif
+        #ifndef INDEX_FINGER_MOD
+        #define INDEX_FINGER_MOD LSFT
+        #endif
+        //
+        // The following settings let you configure mods individually, per finger:
+        //
+        #ifndef LEFT_PINKY_MOD
+        #define LEFT_PINKY_MOD PINKY_FINGER_MOD
+        #endif
+        #ifndef RIGHT_PINKY_MOD
+        #define RIGHT_PINKY_MOD PINKY_FINGER_MOD
+        #endif
+        #ifndef LEFT_RINGY_MOD
+        #define LEFT_RINGY_MOD RINGY_FINGER_MOD
+        #endif
+        #ifndef RIGHT_RINGY_MOD
+        #define RIGHT_RINGY_MOD RINGY_FINGER_MOD
+        #endif
+        #ifndef LEFT_MIDDY_MOD
+        #define LEFT_MIDDY_MOD MIDDY_FINGER_MOD
+        #endif
+        #ifndef RIGHT_MIDDY_MOD
+        #define RIGHT_MIDDY_MOD MIDDY_FINGER_MOD
+        #endif
+        #ifndef LEFT_INDEX_MOD
+        #define LEFT_INDEX_MOD INDEX_FINGER_MOD
+        #endif
+        #ifndef RIGHT_INDEX_MOD
+        #define RIGHT_INDEX_MOD INDEX_FINGER_MOD
+        #endif
+
+        //
+        // HOMEY_HOLDING_TYPE defines the flavor of ZMK hold-tap behavior to use
+        // for the pinky, ring, and middle fingers (which are assigned to Super,
+        // Alt, and Ctrl respectively in the Miryoku system) on home row keys.
+        //
+        #ifndef HOMEY_HOLDING_TYPE
+        #define HOMEY_HOLDING_TYPE "tap-preferred"
+        #endif
+
+        //
+        // HOMEY_HOLDING_TIME defines how long you need to hold (milliseconds)
+        // home row mod keys in order to send their modifiers to the computer
+        // (i.e. "register" them) for mod-click mouse usage (e.g. Ctrl-Click).
+        //
+        #ifndef HOMEY_HOLDING_TIME
+        #define HOMEY_HOLDING_TIME (TAPPING_RESOLUTION + 90)
+        #endif
+        #ifndef INDEX_HOLDING_TIME
+        #define INDEX_HOLDING_TIME (TAPPING_RESOLUTION + 5) // was 20 before
+        #endif
+        #ifndef MIDDY_HOLDING_TIME
+        #define MIDDY_HOLDING_TIME (TAPPING_RESOLUTION + 40) // was 60 before
+        #endif
+        #ifndef RINGY_HOLDING_TIME
+        #define RINGY_HOLDING_TIME (TAPPING_RESOLUTION + 90)
+        #endif
+        #ifndef PINKY_HOLDING_TIME
+        #define PINKY_HOLDING_TIME (TAPPING_RESOLUTION + 90) // was 110 before
+        #endif
+
+        //
+        // HOMEY_STREAK_DECAY defines how long you need to wait (milliseconds)
+        // after typing before you can use home row mods again.  It prevents
+        // unintended activation of home row mods when you're actively typing.
+        //
+        #ifndef HOMEY_STREAK_DECAY
+        #define HOMEY_STREAK_DECAY TAPPING_RESOLUTION
+        #endif
+
+        //
+        // HOMEY_REPEAT_DECAY defines how much time you have left (milliseconds)
+        // after tapping a key to hold it again in order to make it auto-repeat.
+        //
+        #ifndef HOMEY_REPEAT_DECAY
+        #define HOMEY_REPEAT_DECAY (TAPPING_RESOLUTION + 150)
+        #endif // "tap then hold" for key auto-repeat
+
+        //
+        // CHORD_HOLDING_TYPE defines the flavor of ZMK hold-tap behavior to use
+        // for chorded home row mods (secondary keypresses in multi-mod chords).
+        //
+        #ifndef CHORD_HOLDING_TYPE
+        #define CHORD_HOLDING_TYPE HOMEY_HOLDING_TYPE
+        #endif
+
+        //
+        // CHORD_HOLDING_TIME defines how long you need to hold (milliseconds)
+        // home row mod keys in order to send their modifiers to the computer
+        // (i.e. "register" them) for mod-click mouse usage (e.g. Ctrl-Click).
+        // This is specifically for secondary keypresses in multi-mod chords.
+        //
+        #ifndef CHORD_HOLDING_TIME
+        #define CHORD_HOLDING_TIME TAPPING_RESOLUTION
+        #endif
+
+        //
+        // CHORD_STREAK_DECAY defines how long you need to wait (milliseconds)
+        // after typing before you can use home row mods again.  It prevents
+        // unintended activation of home row mods when you're actively typing
+        // This is specifically for secondary keypresses in multi-mod chords.
+        //
+        #ifndef CHORD_STREAK_DECAY
+        #define CHORD_STREAK_DECAY HOMEY_STREAK_DECAY
+        #endif
+
+        //
+        // CHORD_REPEAT_DECAY defines how much time you have left (milliseconds)
+        // after tapping a key to hold it again in order to make it auto-repeat.
+        // This is specifically for secondary keypresses in multi-mod chords.
+        //
+        #ifndef CHORD_REPEAT_DECAY
+        #define CHORD_REPEAT_DECAY HOMEY_REPEAT_DECAY
+        #endif
+
+        //
+        // INDEX_HOLDING_TYPE defines the flavor of ZMK hold-tap behavior to use
+        // for index fingers (which Miryoku assigns to Shift) on home row keys.
+        //
+        // NOTE: The "tap-preferred" flavor of ZMK hold-tap for index finger keys
+        // allows faster activation of the Shift modifier (without having to wait
+        // for the modified key to be released as the "balanced" flavor requires).
+        //
+        #ifndef INDEX_HOLDING_TYPE
+        #define INDEX_HOLDING_TYPE "tap-preferred"
+        #endif
+
+        //
+        // INDEX_STREAK_DECAY defines how long you need to wait (milliseconds)
+        // after typing before you can use home row mods again.  It prevents
+        // unintended activation of home row mods when you're actively typing.
+        //
+        #ifndef INDEX_STREAK_DECAY
+        #define INDEX_STREAK_DECAY (TAPPING_RESOLUTION - 50)
+        #endif
+
+        //
+        // INDEX_REPEAT_DECAY defines how much time you have left (milliseconds)
+        // after tapping a key to hold it again in order to make it auto-repeat.
+        //
+        #ifndef INDEX_REPEAT_DECAY
+        #define INDEX_REPEAT_DECAY (TAPPING_RESOLUTION + 150)
+        #endif // "tap then hold" for key auto-repeat
+
+        //
+        // PLAIN_HOLDING_TYPE defines the flavor of ZMK hold-tap behavior to use
+        // for index fingers (which Miryoku assigns to Shift) on home row keys.
+        //
+        // NOTE: The "tap-preferred" flavor of ZMK hold-tap for index finger keys
+        // allows faster activation of the Shift modifier (without having to wait
+        // for the modified key to be released as the "balanced" flavor requires).
+        //
+        #ifndef PLAIN_HOLDING_TYPE
+        #define PLAIN_HOLDING_TYPE INDEX_HOLDING_TYPE
+        #endif
+
+        //
+        // PLAIN_HOLDING_TIME defines how long you need to hold (milliseconds)
+        // index finger keys in order to send their modifiers to the computer
+        // (i.e. "register" them) for mod-click mouse usage (e.g. Shift-Click).
+        //
+        #ifndef PLAIN_HOLDING_TIME
+        #define PLAIN_HOLDING_TIME (TAPPING_RESOLUTION + 50)
+        #endif
+
+        //
+        // PLAIN_STREAK_DECAY defines how long you need to wait (milliseconds)
+        // after typing before you can use home row mods again.  It prevents
+        // unintended activation of home row mods when you're actively typing.
+        //
+        #ifndef PLAIN_STREAK_DECAY
+        #define PLAIN_STREAK_DECAY HOMEY_STREAK_DECAY
+        #endif
+
+        //
+        // PLAIN_REPEAT_DECAY defines how much time you have left (milliseconds)
+        // after tapping a key to hold it again in order to make it auto-repeat.
+        //
+        #ifndef PLAIN_REPEAT_DECAY
+        #define PLAIN_REPEAT_DECAY (TAPPING_RESOLUTION + 150)
+        #endif // "tap then hold" for key auto-repeat
+
+        //
+        // THUMB_HOLDING_TYPE defines the flavor of ZMK hold-tap behavior to use
+        // for the thumbs (which are assigned to 6 layers in the Miryoku system).
+        //
+        // NOTE: The "balanced" flavor of ZMK hold-tap provides instant modifier
+        // activation for the symbol layer (if the tapped symbol key is released
+        // while the thumb layer key is still held down) for quicker programming.
+        //
+        #ifndef THUMB_HOLDING_TYPE
+        #define THUMB_HOLDING_TYPE "balanced"
+        #endif
+
+        //
+        // THUMB_HOLDING_TIME defines how long you need to hold (milliseconds)
+        // a thumb key to activate a layer.  Shorter holds are treated as taps.
+        //
+        #ifndef THUMB_HOLDING_TIME
+        #define THUMB_HOLDING_TIME (TAPPING_RESOLUTION + 50)
+        #endif
+
+        //
+        // THUMB_REPEAT_DECAY defines how much time you have left (milliseconds)
+        // after tapping a key to hold it again in order to make it auto-repeat.
+        //
+        #ifndef THUMB_REPEAT_DECAY
+        #define THUMB_REPEAT_DECAY (TAPPING_RESOLUTION + 150)
+        #endif // "tap then hold" for key auto-repeat
+
+        //
+        // SPACE_HOLDING_TYPE defines the flavor of ZMK hold-tap behavior to use
+        // for spacebar (assigned to the right thumb's home position by default).
+        //
+        #ifndef SPACE_HOLDING_TYPE
+        #define SPACE_HOLDING_TYPE THUMB_HOLDING_TYPE
+        #endif
+
+        //
+        // SPACE_HOLDING_TIME defines how long you need to hold (milliseconds)
+        // the space thumb key to activate.  Shorter holds are treated as taps.
+        //
+        #ifndef SPACE_HOLDING_TIME
+        #define SPACE_HOLDING_TIME (TAPPING_RESOLUTION + 20)
+        #endif
+
+        //
+        // SPACE_REPEAT_DECAY defines how much time you have left (milliseconds)
+        // after tapping a key to hold it again in order to make it auto-repeat.
+        //
+        #ifndef SPACE_REPEAT_DECAY
+        #define SPACE_REPEAT_DECAY (TAPPING_RESOLUTION + 100)
         #endif
 
     };
