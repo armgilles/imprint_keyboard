@@ -7045,14 +7045,14 @@
 
         layer_QWERTY {
             bindings = <
-&none                         &none                         &none                         &none                          &none          &none                            &none                               &none                              &none                         &none                           &none  &none
-&none                        &kp N1                         &kp N2               &world_e_acute                        &kp SQT          &kp N5                          &kp N6                              &kp N7                             &kp N8                        &kp N9                          &kp N0  &none
-&none                         &kp Q                         &kp W                         &kp E                          &kp R          &kp T                            &kp Y                               &kp U                              &kp I                         &kp O                        &kp SEMI  &none
+&none                         &none                         &none                         &none                          &none          &none                            &none                               &none                              &none                          &none                          &none  &none
+&none                        &kp N1                        &kp N2                &world_e_acute                        &kp SQT          &kp N5                          &kp N6                              &kp N7                             &kp N8                         &kp N9                         &kp N0  &none
+&none                         &kp Q                         &kp W                         &kp E                          &kp R          &kp T                            &kp Y                               &kp U                              &kp I                          &kp O                       &kp SEMI  &none
 &none  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &sLeftIndex (F, LAYER_QWERTY)          &kp G                            &kp H       &RightIndex (J, LAYER_QWERTY)     &rRightMiddy (K, LAYER_QWERTY)  &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
 &none                         &kp Z                         &kp X                         &kp C                          &kp V          &kp B                            &kp N                               &kp M                          &kp COMMA                        &kp DOT                       &kp FSLH  &none
 &none                         &none                        &kp UP                      &kp DOWN                          &none                                                                               &none                           &kp LBKT                       &kp RBKT                          &none  &none
-                                                                                                                         &thumb 6 ESC   &none         &none              &none                     &thumb 4 INSERT                     &thumb 5 ENTER
-                                                                                                                         &thumb 1 BSPC  &thumb 2 DEL  &hyper_key    &caps_word                        &thumb 8 TAB                     &space 3 SPACE
+                                                                                                                  &thumb 6 ESC          &none         &none              &none                     &thumb 4 INSERT                     &thumb 5 ENTER
+                                                                                                                 &thumb 1 BSPC   &thumb 2 DEL    &hyper_key         &caps_word                        &thumb 8 TAB                     &space 3 SPACE
             >;
         };
 
