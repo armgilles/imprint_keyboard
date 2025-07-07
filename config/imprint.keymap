@@ -796,6 +796,40 @@
         #ifndef LEFT_PINKY_REPEAT_DECAY
         #define LEFT_PINKY_REPEAT_DECAY PINKY_REPEAT_DECAY
         #endif
+        left_pinky: homey_left_pinky {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = LEFT_PINKY_HOLDING_TYPE;
+            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // wait for other home row mods
+            tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
+            quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
+            require-prior-idle-ms = <LEFT_PINKY_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            #ifdef SHIFT_FORGIVENESS
+            #if LEFT_PINKY_MOD == LSFT || LEFT_PINKY_MOD == RSFT
+            hold-while-undecided; // requires 24.08-beta1 or newer firmware
+            retro-tap; // tap on standalone hold
+            #endif
+            #endif
+        };
+        left_pinky_bilateral: homey_left_pinky_bilateral {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = LEFT_PINKY_HOLDING_TYPE;
+            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // wait for other home row mods
+            tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
+            quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
+            require-prior-idle-ms = <LEFT_PINKY_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&left_pinky_hold>, <&kp>;
+            #ifdef SHIFT_FORGIVENESS
+            #if LEFT_PINKY_MOD == LSFT || LEFT_PINKY_MOD == RSFT
+            hold-while-undecided; // requires 24.08-beta1 or newer firmware
+            retro-tap; // tap on standalone hold
+            #endif
+            #endif
+        };
 
     };
 
