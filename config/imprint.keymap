@@ -2533,32 +2533,38 @@
     };
 
     macros {
+
         bt_0: bt_0 {
             label = "BT_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE &bt BT_SEL 0>;
+            bindings
+                = <&out OUT_BLE>,
+                <&bt BT_SEL 0>;
         };
-
         bt_1: bt_1 {
             label = "BT_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE &bt BT_SEL 1>;
+            bindings
+                = <&out OUT_BLE>,
+                <&bt BT_SEL 1>;
         };
-
         bt_2: bt_2 {
             label = "BT_2";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE &bt BT_SEL 2>;
+            bindings
+                = <&out OUT_BLE>,
+                <&bt BT_SEL 2>;
         };
-
         bt_3: bt_3 {
             label = "BT_3";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE &bt BT_SEL 3>;
+            bindings
+                = <&out OUT_BLE>,
+                <&bt BT_SEL 3>;
         };
 
         //
@@ -2580,41 +2586,36 @@
         //
         // Mod+Tab application switcher - hold this down to keep menu open
         //
-
         mod_tab: mod_tab_switcher {
             compatible = "zmk,behavior-macro-one-param";
             wait-ms = <0>;
             tap-ms = <0>;
             #binding-cells = <1>;
-            bindings =
-                <&macro_param_1to1>,
-                <&macro_press>,
-                <&kp MACRO_PLACEHOLDER>,
-                <&macro_tap>,
-                <&kp TAB>,
-                <&macro_pause_for_release>,
-                <&macro_param_1to1>,
-                <&macro_release>,
-                <&kp MACRO_PLACEHOLDER>;
+            bindings
+            = <&macro_param_1to1>
+            , <&macro_press &kp MACRO_PLACEHOLDER>
+            , <&macro_tap &kp TAB>
+            , <&macro_pause_for_release>
+            , <&macro_param_1to1>
+            , <&macro_release &kp MACRO_PLACEHOLDER>
+            ;
         };
-
         mod_tab_chord: mod_tab_switcher_chord {
             compatible = "zmk,behavior-macro-two-param";
             wait-ms = <0>;
             tap-ms = <0>;
             #binding-cells = <2>;
-            bindings =
-                <&macro_param_2to1>,
-                <&macro_press>,
-                <&mo MACRO_PLACEHOLDER &macro_param_1to1>,
-                <&macro_press>,
-                <&mod_tab MACRO_PLACEHOLDER>,
-                <&macro_pause_for_release>,
-                <&macro_param_1to1>,
-                <&macro_release>,
-                <&mod_tab MACRO_PLACEHOLDER &macro_param_2to1>,
-                <&macro_release>,
-                <&mo MACRO_PLACEHOLDER>;
+            bindings
+            = <&macro_param_2to1>
+            , <&macro_press &mo MACRO_PLACEHOLDER>
+            , <&macro_param_1to1>
+            , <&macro_press &mod_tab MACRO_PLACEHOLDER>
+            , <&macro_pause_for_release>
+            , <&macro_param_1to1>
+            , <&macro_release &mod_tab MACRO_PLACEHOLDER>
+            , <&macro_param_2to1>
+            , <&macro_release &mo MACRO_PLACEHOLDER>
+            ;
         };
 
         //////////////////////////////////////////////////////////////////////////
@@ -2623,12 +2624,12 @@
         // - https://getreuer.info/posts/keyboards/select-word/index.html
         //
         //////////////////////////////////////////////////////////////////////////
+
         //
         // SELECT_WORD_DELAY defines how long the macro waits (milliseconds)
         // after moving the cursor before it selects a word.  A larger delay
         // may allow the macro to move to the next word upon each invocation.
         //
-
         #ifndef SELECT_WORD_DELAY
         #define SELECT_WORD_DELAY 1
         #endif
@@ -2644,12 +2645,10 @@
         //
         // select a word (jumps to next word upon each successive invocation)
         //
-
         select_word: select_word {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&select_word_right>, <&select_word_left>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         ZMK_MACRO(select_word_right,
@@ -2666,12 +2665,10 @@
         //
         // extend current selection by one word
         //
-
         extend_word: extend_word {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&extend_word_right>, <&extend_word_left>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         ZMK_MACRO(extend_word_right,
@@ -2688,12 +2685,10 @@
         //
         // select current line
         //
-
         select_line: select_line {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&select_line_right>, <&select_line_left>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         ZMK_MACRO(select_line_right,
@@ -2710,12 +2705,10 @@
         //
         // extend current selection by one line
         //
-
         extend_line: extend_line {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&extend_line_right>, <&extend_line_left>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         ZMK_MACRO(extend_line_right,
@@ -6502,328 +6495,244 @@
         //
         // transforms
         //
-
         world_i_base: world_i_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_i_acute>, <&world_i_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_i_LCTL: world_i_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_i_diaeresis>, <&world_i_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
         world_i_RCTL: world_i_RCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_i_circumflex>, <&world_i_grave>;
-
             mods = <(MOD_RSFT)>;
         };
-
         world_e_base: world_e_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_acute>, <&world_e_LALT>;
-
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_e_LALT: world_e_LALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_oe>, <&world_e_RALT>;
-
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_e_RALT: world_e_RALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_ae>, <&world_e_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_e_LCTL: world_e_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_diaeresis>, <&world_e_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
         world_e_RCTL: world_e_RCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_circumflex>, <&world_e_grave>;
-
             mods = <(MOD_RSFT)>;
         };
-
         world_a_base: world_a_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_acute>, <&world_a_LALT>;
-
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_a_LALT: world_a_LALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_tilde>, <&world_a_RALT>;
-
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_a_RALT: world_a_RALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_ring>, <&world_a_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_a_LCTL: world_a_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_diaeresis>, <&world_a_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
         world_a_RCTL: world_a_RCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_circumflex>, <&world_a_grave>;
-
             mods = <(MOD_RSFT)>;
         };
-
         world_y_base: world_y_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_y_acute>, <&world_y_diaeresis>;
-
             mods = <(MOD_LCTL)>;
         };
-
         world_o_base: world_o_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_o_acute>, <&world_o_LALT>;
-
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_o_LALT: world_o_LALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_o_tilde>, <&world_o_RALT>;
-
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_o_RALT: world_o_RALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_o_slash>, <&world_o_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_o_LCTL: world_o_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_o_diaeresis>, <&world_o_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
         world_o_RCTL: world_o_RCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_o_circumflex>, <&world_o_grave>;
-
             mods = <(MOD_RSFT)>;
         };
-
         world_u_base: world_u_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_u_acute>, <&world_u_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_u_LCTL: world_u_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_u_diaeresis>, <&world_u_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
         world_u_RCTL: world_u_RCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_u_circumflex>, <&world_u_grave>;
-
             mods = <(MOD_RSFT)>;
         };
-
         world_consonants_base: world_consonants_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_consonants_cedilla>, <&world_consonants_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-
         world_consonants_LCTL: world_consonants_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_consonants_ntilde>, <&world_consonants_eszett>;
-
             mods = <(MOD_RCTL)>;
         };
-
         world_quotes_left_base: world_quotes_left_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_quotes_left_angle>, <&world_quotes_left_LALT>;
-
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_quotes_left_LALT: world_quotes_left_LALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_quotes_left_corner1>, <&world_quotes_left_RALT>;
-
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_quotes_left_RALT: world_quotes_left_RALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_quotes_left_corner2>, <&world_quotes_left_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_quotes_left_LCTL: world_quotes_left_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_quotes_left_curly>, <&world_quotes_left_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
         world_quotes_left_RCTL: world_quotes_left_RCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_quotes_left_low>, <&world_quotes_left_grave>;
-
             mods = <(MOD_RSFT)>;
         };
-
         world_quotes_right_base: world_quotes_right_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_quotes_right_angle>, <&world_quotes_right_LALT>;
-
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_quotes_right_LALT: world_quotes_right_LALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings =
-                <&world_quotes_right_corner1>,
-                <&world_quotes_right_RALT>;
-
+            bindings = <&world_quotes_right_corner1>, <&world_quotes_right_RALT>;
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_quotes_right_RALT: world_quotes_right_RALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings =
-                <&world_quotes_right_corner2>,
-                <&world_quotes_right_LCTL>;
-
+            bindings = <&world_quotes_right_corner2>, <&world_quotes_right_LCTL>;
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_quotes_right_LCTL: world_quotes_right_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_quotes_right_curly>, <&world_quotes_right_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
         world_quotes_right_RCTL: world_quotes_right_RCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_quotes_right_low>, <&world_quotes_right_grave>;
-
             mods = <(MOD_RSFT)>;
         };
-
         world_currency_base: world_currency_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_currency_dollar>, <&world_currency_LALT>;
-
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_currency_LALT: world_currency_LALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_currency_yen>, <&world_currency_RALT>;
-
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_currency_RALT: world_currency_RALT {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_currency_won>, <&world_currency_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
         world_currency_LCTL: world_currency_LCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_currency_euro>, <&world_currency_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
         world_currency_RCTL: world_currency_RCTL {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_currency_pound>, <&world_currency_generic>;
-
             mods = <(MOD_RSFT)>;
         };
-
         world_sign_base: world_sign_base {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_sign_copyright>, <&world_sign_trademark>;
-
             mods = <(MOD_LCTL)>;
         };
 
@@ -6832,20 +6741,25 @@
         // Emoji layer - modern age pictograms
         //
         //////////////////////////////////////////////////////////////////////////
+
         // On ne prend pas les Emoji
+
+
         //////////////////////////////////////////////////////////////////////////
         ///
         /// Autre macro 
         ///
         //////////////////////////////////////////////////////////////////////////
-
         focus_left_group: focus_left_group {
             label = "&focus_left_group";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&macro_tap>, <&kp LC(E) &kp H>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp H>;
         };
 
         focus_right_group: focus_right_group {
@@ -6854,7 +6768,10 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&macro_tap>, <&kp LC(E) &kp L>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp L>;
         };
 
         focus_up_group: focus_up_group {
@@ -6863,7 +6780,10 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&macro_tap>, <&kp LC(E) &kp K>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp K>;
         };
 
         focus_down_group: focus_down_group {
@@ -6872,18 +6792,23 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&macro_tap>, <&kp LC(E) &kp J>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp J>;
         };
 
         /* Spit windows editort */
-
         split_editor_vertical: split_editor_vertical {
             label = "&split_editor_vertical";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&macro_tap>, <&kp LC(E) &kp V>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp V>;
         };
 
         split_editor_horizontal: split_editor_horizontal {
@@ -6892,18 +6817,23 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&macro_tap>, <&kp LC(E) &kp S>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(E)>
+                , <&kp S>;
         };
 
         // To increase / decrease current view VsCode
-
         increase_vscode_view: increase_vscode_view {
             label = "&increase_vscode_view";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&macro_tap>, <&kp LC(T) &kp KP_PLUS>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(T)>
+                , <&kp KP_PLUS>;
         };
 
         decrease_vscode_view: decrease_vscode_view {
@@ -6912,127 +6842,99 @@
             #binding-cells = <0>;
             wait-ms = <5>;
             tap-ms = <5>;
-            bindings = <&macro_tap>, <&kp LC(T) &kp KP_MINUS>;
+            bindings
+                = <&macro_tap>
+                , <&kp LC(T)>
+                , <&kp KP_MINUS>;
         };
-
         //////////////////////////////////////////////////////////////////////////
         ///
         /// Autre macro 
         ///
         //////////////////////////////////////////////////////////////////////////
         // Update to have "à" in default.
-
         world_a_base_perso: world_a_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_grave>, <&world_a_LALT>;
-
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_a_LALT_perso: world_a_LALT_perso {
+            world_a_LALT_perso: world_a_LALT_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_tilde>, <&world_a_RALT_perso>;
-
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_a_RALT_perso: world_a_RALT_perso {
+            world_a_RALT_perso: world_a_RALT_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_ring>, <&world_a_LCTL_perso>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_a_LCTL_perso: world_a_LCTL_perso {
+            world_a_LCTL_perso: world_a_LCTL_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_diaeresis>, <&world_a_RCTL_perso>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_a_RCTL_perso: world_a_RCTL_perso {
+            world_a_RCTL_perso: world_a_RCTL_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_a_circumflex>, <&world_a_acute>;
-
             mods = <(MOD_RSFT)>;
         };
-
-        // For ç
-
-        world_consonants_base_perso: world_consonants_base_perso {
+            // For ç
+            world_consonants_base_perso: world_consonants_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings =
-                <&world_consonants_cedilla>,
-                <&world_consonants_cedilla_upper>;
-
+            bindings = <&world_consonants_cedilla>, <&world_consonants_cedilla_upper>;
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
-        // Update to have "è" in default.
-
-        world_e_base_perso: world_e_base_perso {
+            // Update to have "è" in default.
+            world_e_base_perso: world_e_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_grave>, <&world_e_RALT_perso>;
-
             mods = <(MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_e_RALT_perso: world_e_RALT_perso {
+            world_e_RALT_perso: world_e_RALT_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_ae>, <&world_e_LCTL_perso>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_e_LCTL_perso: world_e_LCTL_perso {
+            world_e_LCTL_perso: world_e_LCTL_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_diaeresis>, <&world_e_RCTL_perso>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_e_RCTL_perso: world_e_RCTL_perso {
+            world_e_RCTL_perso: world_e_RCTL_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_circumflex>, <&world_e_acute>;
-
             mods = <(MOD_RSFT)>;
         };
-
-        // For u and have defaut "ù"
-
-        world_u_base_perso: world_u_base_perso {
+            // For u and have defaut "ù"
+            world_u_base_perso: world_u_base_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_u_grave>, <&world_u_LCTL>;
-
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_u_LCTL_perso: world_u_LCTL_perso {
+            world_u_LCTL_perso: world_u_LCTL_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_u_diaeresis>, <&world_u_RCTL>;
-
             mods = <(MOD_RCTL|MOD_RSFT)>;
         };
-
-        world_u_RCTL_perso: world_u_RCTL_perso {
+            world_u_RCTL_perso: world_u_RCTL_perso {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_u_circumflex>, <&world_u_grave>;
-
             mods = <(MOD_RSFT)>;
         };
+
     };
 
     ////////////////////////////////////////////////////////////////
