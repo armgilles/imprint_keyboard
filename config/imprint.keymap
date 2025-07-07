@@ -6997,6 +6997,19 @@
             >;
         };
 
+        layer_LeftIndex {
+            bindings = <
+&trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_index_tap KEY_LH_C5R2   &left_index_tap KEY_LH_C4R2  &left_index_tap KEY_LH_C3R2   &left_index_tap KEY_LH_C2R2  &left_index_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_index_tap Q             &left_index_tap W            &left_index_tap E             &left_index_tap R            &left_index_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &LeftIndexPinky               &LeftIndexRingy              &LeftIndexMiddy               &none                        &left_index_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_index_tap Z             &left_index_tap X            &left_index_tap C             &left_index_tap V            &left_index_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_index_tap GRAVE         &left_index_tap LBKT         &left_index_tap RBKT          &left_index_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
+                                                                                                 &trans                       &trans                      &trans    &trans  &trans               &trans
+                                                                                                 &trans                       &trans                      &trans    &trans  &trans               &trans
+            >;
+        };
+
         layer_testing {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
