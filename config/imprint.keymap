@@ -2475,15 +2475,6 @@
             bindings = <&kp LPAR>, <&kp LT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        //
-        // Shift + RIGHT_PARENTHESIS = GREATER_THAN
-        //
-        parang_right: right_parenthesis_and_greater_than {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp RPAR>, <&kp GT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
 
     };
 
