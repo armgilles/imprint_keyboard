@@ -6953,7 +6953,7 @@
 &none  &kp Z                         &kp X                         &kp C                         &kp V                          &kp B                           &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
 &none  &none                         &kp UP                        &kp DOWN                      &none                                                                      &none                          &kp LBKT                        &kp RBKT                       &none                          &none
                                                                                                  &thumb 6 ESC                   &none         &none             &none       &thumb 4 INSERT                &thumb 5 ENTER
-                                                                                                 &thumb 1 BSPC                  &thumb 2 DEL  &hyper_key        &caps_word  &thumb 8 TAB                   &space 3 SPACE
+                                                                                                 &thumb 1 BSPC                  &thumb 2 DEL  &none        &caps_word  &thumb 8 TAB                   &space 3 SPACE
             >;
         };
 
