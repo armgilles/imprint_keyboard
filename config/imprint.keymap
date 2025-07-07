@@ -1,100 +1,997 @@
+
+
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
 
+    behaviors {
+        // Constantes temporelles du Glove80 (DIFFICULTY_LEVEL = 0)
+
+        #define TAPPING_RESOLUTION 140
+        #define INDEX_HOLDING_TIME (TAPPING_RESOLUTION + 5)     // 145ms
+        #define MIDDY_HOLDING_TIME (TAPPING_RESOLUTION + 40)    // 180ms  
+        #define RINGY_HOLDING_TIME (TAPPING_RESOLUTION + 90)    // 230ms
+        #define PINKY_HOLDING_TIME (TAPPING_RESOLUTION + 90)    // 230ms
+        #define HOMEY_REPEAT_DECAY (TAPPING_RESOLUTION + 150)   // 290ms
+        #define INDEX_STREAK_DECAY (TAPPING_RESOLUTION - 50)    // 90ms
+        #define HOMEY_STREAK_DECAY TAPPING_RESOLUTION           // 140ms
+        // Hold-tap behaviors avec les valeurs exactes du Glove80 par doigt
+
+        lmt: left_mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <INDEX_HOLDING_TIME>;     // 145ms pour index (Shift)
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms 
+            require-prior-idle-ms = <INDEX_STREAK_DECAY>; // 90ms
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 57 74>; // Main droite + thumbs
+            hold-trigger-on-release;
+        };
+
+        rmt: right_mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <INDEX_HOLDING_TIME>;     // 145ms pour index (Shift)
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
+            require-prior-idle-ms = <INDEX_STREAK_DECAY>; // 90ms
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 64 65 66 67 68 69 52>; // Main gauche + thumbs
+            hold-trigger-on-release;
+        };
+
+        // Behaviors différenciés par doigt pour appliquer les bonnes valeurs temporelles
+
+        lmt_pinky: left_mod_tap_pinky {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <PINKY_HOLDING_TIME>;     // 230ms
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
+            require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 57 74>;
+            hold-trigger-on-release;
+        };
+
+        lmt_ringy: left_mod_tap_ringy {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <RINGY_HOLDING_TIME>;     // 230ms
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
+            require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 57 74>;
+            hold-trigger-on-release;
+        };
+
+        lmt_middy: left_mod_tap_middy {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <MIDDY_HOLDING_TIME>;     // 180ms
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
+            require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41 42 43 44 45 58 59 60 61 62 63 75 76 77 78 79 57 74>;
+            hold-trigger-on-release;
+        };
+
+        // Idem pour la main droite
+
+        rmt_pinky: right_mod_tap_pinky {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <PINKY_HOLDING_TIME>;     // 230ms
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
+            require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 64 65 66 67 68 69 52>;
+            hold-trigger-on-release;
+        };
+
+        rmt_ringy: right_mod_tap_ringy {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <RINGY_HOLDING_TIME>;     // 230ms
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
+            require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 64 65 66 67 68 69 52>;
+            hold-trigger-on-release;
+        };
+
+        rmt_middy: right_mod_tap_middy {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <MIDDY_HOLDING_TIME>;     // 180ms
+            quick-tap-ms = <HOMEY_REPEAT_DECAY>;        // 290ms
+            require-prior-idle-ms = <HOMEY_STREAK_DECAY>; // 140ms
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 34 35 36 37 38 39 46 47 48 49 50 51 64 65 66 67 68 69 52>;
+            hold-trigger-on-release;
+        };
+
+        // World character behaviors (système complet basé sur Glove80)
+        // Correction pour à/À
+
+        world_a_grave_macro: world_a_grave_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp A>; // à
+        };
+
+        world_a_grave_upper_macro: world_a_grave_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp LS(A)>; // À
+        };
+
+        world_a_base_perso: world_a_base_perso {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_a_grave_macro>, <&world_a_grave_upper_macro>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Correction pour è/È - définir les macros AVANT world_e_base_perso
+
+        world_e_grave_macro: world_e_grave_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp E>; // è
+        };
+
+        world_e_grave_upper_macro: world_e_grave_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp LS(E)>; // È
+        };
+
+        world_e_base_perso: world_e_base_perso {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_grave_macro>, <&world_e_grave_upper_macro>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        world_u_ctrl: world_u_ctrl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(I)>, <&kp RA(LS(I))>;
+
+            // û -> Û (Option+I puis u/U pour macOS)
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Correction pour ë/Ë (tréma)
+
+        world_e_diaeresis_macro: world_e_diaeresis_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(U) &kp E>; // Option+U puis E pour ë
+        };
+
+        world_e_diaeresis_upper_macro: world_e_diaeresis_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(U) &kp LS(E)>; // Option+U puis Shift+E pour Ë
+        };
+
+        // Correction pour ê/Ê (circonflexe)
+
+        world_e_circumflex_macro: world_e_circumflex_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp E>; // Option+I puis E pour ê
+        };
+
+        world_e_circumflex_upper_macro: world_e_circumflex_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp LS(E)>; // Option+I puis Shift+E pour Ê
+        };
+
+        // Correction pour ï/Ï (tréma sur i)
+
+        world_i_diaeresis_macro: world_i_diaeresis_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(U) &kp I>; // Option+U puis I pour ï
+        };
+
+        world_i_diaeresis_upper_macro: world_i_diaeresis_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(U) &kp LS(I)>; // Option+U puis Shift+I pour Ï
+        };
+
+        // Correction pour ô/Ô (circonflexe sur o)
+
+        world_o_circumflex_macro: world_o_circumflex_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp O>; // Option+I puis O pour ô
+        };
+
+        world_o_circumflex_upper_macro: world_o_circumflex_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(I) &kp LS(O)>; // Option+I puis Shift+O pour Ô
+        };
+
+        // Correction pour æ/Æ
+
+        world_ae_macro: world_ae_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(SQT)>; // Option+' pour æ sur macOS
+        };
+
+        world_ae_upper_macro: world_ae_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(LS(SQT))>; // Option+Shift+' pour Æ sur macOS
+        };
+
+        // Mise à jour des behaviors existants pour utiliser les bonnes séquences
+
+        world_y_base: world_y_base {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(E) &kp Y>, <&kp RA(U) &kp Y>;
+
+            // ý -> ÿ
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        // Correction pour í/Í
+
+        world_i_acute_macro: world_i_acute_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp I>; // í
+        };
+
+        world_i_acute_upper_macro: world_i_acute_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp LS(I)>; // Í
+        };
+
+        world_i_base: world_i_base {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_acute_macro>, <&world_i_acute_upper_macro>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Correction pour ó/Ó
+
+        world_o_acute_macro: world_o_acute_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp O>; // ó
+        };
+
+        world_o_acute_upper_macro: world_o_acute_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp LS(O)>; // Ó
+        };
+
+        world_o_base: world_o_base {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_o_acute_macro>, <&world_o_acute_upper_macro>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Correction pour ù/Ù
+
+        world_u_grave_macro: world_u_grave_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp U>; // ù
+        };
+
+        world_u_grave_upper_macro: world_u_grave_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(GRAVE) &kp LS(U)>; // Ù
+        };
+
+        world_u_base_perso: world_u_base_perso {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_u_grave_macro>, <&world_u_grave_upper_macro>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Correction pour ç/Ç
+
+        world_c_cedilla_macro: world_c_cedilla_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(C) &kp C>; // ç (sur macOS US: Alt+C puis C)
+        };
+
+        world_c_cedilla_upper_macro: world_c_cedilla_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(C) &kp LS(C)>; // Ç
+        };
+
+        world_consonants_base_perso: world_consonants_base_perso {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(C)>, <&kp RA(LS(C))>;
+
+            // ç -> Ç (simplifié)
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        // Behavior pour é/É (version corrigée pour macOS US)
+
+        world_e_acute: world_e_acute {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp E>; // Alt + E puis E pour é sur macOS US
+        };
+
+        // Version avec support Shift pour É
+
+        world_e_acute_with_shift: world_e_acute_with_shift {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_acute_macro>, <&world_e_acute_upper_macro>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        world_e_acute_macro: world_e_acute_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp E>; // é
+        };
+
+        world_e_acute_upper_macro: world_e_acute_upper_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp RA(E) &kp LS(E)>; // É
+        };
+
+        // Layer tap behaviors
+
+        lt_cursor: layer_tap_cursor {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_number: layer_tap_number {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_symbol: layer_tap_symbol {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_system: layer_tap_system {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_world: layer_tap_world {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        lt_function: layer_tap_function {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        // Behaviors pour thumb cluster (comme Glove80)
+
+        thumb: thumb_layer_access {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "balanced";
+            tapping-term-ms = <200>;  // Plus lent que space pour éviter les activations accidentelles
+            quick-tap-ms = <150>;
+            #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        space: thumb_layer_access_spacebar {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "balanced";
+            tapping-term-ms = <150>;  // Plus rapide que thumb (200ms)
+            quick-tap-ms = <125>;     // Répétition plus rapide pour espace
+            #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
+
+            retro-tap;               // tap on standalone hold (comme Glove80)
+        };
+
+        // Toggle pour switcher entre macOS et Windows
+
+        os_toggle: os_toggle {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&tog 7>, <&none>, <&tog 7>;
+        };
+
+        // Behaviors adaptatifs selon l'OS
+
+        world_e_acute_adaptive: world_e_acute_adaptive {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(E)>, <&world_e_acute_windows>;
+
+            // macOS par défaut, Windows avec layer 7
+
+            mods = <(MOD_LCTL)>;
+        };
+
+        // Macro pour Hyper Key (Shift+Ctrl+Alt+Gui)
+
+        hyper_key: hyper_key {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHFT &kp LCTRL &kp LALT &kp LGUI>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LSHFT &kp LCTRL &kp LALT &kp LGUI>;
+        };
+
+        // === MACROS BLUETOOTH AVEC RGB ===
+
+        bt_0_connect: bt_0_connect {
+            label = "BT_0_CONNECT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 0 &rgb_ug RGB_TOG>;
+        };
+
+        bt_1_connect: bt_1_connect {
+            label = "BT_1_CONNECT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 1 &rgb_ug RGB_TOG>;
+        };
+
+        bt_2_connect: bt_2_connect {
+            label = "BT_2_CONNECT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 2 &rgb_ug RGB_TOG>;
+        };
+
+        bt_3_connect: bt_3_connect {
+            label = "BT_3_CONNECT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 3 &rgb_ug RGB_TOG>;
+        };
+
+        bt_4_connect: bt_4_connect {
+            label = "BT_4_CONNECT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&out OUT_BLE &bt BT_SEL 4 &rgb_ug RGB_TOG>;
+        };
+
+        usb_connect: usb_connect {
+            label = "USB_CONNECT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&out OUT_USB &rgb_ug RGB_TOG>;
+        };
+
+        // === MACROS WINDOWS MODE ===
+
+        windows_mode_on: windows_mode_on {
+            label = "WINDOWS_MODE_ON";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&to 7 &rgb_ug RGB_TOG>;
+        };
+
+        windows_mode_off: windows_mode_off {
+            label = "WINDOWS_MODE_OFF";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&to 0 &rgb_ug RGB_TOG>;
+        };
+
+        // === MACRO SIMPLE WINDOWS MODE TOGGLE ===
+
+        windows_mode_toggle: windows_mode_toggle {
+            label = "WINDOWS_MODE_TOGGLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&tog 7 &rgb_ug RGB_TOG>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        // Combo SPACE + ENTER → Hyper Key (comme Glove80 combo_sticky_hyper_right)
+
+        combo_sticky_hyper_right {
+            timeout-ms = <50>;
+            key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
+            bindings = <&sk LG(LA(LC(LSHFT)))>; // Sticky Hyper key (Cmd+Alt+Ctrl+Shift)
+            layers = <0 1 2 3 4 5 6 7>; // Actif sur tous les layers comme sur Glove80
+        };
+    };
+
+    // Macros Windows pour layer 7 (placé avant keymap)
+
+    macros {
+        world_e_grave_windows: world_e_grave_windows {
+            label = "WORLD_E_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N2>;
+
+            // è (Alt+0232)
+        };
+
+        // Ajouter la macro manquante pour é
+
+        world_e_acute_windows: world_e_acute_windows {
+            label = "WORLD_E_ACUTE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&macro_tap>, <&kp SQT &kp E>;
+
+            // Windows US Intl: ' puis e pour é
+        };
+
+        world_a_grave_windows: world_a_grave_windows {
+            label = "WORLD_A_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4>;
+
+            // à (Alt+0224)
+        };
+
+        world_u_grave_windows: world_u_grave_windows {
+            label = "WORLD_U_GRAVE_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N9>;
+
+            // ù (Alt+0249)
+        };
+
+        world_o_circumflex_windows: world_o_circumflex_windows {
+            label = "WORLD_O_CIRCUMFLEX_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N4>;
+
+            // ô (Alt+0244)
+        };
+
+        world_c_cedilla_windows: world_c_cedilla_windows {
+            label = "WORLD_C_CEDILLA_WINDOWS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings =
+                <&macro_tap>,
+                <&kp LALT &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1>;
+
+            // ç (Alt+0231)
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        // Layer 0: QWERTY avec home row mods différenciés par doigt
+
+        qwerty_layer {
             bindings = <
-&kp ESC    &kp F1  &kp F2    &kp F3    &kp F4    &kp F5              &kp F6     &kp F7    &kp F8     &kp F9    &kp F10   &kp F11
-&kp EQUAL  &kp N1  &kp N2    &kp N3    &kp N4    &kp N5              &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB    &kp Q   &kp W     &kp E     &kp R     &kp T               &kp Y      &kp U     &kp I      &kp O     &kp P     &kp BSLH
-&kp LCTRL  &kp A   &kp S     &kp D     &kp F     &kp G               &kp H      &kp J     &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X     &kp C     &kp V     &kp B               &kp N      &kp M     &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-&trans     &trans  &kp LGUI  &kp LALT  &trans                                   &trans    &kp LBKT   &kp RBKT  &trans    &trans
-                                       &kp RET   &kp DEL  &kp ESC    &kp GRAVE  &kp BSPC  &kp SPACE
-                                       &kp LGUI  &mo 1    &mo 2      &kp CAPS   &mo 2     &mo 1
+&none  &none               &none              &none                      &none          &none                       &none       &none            &none              &none              &none               &none
+&none  &kp N1              &kp N2             &world_e_acute_with_shift  &kp SQT        &kp N5                      &kp N6      &kp N7           &kp N8             &kp N9             &kp N0              &none
+&none  &kp Q               &kp W              &kp E                      &kp R          &kp T                       &kp Y       &kp U            &kp I              &kp O              &kp SEMI            &none
+&none  &lmt_pinky LCTRL A  &lmt_ringy LALT S  &lmt_middy LGUI D          &lmt LSHFT F   &kp G                       &kp H       &rmt RSHFT J     &rmt_middy RGUI K  &rmt_ringy RALT L  &rmt_pinky RCTRL P  &none
+&none  &kp Z               &kp X              &kp C                      &kp V          &kp B                       &kp N       &kp M            &kp COMMA          &kp DOT            &kp FSLH            &none
+&none  &none               &kp UP             &kp DOWN                   &none                                                  &none            &kp LBKT           &kp RBKT           &none               &none
+                                                                         &thumb 6 ESC   &none         &none         &none       &thumb 4 INSERT  &thumb 5 ENTER
+                                                                         &thumb 1 BSPC  &thumb 2 DEL  &hyper_key    &caps_word  &thumb 8 TAB     &space 3 SPACE
             >;
         };
 
-        Numpad_Nav_Layer {
+        // Layer 1: Cursor/Navigation
+
+        cursor_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &kp N7  &kp N8  &kp N9  &trans            &trans  &kp HOME  &kp UP    &kp END    &trans  &trans
-&trans  &trans  &kp N4  &kp N5  &kp N6  &trans            &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &trans  &kp N1  &kp N2  &kp N3  &trans            &trans  &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &trans  &kp N0  &trans                            &trans    &trans    &trans     &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans    &trans
-                                &trans  &trans  &trans    &trans  &trans    &trans
+&trans  &trans         &trans      &trans         &trans         &trans               &trans    &trans     &trans      &trans      &trans     &trans
+&trans  &trans         &trans      &trans         &trans         &trans               &trans    &trans     &trans      &trans      &trans     &trans
+&trans  &kp LA(LG(E))  &kp LA(R)   &kp LA(V)      &kp LA(A)      &kp LG(X)            &kp BSPC  &kp SPACE  &kp K_UNDO  &kp K_REDO  &sk LSHFT  &trans
+&trans  &kp LCTRL      &kp LALT    &kp LGUI       &kp LSHFT      &kp LG(C)            &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans     &trans
+&trans  &kp LC(A)      &kp LA(T)   &kp LA(LG(J))  &kp LA(LG(L))  &kp LG(V)            &trans    &kp F11    &kp PG_UP   &kp PG_DN   &kp END    &trans
+&trans  &trans         &kp K_REDO  &kp K_UNDO     &trans                                        &trans     &kp LC(F)   &kp LS(F3)  &trans     &trans
+                                                  &kp LA(TAB)    &trans     &trans    &trans    &trans     &kp ENTER
+                                                  &trans         &trans     &trans    &trans    &kp TAB    &kp SPACE
             >;
         };
 
-        Keyboard_Control_Layer {
+        // Layer 2: Number
+
+        number_layer {
             bindings = <
-&trans       &trans        &trans        &trans        &trans        &trans                  &trans  &trans           &trans           &trans           &trans           &trans
-&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4            &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans           &trans           &trans
-&sys_reset   &trans        &trans        &trans        &trans        &trans                  &rgb_ug RGB_TOG  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &sys_reset
-&bootloader  &trans        &trans        &trans        &trans        &trans                  &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &bootloader
-&to 4        &trans        &trans        &trans        &trans        &trans                  &trans  &trans           &trans           &trans           &trans           &to 4
-&to 4        &trans        &trans        &trans        &trans                                        &trans           &trans           &trans           &trans           &to 4
-                                                       &trans        &trans        &trans    &trans  &trans           &trans
-                                                       &trans        &trans        &trans    &trans  &trans           &trans
+&trans  &trans  &trans    &trans       &trans       &trans                          &trans     &trans                 &trans     &trans    &trans     &trans
+&trans  &trans  &trans    &trans       &trans       &trans                          &kp TILDE  &kp CARET              &kp HASH   &kp DLLR  &kp EXCL   &trans
+&trans  &trans  &trans    &kp LC(TAB)  &kp LA(TAB)  &trans                          &kp PRCNT  &kp N7                 &kp N8     &kp N9    &kp COLON  &trans
+&trans  &trans  &kp BSPC  &kp SPACE    &kp DOT      &trans                          &kp PLUS   &kp N4                 &kp N5     &kp N6    &kp MINUS  &trans
+&trans  &trans  &trans    &trans       &kp COMMA    &kp LS(LG(NUMBER_4))            &kp STAR   &kp N1                 &kp N2     &kp N3    &kp FSLH   &trans
+&trans  &trans  &trans    &trans       &trans                                                  &trans                 &kp LT     &kp GT    &trans     &trans
+                                       &trans       &trans                &trans    &trans     &kp LEFT_PARENTHESIS   &kp EQUAL
+                                       &trans       &trans                &trans    &trans     &kp RIGHT_PARENTHESIS  &kp N0
             >;
         };
 
-        Auto_Mouse_Layer {
+        // Layer 3: Symbol
+
+        symbol_layer {
             bindings = <
-&trans  &trans  &trans     &trans     &trans     &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans                               &trans  &trans  &trans  &trans  &trans
-                                      &trans     &trans  &trans    &trans  &trans  &trans
-                                      &trans     &trans  &trans    &trans  &trans  &trans
+&trans     &trans     &trans     &trans     &trans     &trans               &trans     &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans     &trans               &trans     &trans     &kp EXCL   &kp EQUAL  &trans     &trans
+&trans     &kp SQT    &kp LPAR   &kp LBKT   &kp DQT    &kp QMARK            &kp SQT    &kp DQT    &kp RBKT   &kp RPAR   &kp AMPS   &trans
+&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR             &kp BSPC   &kp SPACE  &kp TAB    &kp SEMI   &kp AT     &trans
+&kp GRAVE  &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH             &kp GRAVE  &kp DEL    &kp COMMA  &kp DOT    &kp TILDE  &trans
+&trans     &trans     &kp LBRC   &kp RBRC   &trans                                     &trans     &trans     &trans     &trans     &trans
+                                            &kp BSLH   &trans     &trans    &trans     &trans     &trans
+                                            &kp PRCNT  &kp COLON  &trans    &trans     &trans     &trans
             >;
         };
 
-        factory_test {
+        // Layer 4: System + RGB + Bluetooth Vert/Rouge + Windows Toggle Violet
+        // Tap = Connect (VERT) | Double-tap = Disconnect (ROUGE) | Windows Mode = VIOLET
+
+        system_layer {
             bindings = <
-&kp N0  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5            &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp N1
-&kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7            &kp N8  &kp N9  &kp N0  &kp N1  &kp N2  &kp N3
-&kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9            &kp N0  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5
-&kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp N1            &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7
-&kp N8  &kp N9  &kp N0  &kp N1  &kp N2  &kp N3            &kp N4  &kp N5  &kp N6  &kp N7  &kp N8  &kp N9
-&kp N0  &kp N1  &kp N2  &kp N3  &kp N4                            &kp N6  &kp N7  &kp N8  &kp N9  &kp N0
-                                &kp N1  &kp N2  &kp N3    &kp N4  &kp N5  &kp N6
-                                &kp N7  &kp N8  &kp N9    &kp N0  &kp N1  &kp N2
+&trans          &trans         &trans         &trans         &trans                &trans                       &trans  &trans           &trans           &trans           &trans           &trans
+&trans          &trans         &trans         &trans         &trans                &trans                       &trans  &rgb_ug RGB_ON   &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans
+&bt BT_CLR_ALL  &trans         &trans         &trans         &trans                &bt BT_CLR                   &none   &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
+&trans          &bt_0_connect  &bt_1_connect  &bt_2_connect  &bt_3_connect         &usb_connect                 &none   &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
+&trans          &bt_4_connect  &trans         &trans         &windows_mode_toggle  &trans                       &none   &none            &none            &none            &none            &trans
+&trans          &trans         &trans         &trans         &trans                                                     &trans           &sys_reset       &bootloader      &trans           &trans
+                                                             &kp K_LOCK            &kp C_SLEEP   &kp C_POWER    &trans  &trans           &trans
+                                                             &none                 &none         &none          &trans  &trans           &trans
+            >;
+        };
+
+        // Layer 5: World
+
+        world_layer {
+            bindings = <
+&trans  &trans               &trans  &trans                        &trans  &trans            &trans         &trans               &trans         &trans         &trans     &trans
+&trans  &trans               &trans  &trans                        &trans  &trans            &trans         &trans               &trans         &trans         &trans     &trans
+&trans  &trans               &trans  &world_e_base_perso           &trans  &trans            &world_y_base  &world_u_base_perso  &world_i_base  &world_o_base  &trans     &trans
+&trans  &world_a_base_perso  &trans  &trans                        &trans  &trans            &trans         &sk LSHFT            &sk LCTRL      &sk RCTRL      &sk RSHFT  &trans
+&trans  &trans               &trans  &world_consonants_base_perso  &trans  &trans            &trans         &trans               &sk LALT       &sk RALT       &trans     &trans
+&trans  &trans               &trans  &trans                        &trans                                   &trans               &trans         &trans         &trans     &trans
+                                                                   &trans  &trans  &trans    &trans         &trans               &trans
+                                                                   &trans  &trans  &trans    &trans         &trans               &trans
+            >;
+        };
+
+        // Layer 6: Function (basé sur layer_Function du Glove80)
+
+        function_layer {
+            bindings = <
+&trans  &trans     &trans    &trans    &trans     &trans            &trans            &trans            &trans           &trans        &trans   &trans
+&none   &none      &none     &none     &none      &none             &kp C_MEDIA_HOME  &kp C_PLAY        &kp F1           &kp F2        &none    &none
+&trans  &none      &none     &none     &none      &trans            &kp LG(LA(Y))     &kp LG(LA(U))     &kp LG(LA(I))    &kp F9        &kp F10  &kp F13
+&trans  &kp LCTRL  &kp LALT  &kp LGUI  &kp LSHFT  &trans            &kp LS(LG(N4))    &kp LG(KP_MINUS)  &kp LG(KP_PLUS)  &kp F6        &kp F11  &kp F14
+&trans  &none      &trans    &trans    &trans     &trans            &none             &increase_vscode_view   &decrease_vscode_view           &kp F3        &kp F12  &kp F15
+&trans  &trans     &trans    &trans    &trans                                         &none             &kp C_BRI_UP     &kp C_BRI_DN  &none    &none
+                                       &trans     &trans  &trans    &kp C_PP          &kp C_PREV        &kp C_NEXT
+                                       &trans     &trans  &trans    &kp C_MUTE        &kp C_VOL_DN      &kp C_VOL_UP
+            >;
+        };
+
+        // Layer 7: Windows Mode (quand activé, utilise les séquences Windows)
+
+        windows_mode_layer {
+            bindings = <
+&trans  &trans                  &trans  &trans                    &trans  &trans            &trans  &trans                  &trans     &trans                       &trans     &trans
+&trans  &trans                  &trans  &trans                    &trans  &trans            &trans  &trans                  &trans     &trans                       &trans     &trans
+&trans  &trans                  &trans  &world_e_grave_windows    &trans  &trans            &trans  &world_u_grave_windows  &trans     &world_o_circumflex_windows  &trans     &trans
+&trans  &world_a_grave_windows  &trans  &trans                    &trans  &trans            &trans  &sk LSHFT               &sk LCTRL  &sk RCTRL                    &sk RSHFT  &trans
+&trans  &trans                  &trans  &world_c_cedilla_windows  &trans  &trans            &trans  &trans                  &sk LALT   &sk RALT                     &trans     &trans
+&trans  &trans                  &trans  &trans                    &trans                            &trans                  &trans     &trans                       &trans     &trans
+                                                                  &trans  &trans  &trans    &trans  &trans                  &trans
+                                                                  &trans  &trans  &trans    &trans  &trans                  &tog 7
+            >;
+        };
+
+        // Layer 8: Mouse + Navigation vscode
+
+        mouse_layer {
+            bindings = <
+&trans  &trans     &trans          &trans          &trans           &trans               &none              &none              &trans                  &trans              &trans  &trans
+&none   &none      &none           &none           &none            &none                &msc SCRL_DOWN     &msc SCRL_UP                     &none                   &none               &none   &none
+&trans  &none      &none           &msc SCRL_LEFT  &msc SCRL_RIGHT  &kp LG(X)            &kp LG(N)          &split_editor_horizontal  &split_editor_vertical  &none               &none   &none
+&trans  &kp LCTRL  &kp LALT        &kp LGUI        &kp LSHFT        &kp LG(C)            &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
+&trans  &none      &none           &none           &none            &kp LG(V)            &none              &kp LS(LG(E))             &kp LG(NUMBER_1)        &kp LC(GRAVE)       &none   &none
+&trans  &trans     &msc SCRL_DOWN  &msc SCRL_UP    &trans                                                   &none                     &msc SCRL_DOWN          &msc SCRL_UP        &none   &none
+                                                   &trans           &mkp MCLK  &trans    &none              &none                     &none
+                                                   &mkp LCLK        &mkp RCLK  &trans    &none              &none                     &none
             >;
         };
     };
+
+    // === MACROS DE NAVIGATION POUR LAYER MOUSE ===
+    // Inspirées du layer Mouse du Glove80 pour la navigation d'éditeur/panel
+    // Navigation entre groupes/panels (style Vim en VS Code)
+
+    focus_left_group: focus_left_group {
+        label = "FOCUS_LEFT_GROUP";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings = <&macro_tap>, <&kp LC(E) &kp H>;
+    };
+
+    focus_right_group: focus_right_group {
+        label = "FOCUS_RIGHT_GROUP";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings = <&macro_tap>, <&kp LC(E) &kp L>;
+    };
+
+    focus_up_group: focus_up_group {
+        label = "FOCUS_UP_GROUP";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings = <&macro_tap>, <&kp LC(E) &kp K>;
+    };
+
+    focus_down_group: focus_down_group {
+        label = "FOCUS_DOWN_GROUP";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings = <&macro_tap>, <&kp LC(E) &kp J>;
+    };
+
+    // Division de l'éditeur (split windows)
+
+    split_editor_vertical: split_editor_vertical {
+        label = "SPLIT_EDITOR_VERTICAL";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings = <&macro_tap>, <&kp LC(E) &kp V>;
+    };
+
+    split_editor_horizontal: split_editor_horizontal {
+        label = "SPLIT_EDITOR_HORIZONTAL";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings = <&macro_tap>, <&kp LC(E) &kp S>;
+    };
+
+    // To increase / decrease current view VsCode
+    increase_vscode_view: increase_vscode_view {
+        label = "&increase_vscode_view";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings
+            = <&macro_tap>
+            , <&kp LC(T)>
+            , <&kp KP_PLUS>;
+    };
+
+    decrease_vscode_view: decrease_vscode_view {
+        label = "&decrease_vscode_view";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <5>;
+        tap-ms = <5>;
+        bindings
+            = <&macro_tap>
+            , <&kp LC(T)>
+            , <&kp KP_MINUS>;
+    };
+
+    // Behaviors pour modificateurs dans layer mouse (sticky keys)
+
+    right_index_mod: right_index_mod {
+        compatible = "zmk,behavior-mod-morph";
+        label = "RIGHT_INDEX_MOD";
+        #binding-cells = <0>;
+        bindings = <&sk RCTRL>, <&kp RCTRL>;
+
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
+
+    right_pinky_mod: right_pinky_mod {
+        compatible = "zmk,behavior-mod-morph";
+        label = "RIGHT_PINKY_MOD";
+        #binding-cells = <0>;
+        bindings = <&sk RSHFT>, <&kp RSHFT>;
+
+        mods = <(MOD_LALT|MOD_RALT)>;
+    };
 };
 
-// right hand trackball configuration
-
-// &trackball_peripheral_listener {
-//    input-processors =
-//     activate layer 3 within 500ms of the trackball moving
-//     <&zip_temp_layer 3 500>;
-// };
-
-//left hand trackball configuration
-
-&trackball_central_listener {
+// Configuration trackball main droite
+&trackball_peripheral_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),
-        <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,
-        <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,
-        <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
+        <&zip_temp_layer 8 500>;
 };
