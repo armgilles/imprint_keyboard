@@ -169,6 +169,50 @@
         #define _KP_ENTER ENTER
         #endif
 
+        //////////////////////////////////////////////////////////////////////////
+        //
+        // Miryoku layers and home row mods (ported from my QMK endgame)
+        // - https://sunaku.github.io/home-row-mods.html#porting-to-zmk
+        // - https://github.com/urob/zmk-config#timeless-homerow-mods
+        //
+        //////////////////////////////////////////////////////////////////////////
+
+        //
+        // DIFFICULTY_LEVEL specifies your level of expertise with this keymap.
+        // It's meant to help newcomers gradually work their way up to mastery.
+        //
+        // #define DIFFICULTY_LEVEL 1 // novice (500ms)
+        // #define DIFFICULTY_LEVEL 2 // slower (400ms)
+        // #define DIFFICULTY_LEVEL 3 // normal (300ms)
+        // #define DIFFICULTY_LEVEL 4 // faster (200ms)
+        // #define DIFFICULTY_LEVEL 5 // expert (100ms)
+        //
+        // You can disable this setting by omitting it or assigning a `0` zero,
+        // in which case it will default to my personal set of time thresholds.
+        //
+        // #define DIFFICULTY_LEVEL 0 // sunaku (150ms)
+        //
+        // No matter what difficulty level you choose, you can always override
+        // any settings in this keymap at the beginning of this configuration.
+        //
+        #ifdef DIFFICULTY_LEVEL
+            #if DIFFICULTY_LEVEL > 0 && DIFFICULTY_LEVEL < 6
+            #ifndef TAPPING_RESOLUTION
+                #define TAPPING_RESOLUTION ((6 - DIFFICULTY_LEVEL) * 100)
+            #endif
+            #endif
+        #endif
+
+        //
+        // TAPPING_RESOLUTION specifies the maximum speed at which the keyboard
+        // confuses your taps as being holds when you type on home row mod keys.
+        // When you lower this value, the same confusion should still occur; but
+        // when you raise this value, you should be able to type normally again.
+        //
+        #ifndef TAPPING_RESOLUTION
+        #define TAPPING_RESOLUTION 140
+        #endif
+
     };
 
     combos {
