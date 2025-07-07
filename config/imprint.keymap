@@ -169,10 +169,7 @@
         #define _KP_ENTER ENTER
         #endif
 
-        //
-        // Keymap specific knowledge of the base layer's alpha + ZMK layout
-        //
-        #if defined(LAYER_QWERTY) && LAYER_QWERTY == 0
+        
         #define KEY_LH_C6R1 UP
         #define KEY_LH_C5R1 DOWN
         #define KEY_LH_C4R1 A
@@ -253,7 +250,6 @@
         #define KEY_RH_C4R6 RPAR
         #define KEY_RH_C5R6 BSLH
         #define KEY_RH_C6R6 0
-        #endif
 
     };
 
