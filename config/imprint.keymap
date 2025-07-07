@@ -613,8 +613,6 @@
         #define KEY_RH_C3R4 K
         #define KEY_RH_C4R4 L
         #define KEY_RH_C5R4 P
-        
-        #define KEY_RH_C1R4 H
 
         #define LEFT_PINKY_KEY  KEY_LH_C5R4
         #define LEFT_RINGY_KEY  KEY_LH_C4R4
