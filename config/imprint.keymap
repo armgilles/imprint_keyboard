@@ -2499,7 +2499,6 @@
         #ifndef STICKY_1SHOT_DECAY
         #define STICKY_1SHOT_DECAY 500
         #endif
-
         sticky_key_modtap: sticky_key_modtap {
             compatible = "zmk,behavior-hold-tap";
             flavor = "tap-preferred";
@@ -2525,7 +2524,6 @@
             quick-release;
             ignore-modifiers;
         };
-
     };
 
     combos {
