@@ -7018,8 +7018,8 @@
 &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_pinky_tap H  &RightPinkyIndex       &RightPinkyMiddy        &RightPinkyRingy       &none                   &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap N  &right_pinky_tap M     &right_pinky_tap COMMA  &right_pinky_tap DOT   &right_pinky_tap FSLH   &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_pinky_tap RSFT  &right_pinky_tap LPAR   &right_pinky_tap RPAR  &right_pinky_tap BSLH   &trans
-                                                                    &trans              &trans  &trans    &trans  &trans  &trans
-                                                                    &trans              &trans  &trans    &trans  &trans  &trans
+                                                                    &trans              &trans  &trans    &trans              &trans                 &trans
+                                                                    &trans              &trans  &trans    &trans              &trans                 &trans
             >;
         };
 
