@@ -7109,6 +7109,7 @@ UNICODE_MORPH_MODS
 
   // On ne prend pas les Emoji
 };
+/*HACK*/};
 
 /*HACK*//{
 
@@ -7534,7 +7535,7 @@ UNICODE_MORPH_MODS
 
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
-    };
+    
     keymap {
         compatible = "zmk,keymap";
 
