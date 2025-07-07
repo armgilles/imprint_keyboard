@@ -2505,13 +2505,6 @@
         // sticky one-shot keys in order to trigger their hold (not tap) action.
         //
 
-        sticky_key_modtap: sticky_key_modtap {
-            compatible = "zmk,behavior-hold-tap";
-            flavor = "tap-preferred";
-            tapping-term-ms = <STICKY_HOLDING_TIME>;
-            #binding-cells = <2>;
-            bindings = <&kp>, <&sticky_key_oneshot>;
-        };
 
     };
 
