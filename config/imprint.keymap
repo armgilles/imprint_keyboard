@@ -598,6 +598,18 @@
         #define KEY_RH_C5R2 N0
         #define KEY_RH_C6R2 MINUS
         #define KEY_LH_C6R3 TAB
+        #define KEY_LH_C5R3 Q
+        #define KEY_LH_C4R3 W
+        #define KEY_LH_C3R3 E
+        #define KEY_LH_C2R3 R
+        #define KEY_LH_C1R3 T
+        #define KEY_RH_C1R3 Y
+        #define KEY_RH_C2R3 U
+        #define KEY_RH_C3R3 I
+        #define KEY_RH_C4R3 O
+        #define KEY_RH_C5R3 SEMI
+        #define KEY_RH_C6R3 BSLH
+        #define KEY_LH_C6R4 CAPS
         #define KEY_LH_C5R4 A
         #define KEY_LH_C4R4 S
         #define KEY_LH_C3R4 D
