@@ -574,7 +574,7 @@
         #define THUMB_KEYS          \
                             70 71 72   73 74 75               \
                             76 77 78   79 80 81
- 
+
         //#define KEY_LH_C6R1 UP
         //#define KEY_LH_C5R1 DOWN
         //#define KEY_LH_C4R1 A
