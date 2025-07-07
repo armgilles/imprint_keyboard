@@ -7016,7 +7016,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans            &right_piny_tap 6  &right_piny_tap 7     &right_piny_tap 8      &right_piny_tap 9     &right_piny_tap 0      &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_piny_tap H  &right_piny_tap U     &right_piny_tap I      &right_piny_tap O     &right_piny_tap SEMI   &trans
 &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_piny_tap H  &RightPinkyIndex      &RightPinkyMiddy       &RightPinkyRingy      &none                  &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_piny_tap N  &right_piny_tap M     &right_piny_tap COMMA  &right_piny_tap DOT  &right_piny_tap FSLH    &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_piny_tap N  &right_piny_tap M     &right_piny_tap COMMA  &right_piny_tap DOT   &right_piny_tap FSLH   &trans
 &trans  &trans              &trans              &trans              &trans                                                   &right_piny_tap RSFT  &right_piny_tap LPAR   &right_piny_tap RPAR  &right_piny_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans  &trans  &trans
                                                                     &trans              &trans  &trans    &trans  &trans  &trans
