@@ -170,7 +170,7 @@
         #define _KP_EQUAL EQUAL
         #define _KP_ENTER ENTER
         #endif
-                #if defined(LAYER_QWERTY) && LAYER_QWERTY == 0
+        #if defined(LAYER_QWERTY) && LAYER_QWERTY == 0
         #define KEY_LH_C6R1 UP
         #define KEY_LH_C5R1 DOWN
         #define KEY_LH_C4R1 A
