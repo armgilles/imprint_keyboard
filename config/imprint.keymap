@@ -2485,7 +2485,6 @@
             bindings = <&kp RPAR>, <&kp GT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
     };
 
     combos {
