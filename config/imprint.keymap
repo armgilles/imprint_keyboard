@@ -2486,19 +2486,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        //////////////////////////////////////////////////////////////////////////
-        //
-        // &sk (sticky key) variant that is truly one-shot
-        //
-        //////////////////////////////////////////////////////////////////////////
-
-        //
-        // STICKY_1SHOT_DECAY defines how much time you have left (milliseconds)
-        // after tapping a sticky key before it expires (won't apply to next tap).
-        //
-        #ifndef STICKY_1SHOT_DECAY
-        #define STICKY_1SHOT_DECAY 500
-        #endif
         sticky_key_modtap: sticky_key_modtap {
             compatible = "zmk,behavior-hold-tap";
             flavor = "tap-preferred";
@@ -2524,7 +2511,7 @@
             quick-release;
             ignore-modifiers;
         };
-        
+
     };
 
     combos {
