@@ -6944,6 +6944,7 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // OK
         layer_QWERTY {
             bindings = <
 &none  &none                         &none                         &none                         &none                          &none                           &none       &none                          &none                           &none                          &none                          &none
