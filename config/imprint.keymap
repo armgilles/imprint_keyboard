@@ -7050,7 +7050,7 @@
 &none  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &sLeftIndex (F, LAYER_QWERTY)  &kp G                           &kp H       &RightIndex (J, LAYER_QWERTY)  &rRightMiddy (K, LAYER_QWERTY)  &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
 &none  &kp Z                         &kp X                         &kp C                         &kp V                          &kp B                           &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
 &none  &none                         &kp UP                        &kp DOWN                      &none                                                                      &none                          &kp LBKT                        &kp RBKT                       &none                          &none
-                                                                 &thumb 6 ESC   &none         &none         &none       &thumb 4 INSERT  &thumb 5 ENTER
+                                                                                                 &thumb 6 ESC                   &none         &none             &none       &thumb 4 INSERT                &thumb 5 ENTER
                                                                  &thumb 1 BSPC  &thumb 2 DEL  &hyper_key    &caps_word  &thumb 8 TAB     &space 3 SPACE
             >;
         };
