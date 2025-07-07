@@ -7110,6 +7110,8 @@ UNICODE_MORPH_MODS
   // On ne prend pas les Emoji
 };
 
+/*HACK*//{
+
 //////////////////////////////////////////////////////////////////////////
 //
 // Mouse keys (keyboard mouse control) requires v24.12 firmware or newer:
@@ -7531,7 +7533,7 @@ UNICODE_MORPH_MODS
 ////////////////////////////////////////////////////////////////
 
 / {
-    chosen { zmk,matrix-transform = &imprint_function_row;
+    chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
     };
     keymap {
         compatible = "zmk,keymap";
