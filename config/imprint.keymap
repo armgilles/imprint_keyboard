@@ -577,6 +577,7 @@
 
         #define KEY_LH_C6R1 UP
         #define KEY_LH_C5R1 DOWN
+        #define KEY_LH_C4R1 A
         #define KEY_LH_C5R4 A
         #define KEY_LH_C4R4 S
         #define KEY_LH_C3R4 D
