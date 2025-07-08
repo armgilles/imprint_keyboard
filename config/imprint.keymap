@@ -7028,7 +7028,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap 6  &right_ringy_tap 7     &right_ringy_tap 8      &right_ringy_tap 9     &right_ringy_tap 0      &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap H  &right_ringy_tap U     &right_ringy_tap I      &right_ringy_tap O     &right_ringy_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_ringy_tap H  &RightRingyIndex       &RightRingyMiddy        &none                  &RightRingyPinky                   &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_ringy_tap H  &RightRingyIndex       &RightRingyMiddy        &none                  &RightRingyPinky        &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap N  &right_ringy_tap M     &right_ringy_tap COMMA  &right_ringy_tap DOT   &right_ringy_tap FSLH   &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_ringy_tap RSFT  &right_ringy_tap LPAR   &right_ringy_tap RPAR  &right_ringy_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -7041,9 +7041,22 @@
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap 6  &right_middy_tap 7     &right_middy_tap 8      &right_middy_tap 9     &right_middy_tap 0      &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap H  &right_middy_tap U     &right_middy_tap I      &right_middy_tap O     &right_middy_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_middy_tap H  &RightMiddyIndex       &none                   &RightMiddyRingy                  &RightMiddyPinky                   &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_middy_tap H  &RightMiddyIndex       &none                   &RightMiddyRingy       &RightMiddyPinky        &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap N  &right_middy_tap M     &right_middy_tap COMMA  &right_middy_tap DOT   &right_middy_tap FSLH   &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_middy_tap RSFT  &right_middy_tap LPAR   &right_middy_tap RPAR  &right_middy_tap BSLH   &trans
+                                                                    &trans              &trans  &trans    &trans              &trans                 &trans
+                                                                    &trans              &trans  &trans    &trans              &trans                 &trans
+            >;
+        };
+
+        layer_RightIndex {
+            bindings = <
+&trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap 6  &right_index_tap 7     &right_index_tap 8      &right_index_tap 9     &right_index_tap 0      &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap H  &right_index_tap U     &right_index_tap I      &right_index_tap O     &right_index_tap SEMI   &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_index_tap H  &none                  &RightIndexMiddy        &RightIndexRingy       &RightIndexPinky        &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap N  &right_index_tap M     &right_index_tap COMMA  &right_index_tap DOT   &right_index_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans                                                    &right_index_tap RSFT  &right_index_tap LPAR   &right_index_tap RPAR  &right_index_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
             >;
