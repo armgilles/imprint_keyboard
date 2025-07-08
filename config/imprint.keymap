@@ -7122,14 +7122,14 @@
 
         layer_Mouse {
             bindings = <
-&trans  &trans     &trans          &trans          &trans           &trans               &none              &none              &trans                  &trans              &trans  &trans
-&none   &none      &none           &none           &none            &none                &msc SCRL_DOWN     &msc SCRL_UP                     &none                   &none               &none   &none
-&trans  &none      &none           &msc SCRL_LEFT  &msc SCRL_RIGHT  &kp LG(X)            &kp LG(N)          &split_editor_horizontal  &split_editor_vertical  &none               &none   &none
-&trans  &kp LCTRL  &kp LALT        &kp LGUI        &kp LSHFT        &kp LG(C)            &focus_left_group  &focus_down_group         &focus_up_group         &focus_right_group  &none   &none
-&trans  &none      &none           &none           &none            &kp LG(V)            &none              &kp LS(LG(E))             &kp LG(NUMBER_1)        &kp LC(GRAVE)       &none   &none
-&trans  &trans     &msc SCRL_DOWN  &msc SCRL_UP    &trans                                                   &none                     &msc SCRL_DOWN          &msc SCRL_UP        &none   &none
-                                                   &trans           &mkp MCLK  &trans    &none              &none                     &none
-                                                   &mkp LCLK        &mkp RCLK  &trans    &none              &none                     &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                          &none  &none  &none  &none  &none
+                            &none  &none  &none     &none  &none  &none
+                            &none  &none  &none     &none  &none  &none
             >;
         };
 
