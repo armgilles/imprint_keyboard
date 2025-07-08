@@ -7023,6 +7023,19 @@
             >;
         };
 
+        layer_RightRingy {
+            bindings = <
+&trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap 6  &right_ringy_tap 7     &right_ringy_tap 8      &right_ringy_tap 9     &right_ringy_tap 0      &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap H  &right_ringy_tap U     &right_ringy_tap I      &right_ringy_tap O     &right_ringy_tap SEMI   &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_PINKY_KEY  &kp LEFT_PINKY_KEY  &kp LEFT_PINKY_KEY  &trans            &right_ringy_tap H  &RightRingyIndex       &RightRingyMiddy        &none                  &RightRingyPinky                   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap N  &right_ringy_tap M     &right_ringy_tap COMMA  &right_ringy_tap DOT   &right_ringy_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans                                                    &right_ringy_tap RSFT  &right_ringy_tap LPAR   &right_ringy_tap RPAR  &right_ringy_tap BSLH   &trans
+                                                                    &trans              &trans  &trans    &trans              &trans                 &trans
+                                                                    &trans              &trans  &trans    &trans              &trans                 &trans
+            >;
+        };
+
         layer_testing {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
