@@ -7062,6 +7062,7 @@
             >;
         };
 
+        // ok
         layer_Cursor {
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
