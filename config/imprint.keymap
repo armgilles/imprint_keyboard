@@ -7062,7 +7062,7 @@
             >;
         };
 
-        layer_testing {
+        layer_Cursor {
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
