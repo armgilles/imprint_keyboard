@@ -12,30 +12,25 @@
 
     behaviors {
         #define LAYER_QWERTY 0
-        #define LAYER_Typing 1
-        #define LAYER_LeftPinky 2
-        #define LAYER_LeftRingy 3
-        #define LAYER_LeftMiddy 4
-        #define LAYER_LeftIndex 5
-        #define LAYER_RightPinky 6
-        #define LAYER_RightRingy 7
-        #define LAYER_RightMiddy 8
-        #define LAYER_RightIndex 9
-        #define LAYER_Cursor 10
-        #define LAYER_Number 11
-        #define LAYER_Function 12
-        #define LAYER_Emoji 13
-        #define LAYER_Symbol 14
-        #define LAYER_Mouse 15
-        #define LAYER_MouseSlow 16
-        #define LAYER_MouseFast 17
-        #define LAYER_MouseWarp 18
-        #define LAYER_System 19
-        #define LAYER_World 20
-        #define LAYER_Gaming 21
-        #define LAYER_Factory 22
-        #define LAYER_Lower 23
-        #define LAYER_Magic 24
+        define LAYER_LeftPinky 1
+        #define LAYER_LeftRingy 2
+        #define LAYER_LeftMiddy 3
+        #define LAYER_LeftIndex 4
+        #define LAYER_RightPinky 5
+        #define LAYER_RightRingy 6
+        #define LAYER_RightMiddy 7
+        #define LAYER_RightIndex 8
+        #define LAYER_Cursor 9 
+        #define LAYER_Number 10
+        #define LAYER_Function 11
+        #define LAYER_Symbol 12
+        #define LAYER_Mouse 13
+        //#define LAYER_MouseSlow 16
+        //#define LAYER_MouseFast 17
+        //#define LAYER_MouseWarp 18
+        #define LAYER_System 14
+        #define LAYER_World 15
+        //#define LAYER_Magic 24
 
         /* Custom Defined Behaviors */
             
@@ -83,7 +78,7 @@
         // which lets you type Unicode characters via hexadecimal codepoints.
         //
         #ifndef OPERATING_SYSTEM
-        #define OPERATING_SYSTEM 'L' // linux
+        //#define OPERATING_SYSTEM 'L' // linux
         //#define OPERATING_SYSTEM 'M' // macos
         //#define OPERATING_SYSTEM 'W' // windows
         #endif
