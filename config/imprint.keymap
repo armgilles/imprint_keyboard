@@ -7182,4 +7182,4 @@
 ////////////////////////////////////////////////////////////////
 // Configuration trackball main droite uniquement
 
-&trackball_peripheral_listener { input-processors = <&zip_temp_layer 8 500>; };
+&trackball_peripheral_listener { input-processors = <&zip_temp_layer 13 500>; };
