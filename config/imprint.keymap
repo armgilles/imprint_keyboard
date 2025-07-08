@@ -7125,14 +7125,14 @@
 
         layer_Mouse {
             bindings = <
-&none  &none  &none           &none         &none  &none            &none  &none  &none  &none  &none  &none
-&none  &none  &none           &none         &none  &none            &none  &none  &none  &none  &none  &none
-&none  &none  &none           &none         &none  &none            &none  &none  &none  &none  &none  &none
-&none  &none  &none           &none         &none  &none            &none  &none  &none  &none  &none  &none
-&none  &none  &none           &none         &none  &none            &none  &none  &none  &none  &none  &none
-&none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &none                          &none  &none  &none  &none  &none
-                                            &none  &none  &none     &none  &none  &none
-                                            &none  &none  &none     &none  &none  &none
+&none  &none  &none             &none           &none            &none                  &kp RIGHT_INDEX_MOD      &kp RIGHT_MIDDY_MOD        &none                    &none                 &none  &none
+&none  &none  &none             &none           &none            &none                  &msc SCRL_DOWN           &msc SCRL_UP               &none                    &none                 &none  &none
+&none  &none  &none             &msc SCRL_LEFT  &msc SCRL_RIGHT  &kp _CUT               &kp LC(N)                &split_editor_horizontal   &split_editor_vertical   &none                 &none  &none
+&none  &none  &none             &none           &none            &kp _COPY              &focus_left_group        &focus_down_group          &focus_up_group          &focus_right_group    &none  &none
+&none  &none  &none             &none           &none            &kp _PASTE             &none                    &kp LG(LS(E))              &kp LG(N1)               &kp LC(GRAVE)         &none  &none
+&none  &none  &msc SCRL_DOWN    &msc SCRL_UP    &none                                                            &none                      &msc SCRL_DOWN   &msc SCRL_UP  &none  &none
+                                                &none            &none        &none     &none                    &none                      &none
+                                                &none            &none        &none     &none                    &none                      &none
             >;
         };
 
