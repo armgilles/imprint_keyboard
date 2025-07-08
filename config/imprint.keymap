@@ -12,7 +12,7 @@
 
     behaviors {
         #define LAYER_QWERTY 0
-        define LAYER_LeftPinky 1
+        #define LAYER_LeftPinky 1
         #define LAYER_LeftRingy 2
         #define LAYER_LeftMiddy 3
         #define LAYER_LeftIndex 4
@@ -535,9 +535,9 @@
         #endif
         
         //
-        // Glove80 key positions index for positional hold-tap
-        // - https://discord.com/channels/877392805654306816/937645688244826154/1066713913351221248
-        // - https://media.discordapp.net/attachments/937645688244826154/1066713913133121556/image.png
+        // Imprint key position
+        // 
+        // 
         //
         // |------------------------|------------------------|
         // | LEFT_HAND_KEYS         |        RIGHT_HAND_KEYS |
