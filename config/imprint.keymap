@@ -7081,7 +7081,6 @@
             >;
         };
 
-        // WIP
         layer_Number {
             bindings = <
 &none  &none  &none     &none      &none       &none                    &none             &none       &none          &none          &none           &none
@@ -7097,6 +7096,19 @@
 
         layer_Function {
             bindings = <
+&none  &none                &none              &none               &none               &none             &none          &none                  &none                  &none         &none    &none
+&none  &none                &none              &none               &none               &none             &kp F1         &kp F2                 &kp F3                 &kp F4        &kp F8   &kp F12
+&none  &sk LSHFT            &none              &none               &none               &none             &kp LG(LA(Y))  &kp LG(LA(U))          &kp LG(LA(I))          &kp F5        &kp F9   &kp F13
+&none  &kp LEFT_PINKY_MOD   &kp LEFT_RINGY_MOD &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &none             &kp LS(LG(N4)) &kp LG(KP_MINUS)       &kp LG(KP_PLUS)        &kp F6        &kp F10  &kp F14
+&none  &none                &none              &none               &none               &none             &none          &decrease_vscode_view  &increase_vscode_view  &kp F7        &kp F11  &kp F15
+&none  &none                &none              &none               &none                                                &none                  &kp C_BRI_UP           &kp C_BRI_DN  &none    &none
+                                                                   &none               &none    &none    &kp C_PP       &kp C_PREV             &kp C_NEXT
+                                                                   &none               &none    &none    &kp C_MUTE     &kp C_VOL_DN           &kp C_VOL_UP
+            >;
+        };
+
+        layer_Symbol {
+            bindings = <
 &none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
@@ -7105,19 +7117,6 @@
 &none  &none  &none  &none  &none                          &none  &none  &none  &none  &none
                             &none  &none  &none     &none  &none  &none
                             &none  &none  &none     &none  &none  &none
-            >;
-        };
-
-        layer_Symbol {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
