@@ -4,6 +4,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/rgb.h>
+
 
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
@@ -38,7 +41,7 @@
         //#define MOUSE_SCALER_FAST 3 1
         //#define MOUSE_SCALER_WARP 12 1
         //#define MOUSE_SCALER_SLOW 1 9
-        //#define ENABLE_MOUSE_KEYS  // requires v24.12-beta or newer firmware
+        #define ENABLE_MOUSE_KEYS  // requires v24.12-beta or newer firmware
         //#define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
         #define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
         #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
@@ -7127,7 +7130,7 @@
 &none  &none  &none           &none         &none  &none            &none  &none  &none  &none  &none  &none
 &none  &none  &none           &none         &none  &none            &none  &none  &none  &none  &none  &none
 &none  &none  &none           &none         &none  &none            &none  &none  &none  &none  &none  &none
-&none  &none  &none           &none         &none                          &none  &none  &none  &none  &none
+&none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &none                          &none  &none  &none  &none  &none
                                             &none  &none  &none     &none  &none  &none
                                             &none  &none  &none     &none  &none  &none
             >;
