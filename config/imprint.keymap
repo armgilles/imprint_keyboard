@@ -39,7 +39,7 @@
         #define MOUSE_SCALER_WARP 12 1
         #define MOUSE_SCALER_SLOW 1 9
         #define ENABLE_MOUSE_KEYS  // requires v24.12-beta or newer firmware
-        #define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
+        //#define NATURAL_SCROLLING  // supports "natural scrolling" in macOS
         #define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
         #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
         #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
@@ -7115,21 +7115,21 @@
 &kp HASH  &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR             &kp BSPC  &kp SPACE  &kp TAB     &kp SEMI    &kp AT     &none
 &kp GRAVE &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH             &kp GRAVE &kp DEL    &kp COMMA   &kp DOT     &kp TILDE  &none
 &none     &none      &kp LBRC   &kp RBRC   &none                                     &none      &none       &kp _KP_N0  &none      &none
-                                           &kp BSLH   &kp DOT    &kp STAR  &none     &none      &none
-                                           &kp PRCNT  &kp COLON  &kp AT    &none     &none      &none
+                                           &kp BSLH   &none      &none     &none     &none      &none
+                                           &kp PRCNT  &kp COLON  &none     &none     &none      &none
             >;
         };
 
         layer_Mouse {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                            &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none            &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none                          &none  &none  &none  &none  &none
+                            &none  &none  &none     &none  &none  &none
+                            &none  &none  &none     &none  &none  &none
             >;
         };
 
