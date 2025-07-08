@@ -7139,7 +7139,7 @@
         layer_System {
             bindings = <
 &trans         &trans  &trans  &trans  &trans     &trans                        &trans  &trans           &trans           &trans           &trans           &trans
-&bootloader    &trans  &trans  &trans  &trans     &bt BT_CLR_ALL                &trans  &trans           &rgb_ug RGB_TOG  &trans           &trans           &bootloader
+&bootloader    &trans  &trans  &trans  &trans     &bt BT_CLR_ALL                &trans  &trans           &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &bootloader
 &studio_unlock &trans  &trans  &trans  &trans     &bt BT_CLR                    &trans  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
 &trans         &bt_3   &bt_2   &bt_0   &bt_1      &out OUT_USB                  &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
 &trans         &trans  &trans  &trans  &trans     &trans                        &trans  &trans           &trans           &trans           &trans           &trans
