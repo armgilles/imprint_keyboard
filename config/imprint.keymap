@@ -6778,7 +6778,7 @@
         //
         ///////////////////////////////////
 
-        // é
+        // é / É win
         // test de é pour windows 
         world_e_acute_windows_macro: world_e_acute_windows_macro {
             compatible = "zmk,behavior-macro";
@@ -6790,13 +6790,13 @@
             compatible = "zmk,behavior-macro";
             label = "WORLD_E_ACUTE_LOWER_WINDOWS";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N2 &kp KP_N3 &kp KP_N3>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N1 &kp KP_N3 &kp KP_N0>, <&macro_release &kp LALT>;
         };
         world_e_acute_upper_windows_macro: world_e_acute_upper_windows_macro {
             compatible = "zmk,behavior-macro";
             label = "WORLD_E_ACUTE_UPPER_WINDOWS";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N1 &kp KP_N4 &kp KP_N4>, <&macro_release &kp LALT>;
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N2 &kp KP_N0 &kp KP_N1>, <&macro_release &kp LALT>;
         };
 
         world_e_acute_lower_windows: world_e_acute_lower_windows {
