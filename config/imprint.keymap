@@ -2539,18 +2539,10 @@
             layers = <0 1 2 3 4 5 6 7>;
         };
 
-        // à -> as combo
-        combo_world_a_base_perso {
+        combo_world_e_base_perso {
             timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <37 38 >; // a (position 37) + s (position 38)
-            bindings = <&world_a_base_perso>;
-            layers = <0>;
-        };
-
-        combo_world_a_base_perso_test {
-            timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <52 53 >; // a (position 49) + s (position 50)
-            bindings = <&world_a_base_perso>;
+            key-positions = <27 28 >; // e (position 27) + r (position 28)
+            bindings = <&world_e_base_perso>;
             layers = <0>;
         };
     };
