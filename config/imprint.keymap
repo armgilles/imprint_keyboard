@@ -2540,12 +2540,12 @@
         };
 
         // à -> as combo
-        combo_world_a_base_perso {
-            timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <49 50 >; // a (position 49) + s (position 50)
-            bindings = <&world_a_base_perso>;
-            layers = <0>;
-        };
+        //combo_world_a_base_perso {
+        //    timeout-ms = <COMBO_FIRING_DECAY>;
+        //    key-positions = <49 50 >; // a (position 49) + s (position 50)
+        //    bindings = <&world_a_base_perso>;
+        //    layers = <0>;
+        //};
 
     macros {
 
