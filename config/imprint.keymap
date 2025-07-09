@@ -2575,7 +2575,6 @@
             label = "BT_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            //bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to 0>;
             bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to 0>;
 
         };
@@ -2584,8 +2583,7 @@
             label = "BT_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            //bindings = <&out OUT_BLE>, <&bt BT_SEL 1>, <&to 16>;
-            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to 16>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>, <&to 16>;
         };
         bt_2: bt_2 {
             label = "BT_2";
