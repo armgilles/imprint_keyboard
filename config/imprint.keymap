@@ -6790,14 +6790,14 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_acute_lower_windows_macro>, <&world_e_acute_lower_windows_macro>;
-            mods = <MOD_NONE>;
+            mods = <MOD_LSFT>;
         };
 
         world_e_acute_upper_windows: world_e_acute_upper_windows {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_acute_upper_windows_macro>, <&world_e_acute_upper_windows_macro>;
-            mods = <MOD_NONE>;
+            mods = <MOD_LSFT>;
         };
         world_e_acute_windows: world_e_acute_windows {
             compatible = "zmk,behavior-mod-morph";
