@@ -2522,6 +2522,9 @@
         #ifndef COMBO_FIRING_DECAY
         #define COMBO_FIRING_DECAY 50
         #endif
+        #ifndef COMBO_FIRING_DECAY_SPECIAL_CARAC
+        #define COMBO_FIRING_DECAY_SPECIAL_CARAC 80
+        #endif
         
         #ifdef _A_TAB
         combo_alt_tab_switcher {
@@ -2539,26 +2542,26 @@
             layers = <0 1 2 3 4 5 6 7>;
         };
 
-        // à -> as combo "as"
+        // à -> as combo "au"
         combo_world_a_base_perso {
-            timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <37 38 >; // a (position 37) + s (position 38)
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <37 31 >; // a (position 37) + u (position 31) -old + s (position 38)
             bindings = <&world_a_base_perso>;
             layers = <0 1 2 3 4 5 6 7 8>;
         };
 
-        // è -> as combo "er"
+        // è -> as combo "e;"
         combo_world_e_base_perso {
-            timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <27 28 >; // e (position 27) + r (position 28)
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <27 31 >; // e (position 27) + u (position 31) -old + r (position 28)
             bindings = <&world_e_base_perso>;
             layers = <0 1 2 3 4 5 6 7 8>;
         };
 
-        // ç -> as combo "cv"
+        // ç -> as combo "c;"
         combo_world_consonants_base_perso {
-            timeout-ms = <COMBO_FIRING_DECAY>;
-            key-positions = <51 52 >; // c (position 51) + v (position 52)
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <51 31 >; // c (position 51) + u (position 31) -old + v (position 52)
             bindings = <&world_consonants_base_perso>;
             layers = <0 1 2 3 4 5 6 7 8>;
         };
