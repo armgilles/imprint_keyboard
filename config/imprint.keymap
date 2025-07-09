@@ -6786,31 +6786,26 @@
             #binding-cells = <0>;
             bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N1 &kp KP_N3 &kp KP_N0>, <&macro_release &kp LALT>;
         };
-        world_e_acute_lower_windows_macro: world_e_acute_lower_windows_macro {
-            compatible = "zmk,behavior-macro";
-            label = "WORLD_E_ACUTE_LOWER_WINDOWS";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N1 &kp KP_N3 &kp KP_N0>, <&macro_release &kp LALT>;
-        };
-        world_e_acute_upper_windows_macro: world_e_acute_upper_windows_macro {
-            compatible = "zmk,behavior-macro";
-            label = "WORLD_E_ACUTE_UPPER_WINDOWS";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N2 &kp KP_N0 &kp KP_N1>, <&macro_release &kp LALT>;
-        };
-
+        UNICODE(world_e_acute_lower_windows_macro, /* é */
+            COMPOSE_SEQ_WINDOWS(&kp KP_N1 &kp KP_N3 &kp KP_N0)
+        )
         world_e_acute_lower_windows: world_e_acute_lower_windows {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_acute_lower_windows_macro>, <&world_e_acute_lower_windows_macro>;
-            mods = <MOD_LSFT>;
+            mods = <COMPOSE_MORPH_MODS>;
         };
+
+        UNICODE(world_e_acute_upper_windows_macro, /* É */
+            COMPOSE_SEQ_WINDOWS(&kp KP_N1 &kp KP_N4 &kp KP_N4)
+        )
         world_e_acute_upper_windows: world_e_acute_upper_windows {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_acute_upper_windows_macro>, <&world_e_acute_upper_windows_macro>;
-            mods = <MOD_LSFT>;
+            mods = <COMPOSE_MORPH_MODS>;
         };
+
         world_e_acute_windows: world_e_acute_windows {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
