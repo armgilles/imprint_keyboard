@@ -34,6 +34,7 @@
         #define LAYER_System 14
         #define LAYER_World 15
         //#define LAYER_Magic 24
+        #define layer_QWERTY_win 16
 
         /* Custom Defined Behaviors */
             
@@ -2569,21 +2570,25 @@
 
     macros {
 
+        // For MacOS BT -> go to layer_QWERTY (default layer)
         bt_0: bt_0 {
             label = "BT_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&out OUT_BLE>,
-                <&bt BT_SEL 0>;
+                <&bt BT_SEL 0>,
+                <&mo layer_QWERTY;
         };
+        // For Windows BT -> go to layer layer_QWERTY_win
         bt_1: bt_1 {
             label = "BT_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
                 = <&out OUT_BLE>,
-                <&bt BT_SEL 1>;
+                <&bt BT_SEL 1>
+                <&mo layer_QWERTY_win;
         };
         bt_2: bt_2 {
             label = "BT_2";
@@ -7219,6 +7224,19 @@
 &none  &none                 &none  &none                         &none                          &none                &none          &none           &none      &none
                                                                   &trans &none   &none    &none  &none                &none
                                                                   &trans &trans  &none    &none  &none                &none
+            >;
+        };
+
+        layer_QWERTY_win {
+            bindings = <
+&none  &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
+&none  &world_e_acute_windows        &kp world_e_acute_windows     &world_e_acute                &kp SQT                         &kp N5                                   &kp N6      &kp N7                         &kp N8                          &kp N9                         &kp N0                         &none
+&none  &kp Q                         &kp W                         &kp E                         &kp R                           &kp T                                    &kp Y       &kp U                          &kp I                           &kp O                          &kp SEMI                       &none
+&none  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &LeftIndex (F, LAYER_QWERTY)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY)  &RightMiddy (K, LAYER_QWERTY)   &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
+&none  &kp Z                         &kp X                         &kp C                         &kp V                           &kp B                                    &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
+&none  &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                 &thumb LAYER_Function ESC       &none                        &none       &none       &thumb LAYER_System INSERT     &thumb LAYER_World ENTER
+                                                                                                 &thumb LAYER_Cursor BACKSPACE   &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB         &space LAYER_Symbol SPACE
             >;
         };
     };
