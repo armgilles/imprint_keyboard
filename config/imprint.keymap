@@ -2546,7 +2546,7 @@
             bindings = <&world_a_base_perso>;
             layers = <0>;
         };
-    }
+    };
 
     macros {
 
