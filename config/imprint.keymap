@@ -2538,6 +2538,30 @@
             bindings = <&sk LG(LA(LC(LSHFT)))>;
             layers = <0 1 2 3 4 5 6 7>;
         };
+
+        // à -> as combo "as"
+        combo_world_a_base_perso {
+            timeout-ms = <COMBO_FIRING_DECAY>;
+            key-positions = <37 38 >; // a (position 37) + s (position 38)
+            bindings = <&world_a_base_perso>;
+            layers = <0 1 2 3 4 5 6 7 8>;
+        };
+
+        // è -> as combo "er"
+        combo_world_e_base_perso {
+            timeout-ms = <COMBO_FIRING_DECAY>;
+            key-positions = <27 28 >; // e (position 27) + r (position 28)
+            bindings = <&world_e_base_perso>;
+            layers = <0 1 2 3 4 5 6 7 8>;
+        };
+
+        // ç -> as combo "cv"
+        combo_world_consonants_base_perso {
+            timeout-ms = <COMBO_FIRING_DECAY>;
+            key-positions = <51 52 >; // c (position 51) + v (position 52)
+            bindings = <&world_consonants_base_perso>;
+            layers = <0 1 2 3 4 5 6 7 8>;
+        };
     };
 
     macros {
@@ -7075,7 +7099,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
 &trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO  &kp _REDO  &sk LSHFT  &trans
 &trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans     &trans
-&trans  &trans              &trans              &trans              &trans              &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
+&trans  &trans              &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
 &trans  &trans              &trans              &trans              &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab _A_TAB     &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
