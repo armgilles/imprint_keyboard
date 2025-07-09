@@ -2575,7 +2575,8 @@
             label = "BT_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to 0>;
+            //bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to 0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>;
 
         };
         // For Windows BT -> go to layer layer_QWERTY_win (layer number 16) (persist with &to)
@@ -2583,7 +2584,9 @@
             label = "BT_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>, <&to 16>;
+            ////////////bindings = <&out OUT_BLE>, <&bt BT_SEL 1>, <&to 16>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>;
+
         };
         bt_2: bt_2 {
             label = "BT_2";
