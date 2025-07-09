@@ -3715,12 +3715,12 @@
             #endif
             #endif
         )
-        world_e_accute_lower_w : world_e_accute_lower_w {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3);
-            // mods ??
-        };
+        //world_e_accute_lower_w : world_e_accute_lower_w {
+        //    compatible = "zmk,behavior-mod-morph";
+        //    #binding-cells = <0>;
+        //    bindings = COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3);
+        //    // mods ??
+        //};
         // test de é pour windows 
         world_e_acute_windows_macro: world_e_acute_windows_macro {
             compatible = "zmk,behavior-macro";
