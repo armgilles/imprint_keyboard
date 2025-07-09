@@ -3709,8 +3709,8 @@
             #elif OPERATING_SYSTEM == 'W'
             #ifdef WORLD_USE_COMPOSE
             #define WORLD_USE_COMPOSE_FOR_world_e_acute_lower
-            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3)
-            #else
+                COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N3)
+                #else
             UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _N9)
             #endif
             #endif
@@ -6786,13 +6786,25 @@
             #binding-cells = <0>;
             bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N1 &kp KP_N3 &kp KP_N0>, <&macro_release &kp LALT>;
         };
+        world_e_acute_lower_windows_macro: world_e_acute_lower_windows_macro {
+            compatible = "zmk,behavior-macro";
+            label = "WORLD_E_ACUTE_LOWER_WINDOWS";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N2 &kp KP_N3 &kp KP_N3>, <&macro_release &kp LALT>;
+        };
+        world_e_acute_upper_windows_macro: world_e_acute_upper_windows_macro {
+            compatible = "zmk,behavior-macro";
+            label = "WORLD_E_ACUTE_UPPER_WINDOWS";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_N1 &kp KP_N4 &kp KP_N4>, <&macro_release &kp LALT>;
+        };
+
         world_e_acute_lower_windows: world_e_acute_lower_windows {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_e_acute_lower_windows_macro>, <&world_e_acute_lower_windows_macro>;
             mods = <MOD_LSFT>;
         };
-
         world_e_acute_upper_windows: world_e_acute_upper_windows {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -7017,7 +7029,7 @@
         layer_QWERTY {
             bindings = <
 &none  &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
-&none  &world_e_acute                &kp N2                        &world_e_acute                &kp SQT                         &kp N5                                   &kp N6      &kp N7                         &kp N8                          &kp N9                         &kp N0                         &none
+&none  &world_e_acute_windows        &kp N2                        &world_e_acute                &kp SQT                         &kp N5                                   &kp N6      &kp N7                         &kp N8                          &kp N9                         &kp N0                         &none
 &none  &kp Q                         &kp W                         &kp E                         &kp R                           &kp T                                    &kp Y       &kp U                          &kp I                           &kp O                          &kp SEMI                       &none
 &none  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &LeftIndex (F, LAYER_QWERTY)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY)  &RightMiddy (K, LAYER_QWERTY)   &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
 &none  &kp Z                         &kp X                         &kp C                         &kp V                           &kp B                                    &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
