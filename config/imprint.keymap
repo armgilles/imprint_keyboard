@@ -2570,25 +2570,19 @@
 
     macros {
 
-        // For MacOS BT -> go to layer_QWERTY (default layer)
+        // For MacOS BT -> go to layer_QWERTY (default layer) (persist with &to)
         bt_0: bt_0 {
             label = "BT_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&out OUT_BLE>,
-                <&bt BT_SEL 0>,
-                <&to layer_QWERTY>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>, <&to layer_QWERTY>;
         };
-        // For Windows BT -> go to layer layer_QWERTY_win
+        // For Windows BT -> go to layer layer_QWERTY_win (persist with &to)
         bt_1: bt_1 {
             label = "BT_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&out OUT_BLE>,
-                <&bt BT_SEL 1>,
-                <&to layer_QWERTY_win>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>, <&to layer_QWERTY_win>;
         };
         bt_2: bt_2 {
             label = "BT_2";
