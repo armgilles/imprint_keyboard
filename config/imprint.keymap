@@ -2525,6 +2525,9 @@
         #ifndef COMBO_FIRING_DECAY_SPECIAL_CARAC
         #define COMBO_FIRING_DECAY_SPECIAL_CARAC 80
         #endif
+        #ifndef COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE
+        #define COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE 50
+        #endif
         
         #ifdef _A_TAB
         combo_alt_tab_switcher {
@@ -2552,7 +2555,7 @@
 
         // è -> as combo "e;"
         combo_world_e_base_perso {
-            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE>;
             key-positions = <27 31 >; // e (position 27) + u (position 31) -old + r (position 28)
             bindings = <&world_e_base_perso>;
             layers = <0 1 2 3 4 5 6 7 8>;
