@@ -2490,6 +2490,15 @@
             #endif
         };
 
+        thumb_world: thumb_world_layer_access {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "hold-preferred"; // "tap-preferred" (favorise le tap), "hold-preferred", THUMB_HOLDING_TYPE; -> "balanced"
+            tapping-term-ms = <140>; // <THUMB_HOLDING_TIME>; -> 190ms
+            quick-tap-ms = <THUMB_REPEAT_DECAY>; // enable repeat
+            #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
+        };
+
         //
         // Shift + LEFT_PARENTHESIS = LESS_THAN
         //
@@ -6990,7 +6999,7 @@
 &none  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &LeftIndex (F, LAYER_QWERTY)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY)  &RightMiddy (K, LAYER_QWERTY)   &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
 &none  &kp Z                         &kp X                         &kp C                         &kp V                           &kp B                                    &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
 &none  &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
-                                                                                                 &thumb LAYER_Function ESC       &none                        &none       &none       &thumb LAYER_System INSERT     &thumb LAYER_World ENTER
+                                                                                                 &thumb LAYER_Function ESC       &none                        &none       &none       &thumb LAYER_System INSERT     &thumb_world LAYER_World ENTER
                                                                                                  &thumb LAYER_Cursor BACKSPACE   &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB         &space LAYER_Symbol SPACE
             >;
         };
