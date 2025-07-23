@@ -1,4 +1,3 @@
-#Dans ZMK pour les claviers comment on fait pour sur une touche envoyer enter et si l’on a tape 2 fois assez vite faire shift entrer ?include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
