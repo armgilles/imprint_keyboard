@@ -1,4 +1,4 @@
-#include <input/processors.dtsi>
+#Dans ZMK pour les claviers comment on fait pour sur une touche envoyer enter et si l’on a tape 2 fois assez vite faire shift entrer ?include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -6896,7 +6896,7 @@
         };
         //////////////////////////////////////////////////////////////////////////
         ///
-        /// Autre macro 
+        /// Autre macro world
         ///
         //////////////////////////////////////////////////////////////////////////
         // Update to have "à" in default.
@@ -6980,6 +6980,19 @@
             #binding-cells = <0>;
             bindings = <&world_u_circumflex>, <&world_u_grave>;
             mods = <(MOD_RSFT)>;
+        };
+
+        //////////////////////////////////////////////////////////////////////////
+        ///
+        /// Autre macro
+        ///
+        //////////////////////////////////////////////////////////////////////////
+
+        tap_dance_enter: tap_dance_enter {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp ENTER>, <&kp LS(ENTER)>;
+            tapping-term-ms = <140>;
         };
 
     };
