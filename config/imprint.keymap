@@ -6991,7 +6991,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp ENTER>, <&kp LS(ENTER)>;
-            tapping-term-ms = <140>;
+            tapping-term-ms = <190>;
         };
 
     };
