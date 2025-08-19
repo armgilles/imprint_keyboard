@@ -6983,7 +6983,7 @@
 
         //////////////////////////////////////////////////////////////////////////
         ///
-        /// Autre macro
+        /// Autres macros
         ///
         //////////////////////////////////////////////////////////////////////////
 
@@ -6994,12 +6994,12 @@
             tapping-term-ms = <190>;
         };
 
-        tap_dance_cmd_enter: tap_dance_cmd_enter {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp LGUI(ENTER)>;
-            tapping-term-ms = <190>;
-        };
+        //tap_dance_cmd_enter: tap_dance_cmd_enter {
+        //    compatible = "zmk,behavior-tap-dance";
+        //    #binding-cells = <0>;
+        //    bindings = <&kp SPACE>, <&kp LGUI(ENTER)>;
+        //    tapping-term-ms = <140>;
+        //};
 
 
     };
@@ -7172,7 +7172,7 @@
 &none     &none      &none      &none      &none      &none                &none     &none                 &none                   &none       &none      &none
 &none     &none      &none      &none      &none      &none                &none     &none                 &kp EXCL                &kp EQUAL   &none      &none
 &none     &kp SQT    &kp LPAR   &kp LBKT   &kp DQT    &kp QMARK            &kp SQT   &kp DQT               &kp RBKT                &kp RPAR    &kp AMPS   &none
-&kp HASH  &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR             &kp BSPC  &tap_dance_cmd_enter  &tap_dance_shift_enter  &kp TAB     &kp AT     &none
+&kp HASH  &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR             &kp BSPC  &kp SPACE             &tap_dance_shift_enter  &kp TAB     &kp AT     &none
 &kp GRAVE &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH             &kp GRAVE &kp DEL               &kp COMMA               &kp DOT     &kp TILDE  &none
 &none     &none      &kp LBRC   &kp RBRC   &none                                     &none                 &none                   &kp _KP_N0  &none      &none
                                            &kp BSLH   &none      &none     &none     &none                 &none
