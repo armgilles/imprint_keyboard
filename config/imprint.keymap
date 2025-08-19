@@ -6997,7 +6997,7 @@
         tap_dance_cmd_enter: tap_dance_cmd_enter {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp LGUI(ENTER)>;
+            bindings = <&kp SPACE &kp LGUI(ENTER)>;
             tapping-term-ms = <140>;
         };
 
