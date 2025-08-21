@@ -7208,14 +7208,14 @@
 
         layer_World {
             bindings = <
-&none  &none                 &none  &none                         &none  &none            &none      &none                &none          &none           &none      &none
-&none  &none                 &none  &none                         &none  &none            &none      &none                &none          &none           &none      &none
-&none  &none                 &none  &world_e_base_perso           &none  &none            &none      &world_u_base_perso  &world_i_base  &world_o_base   &none      &none
-&none  &world_a_base_perso   &none  &kp SPACE                     &none  &none            &kp SPACE  &sk LSHFT            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
-&none  &world_currency_base  &none  &world_consonants_base_perso  &none  &none            &none      &none                &sk LALT       &sk RALT        &none      &none
+&none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
+&none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
+&none  &none                 &none  &world_e_base_perso           &none      &none            &none      &world_u_base_perso  &world_i_base  &world_o_base   &none      &none
+&none  &world_a_base_perso   &none  &none                         &kp SPACE  &none            &kp SPACE  &sk LSHFT            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
+&none  &world_currency_base  &none  &world_consonants_base_perso  &none      &none            &none      &none                &sk LALT       &sk RALT        &none      &none
 &none  &none                 &none  &none                         &none                              &none                &none          &none           &none      &none
-                                                                  &trans &none   &none    &none      &none                &none
-                                                                  &trans &trans  &none    &none      &none                &none
+                                                                  &trans     &none   &none    &none      &none                &none
+                                                                  &trans     &trans  &none    &none      &none                &none
             >;
         };
     };
