@@ -348,7 +348,7 @@
         // (i.e. "register" them) for mod-click mouse usage (e.g. Ctrl-Click).
         //
         #ifndef HOMEY_HOLDING_TIME
-        #define HOMEY_HOLDING_TIME (TAPPING_RESOLUTION + 90)
+        #define HOMEY_HOLDING_TIME (TAPPING_RESOLUTION + 75) // was 90 before
         #endif
         #ifndef INDEX_HOLDING_TIME
         #define INDEX_HOLDING_TIME (TAPPING_RESOLUTION + 5) // was 20 before
