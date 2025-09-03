@@ -360,7 +360,7 @@
         #define RINGY_HOLDING_TIME (TAPPING_RESOLUTION + 90)
         #endif
         #ifndef PINKY_HOLDING_TIME
-        #define PINKY_HOLDING_TIME (TAPPING_RESOLUTION + 90) // was 110 before
+        #define PINKY_HOLDING_TIME (TAPPING_RESOLUTION + 75) // was 110 before
         #endif
 
         //
