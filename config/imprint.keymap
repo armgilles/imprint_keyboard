@@ -7232,19 +7232,6 @@
                                                                                                                                     &thumb LAYER_Cursor BACKSPACE           &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB                 &space LAYER_Symbol SPACE
             >;
         };
-
-        layer_World_windows {
-            bindings = <
-&none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
-&none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
-&none  &none                 &none  &world_e_base_perso           &none      &none            &none      &world_u_base_perso  &world_i_base  &world_o_base   &none      &none
-&none  &world_a_base_perso   &none  &none                         &kp SPACE  &none            &kp BSPC   &kp SPACE            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
-&none  &world_currency_base  &none  &world_consonants_base_perso  &none      &none            &none      &sk LSHFT            &sk LALT       &sk RALT        &none      &none
-&none  &none                 &none  &none                         &none                              &none                &none          &none           &none      &none
-                                                                  &trans     &none   &none    &none      &none                &none
-                                                                  &trans     &trans  &none    &none      &none                &none
-            >;
-        };
     };
 };
 
