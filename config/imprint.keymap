@@ -915,6 +915,7 @@
         #define LeftPinky_layer5(key) left_pinky LEFT_PINKY_MOD key
         #define LeftPinky_layer6(key) left_pinky LEFT_PINKY_MOD key
         #define LeftPinky_layer7(key) left_pinky LEFT_PINKY_MOD key
+        #define LeftPinky_layer16(key) left_pinky LEFT_PINKY_MOD key
         #ifndef RIGHT_PINKY_HOLDING_TYPE
         #define RIGHT_PINKY_HOLDING_TYPE PINKY_HOLDING_TYPE
         #endif
@@ -1012,6 +1013,7 @@
         #define RightPinky_layer5(key) right_pinky RIGHT_PINKY_MOD key
         #define RightPinky_layer6(key) right_pinky RIGHT_PINKY_MOD key
         #define RightPinky_layer7(key) right_pinky RIGHT_PINKY_MOD key
+        #define RightPinky_layer16(key) right_pinky RIGHT_PINKY_MOD key
         #ifndef LEFT_RINGY_HOLDING_TYPE
         #define LEFT_RINGY_HOLDING_TYPE RINGY_HOLDING_TYPE
         #endif
@@ -1109,6 +1111,7 @@
         #define LeftRingy_layer5(key) left_ringy LEFT_RINGY_MOD key
         #define LeftRingy_layer6(key) left_ringy LEFT_RINGY_MOD key
         #define LeftRingy_layer7(key) left_ringy LEFT_RINGY_MOD key
+        #define LeftRingy_layer16(key) left_ringy LEFT_RINGY_MOD key
         #ifndef RIGHT_RINGY_HOLDING_TYPE
         #define RIGHT_RINGY_HOLDING_TYPE RINGY_HOLDING_TYPE
         #endif
@@ -1206,6 +1209,7 @@
         #define RightRingy_layer5(key) right_ringy RIGHT_RINGY_MOD key
         #define RightRingy_layer6(key) right_ringy RIGHT_RINGY_MOD key
         #define RightRingy_layer7(key) right_ringy RIGHT_RINGY_MOD key
+        #define RightRingy_layer16(key) right_ringy RIGHT_RINGY_MOD key
         #ifndef LEFT_MIDDY_HOLDING_TYPE
         #define LEFT_MIDDY_HOLDING_TYPE MIDDY_HOLDING_TYPE
         #endif
@@ -1303,6 +1307,7 @@
         #define LeftMiddy_layer5(key) left_middy LEFT_MIDDY_MOD key
         #define LeftMiddy_layer6(key) left_middy LEFT_MIDDY_MOD key
         #define LeftMiddy_layer7(key) left_middy LEFT_MIDDY_MOD key
+        #define LeftMiddy_layer16(key) left_middy LEFT_MIDDY_MOD key
         #ifndef RIGHT_MIDDY_HOLDING_TYPE
         #define RIGHT_MIDDY_HOLDING_TYPE MIDDY_HOLDING_TYPE
         #endif
@@ -1400,6 +1405,7 @@
         #define RightMiddy_layer5(key) right_middy RIGHT_MIDDY_MOD key
         #define RightMiddy_layer6(key) right_middy RIGHT_MIDDY_MOD key
         #define RightMiddy_layer7(key) right_middy RIGHT_MIDDY_MOD key
+        #define RightMiddy_layer16(key) right_middy RIGHT_MIDDY_MOD key
         #ifndef LEFT_INDEX_HOLDING_TYPE
         #define LEFT_INDEX_HOLDING_TYPE INDEX_HOLDING_TYPE
         #endif
@@ -1497,6 +1503,7 @@
         #define LeftIndex_layer5(key) left_index LEFT_INDEX_MOD key
         #define LeftIndex_layer6(key) left_index LEFT_INDEX_MOD key
         #define LeftIndex_layer7(key) left_index LEFT_INDEX_MOD key
+        #define LeftIndex_layer16(key) left_index LEFT_INDEX_MOD key
         #ifndef RIGHT_INDEX_HOLDING_TYPE
         #define RIGHT_INDEX_HOLDING_TYPE INDEX_HOLDING_TYPE
         #endif
@@ -1594,6 +1601,7 @@
         #define RightIndex_layer5(key) right_index RIGHT_INDEX_MOD key
         #define RightIndex_layer6(key) right_index RIGHT_INDEX_MOD key
         #define RightIndex_layer7(key) right_index RIGHT_INDEX_MOD key
+        #define RightIndex_layer16(key) right_index RIGHT_INDEX_MOD key
         #ifndef LEFT_RINGY_PINKY_HOLDING_TYPE
         #define LEFT_RINGY_PINKY_HOLDING_TYPE LEFT_RINGY_CHORD_HOLDING_TYPE
         #endif
@@ -7226,8 +7234,8 @@
 &none             &none                                 &none                                 &none                                 &none                                   &none                                    &none       &none                                  &none                                    &none                                  &none                                  &none
 &none             &kp N1                                &kp N2                                &world_e_acute                        &kp SQT                                 &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &none
 &none             &kp Q                                 &kp W                                 &kp E                                 &kp R                                   &kp T                                    &kp Y       &kp U                                  &kp I                                    &kp O                                  &kp SEMI                               &none
-// &mo LAYER_System  &LeftPinky (A, LAYER_QWERTY_WINDOWS)  &LeftRingy (S, LAYER_QWERTY_WINDOWS)  &LeftMiddy (D, LAYER_QWERTY_WINDOWS)  &LeftIndex (F, LAYER_QWERTY_WINDOWS)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY_WINDOWS)  &RightMiddy (K, LAYER_QWERTY_WINDOWS)    &RightRingy (L, LAYER_QWERTY_WINDOWS)  &RightPinky (P, LAYER_QWERTY_WINDOWS)  &none
-&mo LAYER_System  &LeftPinky_layer16(A)  &LeftRingy_layer16(S)  &LeftMiddy_layer16(D)  &LeftIndex_layer16(F)    &kp G  &kp H  &RightIndex_layer16(J)  &RightMiddy_layer16(K)  &RightRingy_layer16(L)  &RightPinky_layer16(P)  &nonek
+&mo LAYER_System  &LeftPinky (A, LAYER_QWERTY_WINDOWS)  &LeftRingy (S, LAYER_QWERTY_WINDOWS)  &LeftMiddy (D, LAYER_QWERTY_WINDOWS)  &LeftIndex (F, LAYER_QWERTY_WINDOWS)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY_WINDOWS)  &RightMiddy (K, LAYER_QWERTY_WINDOWS)    &RightRingy (L, LAYER_QWERTY_WINDOWS)  &RightPinky (P, LAYER_QWERTY_WINDOWS)  &none
+//&mo LAYER_System  &LeftPinky_layer16(A)  &LeftRingy_layer16(S)  &LeftMiddy_layer16(D)  &LeftIndex_layer16(F)    &kp G  &kp H  &RightIndex_layer16(J)  &RightMiddy_layer16(K)  &RightRingy_layer16(L)  &RightPinky_layer16(P)  &nonek
 &none             &kp Z                                 &kp X                                 &kp C                                 &kp V                                   &kp B                                    &kp N       &kp M                                  &kp COMMA                                &kp DOT                                &kp FSLH                               &none
 &none             &none                                 &kp UP                                &kp DOWN                              &none                                                                            &none       &kp LBKT                               &kp RBKT                                 &none                                  &none                                  &none
                                                                                                                                     &thumb LAYER_Function ESC               &none                        &none       &none       &thumb LAYER_System INSERT             &thumb_world LAYER_World ENTER
