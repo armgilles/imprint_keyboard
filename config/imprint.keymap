@@ -6992,6 +6992,40 @@
             mods = <(MOD_RSFT)>;
         };
 
+        ///////////////////////////////////
+        //
+        // Macro pour Windows
+        //
+        ///////////////////////////////////
+
+        // é / É win
+        UNICODE(world_e_acute_lower_windows_macro, /* é */
+            COMPOSE_SEQ_WINDOWS(&kp KP_N1 &kp KP_N3 &kp KP_N0)
+        )
+        world_e_acute_lower_windows: world_e_acute_lower_windows {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_acute_lower_windows_macro>, <&world_e_acute_lower_windows_macro>;
+            mods = <COMPOSE_MORPH_MODS>;
+        };
+
+        UNICODE(world_e_acute_upper_windows_macro, /* É */
+            COMPOSE_SEQ_WINDOWS(&kp KP_N1 &kp KP_N4 &kp KP_N4)
+        )
+        world_e_acute_upper_windows: world_e_acute_upper_windows {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_acute_upper_windows_macro>, <&world_e_acute_upper_windows_macro>;
+            mods = <COMPOSE_MORPH_MODS>;
+        };
+
+        world_e_acute_windows: world_e_acute_windows {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_acute_lower_windows>, <&world_e_acute_upper_windows>;
+            mods = <MOD_LSFT>;
+        };
+
         //////////////////////////////////////////////////////////////////////////
         ///
         /// Autres macros
@@ -7233,7 +7267,7 @@
         layer_QWERTY_windows {
             bindings = <
 &none             &none                                 &none                                 &none                                 &none                                   &none                                    &none       &none                                  &none                                    &none                                  &none                                  &none
-&none             &kp N1                                &kp N2                                &world_e_acute                        &kp SQT                                 &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &none
+&none             &kp N1                                &kp N2                                &world_e_acute_windows                &kp SQT                                 &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &none
 &none             &kp Q                                 &kp W                                 &kp E                                 &kp R                                   &kp T                                    &kp Y       &kp U                                  &kp I                                    &kp O                                  &kp SEMI                               &none
 &mo LAYER_System  &LeftPinky (A, LAYER_QWERTY_WINDOWS)  &LeftRingy (S, LAYER_QWERTY_WINDOWS)  &LeftMiddy (D, LAYER_QWERTY_WINDOWS)  &LeftIndex (F, LAYER_QWERTY_WINDOWS)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY_WINDOWS)  &RightMiddy (K, LAYER_QWERTY_WINDOWS)    &RightRingy (L, LAYER_QWERTY_WINDOWS)  &RightPinky (P, LAYER_QWERTY_WINDOWS)  &none
 //&mo LAYER_System  &LeftPinky_layer16(A)  &LeftRingy_layer16(S)  &LeftMiddy_layer16(D)  &LeftIndex_layer16(F)    &kp G  &kp H  &RightIndex_layer16(J)  &RightMiddy_layer16(K)  &RightRingy_layer16(L)  &RightPinky_layer16(P)  &nonek
