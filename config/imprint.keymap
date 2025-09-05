@@ -32,7 +32,7 @@
         //#define LAYER_MouseWarp 18
         #define LAYER_System 14
         #define LAYER_World 15
-        #define layer_QWERTY_windows 16
+        #define LAYER_QWERTY_WINDOWS 16
 
         //#define LAYER_Magic 24
 
