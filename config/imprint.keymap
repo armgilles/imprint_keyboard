@@ -6912,8 +6912,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&mo LAYER_QWERTY>,         // Active le layer Mac
-                <&ml LAYER_QWERTY_WINDOWS>; // Désactive le layer Windows
+                <&to LAYER_QWERTY>; // Passe sur le layer Mac (désactive tous les autres)
         };
 
         // On layer_QWERTY (macos layout)
@@ -6922,8 +6921,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&mo LAYER_QWERTY_WINDOWS>, // Active le layer Windows
-                <&ml LAYER_QWERTY>;         // Désactive le layer Mac
+                <&to LAYER_QWERTY_WINDOWS>; // Passe sur le layer Windows (désactive tous les autres)
         };
 
 
