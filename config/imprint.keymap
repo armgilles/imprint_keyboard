@@ -6904,6 +6904,30 @@
                 , <&kp LC(T)>
                 , <&kp KP_MINUS>;
         };
+
+        // Toggle for switch mac / win
+        // On layer_QWERTY_windows (win layout)
+        os_toggle_mac: os_toggle_mac {
+            label = "OS_TOGGLE_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&mo LAYER_QWERTY>,         // Active le layer Mac
+                <&ml LAYER_QWERTY_WINDOWS>; // Désactive le layer Windows
+        };
+
+        // On layer_QWERTY (macos layout)
+        os_toggle_win: os_toggle_win {
+            label = "OS_TOGGLE_WIN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&mo LAYER_QWERTY_WINDOWS>, // Active le layer Windows
+                <&ml LAYER_QWERTY>;         // Désactive le layer Mac
+        };
+
+
+
         //////////////////////////////////////////////////////////////////////////
         ///
         /// Autre macro world
@@ -7111,7 +7135,7 @@
         layer_QWERTY {
             bindings = <
 &none             &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
-&none             &kp N1                        &kp N2                        &world_e_acute                &kp SQT                         &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &none
+&none             &kp N1                        &kp N2                        &world_e_acute                &kp SQT                         &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
 &none             &kp Q                         &kp W                         &kp E                         &kp R                           &kp T                                    &kp Y       &kp U                          &kp I                           &kp O                          &kp SEMI                       &none
 &mo LAYER_System  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &LeftIndex (F, LAYER_QWERTY)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY)  &RightMiddy (K, LAYER_QWERTY)   &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
 &none             &kp Z                         &kp X                         &kp C                         &kp V                           &kp B                                    &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
@@ -7319,7 +7343,7 @@
         layer_QWERTY_windows {
             bindings = <
 &none             &none                                 &none                                 &none                                 &none                                   &none                                    &none       &none                                  &none                                    &none                                  &none                                  &none
-&none             &kp N1                                &kp N2                                &world_e_acute_windows                &kp SQT                                 &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &none
+&none             &kp N1                                &kp N2                                &world_e_acute_windows                &kp SQT                                 &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &os_toggle_mac
 &none             &kp Q                                 &kp W                                 &kp E                                 &kp R                                   &kp T                                    &kp Y       &kp U                                  &kp I                                    &kp O                                  &kp SEMI                               &none
 &mo LAYER_System  &LeftPinky (A, LAYER_QWERTY_WINDOWS)  &LeftRingy (S, LAYER_QWERTY_WINDOWS)  &LeftMiddy (D, LAYER_QWERTY_WINDOWS)  &LeftIndex (F, LAYER_QWERTY_WINDOWS)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY_WINDOWS)  &RightMiddy (K, LAYER_QWERTY_WINDOWS)    &RightRingy (L, LAYER_QWERTY_WINDOWS)  &RightPinky (P, LAYER_QWERTY_WINDOWS)  &none
 //&mo LAYER_System  &LeftPinky_layer16(A)  &LeftRingy_layer16(S)  &LeftMiddy_layer16(D)  &LeftIndex_layer16(F)    &kp G  &kp H  &RightIndex_layer16(J)  &RightMiddy_layer16(K)  &RightRingy_layer16(L)  &RightPinky_layer16(P)  &nonek
