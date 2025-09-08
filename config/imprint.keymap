@@ -7109,6 +7109,7 @@
             #binding-cells = <0>;
             bindings = <&world_e_diaeresis_lower_macro_win>, <&world_e_diaeresis_lower_macro_win>;
             mods = <COMPOSE_MORPH_MODS>;
+        };
         UNICODE(world_e_diaeresis_upper_macro_win, /* Ë */
             COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N3)
         )
