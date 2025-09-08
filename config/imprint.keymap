@@ -14,25 +14,25 @@
 
     behaviors {
         #define LAYER_QWERTY 0
-        #define LAYER_LeftPinky 1
-        #define LAYER_LeftRingy 2
-        #define LAYER_LeftMiddy 3
-        #define LAYER_LeftIndex 4
-        #define LAYER_RightPinky 5
-        #define LAYER_RightRingy 6
-        #define LAYER_RightMiddy 7
-        #define LAYER_RightIndex 8
-        #define LAYER_Cursor 9 
-        #define LAYER_Number 10
-        #define LAYER_Function 11
-        #define LAYER_Symbol 12
-        #define LAYER_Mouse 13
+        #define LAYER_QWERTY_WINDOWS 1
+        #define LAYER_LeftPinky 2
+        #define LAYER_LeftRingy 3
+        #define LAYER_LeftMiddy 4
+        #define LAYER_LeftIndex 5
+        #define LAYER_RightPinky 6
+        #define LAYER_RightRingy 7
+        #define LAYER_RightMiddy 8
+        #define LAYER_RightIndex 9
+        #define LAYER_Cursor 10 
+        #define LAYER_Number 11
+        #define LAYER_Function 12
+        #define LAYER_Symbol 13
+        #define LAYER_Mouse 14
         //#define LAYER_MouseSlow 16
         //#define LAYER_MouseFast 17
         //#define LAYER_MouseWarp 18
-        #define LAYER_System 14
-        #define LAYER_World 15
-        #define LAYER_QWERTY_WINDOWS 16
+        #define LAYER_System 15
+        #define LAYER_World 16
         #define LAYER_WORLD_WINDOWS 17
 
         //#define LAYER_Magic 24
@@ -916,7 +916,7 @@
         #define LeftPinky_layer5(key) left_pinky LEFT_PINKY_MOD key
         #define LeftPinky_layer6(key) left_pinky LEFT_PINKY_MOD key
         #define LeftPinky_layer7(key) left_pinky LEFT_PINKY_MOD key
-        #define LeftPinky_layer16(key) left_pinky LEFT_PINKY_MOD key
+        #define LeftPinky_layer8(key) left_pinky LEFT_PINKY_MOD key
         #ifndef RIGHT_PINKY_HOLDING_TYPE
         #define RIGHT_PINKY_HOLDING_TYPE PINKY_HOLDING_TYPE
         #endif
@@ -1014,7 +1014,7 @@
         #define RightPinky_layer5(key) right_pinky RIGHT_PINKY_MOD key
         #define RightPinky_layer6(key) right_pinky RIGHT_PINKY_MOD key
         #define RightPinky_layer7(key) right_pinky RIGHT_PINKY_MOD key
-        #define RightPinky_layer16(key) right_pinky RIGHT_PINKY_MOD key
+        #define RightPinky_layer8(key) right_pinky RIGHT_PINKY_MOD key
         #ifndef LEFT_RINGY_HOLDING_TYPE
         #define LEFT_RINGY_HOLDING_TYPE RINGY_HOLDING_TYPE
         #endif
@@ -1112,7 +1112,7 @@
         #define LeftRingy_layer5(key) left_ringy LEFT_RINGY_MOD key
         #define LeftRingy_layer6(key) left_ringy LEFT_RINGY_MOD key
         #define LeftRingy_layer7(key) left_ringy LEFT_RINGY_MOD key
-        #define LeftRingy_layer16(key) left_ringy LEFT_RINGY_MOD key
+        #define LeftRingy_layer8(key) left_ringy LEFT_RINGY_MOD key
         #ifndef RIGHT_RINGY_HOLDING_TYPE
         #define RIGHT_RINGY_HOLDING_TYPE RINGY_HOLDING_TYPE
         #endif
@@ -1210,7 +1210,7 @@
         #define RightRingy_layer5(key) right_ringy RIGHT_RINGY_MOD key
         #define RightRingy_layer6(key) right_ringy RIGHT_RINGY_MOD key
         #define RightRingy_layer7(key) right_ringy RIGHT_RINGY_MOD key
-        #define RightRingy_layer16(key) right_ringy RIGHT_RINGY_MOD key
+        #define RightRingy_layer8(key) right_ringy RIGHT_RINGY_MOD key
         #ifndef LEFT_MIDDY_HOLDING_TYPE
         #define LEFT_MIDDY_HOLDING_TYPE MIDDY_HOLDING_TYPE
         #endif
@@ -1308,7 +1308,7 @@
         #define LeftMiddy_layer5(key) left_middy LEFT_MIDDY_MOD key
         #define LeftMiddy_layer6(key) left_middy LEFT_MIDDY_MOD key
         #define LeftMiddy_layer7(key) left_middy LEFT_MIDDY_MOD key
-        #define LeftMiddy_layer16(key) left_middy LEFT_MIDDY_MOD key
+        #define LeftMiddy_layer8(key) left_middy LEFT_MIDDY_MOD key
         #ifndef RIGHT_MIDDY_HOLDING_TYPE
         #define RIGHT_MIDDY_HOLDING_TYPE MIDDY_HOLDING_TYPE
         #endif
@@ -1406,7 +1406,7 @@
         #define RightMiddy_layer5(key) right_middy RIGHT_MIDDY_MOD key
         #define RightMiddy_layer6(key) right_middy RIGHT_MIDDY_MOD key
         #define RightMiddy_layer7(key) right_middy RIGHT_MIDDY_MOD key
-        #define RightMiddy_layer16(key) right_middy RIGHT_MIDDY_MOD key
+        #define RightMiddy_layer8(key) right_middy RIGHT_MIDDY_MOD key
         #ifndef LEFT_INDEX_HOLDING_TYPE
         #define LEFT_INDEX_HOLDING_TYPE INDEX_HOLDING_TYPE
         #endif
@@ -1504,7 +1504,7 @@
         #define LeftIndex_layer5(key) left_index LEFT_INDEX_MOD key
         #define LeftIndex_layer6(key) left_index LEFT_INDEX_MOD key
         #define LeftIndex_layer7(key) left_index LEFT_INDEX_MOD key
-        #define LeftIndex_layer16(key) left_index LEFT_INDEX_MOD key
+        #define LeftIndex_layer8(key) left_index LEFT_INDEX_MOD key
         #ifndef RIGHT_INDEX_HOLDING_TYPE
         #define RIGHT_INDEX_HOLDING_TYPE INDEX_HOLDING_TYPE
         #endif
@@ -1602,7 +1602,7 @@
         #define RightIndex_layer5(key) right_index RIGHT_INDEX_MOD key
         #define RightIndex_layer6(key) right_index RIGHT_INDEX_MOD key
         #define RightIndex_layer7(key) right_index RIGHT_INDEX_MOD key
-        #define RightIndex_layer16(key) right_index RIGHT_INDEX_MOD key
+        #define RightIndex_layer8(key) right_index RIGHT_INDEX_MOD key
         #ifndef LEFT_RINGY_PINKY_HOLDING_TYPE
         #define LEFT_RINGY_PINKY_HOLDING_TYPE LEFT_RINGY_CHORD_HOLDING_TYPE
         #endif
@@ -2520,16 +2520,16 @@
         };
 
         //
-  // Shift + RIGHT_PARENTHESIS = GREATER_THAN
-  //
-  parang_right: right_parenthesis_and_greater_than {
-    compatible = "zmk,behavior-mod-morph";
-    #binding-cells = <0>;
-    bindings = <&kp RPAR>, <&kp GT>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-  };
+        // Shift + RIGHT_PARENTHESIS = GREATER_THAN
+        //
+        parang_right: right_parenthesis_and_greater_than {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RPAR>, <&kp GT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
-    };
+            };
 
     combos {
         compatible = "zmk,combos";
@@ -2553,7 +2553,7 @@
             timeout-ms = <COMBO_FIRING_DECAY>;
             key-positions = <76 70>; // BACKSPACE (position 76) + ESC (position 70)
             bindings = <&mod_tab_chord _A_TAB LAYER_Cursor>;
-            layers = <0 1 2 3 4 5 6 7>;
+            layers = <0 2 3 4 5 6 7 8 9>;
         };
         #endif
 
@@ -2561,7 +2561,7 @@
             timeout-ms = <COMBO_FIRING_DECAY>;
             key-positions = <75 81>; // ENTER (position 75) + SPACE (position 81)
             bindings = <&sk LG(LA(LC(LSHFT)))>;
-            layers = <0 1 2 3 4 5 6 7>;
+            layers = <0 2 3 4 5 6 7 8 9>;
         };
 
         // à -> as combo "au"
@@ -2569,7 +2569,7 @@
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <37 31 >; // a (position 37) + u (position 31) -old + s (position 38)
             bindings = <&world_a_base_perso>;
-            layers = <0 1 2 3 4 5 6 7 8>;
+            layers = <0 2 3 4 5 6 7 8 9>;
         };
 
         // è -> as combo "e;"
@@ -2577,7 +2577,7 @@
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE>;
             key-positions = <27 31 >; // e (position 27) + u (position 31) -old + r (position 28)
             bindings = <&world_e_base_perso>;
-            layers = <0 1 2 3 4 5 6 7 8>;
+            layers = <0 2 3 4 5 6 7 8 9>;
         };
 
         // ç -> as combo "c;"
@@ -2585,7 +2585,7 @@
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <51 31 >; // c (position 51) + u (position 31) -old + v (position 52)
             bindings = <&world_consonants_base_perso>;
-            layers = <0 1 2 3 4 5 6 7 8>;
+            layers = <0 2 3 4 5 6 7 8 9>;
         };
     };
 
@@ -7195,6 +7195,19 @@
             >;
         };
 
+        layer_QWERTY_windows {
+            bindings = <
+&none             &none                                 &none                                 &none                                 &none                                   &none                                    &none       &none                                  &none                                    &none                                  &none                                  &none
+&none             &kp N1                                &kp N2                                &world_e_acute_windows                &kp SQT                                 &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &os_toggle_mac
+&none             &kp Q                                 &kp W                                 &kp E                                 &kp R                                   &kp T                                    &kp Y       &kp U                                  &kp I                                    &kp O                                  &kp SEMI                               &none
+&mo LAYER_System  &LeftPinky (A, LAYER_QWERTY_WINDOWS)  &LeftRingy (S, LAYER_QWERTY_WINDOWS)  &LeftMiddy (D, LAYER_QWERTY_WINDOWS)  &LeftIndex (F, LAYER_QWERTY_WINDOWS)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY_WINDOWS)  &RightMiddy (K, LAYER_QWERTY_WINDOWS)    &RightRingy (L, LAYER_QWERTY_WINDOWS)  &RightPinky (P, LAYER_QWERTY_WINDOWS)  &none
+&none             &kp Z                                 &kp X                                 &kp C                                 &kp V                                   &kp B                                    &kp N       &kp M                                  &kp COMMA                                &kp DOT                                &kp FSLH                               &none
+&none             &none                                 &kp UP                                &kp DOWN                              &none                                                                                        &none                                  &kp LBKT                                 &kp RBKT                               &none                                  &none
+                                                                                                                                    &thumb LAYER_Function ESC               &none                        &none       &none       &thumb LAYER_System INSERT             &thumb_world LAYER_WORLD_WINDOWS ENTER
+                                                                                                                                    &thumb LAYER_Cursor BACKSPACE           &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB                 &space LAYER_Symbol SPACE
+            >;
+        };
+
         layer_LeftPinky {
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
@@ -7390,18 +7403,6 @@
             >;
         };
 
-        layer_QWERTY_windows {
-            bindings = <
-&none             &none                                 &none                                 &none                                 &none                                   &none                                    &none       &none                                  &none                                    &none                                  &none                                  &none
-&none             &kp N1                                &kp N2                                &world_e_acute_windows                &kp SQT                                 &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &os_toggle_mac
-&none             &kp Q                                 &kp W                                 &kp E                                 &kp R                                   &kp T                                    &kp Y       &kp U                                  &kp I                                    &kp O                                  &kp SEMI                               &none
-&mo LAYER_System  &LeftPinky (A, LAYER_QWERTY_WINDOWS)  &LeftRingy (S, LAYER_QWERTY_WINDOWS)  &LeftMiddy (D, LAYER_QWERTY_WINDOWS)  &LeftIndex (F, LAYER_QWERTY_WINDOWS)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY_WINDOWS)  &RightMiddy (K, LAYER_QWERTY_WINDOWS)    &RightRingy (L, LAYER_QWERTY_WINDOWS)  &RightPinky (P, LAYER_QWERTY_WINDOWS)  &none
-&none             &kp Z                                 &kp X                                 &kp C                                 &kp V                                   &kp B                                    &kp N       &kp M                                  &kp COMMA                                &kp DOT                                &kp FSLH                               &none
-&none             &none                                 &kp UP                                &kp DOWN                              &none                                                                                        &none                                  &kp LBKT                                 &kp RBKT                               &none                                  &none
-                                                                                                                                    &thumb LAYER_Function ESC               &none                        &none       &none       &thumb LAYER_System INSERT             &thumb_world LAYER_WORLD_WINDOWS ENTER
-                                                                                                                                    &thumb LAYER_Cursor BACKSPACE           &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB                 &space LAYER_Symbol SPACE
-            >;
-        };
 
         layer_World_windows {
             bindings = <
