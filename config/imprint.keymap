@@ -7135,6 +7135,54 @@
             mods = <MOD_LSFT>;
         };
 
+        // æ / Æ win ////
+        UNICODE(world_e_ae_lower_macro_win, /* æ */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_e_ae_lower
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N0)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _N6)
+            #endif
+        )
+        world_e_ae_lower_win: world_e_ae_lower_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_ae_lower_macro_win>, <&world_e_ae_lower_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_e_ae_lower
+        COMPOSE_MORPH_MODS
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        UNICODE(world_e_ae_upper_macro_win, /* Æ */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_e_ae_upper
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N8)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NC &kp _N6)
+            #endif
+        )
+        world_e_ae_upper_win: world_e_ae_upper_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_ae_upper_macro_win>, <&world_e_ae_upper_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_e_ae_upper
+        COMPOSE_MORPH_MODS
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        world_e_ae_win: world_e_ae_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_e_ae_lower_win>, <&world_e_ae_upper_win>;
+            mods = <MOD_LSFT>;
+        };
+
         // è / È / ë / ê / è / æ WIN ////
         world_e_base_perso_win: world_e_base_perso_win {
             compatible = "zmk,behavior-mod-morph";
@@ -7145,7 +7193,7 @@
         world_e_RALT_perso_win: world_e_RALT_perso_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&world_e_ae>, <&world_e_LCTL_perso_win>;
+            bindings = <&world_e_ae_win>, <&world_e_LCTL_perso_win>;
             mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
         world_e_LCTL_perso_win: world_e_LCTL_perso_win {
