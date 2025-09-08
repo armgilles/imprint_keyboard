@@ -2587,6 +2587,14 @@
             bindings = <&world_consonants_base_perso>;
             layers = <0 2 3 4 5 6 7 8 9>;
         };
+
+        // Win combo
+        combo_alt_tab_switcher_win {
+            timeout-ms = <COMBO_FIRING_DECAY>;
+            key-positions = <76 70>; // BACKSPACE (position 76) + ESC (position 70)
+            bindings = <&mod_tab_chord LALT LAYER_QWERTY_WINDOWS>;
+            layers = <1>;
+        };
     };
 
     macros {
