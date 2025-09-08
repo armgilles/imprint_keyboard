@@ -7117,6 +7117,7 @@
             #binding-cells = <0>;
             bindings = <&world_e_diaeresis_upper_macro_win>, <&world_e_diaeresis_upper_macro_win>;
             mods = <COMPOSE_MORPH_MODS>;
+        };
         world_e_diaeresis_win: world_e_diaeresis_win {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
