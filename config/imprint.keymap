@@ -7085,7 +7085,8 @@
             mods = <COMPOSE_MORPH_MODS>;
         };
         UNICODE(world_e_circumflex_upper_macro_win, /* Ê */
-            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N2)
+            //COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N2)
+            COMPOSE_SEQ_WINDOWS(&kp CARET &kp E)
         )
         world_e_circumflex_upper_win: world_e_circumflex_upper_win {
             compatible = "zmk,behavior-mod-morph";
