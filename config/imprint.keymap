@@ -34,6 +34,7 @@
         #define LAYER_World 15
         #define LAYER_QWERTY_WINDOWS 16
         #define LAYER_WORLD_WINDOWS 17
+        #define LAYER_Number_win 18
 
         //#define LAYER_Magic 24
 
@@ -7399,7 +7400,7 @@
 &none             &kp Z                                 &kp X                                 &kp C                                 &kp V                                   &kp B                                    &kp N       &kp M                                  &kp COMMA                                &kp DOT                                &kp FSLH                               &none
 &none             &none                                 &kp UP                                &kp DOWN                              &none                                                                                        &none                                  &kp LBKT                                 &kp RBKT                               &none                                  &none
                                                                                                                                     &thumb LAYER_Function ESC               &none                        &none       &none       &thumb LAYER_System INSERT             &thumb_world LAYER_WORLD_WINDOWS ENTER
-                                                                                                                                    &thumb LAYER_Cursor BACKSPACE           &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB                 &space LAYER_Symbol SPACE
+                                                                                                                                    &thumb LAYER_Cursor BACKSPACE           &thumb LAYER_Number_win DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB                 &space LAYER_Symbol SPACE
             >;
         };
 
@@ -7413,6 +7414,19 @@
 &none  &none                 &none  &none                         &none                                  &none                &none          &none           &none      &none
                                                                   &trans     &none   &none    &none      &none                &none
                                                                   &trans     &trans  &none    &none      &none                &none
+            >;
+        };
+
+        layer_Number_win {
+            bindings = <
+&none  &none  &none     &none      &none       &none                    &none             &none       &none          &none          &none           &none
+&none  &none  &none     &none      &none       &none                    &kp TILDE         &kp CARET   &kp HASH       &kp DLLR       &kp EXCL        &none
+&none  &none  &none     &none      &kp LC(TAB) &kp LA(TAB)              &kp PRCNT         &kp _KP_N7  &kp _KP_N8     &kp _KP_N9     &kp COLON       &none
+&none  &none  &kp BSPC  &kp SPACE  &kp DOT     &none                    &kp _KP_PLUS      &kp _KP_N4  &kp _KP_N5     &kp _KP_N6     &kp _KP_MINUS   &none
+&none  &none  &none     &none      &kp COMMA   &kp LS(LG(N4))           &kp _KP_ASTERISK  &kp _KP_N1  &kp _KP_N2     &kp _KP_N3     &kp _KP_SLASH   &none
+&none  &none  &none     &none      &none                                                  &none       &kp LT         &kp GT         &none           &none
+                                   &none       &none          &none     &none             &kp LPAR    &kp _KP_EQUAL 
+                                   &none       &none          &none     &none             &kp RPAR    &kp _KP_N0 
             >;
         };
     };
