@@ -6918,11 +6918,11 @@
         // On layer_QWERTY (macos layout)
         os_toggle_win: os_toggle_win {
             label = "OS_TOGGLE_WIN";
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    bindings =
-        <&to LAYER_QWERTY_WINDOWS>; // Passe sur le layer Windows (désactive tous les autres)
-};
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&to LAYER_QWERTY_WINDOWS>; // Passe sur le layer Windows (désactive tous les autres)
+        };
 
 
 
@@ -7399,7 +7399,7 @@
 &none             &kp Z                                 &kp X                                 &kp C                                 &kp V                                   &kp B                                    &kp N       &kp M                                  &kp COMMA                                &kp DOT                                &kp FSLH                               &none
 &none             &none                                 &kp UP                                &kp DOWN                              &none                                                                                        &none                                  &kp LBKT                                 &kp RBKT                               &none                                  &none
                                                                                                                                     &thumb LAYER_Function ESC               &none                        &none       &none       &thumb LAYER_System INSERT             &thumb_world LAYER_WORLD_WINDOWS ENTER
-                                                                                                                                    &thumb LAYER_Cursor BACKSPACE           &mo LAYER_Number             &none       &caps_word  &thumb LAYER_Mouse TAB                 &space LAYER_Symbol SPACE
+                                                                                                                                    &thumb LAYER_Cursor BACKSPACE           &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB                 &space LAYER_Symbol SPACE
             >;
         };
 
