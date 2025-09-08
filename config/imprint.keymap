@@ -34,6 +34,7 @@
         #define LAYER_System 15
         #define LAYER_World 16
         #define LAYER_WORLD_WINDOWS 17
+        #define layer_Cursor_win 18
 
         //#define LAYER_Magic 24
 
@@ -2592,7 +2593,7 @@
         combo_alt_tab_switcher_win {
             timeout-ms = <COMBO_FIRING_DECAY>;
             key-positions = <76 70>; // BACKSPACE (position 76) + ESC (position 70)
-            bindings = <&mod_tab_chord LALT LAYER_QWERTY_WINDOWS>;
+            bindings = <&mod_tab_chord LALT LAYER_Cursor_win>;
             layers = <1>;
         };
     };
@@ -7410,8 +7411,7 @@
                                                                   &trans     &trans  &none    &none      &none                &none
             >;
         };
-
-
+        
         layer_World_windows {
             bindings = <
 &none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
@@ -7422,6 +7422,19 @@
 &none  &none                 &none  &none                         &none                                  &none                &none          &none           &none      &none
                                                                   &trans     &none   &none    &none      &none                &none
                                                                   &trans     &trans  &none    &none      &none                &none
+            >;
+        };
+
+        layer_Cursor_win {
+            bindings = <
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
+&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO  &kp _REDO  &sk LSHFT  &trans
+&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans     &trans
+&trans  &trans              &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
+&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
+                                                                    &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
+                                                                    &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
             >;
         };
     };
