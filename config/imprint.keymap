@@ -34,7 +34,7 @@
         #define LAYER_System 15
         #define LAYER_World 16
         #define LAYER_WORLD_WINDOWS 17
-        #define layer_Cursor_win 18
+        #define LAYER_Cursor_win 18
 
         //#define LAYER_Magic 24
 
