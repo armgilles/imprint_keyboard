@@ -7085,8 +7085,7 @@
             mods = <COMPOSE_MORPH_MODS>;
         };
         UNICODE(world_e_circumflex_upper_macro_win, /* Ê */
-            //COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N2)
-            COMPOSE_SEQ_WINDOWS(&kp CARET &kp E)
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N2)
         )
         world_e_circumflex_upper_win: world_e_circumflex_upper_win {
             compatible = "zmk,behavior-mod-morph";
@@ -7411,7 +7410,7 @@
 &none  &none                 &none  &world_e_base_perso_win       &none      &none            &none      &world_u_base_perso  &world_i_base  &world_o_base   &none      &none
 &none  &world_a_base_perso   &none  &none                         &kp SPACE  &none            &kp BSPC   &kp SPACE            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
 &none  &world_currency_base  &none  &world_consonants_base_perso  &none      &none            &none      &sk LSHFT            &sk LALT       &sk RALT        &none      &none
-&none  &none                 &none  &world_e_circumflex_win       &none                                  &none                &none          &none           &none      &none
+&none  &none                 &none  &none                         &none                                  &none                &none          &none           &none      &none
                                                                   &trans     &none   &none    &none      &none                &none
                                                                   &trans     &trans  &none    &none      &none                &none
             >;
