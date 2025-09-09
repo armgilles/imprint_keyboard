@@ -7263,6 +7263,55 @@
             mods = <(MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
         };
 
+        // For à // win
+        UNICODE(world_a_grave_lower_macro_win, /* à */
+            #elif OPERATING_SYSTEM == 'W'
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_a_grave_lower
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _N0)
+            #endif
+        )
+        world_a_grave_lower_win: world_a_grave_lower_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_a_grave_lower_macro_win>, <&world_a_grave_lower_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_a_grave_lower
+        COMPOSE_MORPH_MODS
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        UNICODE(world_a_grave_upper_macro_win, /* À */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_a_grave_upper
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N2)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NC &kp _N0)
+            #endif
+        )
+        world_a_grave_upper_win: world_a_grave_upper_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_a_grave_upper_macro_win>, <&world_a_grave_upper_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_a_grave_upper
+        COMPOSE_MORPH_MODS
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        world_a_grave_win: world_a_grave_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_a_grave_lower_win>, <&world_a_grave_upper_win>;
+            mods = <MOD_LSFT>;
+        };
+
         //////////////////////////////////////////////////////////////////////////
         ///
         /// Autres macros
@@ -7519,7 +7568,7 @@
 &none  &none                 &none  &none                            &none      &none            &none      &none                &none          &none           &none      &none
 &none  &none                 &none  &none                            &none      &none            &none      &none                &none          &none           &none      &none
 &none  &none                 &none  &world_e_base_perso_win          &none      &none            &none      &world_u_base_perso  &world_i_base  &world_o_base   &none      &none
-&none  &world_a_base_perso   &none  &none                            &kp SPACE  &none            &kp BSPC   &kp SPACE            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
+&none  &world_a_grave_win    &none  &none                            &kp SPACE  &none            &kp BSPC   &kp SPACE            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
 &none  &world_currency_base  &none  &world_consonants_base_perso_win &none      &none            &none      &sk LSHFT            &sk LALT       &sk RALT        &none      &none
 &none  &none                 &none  &none                            &none                                  &none                &none          &none           &none      &none
                                                                      &trans     &none   &none    &none      &none                &none
