@@ -7479,7 +7479,7 @@
             mods = <MOD_LSFT>;
         };
 
-        // ù / ü / û 
+        // ù / ü / û -> win
         // For u and have defaut "ù"
             world_u_base_perso_win: world_u_base_perso_win {
             compatible = "zmk,behavior-mod-morph";
@@ -7497,6 +7497,170 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&world_u_circumflex_win>, <&world_u_grave_win>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        // For í // win
+         UNICODE(world_i_acute_lower_macro_win, /* í */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_i_acute_lower
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N7)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _ND)
+            #endif
+        )
+        world_i_acute_lower_win: world_i_acute_lower_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_acute_lower_macro_win>, <&world_i_acute_lower_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_i_acute_lower
+        MOD_LSFT
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        UNICODE(world_i_acute_upper_macro_win, /* Í */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_i_acute_upper
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N5)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NC &kp _ND)
+            #endif
+        )
+        world_i_acute_upper_win: world_i_acute_upper_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_acute_upper_macro_win>, <&world_i_acute_upper_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_i_acute_upper
+        MOD_LSFT
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        world_i_acute_win: world_i_acute_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_acute_lower_win>, <&world_i_acute_upper_win>;
+            mods = <MOD_LSFT>;
+        };
+
+        // For ï // win
+        UNICODE(world_i_diaeresis_lower_macro_win, /* ï */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_i_diaeresis_lower
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N9)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _NF)
+            #endif
+        )
+        world_i_diaeresis_lower_win: world_i_diaeresis_lower_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_diaeresis_lower_macro_win>, <&world_i_diaeresis_lower_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_i_diaeresis_lower
+        MOD_LSFT
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        UNICODE(world_i_diaeresis_upper_macro_win, /* Ï */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_i_diaeresis_upper
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N7)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NC &kp _NF)
+            #endif
+        )
+        world_i_diaeresis_upper_win: world_i_diaeresis_upper_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_diaeresis_upper_macro_win>, <&world_i_diaeresis_upper_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_i_diaeresis_upper
+        MOD_LSFT
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        world_i_diaeresis_win: world_i_diaeresis_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_diaeresis_lower_win>, <&world_i_diaeresis_upper_win>;
+            mods = <MOD_LSFT>;
+        };
+
+        // For î // win 
+        UNICODE(world_i_circumflex_lower_macro_win, /* î */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_i_circumflex_lower
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N8)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _NE)
+            #endif
+        )
+        world_i_circumflex_lower_win: world_i_circumflex_lower_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_circumflex_lower_macro_win>, <&world_i_circumflex_lower_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_i_circumflex_lower
+        MOD_LSFT
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        UNICODE(world_i_circumflex_upper_macro_win, /* Î */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_i_circumflex_upper
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N0 &kp KP_N6)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NC &kp _NE)
+            #endif
+        )
+        world_i_circumflex_upper_win: world_i_circumflex_upper_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_circumflex_upper_macro_win>, <&world_i_circumflex_upper_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_i_circumflex_upper
+        MOD_LSFT
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        world_i_circumflex_win: world_i_circumflex_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_circumflex_lower_win>, <&world_i_circumflex_upper_win>;
+            mods = <MOD_LSFT>;
+        };
+
+        // í / ï / î -> win
+        world_i_base_win: world_i_base_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_acute_win>, <&world_i_LCTL_win>;
+            mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
+        };
+        world_i_LCTL_win: world_i_LCTL_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_diaeresis_win>, <&world_i_RCTL_win>;
+            mods = <(MOD_RCTL|MOD_RSFT)>;
+        };
+        world_i_RCTL_win: world_i_RCTL_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_i_circumflex_win>, <&world_i_grave>;
             mods = <(MOD_RSFT)>;
         };
 
@@ -7753,12 +7917,12 @@
         
         layer_World_windows {
             bindings = <
-&none  &none                 &none  &none                            &none      &none            &none      &none                    &none          &none           &none      &none
-&none  &none                 &none  &none                            &none      &none            &none      &none                    &none          &none           &none      &none
-&none  &none                 &none  &world_e_base_perso_win          &none      &none            &none      &world_u_base_perso_win  &world_i_base  &world_o_base   &none      &none
-&none  &world_a_grave_win    &none  &none                            &kp SPACE  &none            &kp BSPC   &kp SPACE                &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
-&none  &world_currency_base  &none  &world_consonants_base_perso_win &none      &none            &none      &sk LSHFT                &sk LALT       &sk RALT        &none      &none
-&none  &none                 &none  &none                            &none                                  &none                    &none          &none           &none      &none
+&none  &none                 &none  &none                            &none      &none            &none      &none                    &none              &none           &none      &none
+&none  &none                 &none  &none                            &none      &none            &none      &none                    &none              &none           &none      &none
+&none  &none                 &none  &world_e_base_perso_win          &none      &none            &none      &world_u_base_perso_win  &world_i_base_win  &world_o_base   &none      &none
+&none  &world_a_grave_win    &none  &none                            &kp SPACE  &none            &kp BSPC   &kp SPACE                &sk LCTRL          &sk RCTRL       &sk RSHFT  &none
+&none  &world_currency_base  &none  &world_consonants_base_perso_win &none      &none            &none      &sk LSHFT                &sk LALT           &sk RALT        &none      &none
+&none  &none                 &none  &none                            &none                                  &none                    &none              &none           &none      &none
                                                                      &trans     &none   &none    &none      &none                    &none
                                                                      &trans     &trans  &none    &none      &none                    &none
             >;
