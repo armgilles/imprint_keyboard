@@ -7209,6 +7209,54 @@
             mods = <(MOD_RSFT)>;
         };
 
+        // For ç // win
+        UNICODE(world_consonants_cedilla_lower_macro_win, /* ç */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_consonants_cedilla_lower
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N1)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _N7)
+            #endif
+        )
+        world_consonants_cedilla_lower_win: world_consonants_cedilla_lower_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_consonants_cedilla_lower_macro_win>, <&world_consonants_cedilla_lower_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_consonants_cedilla_lower
+        COMPOSE_MORPH_MODS
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        UNICODE(world_consonants_cedilla_upper_macro_win, /* Ç */
+            #ifdef WORLD_USE_COMPOSE
+            #define WORLD_USE_COMPOSE_FOR_world_consonants_cedilla_upper
+            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N9)
+            #else
+            UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NC &kp _N7)
+            #endif
+        )
+        world_consonants_cedilla_upper_win: world_consonants_cedilla_upper_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_consonants_cedilla_upper_macro_win>, <&world_consonants_cedilla_upper_macro_win>;
+            mods = <(~(
+        #ifdef WORLD_USE_COMPOSE_FOR_world_consonants_cedilla_upper
+        COMPOSE_MORPH_MODS
+        #else
+        UNICODE_MORPH_MODS
+        #endif
+        ))>;
+        };
+        world_consonants_cedilla_win: world_consonants_cedilla_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&world_consonants_cedilla_lower_win>, <&world_consonants_cedilla_upper_win>;
+            mods = <MOD_LSFT>;
+        };
+
         //////////////////////////////////////////////////////////////////////////
         ///
         /// Autres macros
@@ -7466,7 +7514,7 @@
 &none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
 &none  &none                 &none  &world_e_base_perso_win       &none      &none            &none      &world_u_base_perso  &world_i_base  &world_o_base   &none      &none
 &none  &world_a_base_perso   &none  &none                         &kp SPACE  &none            &kp BSPC   &kp SPACE            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
-&none  &world_currency_base  &none  &world_consonants_base_perso  &none      &none            &none      &sk LSHFT            &sk LALT       &sk RALT        &none      &none
+&none  &world_currency_base  &none  &world_consonants_cedilla_win &none      &none            &none      &sk LSHFT            &sk LALT       &sk RALT        &none      &none
 &none  &none                 &none  &none                         &none                                  &none                &none          &none           &none      &none
                                                                   &trans     &none   &none    &none      &none                &none
                                                                   &trans     &trans  &none    &none      &none                &none
