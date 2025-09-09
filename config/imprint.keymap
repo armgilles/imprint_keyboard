@@ -7265,7 +7265,6 @@
 
         // For à // win
         UNICODE(world_a_grave_lower_macro_win, /* à */
-            #elif OPERATING_SYSTEM == 'W'
             #ifdef WORLD_USE_COMPOSE
             #define WORLD_USE_COMPOSE_FOR_world_a_grave_lower
             COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N4)
