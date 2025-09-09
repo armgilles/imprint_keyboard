@@ -7326,7 +7326,7 @@
             bindings = <&world_u_grave_lower_macro_win>, <&world_u_grave_lower_macro_win>;
             mods = <(~(
         #ifdef WORLD_USE_COMPOSE_FOR_world_u_grave_lower
-        COMPOSE_MORPH_MODS
+        MOD_LALT
         #else
         UNICODE_MORPH_MODS
         #endif
@@ -7346,7 +7346,7 @@
             bindings = <&world_u_grave_upper_macro_win>, <&world_u_grave_upper_macro_win>;
             mods = <(~(
         #ifdef WORLD_USE_COMPOSE_FOR_world_u_grave_upper
-        COMPOSE_MORPH_MODS
+        MOD_LALT
         #else
         UNICODE_MORPH_MODS
         #endif
@@ -7374,7 +7374,7 @@
             bindings = <&world_u_diaeresis_lower_macro_win>, <&world_u_diaeresis_lower_macro_win>;
             mods = <(~(
         #ifdef WORLD_USE_COMPOSE_FOR_world_u_diaeresis_lower
-        COMPOSE_MORPH_MODS
+        MOD_LALT
         #else
         UNICODE_MORPH_MODS
         #endif
@@ -7394,7 +7394,7 @@
             bindings = <&world_u_diaeresis_upper_macro_win>, <&world_u_diaeresis_upper_macro_win>;
             mods = <(~(
         #ifdef WORLD_USE_COMPOSE_FOR_world_u_diaeresis_upper
-        COMPOSE_MORPH_MODS
+        MOD_LALT
         #else
         UNICODE_MORPH_MODS
         #endif
@@ -7422,7 +7422,7 @@
             bindings = <&world_u_circumflex_lower_macro_win>, <&world_u_circumflex_lower_macro_win>;
             mods = <(~(
         #ifdef WORLD_USE_COMPOSE_FOR_world_u_circumflex_lower
-        COMPOSE_MORPH_MODS
+        MOD_LALT
         #else
         UNICODE_MORPH_MODS
         #endif
@@ -7442,7 +7442,7 @@
             bindings = <&world_u_circumflex_upper_macro_win>, <&world_u_circumflex_upper_macro_win>;
             mods = <(~(
         #ifdef WORLD_USE_COMPOSE_FOR_world_u_circumflex_upper
-        COMPOSE_MORPH_MODS
+        MOD_LALT
         #else
         UNICODE_MORPH_MODS
         #endif
