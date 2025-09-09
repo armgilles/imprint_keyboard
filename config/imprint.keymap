@@ -2574,7 +2574,7 @@
         };
 
         // à -> as combo "au" -> Win
-        combo_world_a_base_perso {
+        combo_world_a_base_perso_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <37 31 >; // a (position 37) + u (position 31) -old + s (position 38)
             bindings = <&world_a_grave_lower_win>;
@@ -2590,7 +2590,7 @@
         };
 
         // è -> as combo "eu" -> Win
-        combo_world_e_base_perso {
+        combo_world_e_base_perso_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE>;
             key-positions = <27 31 >; // e (position 27) + u (position 31) -old + r (position 28)
             bindings = <&world_e_grave_lower_win>;
@@ -2606,7 +2606,7 @@
         };
 
         // ç -> as combo "cu" -> Win
-        combo_world_consonants_base_perso {
+        combo_world_consonants_base_perso_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <51 31 >; // c (position 51) + u (position 31) -old + v (position 52)
             bindings = <&world_consonants_cedilla_lower_win>;
