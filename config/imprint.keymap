@@ -7600,7 +7600,7 @@
         UNICODE(world_i_circumflex_lower_macro_win, /* î */
             #ifdef WORLD_USE_COMPOSE
             #define WORLD_USE_COMPOSE_FOR_world_i_circumflex_lower
-            COMPOSE_SEQ_WINDOWS(&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N8)
+            COMPOSE_SEQ_WINDOWS(&kp _KP_N0 &kp _KP_N2 &kp _KP_N3 &kp _KP_N8)
             #else
             UNICODE_SEQ_WINDOWS(&kp _N0 &kp _NE &kp _NE)
             #endif
