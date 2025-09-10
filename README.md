@@ -26,7 +26,13 @@ Wireless Cyboard keyboard configuration repository template for using ZMK firmwa
 
 
 ## Inspiration
+
 This configuration is inspired by (Sunaku)[https://sunaku.github.io/index.html#moergo-glove80-keyboard]’s keyboard layouts and design philosophy on the Glove80 keyboard <3.
+
+
+## Acknowledgments
+
+Special thanks to the `Glove80` and the Cyboard `Imprint` community for their support, resources, and inspiration throughout the development!
 
 ## Layers Overview
 
