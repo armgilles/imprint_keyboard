@@ -8059,7 +8059,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
 &trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO  &kp _REDO  &sk LSHFT  &trans
 &trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans     &trans
-&trans  &trans              &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
+&trans  &kp LA(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab _A_TAB     &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
@@ -8163,7 +8163,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
 &trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO  &kp _REDO  &sk LSHFT  &trans
 &trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans     &trans
-&trans  &trans              &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
+&trans  &kp LA(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
