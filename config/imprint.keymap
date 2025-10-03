@@ -2546,7 +2546,7 @@
         #define COMBO_FIRING_DECAY_SPECIAL_CARAC 50
         #endif
         #ifndef COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE
-        #define COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE 40
+        #define COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE 36
         #endif
         
         #ifdef _A_TAB
