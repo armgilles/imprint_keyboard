@@ -8070,9 +8070,9 @@
             bindings = <
 &none  &none  &none     &none       &none       &none                    &none             &none       &none          &none          &none           &none
 &none  &none  &none     &none       &none       &none                    &kp TILDE         &kp CARET   &kp HASH       &kp DLLR       &kp EXCL        &none
-&none  &none  &none     &kp LC(TAB) &kp LA(TAB) &none                    &kp PRCNT         &kp _KP_N7  &kp _KP_N8     &kp _KP_N9     &kp COLON       &none
-&none  &none  &kp BSPC  &kp SPACE   &kp DOT     &none                    &kp _KP_PLUS      &kp _KP_N4  &kp _KP_N5     &kp _KP_N6     &kp _KP_MINUS   &none
-&none  &none  &none     &none       &kp COMMA   &kp LS(LG(N4))           &kp _KP_ASTERISK  &kp _KP_N1  &kp _KP_N2     &kp _KP_N3     &kp _KP_SLASH   &none
+&none  &none  &none     &kp LC(TAB) &kp LA(TAB) &kp K                    &kp PRCNT         &kp _KP_N7  &kp _KP_N8     &kp _KP_N9     &kp COLON       &none
+&none  &none  &kp BSPC  &kp SPACE   &kp DOT     &kp LS(G)                &kp _KP_PLUS      &kp _KP_N4  &kp _KP_N5     &kp _KP_N6     &kp _KP_MINUS   &none
+&none  &none  &none     &none       &kp COMMA   &kp J                    &kp _KP_ASTERISK  &kp _KP_N1  &kp _KP_N2     &kp _KP_N3     &kp _KP_SLASH   &none
 &none  &none  &none     &none       &none                                                  &none       &kp LT         &kp GT         &none           &none
                                     &none       &none          &none     &none             &kp LPAR    &kp _KP_EQUAL 
                                     &none       &none          &none     &none             &kp RPAR    &kp _KP_N0 
