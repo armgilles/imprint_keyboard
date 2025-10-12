@@ -8111,7 +8111,7 @@
 &none  &none               &none               &none               &none               &none                  &msc SCRL_DOWN           &msc SCRL_UP               &none                    &none                 &none  &none
 &none  &none               &none               &msc SCRL_RIGHT     &msc SCRL_LEFT      &kp _CUT               &kp LC(N)                &split_editor_horizontal   &split_editor_vertical   &none                 &none  &none
 &none  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY              &focus_left_group        &focus_down_group          &focus_up_group          &focus_right_group    &none  &none
-&none  &none               &kp _PASTE          &none               &none               &kp _PASTE             &none                    &kp LG(LS(E))              &kp LG(N1)               &kp LC(GRAVE)         &none  &none
+&none  &none               &none               &kp _PASTE               &none               &kp _PASTE             &none                    &kp LG(LS(E))              &kp LG(N1)               &kp LC(GRAVE)         &none  &none
 &none  &none               &msc SCRL_DOWN      &msc SCRL_UP        &none                                                               &none                      &msc SCRL_DOWN           &msc SCRL_UP          &none  &none
                                                                    &mkp LCLK           &mkp RCLK    &mkp MCLK     &mkp LCLK                &mkp RCLK                  &mkp MCLK
                                                                    &mkp LCLK           &mkp RCLK    &mkp MCLK     &none                    &none                      &none
