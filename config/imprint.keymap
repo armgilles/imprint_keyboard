@@ -35,7 +35,7 @@
         #define LAYER_World 16
         #define LAYER_WORLD_WINDOWS 17
         #define LAYER_Cursor_win 18
-        #define layer_Enthium 19
+        #define LAYER_ENTHIUM 19
 
         //#define LAYER_Magic 24
 
@@ -6968,7 +6968,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&to LAYER_Enthium>; // Active le layer Enthium (désactive tous les autres)
+                <&to LAYER_ENTHIUM>; // Active le layer Enthium (désactive tous les autres)
         };
 
         enthium_to_qwerty: enthium_to_qwerty {
