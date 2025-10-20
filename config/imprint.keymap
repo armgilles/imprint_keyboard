@@ -35,6 +35,7 @@
         #define LAYER_World 16
         #define LAYER_WORLD_WINDOWS 17
         #define LAYER_Cursor_win 18
+        #define layer_Enthium 19
 
         //#define LAYER_Magic 24
 
@@ -6961,6 +6962,23 @@
                 <&to LAYER_QWERTY_WINDOWS>; // Passe sur le layer Windows (désactive tous les autres)
         };
 
+        // Testing enthium layout
+        enthium_toggle: enthium_toggle {
+            label = "ENTHIUM_TOGGLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&to LAYER_Enthium>; // Active le layer Enthium (désactive tous les autres)
+        };
+
+        enthium_to_qwerty: enthium_to_qwerty {
+            label = "ENTHIUM_TO_QWERTY";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&to LAYER_QWERTY>; // Active le layer QWERTY (désactive tous les autres)
+        };
+
 
 
         //////////////////////////////////////////////////////////////////////////
@@ -7926,7 +7944,7 @@
         layer_QWERTY {
             bindings = <
 &none             &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
-&none             &kp N1                        &kp N2                        &world_e_acute                &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
+&enthium_toggle  &kp N1                        &kp N2                        &world_e_acute                &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
 &none             &kp Q                         &kp W                         &kp E                         &kp R                           &kp T                                    &kp Y       &kp U                          &kp I                           &kp O                          &kp SQT                        &none
 &mo LAYER_System  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &LeftIndex (F, LAYER_QWERTY)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY)  &RightMiddy (K, LAYER_QWERTY)   &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
 &none             &kp Z                         &kp X                         &kp C                         &kp V                           &kp B                                    &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
@@ -8167,6 +8185,19 @@
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
+            >;
+        };
+
+        layer_Enthium {
+            bindings = <
+&none              &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
+&enthium_to_qwerty &kp N1                        &kp N2                        &world_e_acute                &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
+&none              &kp Z                         &kp Y                         &kp O                         &kp U                           &world_e_grave_lower_macro               &kp Q       &kp L                          &kp D                           &kp P                          &kp X                          &none
+&kp W  &LeftPinky  (C, LAYER_QWERTY)  &LeftRingy (I, LAYER_QWERTY)             &LeftMiddy (A, LAYER_QWERTY)  &LeftIndex (E, LAYER_QWERTY)    &world_e_acute                           &kp K       &RightIndex (H, LAYER_QWERTY)  &RightMiddy (T, LAYER_QWERTY)   &RightRingy (N, LAYER_QWERTY)  &RightPinky (S, LAYER_QWERTY)  &kp F
+&none              &kp SQT                       &world_a_acute_lower_macro    &kp COMMA                     &kp DOT                         &kp B                                    &kp J       &kp M                          &kp G                           &kp B                          &kp V                       &none
+&none              &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_World ENTER
+                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
             >;
         };
     };
