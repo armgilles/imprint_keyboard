@@ -6962,6 +6962,23 @@
                 <&to LAYER_QWERTY_WINDOWS>; // Passe sur le layer Windows (désactive tous les autres)
         };
 
+        // Testing enthium layout
+        enthium_toggle: enthium_toggle {
+            label = "ENTHIUM_TOGGLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&to LAYER_Enthium>; // Active le layer Enthium (désactive tous les autres)
+        };
+
+        enthium_to_qwerty: enthium_to_qwerty {
+            label = "ENTHIUM_TO_QWERTY";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&to LAYER_QWERTY>; // Active le layer QWERTY (désactive tous les autres)
+        };
+
 
         //////////////////////////////////////////////////////////////////////////
         ///
