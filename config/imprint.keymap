@@ -8196,7 +8196,7 @@
 &none              &kp Z                         &kp COMMA                     &world_e_acute                &kp DOT                         &world_consonants_base_perso             &kp J       &kp M                          &kp G                           &kp B                          &kp V                          &none
 &none              &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
                                                                                                              &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_World ENTER
-                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
+                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &kp R
             >;
         };
     };
