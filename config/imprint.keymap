@@ -35,6 +35,7 @@
         #define LAYER_World 16
         #define LAYER_WORLD_WINDOWS 17
         #define LAYER_Cursor_win 18
+        #define LAYER_ENTHIUM 19
 
         //#define LAYER_Magic 24
 
@@ -6961,6 +6962,22 @@
                 <&to LAYER_QWERTY_WINDOWS>; // Passe sur le layer Windows (désactive tous les autres)
         };
 
+        // Testing enthium layout
+        enthium_toggle: enthium_toggle {
+            label = "ENTHIUM_TOGGLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&to LAYER_ENTHIUM>; // Active le layer Enthium (désactive tous les autres)
+        };
+
+        enthium_to_qwerty: enthium_to_qwerty {
+            label = "ENTHIUM_TO_QWERTY";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&to LAYER_QWERTY>; // Active le layer QWERTY (désactive tous les autres)
+        };
 
 
         //////////////////////////////////////////////////////////////////////////
@@ -7926,8 +7943,8 @@
         layer_QWERTY {
             bindings = <
 &none             &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
-&none             &kp N1                        &kp N2                        &world_e_acute                &kp SQT                         &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
-&none             &kp Q                         &kp W                         &kp E                         &kp R                           &kp T                                    &kp Y       &kp U                          &kp I                           &kp O                          &kp SEMI                       &none
+&enthium_toggle   &kp N1                        &kp N2                        &world_e_acute                &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
+&none             &kp Q                         &kp W                         &kp E                         &kp R                           &kp T                                    &kp Y       &kp U                          &kp I                           &kp O                          &kp SQT                        &none
 &mo LAYER_System  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &LeftIndex (F, LAYER_QWERTY)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY)  &RightMiddy (K, LAYER_QWERTY)   &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
 &none             &kp Z                         &kp X                         &kp C                         &kp V                           &kp B                                    &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
 &none             &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
@@ -7939,8 +7956,8 @@
         layer_QWERTY_windows {
             bindings = <
 &none             &none                                 &none                                 &none                                 &none                                   &none                                    &none       &none                                  &none                                    &none                                  &none                                  &none
-&none             &kp N1                                &kp N2                                &world_e_acute_windows                &kp SQT                                 &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &os_toggle_mac
-&none             &kp Q                                 &kp W                                 &kp E                                 &kp R                                   &kp T                                    &kp Y       &kp U                                  &kp I                                    &kp O                                  &kp SEMI                               &none
+&none             &kp N1                                &kp N2                                &world_e_acute_windows                &none                                   &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &os_toggle_mac
+&none             &kp Q                                 &kp W                                 &kp E                                 &kp R                                   &kp T                                    &kp Y       &kp U                                  &kp I                                    &kp O                                  &kp SQT                                &none
 &mo LAYER_System  &LeftPinky (A, LAYER_QWERTY_WINDOWS)  &LeftRingy (S, LAYER_QWERTY_WINDOWS)  &LeftMiddy (D, LAYER_QWERTY_WINDOWS)  &LeftIndex (F, LAYER_QWERTY_WINDOWS)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY_WINDOWS)  &RightMiddy (K, LAYER_QWERTY_WINDOWS)    &RightRingy (L, LAYER_QWERTY_WINDOWS)  &RightPinky (P, LAYER_QWERTY_WINDOWS)  &none
 &none             &kp Z                                 &kp X                                 &kp C                                 &kp V                                   &kp B                                    &kp N       &kp M                                  &kp COMMA                                &kp DOT                                &kp FSLH                               &none
 &none             &none                                 &kp UP                                &kp DOWN                              &none                                                                                        &none                                  &kp LBKT                                 &kp RBKT                               &none                                  &none
@@ -8098,7 +8115,7 @@
 &none     &none      &none      &none      &none      &none                &none     &none                 &kp EXCL                &kp EQUAL   &none      &none
 &none     &kp SQT    &kp LPAR   &kp LBKT   &kp DQT    &kp QMARK            &kp SQT   &kp DQT               &kp RBKT                &kp RPAR    &kp AMPS   &none
 &kp HASH  &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR             &kp BSPC  &tap_dance_cmd_enter  &tap_dance_shift_enter  &kp TAB     &kp AT     &none
-&kp GRAVE &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH             &kp GRAVE &kp DEL               &kp COMMA               &kp DOT     &kp TILDE  &none
+&kp SEMI  &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH             &kp GRAVE &kp DEL               &kp COMMA               &kp DOT     &kp TILDE  &none
 &none     &none      &kp LBRC   &kp RBRC   &none                                     &none                 &none                   &kp _KP_N0  &none      &none
                                            &kp BSLH   &kp _PASTE &none     &none     &none                 &none
                                            &kp PRCNT  &kp COLON  &none     &none     &none                 &none
@@ -8167,6 +8184,19 @@
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
+            >;
+        };
+
+        layer_Enthium {
+            bindings = <
+&none                         &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
+&enthium_to_qwerty            &kp N1                        &kp N2                        &none                         &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
+&none                         &kp Q                         &kp SQT                       &kp O                         &kp U                           &world_a_grave_lower_macro               &kp Y       &kp H                          &kp D                           &kp P                          &kp F                          &none
+&world_consonants_base_perso  &kp C                         &kp I                         &kp E                         &kp A                           &kp W                                    &kp K       &kp L                          &kp T                           &kp N                          &kp S                          &kp X
+&none                         &kp Z                         &kp COMMA                     &kp DOT                       &world_e_acute                  &world_e_grave_lower_macro               &kp J       &kp M                          &kp V                           &kp B                          &kp G                          &none
+&none                         &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_World ENTER
+                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &kp R
             >;
         };
     };
