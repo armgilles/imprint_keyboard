@@ -14,28 +14,28 @@
 
     behaviors {
         #define LAYER_QWERTY 0
-        #define LAYER_QWERTY_WINDOWS 1
-        #define LAYER_LeftPinky 2
-        #define LAYER_LeftRingy 3
-        #define LAYER_LeftMiddy 4
-        #define LAYER_LeftIndex 5
-        #define LAYER_RightPinky 6
-        #define LAYER_RightRingy 7
-        #define LAYER_RightMiddy 8
-        #define LAYER_RightIndex 9
-        #define LAYER_Cursor 10 
-        #define LAYER_Number 11
-        #define LAYER_Function 12
-        #define LAYER_Symbol 13
-        #define LAYER_Mouse 14
-        //#define LAYER_MouseSlow 16
-        //#define LAYER_MouseFast 17
-        //#define LAYER_MouseWarp 18
-        #define LAYER_System 15
-        #define LAYER_World 16
-        #define LAYER_WORLD_WINDOWS 17
-        #define LAYER_Cursor_win 18
-        #define LAYER_ENTHIUM 19
+        #define LAYER_ENTHIUM 1
+        #define LAYER_QWERTY_WINDOWS 2
+        #define LAYER_LeftPinky 4
+        #define LAYER_LeftRingy 4
+        #define LAYER_LeftMiddy 5
+        #define LAYER_LeftIndex 6
+        #define LAYER_RightPinky 7
+        #define LAYER_RightRingy 8
+        #define LAYER_RightMiddy 9
+        #define LAYER_RightIndex 10
+        #define LAYER_Cursor 11 
+        #define LAYER_Number 12
+        #define LAYER_Function 13
+        #define LAYER_Symbol 14
+        #define LAYER_Mouse 15
+        //#define LAYER_MouseSlow 17
+        //#define LAYER_MouseFast 18
+        //#define LAYER_MouseWarp 19
+        #define LAYER_System 16
+        #define LAYER_World 17
+        #define LAYER_WORLD_WINDOWS 18
+        #define LAYER_Cursor_win 19
 
         //#define LAYER_Magic 24
 
@@ -7953,6 +7953,19 @@
             >;
         };
 
+    layer_Enthium {
+            bindings = <
+&none                         &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
+&enthium_to_qwerty            &kp N1                        &kp N2                        &none                         &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
+&none                         &kp Q                         &kp SQT                       &kp O                         &kp U                           &world_a_grave_lower_macro               &kp Y       &kp G                          &kp D                           &kp P                          &kp F                          &none
+&LAYER_System                 &LeftPinky (C, LAYER_ENTHIUM) &LeftRingy (I, LAYER_ENTHIUM) &LeftMiddy (E,LAYER_ENTHIUM)  &LeftIndex (A, LAYER_ENTHIUM)   &kp W                                    &kp K       &RightIndex (L, LAYER_ENTHIUM) &RightMiddy (T, LAYER_ENTHIUM)  &RightRingy (N, LAYER_ENTHIUM) &RightPinky (S, LAYER_ENTHIUM) &kp X
+&none                         &kp Z                         &kp COMMA                     &kp DOT                       &world_e_acute                  &world_e_grave_lower_macro               &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
+&none                         &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_World ENTER
+                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
+            >;
+        };
+
         layer_QWERTY_windows {
             bindings = <
 &none             &none                                 &none                                 &none                                 &none                                   &none                                    &none       &none                                  &none                                    &none                                  &none                                  &none
@@ -8184,19 +8197,6 @@
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
-            >;
-        };
-
-        layer_Enthium {
-            bindings = <
-&none                         &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
-&enthium_to_qwerty            &kp N1                        &kp N2                        &none                         &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
-&none                         &kp Q                         &kp SQT                       &kp O                         &kp U                           &world_a_grave_lower_macro               &kp Y       &kp G                          &kp D                           &kp P                          &kp F                          &none
-&world_consonants_base_perso  &kp C                         &kp I                         &kp E                         &kp A                           &kp W                                    &kp K       &kp L                          &kp T                           &kp N                          &kp S                          &kp X
-&none                         &kp Z                         &kp COMMA                     &kp DOT                       &world_e_acute                  &world_e_grave_lower_macro               &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
-&none                         &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
-                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_World ENTER
-                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &kp R
             >;
         };
     };
