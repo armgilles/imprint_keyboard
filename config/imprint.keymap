@@ -8063,7 +8063,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap 6  &right_middy_tap 7     &right_middy_tap 8      &right_middy_tap 9     &right_middy_tap 0      &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap Y  &right_middy_tap H     &right_middy_tap D      &right_middy_tap P     &right_middy_tap F      &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_middy_tap K  &RightMiddyIndex       &none                   &RightMiddyRingy       &RightMiddyPinky        &RightMiddyPinky X
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_middy_tap K  &RightMiddyIndex       &none                   &RightMiddyRingy       &RightMiddyPinky        &right_middy_tap X
 &trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap J  &right_middy_tap M     &right_middy_tap V      &right_middy_tap B     &right_middy_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_middy_tap RSFT  &right_middy_tap LPAR   &right_middy_tap RPAR  &right_middy_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -8076,7 +8076,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap 6  &right_index_tap 7     &right_index_tap 8      &right_index_tap 9     &right_index_tap 0      &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap Y  &right_index_tap H     &right_index_tap D      &right_index_tap P     &right_index_tap F      &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_index_tap K  &none                  &RightIndexMiddy        &RightIndexRingy       &RightIndexPinky        &RightIndexPinky X
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_index_tap K  &none                  &RightIndexMiddy        &RightIndexRingy       &RightIndexPinky        &right_index_tap X
 &trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap J  &right_index_tap M     &right_index_tap V      &right_index_tap B     &right_index_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_index_tap RSFT  &right_index_tap LPAR   &right_index_tap RPAR  &right_index_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
