@@ -608,14 +608,14 @@
         #define KEY_LH_C1R3 T
         #define KEY_RH_C1R3 Y
 
-        #define KEY_LH_C5R4 A
-        #define KEY_LH_C4R4 S
-        #define KEY_LH_C3R4 D
-        #define KEY_LH_C2R4 F
-        #define KEY_RH_C2R4 J
-        #define KEY_RH_C3R4 K
-        #define KEY_RH_C4R4 L
-        #define KEY_RH_C5R4 P
+        #define KEY_LH_C5R4 C
+        #define KEY_LH_C4R4 I
+        #define KEY_LH_C3R4 E
+        #define KEY_LH_C2R4 A
+        #define KEY_RH_C2R4 L
+        #define KEY_RH_C3R4 T
+        #define KEY_RH_C4R4 N
+        #define KEY_RH_C5R4 S
 
         #define LEFT_PINKY_KEY  KEY_LH_C5R4
         #define LEFT_RINGY_KEY  KEY_LH_C4R4
@@ -7984,9 +7984,9 @@
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_pinky_tap KEY_LH_C5R2   &left_pinky_tap KEY_LH_C4R2  &left_pinky_tap KEY_LH_C3R2   &left_pinky_tap KEY_LH_C2R2  &left_pinky_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
-&trans  &left_pinky_tap Q             &left_pinky_tap W            &left_pinky_tap E             &left_pinky_tap R            &left_pinky_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
-&trans  &none                         &LeftPinkyRingy              &LeftPinkyMiddy               &LeftPinkyIndex              &left_pinky_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
-&trans  &left_pinky_tap Z             &left_pinky_tap X            &left_pinky_tap C             &left_pinky_tap V            &left_pinky_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_pinky_tap Q             &left_pinky_tap SQT          &left_pinky_tap O             &left_pinky_tap R            &left_pinky_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &none                         &LeftPinkyRingy              &LeftPinkyMiddy               &LeftPinkyIndex              &left_pinky_tap W                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_pinky_tap Z             &left_pinky_tap COMMA        &left_pinky_tap DOT           &left_pinky_tap V            &left_pinky_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_pinky_tap GRAVE         &left_pinky_tap LBKT         &left_pinky_tap RBKT          &left_pinky_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
@@ -7997,9 +7997,9 @@
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_ringy_tap KEY_LH_C5R2   &left_ringy_tap KEY_LH_C4R2  &left_ringy_tap KEY_LH_C3R2   &left_ringy_tap KEY_LH_C2R2  &left_ringy_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
-&trans  &left_ringy_tap Q             &left_ringy_tap W            &left_ringy_tap E             &left_ringy_tap R            &left_ringy_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
-&trans  &LeftRingyPinky               &none                        &LeftRingyMiddy               &LeftRingyIndex              &left_ringy_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
-&trans  &left_ringy_tap Z             &left_ringy_tap X            &left_ringy_tap C             &left_ringy_tap V            &left_ringy_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_ringy_tap Q             &left_ringy_tap SQT          &left_ringy_tap O             &left_ringy_tap U            &left_ringy_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &LeftRingyPinky               &none                        &LeftRingyMiddy               &LeftRingyIndex              &left_ringy_tap W                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_ringy_tap Z             &left_ringy_tap COMMA        &left_ringy_tap DOT           &left_ringy_tap V            &left_ringy_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_ringy_tap GRAVE         &left_ringy_tap LBKT         &left_ringy_tap RBKT          &left_ringy_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
@@ -8010,9 +8010,9 @@
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_middy_tap KEY_LH_C5R2   &left_middy_tap KEY_LH_C4R2  &left_middy_tap KEY_LH_C3R2   &left_middy_tap KEY_LH_C2R2  &left_middy_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
-&trans  &left_middy_tap Q             &left_middy_tap W            &left_middy_tap E             &left_middy_tap R            &left_middy_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
-&trans  &LeftMiddyPinky               &LeftMiddyPinky              &none                         &LeftMiddyIndex              &left_middy_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
-&trans  &left_middy_tap Z             &left_middy_tap X            &left_middy_tap C             &left_middy_tap V            &left_middy_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_middy_tap Q             &left_middy_tap SQT          &left_middy_tap O             &left_middy_tap U            &left_middy_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &LeftMiddyPinky               &LeftMiddyPinky              &none                         &LeftMiddyIndex              &left_middy_tap W                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_middy_tap Z             &left_middy_tap COMMA        &left_middy_tap DOT           &left_middy_tap V            &left_middy_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_middy_tap GRAVE         &left_middy_tap LBKT         &left_middy_tap RBKT          &left_middy_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
@@ -8023,9 +8023,9 @@
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_index_tap KEY_LH_C5R2   &left_index_tap KEY_LH_C4R2  &left_index_tap KEY_LH_C3R2   &left_index_tap KEY_LH_C2R2  &left_index_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
-&trans  &left_index_tap Q             &left_index_tap W            &left_index_tap E             &left_index_tap R            &left_index_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
-&trans  &LeftIndexPinky               &LeftIndexRingy              &LeftIndexMiddy               &none                        &left_index_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
-&trans  &left_index_tap Z             &left_index_tap X            &left_index_tap C             &left_index_tap V            &left_index_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_index_tap Q             &left_index_tap SQT          &left_index_tap O             &left_index_tap U            &left_index_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &LeftIndexPinky               &LeftIndexRingy              &LeftIndexMiddy               &none                        &left_index_tap W                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_index_tap Z             &left_index_tap COMMA        &left_index_tap DOT           &left_index_tap V            &left_index_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_index_tap GRAVE         &left_index_tap LBKT         &left_index_tap RBKT          &left_index_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
@@ -8036,9 +8036,9 @@
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap 6  &right_pinky_tap 7     &right_pinky_tap 8      &right_pinky_tap 9     &right_pinky_tap 0      &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap H  &right_pinky_tap U     &right_pinky_tap I      &right_pinky_tap O     &right_pinky_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_pinky_tap H  &RightPinkyIndex       &RightPinkyMiddy        &RightPinkyRingy       &none                   &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap N  &right_pinky_tap M     &right_pinky_tap COMMA  &right_pinky_tap DOT   &right_pinky_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap Y  &right_pinky_tap H     &right_pinky_tap D      &right_pinky_tap P     &right_pinky_tap F      &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_pinky_tap K  &RightPinkyIndex       &RightPinkyMiddy        &RightPinkyRingy       &none                   &right_pinky_tap X
+&trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap J  &right_pinky_tap M     &right_pinky_tap V      &right_pinky_tap B     &right_pinky_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_pinky_tap RSFT  &right_pinky_tap LPAR   &right_pinky_tap RPAR  &right_pinky_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -8049,9 +8049,9 @@
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap 6  &right_ringy_tap 7     &right_ringy_tap 8      &right_ringy_tap 9     &right_ringy_tap 0      &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap H  &right_ringy_tap U     &right_ringy_tap I      &right_ringy_tap O     &right_ringy_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_ringy_tap H  &RightRingyIndex       &RightRingyMiddy        &none                  &RightRingyPinky        &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap N  &right_ringy_tap M     &right_ringy_tap COMMA  &right_ringy_tap DOT   &right_ringy_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap Y  &right_ringy_tap H     &right_ringy_tap D      &right_ringy_tap P     &right_ringy_tap F      &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_ringy_tap K  &RightRingyIndex       &RightRingyMiddy        &none                  &RightRingyPinky        &right_ringy_tap X
+&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap J  &right_ringy_tap M     &right_ringy_tap V      &right_ringy_tap B     &right_ringy_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_ringy_tap RSFT  &right_ringy_tap LPAR   &right_ringy_tap RPAR  &right_ringy_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -8062,9 +8062,9 @@
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap 6  &right_middy_tap 7     &right_middy_tap 8      &right_middy_tap 9     &right_middy_tap 0      &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap H  &right_middy_tap U     &right_middy_tap I      &right_middy_tap O     &right_middy_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_middy_tap H  &RightMiddyIndex       &none                   &RightMiddyRingy       &RightMiddyPinky        &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap N  &right_middy_tap M     &right_middy_tap COMMA  &right_middy_tap DOT   &right_middy_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap Y  &right_middy_tap H     &right_middy_tap D      &right_middy_tap P     &right_middy_tap F      &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_middy_tap K  &RightMiddyIndex       &none                   &RightMiddyRingy       &RightMiddyPinky        &RightMiddyPinky X
+&trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap J  &right_middy_tap M     &right_middy_tap V      &right_middy_tap B     &right_middy_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_middy_tap RSFT  &right_middy_tap LPAR   &right_middy_tap RPAR  &right_middy_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -8075,9 +8075,9 @@
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap 6  &right_index_tap 7     &right_index_tap 8      &right_index_tap 9     &right_index_tap 0      &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap H  &right_index_tap U     &right_index_tap I      &right_index_tap O     &right_index_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_index_tap H  &none                  &RightIndexMiddy        &RightIndexRingy       &RightIndexPinky        &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap N  &right_index_tap M     &right_index_tap COMMA  &right_index_tap DOT   &right_index_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap Y  &right_index_tap H     &right_index_tap D      &right_index_tap P     &right_index_tap F      &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_index_tap K  &none                  &RightIndexMiddy        &RightIndexRingy       &RightIndexPinky        &RightIndexPinky X
+&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap J  &right_index_tap M     &right_index_tap V      &right_index_tap B     &right_index_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_index_tap RSFT  &right_index_tap LPAR   &right_index_tap RPAR  &right_index_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
