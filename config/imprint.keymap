@@ -7954,7 +7954,7 @@
             >;
         };
 
-    layer_Enthium {
+        layer_Enthium {
             bindings = <
 &none                         &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
 &enthium_to_qwerty            &kp N1                        &kp N2                        &none                         &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
