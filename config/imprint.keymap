@@ -36,6 +36,7 @@
         #define LAYER_World 17
         #define LAYER_WORLD_WINDOWS 18
         #define LAYER_Cursor_win 19
+        #define LAYER_WORLD_ENTHIUM 20
 
         //#define LAYER_Magic 24
 
@@ -2579,7 +2580,7 @@
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <37 31 >; // a (position 37) + u (position 31) -old + s (position 38)
             bindings = <&world_a_grave_lower_win>;
-            layers = <1>;
+            layers = <2>;
         };
 
         // è -> as combo "eu"
@@ -2595,7 +2596,7 @@
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE>;
             key-positions = <27 31 >; // e (position 27) + u (position 31) -old + r (position 28)
             bindings = <&world_e_grave_lower_win>;
-            layers = <1>;
+            layers = <2>;
         };
 
         // ç -> as combo "cu"
@@ -2611,7 +2612,7 @@
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <51 31 >; // c (position 51) + u (position 31) -old + v (position 52)
             bindings = <&world_consonants_cedilla_lower_win>;
-            layers = <1>;
+            layers = <2>;
         };
 
         // Win combo
@@ -2619,7 +2620,7 @@
             timeout-ms = <COMBO_FIRING_DECAY>;
             key-positions = <76 70>; // BACKSPACE (position 76) + ESC (position 70)
             bindings = <&mod_tab_chord LALT LAYER_Cursor_win>;
-            layers = <1>;
+            layers = <2>;
         };
     };
 
@@ -7961,7 +7962,7 @@
 &LAYER_System                 &LeftPinky (C, LAYER_ENTHIUM) &LeftRingy (I, LAYER_ENTHIUM) &LeftMiddy (E,LAYER_ENTHIUM)  &LeftIndex (A, LAYER_ENTHIUM)   &kp W                                    &kp K       &RightIndex (L, LAYER_ENTHIUM) &RightMiddy (T, LAYER_ENTHIUM)  &RightRingy (N, LAYER_ENTHIUM) &RightPinky (S, LAYER_ENTHIUM) &kp X
 &none                         &kp Z                         &kp COMMA                     &kp DOT                       &world_e_acute                  &world_e_grave_lower_macro               &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
 &none                         &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
-                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_World ENTER
+                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_WORLD_ENTHIUM ENTER
                                                                                                              &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
             >;
         };
@@ -8197,6 +8198,19 @@
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
+            >;
+        };
+
+        layer_World_enthium {
+            bindings = <
+&none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
+&none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
+&none  &none                 &none  &world_e_base_perso           &none      &none            &none      &world_u_base_perso  &world_i_base  &world_o_base   &none      &none
+&none  &world_a_base_perso   &none  &none                         &kp SPACE  &none            &kp BSPC   &kp SPACE            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
+&none  &world_currency_base  &none  &world_consonants_base_perso  &none      &none            &none      &sk LSHFT            &sk LALT       &sk RALT        &none      &none
+&none  &none                 &none  &none                         &none      &none            &none      &none                &none          &none           &none      &none
+                                                                  &trans     &none   &none    &none      &none                &none
+                                                                  &trans     &trans  &none    &none      &none                &none
             >;
         };
     };
