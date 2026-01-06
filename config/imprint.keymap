@@ -2634,7 +2634,7 @@
             bindings
                 = <&out OUT_BLE>,
                 <&bt BT_SEL 0>,
-                <&to LAYER_QWERTY>; // Active le layer Mac automatiquement
+                <&to LAYER_ENTHIUM>; // Active le layer Mac automatiquement
         };
         // Réserver pour le Windows (avec Layout dédié)
         bt_1: bt_1 {
