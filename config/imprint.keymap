@@ -2615,6 +2615,22 @@
             layers = <2>;
         };
 
+        // Delete -> as combo "'o"
+        combo_world_consonants_base_perso_win {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <26 27 >; // ' (position 26) + o (position 27)
+            bindings = <BACKSPACE>;
+            layers = <0 1 2 3 4 5 6 7 8 9>;
+        };
+
+        // TAB -> as combo "dp"
+        combo_world_consonants_base_perso_win {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <33 34 >; // d (position 33) + p (position 34)
+            bindings = <BACKSPACE>;
+            layers = <0 1 2 3 4 5 6 7 8 9>;
+        };
+
         // Win combo
         combo_alt_tab_switcher_win {
             timeout-ms = <COMBO_FIRING_DECAY>;
