@@ -2626,7 +2626,7 @@
         // TAB -> as combo "dp"
         combo_tab {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <33 34 >; // d (position 33) + p (position 34)
+            key-positions = <32 33 >; // d (position 32) + p (position 33)
             bindings = <&kp TAB>;
             layers = <0 1 2 3 4 5 6 7 8 9>;
         };
