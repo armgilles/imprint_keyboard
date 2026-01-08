@@ -2619,7 +2619,7 @@
         combo_world_consonants_base_perso_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <26 27 >; // ' (position 26) + o (position 27)
-            bindings = <BACKSPACE>;
+            bindings = <&kp BSPC>;
             layers = <0 1 2 3 4 5 6 7 8 9>;
         };
 
@@ -2627,7 +2627,7 @@
         combo_world_consonants_base_perso_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <33 34 >; // d (position 33) + p (position 34)
-            bindings = <BACKSPACE>;
+            bindings = <&kp TAB>;
             layers = <0 1 2 3 4 5 6 7 8 9>;
         };
 
