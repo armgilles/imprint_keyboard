@@ -2616,7 +2616,7 @@
         };
 
         // Delete -> as combo "'o"
-        combo_world_consonants_base_perso_win {
+        combo_delete {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <26 27 >; // ' (position 26) + o (position 27)
             bindings = <&kp BSPC>;
@@ -2624,7 +2624,7 @@
         };
 
         // TAB -> as combo "dp"
-        combo_world_consonants_base_perso_win {
+        combo_tab {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <33 34 >; // d (position 33) + p (position 34)
             bindings = <&kp TAB>;
