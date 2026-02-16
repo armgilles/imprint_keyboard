@@ -2591,17 +2591,17 @@
             layers = <2>;
         };
 
-        // Suppression d'un mot
+        // Suppression d'un mot "'oa"
         combo_del_word_mac {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <26 27 >; // ' (position 26) + o (position 27) + a (position 40) 
+            key-positions = <26 27 40>; // ' (position 26) + o (position 27) + a (position 40) 
             bindings = <&kp LALT BACKSPACE>;
             layers = <1>; // layer Mac
         };
-        // Win
+        // Win "'oa"
         combo_del_word_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <26 27 >; // ' (position 26) + o (position 27) + a (position 40) 
+            key-positions = <26 27 40>; // ' (position 26) + o (position 27) + a (position 40) 
             bindings = <&kp LCTRL BACKSPACE>;
             layers = <2>; // layer Windows
         };
