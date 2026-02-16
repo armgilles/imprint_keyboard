@@ -7917,7 +7917,6 @@
         // supprimer un mot entier (mac)
         del_word_mac: del_word_mac {
             compatible = "zmk,behavior-macro";
-            label = "DEL_WORD_MAC";
             #binding-cells = <0>;
             bindings = <&kp LALT BACKSPACE>;
         };
@@ -7925,7 +7924,6 @@
         // supprimer un mot entier (win)
         del_word_win: del_word_win {
             compatible = "zmk,behavior-macro";
-            label = "DEL_WORD_WIN";
             #binding-cells = <0>;
             bindings = <&kp LCTRL BACKSPACE>;
         };
