@@ -2596,14 +2596,14 @@
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <26 27 40>; // ' (position 26) + o (position 27) + a (position 40) 
             bindings = <&kp LALT BACKSPACE>;
-            layers = <1>; // layer Mac
+            layers = <0>; // layer Mac
         };
         // Win "'oa"
         combo_del_word_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <26 27 40>; // ' (position 26) + o (position 27) + a (position 40) 
             bindings = <&kp LCTRL BACKSPACE>;
-            layers = <2>; // layer Windows
+            layers = <1>; // layer Windows
         };
     };
 
