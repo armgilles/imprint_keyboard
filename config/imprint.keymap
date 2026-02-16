@@ -2610,14 +2610,14 @@
         combo_del_end_of_line_mac {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
-            bindings = <&kp LCTRL K>;
+            bindings = <&kp LC(K)>;
             layers = <0>;  // Layer Mac
         };
         // Win "ldp"
         combo_del_end_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
-            bindings = <&kp LSHFT END>, <&kp BACKSPACE>;
+            bindings = <&kp LSHFT(END)>, <&kp BACKSPACE>;
             layers = <1>;  // Layer Windows
         };
     };
