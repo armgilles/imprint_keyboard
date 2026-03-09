@@ -5,7 +5,7 @@ Wireless Cyboard keyboard configuration repository template for using ZMK firmwa
 ## Main Features of `imprint.keymap`
 
 - **Layer System:**  
-  Multiple layers for custom QWERTY, symbols, numbers, navigation, mouse, and system controls.  
+  Multiple layers for custom layout, symbols, numbers, navigation, mouse, and system controls.  
   Temporary layers (e.g., cursor, symbol, number) can be accessed from any main layer.
 
 - **Home Row Mods:**  
