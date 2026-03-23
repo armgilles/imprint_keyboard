@@ -14,7 +14,7 @@
 
     behaviors {
         #define LAYER_ENTHIUM 0
-        //#define LAYER_QWERTY 1
+        #define LAYER_QWERTY 1
         #define LAYER_QWERTY_WINDOWS 2 // finalement c'est un enthium pour windows
         #define LAYER_LeftPinky 4
         #define LAYER_LeftRingy 4
@@ -7929,6 +7929,19 @@
 &none                         &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
                                                                                                              &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_WORLD_ENTHIUM ENTER
                                                                                                              &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
+            >;
+        };
+
+        layer_QWERTY {
+            bindings = <
+&none             &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
+&enthium_toggle   &kp N1                        &kp N2                        &world_e_acute                &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
+&none             &kp Q                         &kp W                         &kp E                         &kp R                           &kp T                                    &kp Y       &kp U                          &kp I                           &kp O                          &kp SQT                        &none
+&mo LAYER_System  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &LeftIndex (F, LAYER_QWERTY)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY)  &RightMiddy (K, LAYER_QWERTY)   &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
+&none             &kp Z                         &kp X                         &kp C                         &kp V                           &kp B                                    &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
+&none             &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                            &thumb LAYER_Function ESC       &none                        &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_World ENTER
+                                                                                                            &thumb LAYER_Cursor BACKSPACE   &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB         &space LAYER_Symbol SPACE
             >;
         };
 
