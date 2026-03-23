@@ -16,7 +16,7 @@
         #define LAYER_ENTHIUM 0
         //#define LAYER_QWERTY 1
         #define LAYER_QWERTY_WINDOWS 2
-        #define LAYER_LeftPinky 4
+        #define LAYER_LeftPinky 3
         #define LAYER_LeftRingy 4
         #define LAYER_LeftMiddy 5
         #define LAYER_LeftIndex 6
