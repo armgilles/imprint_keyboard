@@ -14,29 +14,28 @@
 
     behaviors {
         #define LAYER_ENTHIUM 0
-        //#define LAYER_QWERTY 1
-        #define LAYER_QWERTY_WINDOWS 2 // finalement c'est un enthium pour windows
-        #define LAYER_LeftPinky 4
-        #define LAYER_LeftRingy 4
-        #define LAYER_LeftMiddy 5
-        #define LAYER_LeftIndex 6
-        #define LAYER_RightPinky 7
-        #define LAYER_RightRingy 8
-        #define LAYER_RightMiddy 9
-        #define LAYER_RightIndex 10
-        #define LAYER_Cursor 11 
-        #define LAYER_Number 12
-        #define LAYER_Function 13
-        #define LAYER_Symbol 14
-        #define LAYER_Mouse 15
+        #define LAYER_QWERTY_WINDOWS 1 // finalement c'est un enthium pour windows
+        #define LAYER_LeftPinky 2
+        #define LAYER_LeftRingy 3
+        #define LAYER_LeftMiddy 4
+        #define LAYER_LeftIndex 5
+        #define LAYER_RightPinky 6
+        #define LAYER_RightRingy 7
+        #define LAYER_RightMiddy 8
+        #define LAYER_RightIndex 9
+        #define LAYER_Cursor 12 
+        #define LAYER_Number 13
+        #define LAYER_Function 14
+        #define LAYER_Symbol 15
+        #define LAYER_Mouse 16
         //#define LAYER_MouseSlow 17
         //#define LAYER_MouseFast 18
         //#define LAYER_MouseWarp 19
-        #define LAYER_System 16
-        #define LAYER_World 17
-        #define LAYER_WORLD_WINDOWS 18
-        #define LAYER_Cursor_win 19
-        #define LAYER_WORLD_ENTHIUM 20
+        #define LAYER_System 17
+        #define LAYER_World 18
+        #define LAYER_WORLD_WINDOWS 19
+        #define LAYER_Cursor_win 20
+        #define LAYER_WORLD_ENTHIUM 21
 
         //#define LAYER_Magic 24
 
@@ -2588,7 +2587,7 @@
             timeout-ms = <COMBO_FIRING_DECAY>;
             key-positions = <76 70>; // BACKSPACE (position 76) + ESC (position 70)
             bindings = <&mod_tab_chord LALT LAYER_Cursor_win>;
-            layers = <2>;
+            layers = <1>;
         };
 
         // Suppression d'un mot "'oa"
@@ -6952,7 +6951,7 @@
                 <&to LAYER_ENTHIUM>; // Passe sur le layer Mac (désactive tous les autres)
         };
 
-        // On layer_QWERTY (macos layout)
+        // On LAYER_ENTHIUM (macos layout)
         os_toggle_win: os_toggle_win {
             label = "OS_TOGGLE_WIN";
             compatible = "zmk,behavior-macro";
