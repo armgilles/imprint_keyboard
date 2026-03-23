@@ -6978,7 +6978,6 @@
                 <&to LAYER_QWERTY>; // Active le layer QWERTY (désactive tous les autres)
         };
 
-
         //////////////////////////////////////////////////////////////////////////
         ///
         /// Autre macro world
