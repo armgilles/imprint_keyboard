@@ -5,7 +5,7 @@ Wireless Cyboard keyboard configuration repository template for using ZMK firmwa
 ## Main Features of `imprint.keymap`
 
 - **Layer System:**  
-  Multiple layers for custom QWERTY, symbols, numbers, navigation, mouse, and system controls.  
+  Multiple layers for custom layout, symbols, numbers, navigation, mouse, and system controls.  
   Temporary layers (e.g., cursor, symbol, number) can be accessed from any main layer.
 
 - **Home Row Mods:**  
@@ -25,6 +25,14 @@ Wireless Cyboard keyboard configuration repository template for using ZMK firmwa
   Bluetooth slot selection automatically activates the corresponding OS layer (e.g., slot 0 for Mac, slot 1 for Windows).
 
 
+## Layout
+
+Custom layout inspired by [Sunaku’s enthium](https://github.com/sunaku/enthium) and adapted for French language (but still good for English too!) named `Enthium FR`.
+
+Comparaison on [cyanophage](https://cyanophage.github.io/) between default AZERTY layout and this custom layout:
+
+![AZERTY vs Enthium FR](images/azerty_vs_enthiumFr.png)
+
 ## Inspiration
 
 This configuration is inspired by [Sunaku](https://sunaku.github.io/index.html#moergo-glove80-keyboard)’s keyboard layouts and design philosophy on the Glove80 keyboard <3.
@@ -36,7 +44,7 @@ Special thanks to the `Glove80` and the Cyboard `Imprint` community for their su
 
 ## Layers Overview
 
-![Qwerty](images/layer_qwerty.png)
+![Enthium FR](images/layer_enthium_fr.png)
 ![Cursor](images/layer_cursor.png)
 ![Number](images/layer_number.png)
 ![Fonction](images/layer_fonction.png)

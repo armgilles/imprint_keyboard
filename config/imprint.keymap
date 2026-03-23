@@ -13,28 +13,30 @@
     // behaviors
 
     behaviors {
-        #define LAYER_QWERTY 0
-        #define LAYER_QWERTY_WINDOWS 1
-        #define LAYER_LeftPinky 2
-        #define LAYER_LeftRingy 3
-        #define LAYER_LeftMiddy 4
-        #define LAYER_LeftIndex 5
-        #define LAYER_RightPinky 6
-        #define LAYER_RightRingy 7
-        #define LAYER_RightMiddy 8
-        #define LAYER_RightIndex 9
-        #define LAYER_Cursor 10 
-        #define LAYER_Number 11
-        #define LAYER_Function 12
-        #define LAYER_Symbol 13
-        #define LAYER_Mouse 14
-        //#define LAYER_MouseSlow 16
-        //#define LAYER_MouseFast 17
-        //#define LAYER_MouseWarp 18
-        #define LAYER_System 15
-        #define LAYER_World 16
-        #define LAYER_WORLD_WINDOWS 17
-        #define LAYER_Cursor_win 18
+        #define LAYER_ENTHIUM 0
+        //#define LAYER_QWERTY 1
+        #define LAYER_QWERTY_WINDOWS 2 // finalement c'est un enthium pour windows
+        #define LAYER_LeftPinky 4
+        #define LAYER_LeftRingy 4
+        #define LAYER_LeftMiddy 5
+        #define LAYER_LeftIndex 6
+        #define LAYER_RightPinky 7
+        #define LAYER_RightRingy 8
+        #define LAYER_RightMiddy 9
+        #define LAYER_RightIndex 10
+        #define LAYER_Cursor 11 
+        #define LAYER_Number 12
+        #define LAYER_Function 13
+        #define LAYER_Symbol 14
+        #define LAYER_Mouse 15
+        //#define LAYER_MouseSlow 17
+        //#define LAYER_MouseFast 18
+        //#define LAYER_MouseWarp 19
+        #define LAYER_System 16
+        #define LAYER_World 17
+        #define LAYER_WORLD_WINDOWS 18
+        #define LAYER_Cursor_win 19
+        #define LAYER_WORLD_ENTHIUM 20
 
         //#define LAYER_Magic 24
 
@@ -606,14 +608,14 @@
         #define KEY_LH_C1R3 T
         #define KEY_RH_C1R3 Y
 
-        #define KEY_LH_C5R4 A
-        #define KEY_LH_C4R4 S
-        #define KEY_LH_C3R4 D
-        #define KEY_LH_C2R4 F
-        #define KEY_RH_C2R4 J
-        #define KEY_RH_C3R4 K
-        #define KEY_RH_C4R4 L
-        #define KEY_RH_C5R4 P
+        #define KEY_LH_C5R4 C
+        #define KEY_LH_C4R4 I
+        #define KEY_LH_C3R4 E
+        #define KEY_LH_C2R4 A
+        #define KEY_RH_C2R4 L
+        #define KEY_RH_C3R4 T
+        #define KEY_RH_C4R4 N
+        #define KEY_RH_C5R4 S
 
         #define LEFT_PINKY_KEY  KEY_LH_C5R4
         #define LEFT_RINGY_KEY  KEY_LH_C4R4
@@ -2565,52 +2567,20 @@
             layers = <0 2 3 4 5 6 7 8 9>;
         };
 
-        // à -> as combo "au"
-        combo_world_a_base_perso {
+        // Delete -> as combo "'o"
+        combo_delete {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <37 31 >; // a (position 37) + u (position 31) -old + s (position 38)
-            bindings = <&world_a_base_perso>;
-            layers = <0 2 3 4 5 6 7 8 9>;
+            key-positions = <26 27 >; // ' (position 26) + o (position 27)
+            bindings = <&kp BSPC>;
+            layers = <0 1 2 3 4 5 6 7 8 9>;
         };
 
-        // à -> as combo "au" -> Win
-        combo_world_a_base_perso_win {
+        // TAB -> as combo "dp"
+        combo_tab {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <37 31 >; // a (position 37) + u (position 31) -old + s (position 38)
-            bindings = <&world_a_grave_lower_win>;
-            layers = <1>;
-        };
-
-        // è -> as combo "eu"
-        combo_world_e_base_perso {
-            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE>;
-            key-positions = <27 31 >; // e (position 27) + u (position 31) -old + r (position 28)
-            bindings = <&world_e_base_perso>;
-            layers = <0 2 3 4 5 6 7 8 9>;
-        };
-
-        // è -> as combo "eu" -> Win
-        combo_world_e_base_perso_win {
-            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE>;
-            key-positions = <27 31 >; // e (position 27) + u (position 31) -old + r (position 28)
-            bindings = <&world_e_grave_lower_win>;
-            layers = <1>;
-        };
-
-        // ç -> as combo "cu"
-        combo_world_consonants_base_perso {
-            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <51 31 >; // c (position 51) + u (position 31) -old + v (position 52)
-            bindings = <&world_consonants_base_perso>;
-            layers = <0 2 3 4 5 6 7 8 9>;
-        };
-
-        // ç -> as combo "cu" -> Win
-        combo_world_consonants_base_perso_win {
-            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <51 31 >; // c (position 51) + u (position 31) -old + v (position 52)
-            bindings = <&world_consonants_cedilla_lower_win>;
-            layers = <1>;
+            key-positions = <32 33 >; // d (position 32) + p (position 33)
+            bindings = <&kp TAB>;
+            layers = <0 1 2 3 4 5 6 7 8 9>;
         };
 
         // Win combo
@@ -2618,7 +2588,37 @@
             timeout-ms = <COMBO_FIRING_DECAY>;
             key-positions = <76 70>; // BACKSPACE (position 76) + ESC (position 70)
             bindings = <&mod_tab_chord LALT LAYER_Cursor_win>;
-            layers = <1>;
+            layers = <2>;
+        };
+
+        // Suppression d'un mot "'oa"
+        combo_del_word_mac {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <26 27 40>; // ' (position 26) + o (position 27) + a (position 40) 
+            bindings = <&kp LA(BACKSPACE)>;
+            layers = <0>; // layer Mac
+        };
+        // Win "'oa"
+        combo_del_word_win {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <26 27 40>; // ' (position 26) + o (position 27) + a (position 40) 
+            bindings = <&kp LC(BACKSPACE)>;
+            layers = <1>; // layer Windows
+        };
+
+        // Suppression de la fin de la ligne "ldp"
+        combo_del_end_of_line_mac {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
+            bindings = <&kp LC(K)>;
+            layers = <0>;  // Layer Mac
+        };
+        // Win "ldp"
+        combo_del_end_of_line_win {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
+            bindings = <&kp LSHFT(END)>, <&kp BACKSPACE>;
+            layers = <1>;  // Layer Windows
         };
     };
 
@@ -2632,7 +2632,7 @@
             bindings
                 = <&out OUT_BLE>,
                 <&bt BT_SEL 0>,
-                <&to LAYER_QWERTY>; // Active le layer Mac automatiquement
+                <&to LAYER_ENTHIUM>; // Active le layer Mac automatiquement
         };
         // Réserver pour le Windows (avec Layout dédié)
         bt_1: bt_1 {
@@ -6949,7 +6949,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&to LAYER_QWERTY>; // Passe sur le layer Mac (désactive tous les autres)
+                <&to LAYER_ENTHIUM>; // Passe sur le layer Mac (désactive tous les autres)
         };
 
         // On layer_QWERTY (macos layout)
@@ -6960,7 +6960,6 @@
             bindings =
                 <&to LAYER_QWERTY_WINDOWS>; // Passe sur le layer Windows (désactive tous les autres)
         };
-
 
 
         //////////////////////////////////////////////////////////////////////////
@@ -7912,8 +7911,6 @@
             bindings = <&kp SPACE>, <&kp LG(ENTER)>;
             tapping-term-ms = <190>;
         };
-
-
     };
 
     ////////////////////////////////////////////////////////////////
@@ -7922,30 +7919,30 @@
 
     keymap {
         compatible = "zmk,keymap";
-
-        layer_QWERTY {
+        layer_Enthium {
             bindings = <
-&none             &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
-&none             &kp N1                        &kp N2                        &world_e_acute                &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
-&none             &kp Q                         &kp W                         &kp E                         &kp R                           &kp T                                    &kp Y       &kp U                          &kp I                           &kp O                          &kp SQT                        &none
-&mo LAYER_System  &LeftPinky (A, LAYER_QWERTY)  &LeftRingy (S, LAYER_QWERTY)  &LeftMiddy (D, LAYER_QWERTY)  &LeftIndex (F, LAYER_QWERTY)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY)  &RightMiddy (K, LAYER_QWERTY)   &RightRingy (L, LAYER_QWERTY)  &RightPinky (P, LAYER_QWERTY)  &none
-&none             &kp Z                         &kp X                         &kp C                         &kp V                           &kp B                                    &kp N       &kp M                          &kp COMMA                       &kp DOT                        &kp FSLH                       &none
-&none             &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
-                                                                                                            &thumb LAYER_Function ESC       &none                        &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_World ENTER
-                                                                                                            &thumb LAYER_Cursor BACKSPACE   &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB         &space LAYER_Symbol SPACE
+&none                         &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
+&none                         &kp N1                        &kp N2                        &none                         &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
+&none                         &kp Q                         &kp SQT                       &kp O                         &kp U                           &world_a_grave_lower_macro               &kp Y       &kp G                          &kp D                           &kp P                          &kp F                          &none
+&mo LAYER_System              &LeftPinky (C, LAYER_ENTHIUM) &LeftRingy (I, LAYER_ENTHIUM) &LeftMiddy (E,LAYER_ENTHIUM)  &LeftIndex (A, LAYER_ENTHIUM)   &world_e_grave_lower_macro               &kp K       &RightIndex (L, LAYER_ENTHIUM) &RightMiddy (T, LAYER_ENTHIUM)  &RightRingy (N, LAYER_ENTHIUM) &RightPinky (S, LAYER_ENTHIUM) &kp X
+&none                         &kp Z                         &kp COMMA                     &kp DOT                       &world_e_acute                  &kp W                                    &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
+&none                         &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_WORLD_ENTHIUM ENTER
+                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
             >;
         };
 
+        // Contrairement au nom, c'est un layout enthium !
         layer_QWERTY_windows {
             bindings = <
 &none             &none                                 &none                                 &none                                 &none                                   &none                                    &none       &none                                  &none                                    &none                                  &none                                  &none
 &none             &kp N1                                &kp N2                                &world_e_acute_windows                &none                                   &kp N5                                   &kp N6      &kp N7                                 &msc SCRL_RIGHT                          &msc SCRL_LEFT                         &kp N0                                 &os_toggle_mac
-&none             &kp Q                                 &kp W                                 &kp E                                 &kp R                                   &kp T                                    &kp Y       &kp U                                  &kp I                                    &kp O                                  &kp SQT                                &none
-&mo LAYER_System  &LeftPinky (A, LAYER_QWERTY_WINDOWS)  &LeftRingy (S, LAYER_QWERTY_WINDOWS)  &LeftMiddy (D, LAYER_QWERTY_WINDOWS)  &LeftIndex (F, LAYER_QWERTY_WINDOWS)    &kp G                                    &kp H       &RightIndex (J, LAYER_QWERTY_WINDOWS)  &RightMiddy (K, LAYER_QWERTY_WINDOWS)    &RightRingy (L, LAYER_QWERTY_WINDOWS)  &RightPinky (P, LAYER_QWERTY_WINDOWS)  &none
-&none             &kp Z                                 &kp X                                 &kp C                                 &kp V                                   &kp B                                    &kp N       &kp M                                  &kp COMMA                                &kp DOT                                &kp FSLH                               &none
+&none             &kp Q                                 &kp SQT                               &kp O                                 &kp U                                   &world_a_grave_lower_macro_win           &kp Y       &kp G                                  &kp D                                    &kp P                                  &kp F                                  &none
+&mo LAYER_System  &LeftPinky (C, LAYER_QWERTY_WINDOWS)  &LeftRingy (I, LAYER_QWERTY_WINDOWS)  &LeftMiddy (E, LAYER_QWERTY_WINDOWS)  &LeftIndex (A, LAYER_QWERTY_WINDOWS)    &world_e_grave_lower_macro_win           &kp K       &RightIndex (L, LAYER_QWERTY_WINDOWS)  &RightMiddy (T, LAYER_QWERTY_WINDOWS)    &RightRingy (N, LAYER_QWERTY_WINDOWS)  &RightPinky (S, LAYER_QWERTY_WINDOWS)  &kp X
+&none             &kp Z                                 &kp COMMA                             &kp DOT                               &world_e_acute_windows                  &kp W                                    &kp J       &kp M                                  &kp V                                    &kp B                                  &kp H                                  &none
 &none             &none                                 &kp UP                                &kp DOWN                              &none                                                                                        &none                                  &kp LBKT                                 &kp RBKT                               &none                                  &none
-                                                                                                                                    &thumb LAYER_Function ESC               &none                        &none       &none       &thumb LAYER_System _KP_N0             &thumb_world LAYER_WORLD_WINDOWS ENTER
-                                                                                                                                    &thumb LAYER_Cursor BACKSPACE           &thumb LAYER_Number DELETE   &none       &caps_word  &thumb LAYER_Mouse TAB                 &space LAYER_Symbol SPACE
+                                                                                                                                    &thumb LAYER_Function ESC               &kp DELETE                      &none    &none       &thumb LAYER_System _KP_N0             &thumb_world LAYER_WORLD_WINDOWS ENTER
+                                                                                                                                    &thumb LAYER_Cursor SPACE               &thumb LAYER_Number TAB         &none    &caps_word  &thumb LAYER_Mouse BACKSPACE           &space LAYER_Symbol R
             >;
         };
 
@@ -7953,9 +7950,9 @@
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_pinky_tap KEY_LH_C5R2   &left_pinky_tap KEY_LH_C4R2  &left_pinky_tap KEY_LH_C3R2   &left_pinky_tap KEY_LH_C2R2  &left_pinky_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
-&trans  &left_pinky_tap Q             &left_pinky_tap W            &left_pinky_tap E             &left_pinky_tap R            &left_pinky_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
-&trans  &none                         &LeftPinkyRingy              &LeftPinkyMiddy               &LeftPinkyIndex              &left_pinky_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
-&trans  &left_pinky_tap Z             &left_pinky_tap X            &left_pinky_tap C             &left_pinky_tap V            &left_pinky_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_pinky_tap Q             &left_pinky_tap SQT          &left_pinky_tap O             &left_pinky_tap R            &left_pinky_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &none                         &LeftPinkyRingy              &LeftPinkyMiddy               &LeftPinkyIndex              &left_pinky_tap W                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_pinky_tap Z             &left_pinky_tap COMMA        &left_pinky_tap DOT           &left_pinky_tap V            &left_pinky_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_pinky_tap GRAVE         &left_pinky_tap LBKT         &left_pinky_tap RBKT          &left_pinky_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
@@ -7966,9 +7963,9 @@
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_ringy_tap KEY_LH_C5R2   &left_ringy_tap KEY_LH_C4R2  &left_ringy_tap KEY_LH_C3R2   &left_ringy_tap KEY_LH_C2R2  &left_ringy_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
-&trans  &left_ringy_tap Q             &left_ringy_tap W            &left_ringy_tap E             &left_ringy_tap R            &left_ringy_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
-&trans  &LeftRingyPinky               &none                        &LeftRingyMiddy               &LeftRingyIndex              &left_ringy_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
-&trans  &left_ringy_tap Z             &left_ringy_tap X            &left_ringy_tap C             &left_ringy_tap V            &left_ringy_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_ringy_tap Q             &left_ringy_tap SQT          &left_ringy_tap O             &left_ringy_tap U            &left_ringy_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &LeftRingyPinky               &none                        &LeftRingyMiddy               &LeftRingyIndex              &left_ringy_tap W                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_ringy_tap Z             &left_ringy_tap COMMA        &left_ringy_tap DOT           &left_ringy_tap V            &left_ringy_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_ringy_tap GRAVE         &left_ringy_tap LBKT         &left_ringy_tap RBKT          &left_ringy_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
@@ -7979,9 +7976,9 @@
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_middy_tap KEY_LH_C5R2   &left_middy_tap KEY_LH_C4R2  &left_middy_tap KEY_LH_C3R2   &left_middy_tap KEY_LH_C2R2  &left_middy_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
-&trans  &left_middy_tap Q             &left_middy_tap W            &left_middy_tap E             &left_middy_tap R            &left_middy_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
-&trans  &LeftMiddyPinky               &LeftMiddyPinky              &none                         &LeftMiddyIndex              &left_middy_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
-&trans  &left_middy_tap Z             &left_middy_tap X            &left_middy_tap C             &left_middy_tap V            &left_middy_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_middy_tap Q             &left_middy_tap SQT          &left_middy_tap O             &left_middy_tap U            &left_middy_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &LeftMiddyPinky               &LeftMiddyPinky              &none                         &LeftMiddyIndex              &left_middy_tap W                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_middy_tap Z             &left_middy_tap COMMA        &left_middy_tap DOT           &left_middy_tap V            &left_middy_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_middy_tap GRAVE         &left_middy_tap LBKT         &left_middy_tap RBKT          &left_middy_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
@@ -7992,9 +7989,9 @@
             bindings = <
 &trans  &trans                        &trans                       &trans                        &trans                       &trans                                &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_index_tap KEY_LH_C5R2   &left_index_tap KEY_LH_C4R2  &left_index_tap KEY_LH_C3R2   &left_index_tap KEY_LH_C2R2  &left_index_tap KEY_LH_C1R2           &trans  &trans               &trans               &trans               &trans               &trans
-&trans  &left_index_tap Q             &left_index_tap W            &left_index_tap E             &left_index_tap R            &left_index_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
-&trans  &LeftIndexPinky               &LeftIndexRingy              &LeftIndexMiddy               &none                        &left_index_tap G                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
-&trans  &left_index_tap Z             &left_index_tap X            &left_index_tap C             &left_index_tap V            &left_index_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
+&trans  &left_index_tap Q             &left_index_tap SQT          &left_index_tap O             &left_index_tap U            &left_index_tap T                     &trans  &trans               &trans               &trans               &trans               &trans 
+&trans  &LeftIndexPinky               &LeftIndexRingy              &LeftIndexMiddy               &none                        &left_index_tap W                     &trans  &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY  &trans
+&trans  &left_index_tap Z             &left_index_tap COMMA        &left_index_tap DOT           &left_index_tap V            &left_index_tap B                     &trans  &trans               &trans               &trans               &trans               &trans
 &trans  &left_index_tap GRAVE         &left_index_tap LBKT         &left_index_tap RBKT          &left_index_tap LSFT                                                       &trans               &trans               &trans               &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
                                                                                                  &trans                       &trans                      &trans    &trans  &trans               &trans
@@ -8005,9 +8002,9 @@
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap 6  &right_pinky_tap 7     &right_pinky_tap 8      &right_pinky_tap 9     &right_pinky_tap 0      &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap H  &right_pinky_tap U     &right_pinky_tap I      &right_pinky_tap O     &right_pinky_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_pinky_tap H  &RightPinkyIndex       &RightPinkyMiddy        &RightPinkyRingy       &none                   &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap N  &right_pinky_tap M     &right_pinky_tap COMMA  &right_pinky_tap DOT   &right_pinky_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap Y  &right_pinky_tap H     &right_pinky_tap D      &right_pinky_tap P     &right_pinky_tap F      &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_pinky_tap K  &RightPinkyIndex       &RightPinkyMiddy        &RightPinkyRingy       &none                   &right_pinky_tap X
+&trans  &trans              &trans              &trans              &trans              &trans            &right_pinky_tap J  &right_pinky_tap M     &right_pinky_tap V      &right_pinky_tap B     &right_pinky_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_pinky_tap RSFT  &right_pinky_tap LPAR   &right_pinky_tap RPAR  &right_pinky_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -8018,9 +8015,9 @@
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap 6  &right_ringy_tap 7     &right_ringy_tap 8      &right_ringy_tap 9     &right_ringy_tap 0      &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap H  &right_ringy_tap U     &right_ringy_tap I      &right_ringy_tap O     &right_ringy_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_ringy_tap H  &RightRingyIndex       &RightRingyMiddy        &none                  &RightRingyPinky        &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap N  &right_ringy_tap M     &right_ringy_tap COMMA  &right_ringy_tap DOT   &right_ringy_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap Y  &right_ringy_tap H     &right_ringy_tap D      &right_ringy_tap P     &right_ringy_tap F      &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_ringy_tap K  &RightRingyIndex       &RightRingyMiddy        &none                  &RightRingyPinky        &right_ringy_tap X
+&trans  &trans              &trans              &trans              &trans              &trans            &right_ringy_tap J  &right_ringy_tap M     &right_ringy_tap V      &right_ringy_tap B     &right_ringy_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_ringy_tap RSFT  &right_ringy_tap LPAR   &right_ringy_tap RPAR  &right_ringy_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -8031,9 +8028,9 @@
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap 6  &right_middy_tap 7     &right_middy_tap 8      &right_middy_tap 9     &right_middy_tap 0      &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap H  &right_middy_tap U     &right_middy_tap I      &right_middy_tap O     &right_middy_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_middy_tap H  &RightMiddyIndex       &none                   &RightMiddyRingy       &RightMiddyPinky        &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap N  &right_middy_tap M     &right_middy_tap COMMA  &right_middy_tap DOT   &right_middy_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap Y  &right_middy_tap H     &right_middy_tap D      &right_middy_tap P     &right_middy_tap F      &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_middy_tap K  &RightMiddyIndex       &none                   &RightMiddyRingy       &RightMiddyPinky        &right_middy_tap X
+&trans  &trans              &trans              &trans              &trans              &trans            &right_middy_tap J  &right_middy_tap M     &right_middy_tap V      &right_middy_tap B     &right_middy_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_middy_tap RSFT  &right_middy_tap LPAR   &right_middy_tap RPAR  &right_middy_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -8044,9 +8041,9 @@
             bindings = <
 &trans  &trans              &trans              &trans              &trans              &trans            &trans              &trans                 &trans                  &trans                 &trans                  &trans
 &trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap 6  &right_index_tap 7     &right_index_tap 8      &right_index_tap 9     &right_index_tap 0      &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap H  &right_index_tap U     &right_index_tap I      &right_index_tap O     &right_index_tap SEMI   &trans
-&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_index_tap H  &none                  &RightIndexMiddy        &RightIndexRingy       &RightIndexPinky        &trans
-&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap N  &right_index_tap M     &right_index_tap COMMA  &right_index_tap DOT   &right_index_tap FSLH   &trans
+&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap Y  &right_index_tap H     &right_index_tap D      &right_index_tap P     &right_index_tap F      &trans
+&trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans            &right_index_tap K  &none                  &RightIndexMiddy        &RightIndexRingy       &RightIndexPinky        &right_index_tap X
+&trans  &trans              &trans              &trans              &trans              &trans            &right_index_tap J  &right_index_tap M     &right_index_tap V      &right_index_tap B     &right_index_tap G      &trans
 &trans  &trans              &trans              &trans              &trans                                                    &right_index_tap RSFT  &right_index_tap LPAR   &right_index_tap RPAR  &right_index_tap BSLH   &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
                                                                     &trans              &trans  &trans    &trans              &trans                 &trans
@@ -8070,9 +8067,9 @@
             bindings = <
 &none  &none           &none     &none       &none       &none                    &none             &none       &none          &none          &none           &none
 &none  &none           &none     &none       &none       &none                    &kp TILDE         &kp CARET   &kp HASH       &kp DLLR       &kp EXCL        &none
-&none  &none           &none     &kp LC(TAB) &kp LA(TAB) &kp K                    &kp PRCNT         &kp _KP_N7  &kp _KP_N8     &kp _KP_N9     &kp COLON       &none
+&none  &none           &none     &kp LC(TAB) &kp LA(TAB) &kp T                    &kp PRCNT         &kp _KP_N7  &kp _KP_N8     &kp _KP_N9     &kp COLON       &none
 &none  &kp LS(LG(N4))  &kp BSPC  &kp SPACE   &kp DOT     &kp LS(G)                &kp _KP_PLUS      &kp _KP_N4  &kp _KP_N5     &kp _KP_N6     &kp _KP_MINUS   &none
-&none  &none           &none     &none       &kp COMMA   &kp J                    &kp _KP_ASTERISK  &kp _KP_N1  &kp _KP_N2     &kp _KP_N3     &kp _KP_SLASH   &none
+&none  &none           &none     &none       &kp COMMA   &kp L                    &kp _KP_ASTERISK  &kp _KP_N1  &kp _KP_N2     &kp _KP_N3     &kp _KP_SLASH   &none
 &none  &none           &none     &none       &none                                                  &none       &kp LT         &kp GT         &none           &none
                                     &none       &none          &none     &none             &kp LPAR    &kp _KP_EQUAL 
                                     &none       &none          &none     &none             &kp RPAR    &kp _KP_N0 
@@ -8097,8 +8094,8 @@
 &none     &none      &none      &none      &none      &none                &none     &none                 &none                   &none       &none      &none
 &none     &none      &none      &none      &none      &none                &none     &none                 &kp EXCL                &kp EQUAL   &none      &none
 &none     &kp SQT    &kp LPAR   &kp LBKT   &kp DQT    &kp QMARK            &kp SQT   &kp DQT               &kp RBKT                &kp RPAR    &kp AMPS   &none
-&kp HASH  &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR             &kp BSPC  &tap_dance_cmd_enter  &tap_dance_shift_enter  &kp TAB     &kp AT     &none
-&kp SEMI  &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH             &kp GRAVE &kp DEL               &kp COMMA               &kp DOT     &kp TILDE  &none
+&kp HASH  &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp STAR             &kp BSPC  &tap_dance_cmd_enter  &tap_dance_shift_enter  &kp MINUS   &kp AT     &none
+&kp SEMI  &kp LT     &kp COMMA  &kp DOT    &kp GT     &kp FSLH             &kp GRAVE &kp DEL               &kp PIPE                &kp MINUS   &kp TILDE  &none
 &none     &none      &kp LBRC   &kp RBRC   &none                                     &none                 &none                   &kp _KP_N0  &none      &none
                                            &kp BSLH   &kp _PASTE &none     &none     &none                 &none
                                            &kp PRCNT  &kp COLON  &none     &none     &none                 &none
@@ -8146,14 +8143,14 @@
         
         layer_World_windows {
             bindings = <
-&none  &none                 &none  &none                            &none      &none            &none      &none                    &none              &none               &none      &none
-&none  &none                 &none  &none                            &none      &none            &none      &none                    &none              &none               &none      &none
-&none  &none                 &none  &world_e_base_perso_win          &none      &none            &none      &world_u_base_perso_win  &world_i_base_win  &world_o_base_win   &none      &none
-&none  &world_a_grave_win    &none  &none                            &kp SPACE  &none            &kp BSPC   &kp SPACE                &sk LCTRL          &sk RCTRL           &sk RSHFT  &none
-&none  &world_currency_base  &none  &world_consonants_base_perso_win &none      &none            &none      &sk LSHFT                &sk LALT           &sk RALT            &none      &none
-&none  &none                 &none  &none                            &none                                  &none                    &none              &none               &none      &none
-                                                                     &trans     &none   &none    &none      &none                    &none
-                                                                     &trans     &trans  &none    &none      &none                    &none
+&none  &none                            &none              &none                            &none                         &none            &none      &none       &none      &none      &none      &none
+&none  &none                            &none              &none                            &none                         &none            &none      &none       &none      &none      &none      &none
+&none  &none                            &none              &world_o_base_win                &world_u_base_perso_win       &none            &none      &none       &none      &none      &none      &none
+&none  &world_consonants_base_perso_win &world_i_base_win  &world_e_base_perso_win          &world_a_grave_win            &none            &kp BSPC   &kp SPACE   &sk LCTRL  &sk RCTRL  &sk RSHFT  &none
+&none  &world_currency_base             &none              &world_consonants_base_perso_win &none                         &none            &none      &sk LSHFT   &sk LALT   &sk RALT   &none      &none
+&none  &none                            &none              &none                            &none                         &none            &none      &none       &none      &none      &none      &none
+                                                                                            &trans                        &none   &none    &none      &none       &none
+                                                                                            &trans                        &trans  &none    &none      &none       &none
             >;
         };
 
@@ -8167,6 +8164,19 @@
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
+            >;
+        };
+
+        layer_World_enthium {
+            bindings = <
+&none  &none                          &none          &none                         &none                &none            &none      &none                &none          &none           &none      &none
+&none  &none                          &none          &none                         &none                &none            &none      &none                &none          &none           &none      &none
+&none  &none                          &none          &world_o_base                 &world_u_base_perso  &none            &none      &none                &none          &none           &none      &none
+&none  &world_consonants_base_perso   &world_i_base  &world_e_base_perso           &world_a_base_perso  &none            &kp BSPC   &kp SPACE            &sk LCTRL      &sk RCTRL       &sk RSHFT  &none
+&none  &world_currency_base           &none          &world_consonants_base_perso  &none                &none            &none      &sk LSHFT            &sk LALT       &sk RALT        &none      &none
+&none  &none                          &none          &none                         &none                &none            &none      &none                &none          &none           &none      &none
+                                                                                   &trans               &none   &none    &none      &none                &none
+                                                                                   &trans               &trans  &none    &none      &none                &none
             >;
         };
     };
