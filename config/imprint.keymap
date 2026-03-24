@@ -2622,6 +2622,14 @@
         //    layers = <1>;  // Layer Windows
         //};
 
+        // Pour utiliser le combo combo_del_end_of_line_win (impossible uniquement en combo classique)
+        delete_rest_of_line_macro {
+            compatible = "zmk,behavior";
+            #binding-cells = <0>;
+            bindings = <&macro_press LSHFT>, <&macro_press END>, <&macro_release END>, <&macro_release LSHFT>,
+                        <&macro_press DELETE>, <&macro_release DELETE>;
+        };
+
         combo_del_end_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
@@ -2634,13 +2642,6 @@
 
     macros {
 
-        // Pour utiliser le combo combo_del_end_of_line_win (impossible uniquement en combo classique)
-        delete_rest_of_line_macro {
-            compatible = "zmk,behavior";
-            #binding-cells = <0>;
-            bindings = <&macro_press LSHFT>, <&macro_press END>, <&macro_release END>, <&macro_release LSHFT>,
-                        <&macro_press DELETE>, <&macro_release DELETE>;
-        };
 
         // Réserver pour le Mac (avec Layout dédié)
         bt_0: bt_0 {
