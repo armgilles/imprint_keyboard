@@ -2625,7 +2625,7 @@
         combo_del_end_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
-            bindings = <&macro_delete_rest_of_line_macro>;
+            bindings = <&delete_rest_of_line_macro>;
             //bindings = <&kp LC(BACKSPACE)>;
             layers = <1>;  // Layer Windows
         };
@@ -2634,6 +2634,7 @@
 
     macros {
 
+        // Pour utiliser le combo combo_del_end_of_line_win (impossible uniquement en combo classique)
         delete_rest_of_line_macro {
             compatible = "zmk,behavior";
             #binding-cells = <0>;
