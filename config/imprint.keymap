@@ -23,19 +23,19 @@
         #define LAYER_RightRingy 7
         #define LAYER_RightMiddy 8
         #define LAYER_RightIndex 9
-        #define LAYER_Cursor 12 
-        #define LAYER_Number 13
-        #define LAYER_Function 14
-        #define LAYER_Symbol 15
-        #define LAYER_Mouse 16
+        #define LAYER_Cursor 10 
+        #define LAYER_Number 11
+        #define LAYER_Function 12
+        #define LAYER_Symbol 13
+        #define LAYER_Mouse 14
         //#define LAYER_MouseSlow 17
         //#define LAYER_MouseFast 18
         //#define LAYER_MouseWarp 19
-        #define LAYER_System 17
-        #define LAYER_World 18
-        #define LAYER_WORLD_WINDOWS 19
-        #define LAYER_Cursor_win 20
-        #define LAYER_WORLD_ENTHIUM 21
+        #define LAYER_System 15
+        #define LAYER_World 16
+        #define LAYER_WORLD_WINDOWS 17
+        #define LAYER_Cursor_win 18
+        #define LAYER_WORLD_ENTHIUM 19
 
         //#define LAYER_Magic 24
 
@@ -2616,12 +2616,19 @@
         combo_del_end_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
             key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
-            bindings = <&kp LSHFT(END)>, <&kp BACKSPACE>;
+            bindings = <&delete_rest_of_line_win>;
             layers = <1>;  // Layer Windows
         };
     };
 
     macros {
+
+        // Pour l'utilsation de combo_del_end_of_line_win en combo
+        ZMK_MACRO(delete_rest_of_line_win,
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LS(END) &kp DELETE>;
+        )
 
         // Réserver pour le Mac (avec Layout dédié)
         bt_0: bt_0 {
