@@ -2627,7 +2627,7 @@
         // Win "ek" -> cmd + left
         combo_begin_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <39 45>; // e (position 38) + n (position 45)
+            key-positions = <39 42>; // e (position 39) + n (position 42)
             bindings = <&kp HOME>;
             layers = <18>;  // LAYER_Cursor_win
         };
@@ -2635,7 +2635,7 @@
         // Win "en" -> cmd + right
         combo_end_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <39 42>; // e (position 38) + n (position 42)
+            key-positions = <39 45>; // e (position 39) + n (position 45)
             bindings = <&kp END>;
             layers = <18>;  // LAYER_Cursor_win
         };
@@ -8187,7 +8187,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
 &trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO  &kp _REDO  &sk LSHFT  &trans
-&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans     &trans
+&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp s      &trans
 &trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
