@@ -2606,7 +2606,21 @@
             keep-mods = <(MOD_LGUI)>;
         };
 
+        // Pour faire la sélection de la ligne actuelle
+        select_line_morph_mac: select_line_morph_mac {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&select_line_mac>, <&select_line_mac>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        select_line_morph_win: select_line_morph_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&select_line_win>, <&select_line_win>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
 
     combos {
         compatible = "zmk,combos";
@@ -2693,21 +2707,6 @@
             key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
             bindings = <&delete_rest_of_line_win>;
             layers = <1>;  // Layer Windows
-        };
-
-        // Pour faire la sélection de la ligne actuelle
-        select_line_morph_mac: select_line_morph_mac {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&select_line_mac>, <&select_line_mac>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        select_line_morph_win: select_line_morph_win {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&select_line_win>, <&select_line_win>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
