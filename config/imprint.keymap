@@ -2734,6 +2734,13 @@
             bindings = <&kp LS(END) &kp DELETE>;
         )
 
+        // Pour la combo combo_del_begin_of_line_win
+        ZMK_MACRO(delete_begin_of_line_win,
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LS(HOME) &kp DELETE>;
+        )
+
         // Réserver pour le Mac (avec Layout dédié)
         bt_0: bt_0 {
             label = "BT_0";
