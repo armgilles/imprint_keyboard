@@ -2627,7 +2627,7 @@
         // Win "ek" -> cmd + left
         combo_begin_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <38 45>; // e (position 38) + n (position 45)
+            key-positions = <39 45>; // e (position 38) + n (position 45)
             bindings = <&kp HOME>;
             layers = <18>;  // LAYER_Cursor_win
         };
@@ -2635,7 +2635,7 @@
         // Win "en" -> cmd + right
         combo_end_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <38 42>; // e (position 38) + n (position 42)
+            key-positions = <39 42>; // e (position 38) + n (position 42)
             bindings = <&kp END>;
             layers = <18>;  // LAYER_Cursor_win
         };
