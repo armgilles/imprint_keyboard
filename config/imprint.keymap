@@ -2619,6 +2619,28 @@
             bindings = <&delete_rest_of_line_win>;
             layers = <1>;  // Layer Windows
         };
+
+        // combo pour les déplacements sur la layer cursor Win
+        // afin de reproduire les déplacements sur Mac (cmd + left etc)
+        // Uniquement sur le layer de cursor Win
+
+        // Win "ek" -> cmd + left
+        combo_begin_of_line_win {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <38 45>; // e (position 38) + n (position 45)
+            bindings = <&kp HOME>;
+            layers = <18>;  // LAYER_Cursor_win
+        };
+
+        // Win "en" -> cmd + right
+        combo_end_of_line_win {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <38 42>; // e (position 38) + n (position 42)
+            bindings = <&kp END>;
+            layers = <18>;  // LAYER_Cursor_win
+        };
+
+        
     };
 
     macros {
