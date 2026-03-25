@@ -2627,7 +2627,7 @@
         // Win "ek" -> cmd + left
         combo_begin_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <39 42>; // e (position 39) + n (position 42)
+            key-positions = <39 42>; // e (position 39) + k (position 42)
             bindings = <&kp HOME>;
             layers = <18>;  // LAYER_Cursor_win
         };
@@ -7970,7 +7970,7 @@
 &none             &kp Z                                 &kp COMMA                             &kp DOT                               &world_e_acute_windows                  &kp W                                    &kp J       &kp M                                  &kp V                                    &kp B                                  &kp H                                  &none
 &none             &none                                 &kp UP                                &kp DOWN                              &none                                                                                        &none                                  &kp LBKT                                 &kp RBKT                               &none                                  &none
                                                                                                                                     &thumb LAYER_Function ESC               &kp DELETE                      &none    &none       &thumb LAYER_System _KP_N0             &thumb_world LAYER_WORLD_WINDOWS ENTER
-                                                                                                                                    &thumb LAYER_Cursor SPACE               &thumb LAYER_Number TAB         &none    &caps_word  &thumb LAYER_Mouse BACKSPACE           &space LAYER_Symbol R
+                                                                                                                                    &thumb LAYER_Cursor_win SPACE           &thumb LAYER_Number TAB         &none    &caps_word  &thumb LAYER_Mouse BACKSPACE           &space LAYER_Symbol R
             >;
         };
 
@@ -8187,7 +8187,7 @@
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
 &trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
 &trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO  &kp _REDO  &sk LSHFT  &trans
-&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp S      &trans
+&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp A      &trans
 &trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
 &trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
