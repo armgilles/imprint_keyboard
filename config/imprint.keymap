@@ -2535,49 +2535,75 @@
         // Chaîné : LGUI → HOME/END | LALT → Ctrl+Arrow | sinon → Arrow
         // Shift est automatiquement préservé (pas dans mods) pour les variantes sélection
         // On garde aussi (ctrl + alt + left / right) le switch left / right tab 
-        // --- LEFT ---
-        // Niveau 3 (innermost): LALT → Ctrl+LEFT (saut de mot)
-        win_cursor_left_alt: win_cursor_left_word {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT>, <&kp LC(LEFT)>;
-            mods = <(MOD_LALT)>;
-        };
-        // Niveau 2: LGUI → HOME (début de ligne)
-        win_cursor_left_gui: win_cursor_left_home {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&win_cursor_left_alt>, <&kp HOME>;
-            mods = <(MOD_LGUI)>;
-        };
-        // Niveau 1 (outermost): LCTL → pass-through total (préserve Ctrl+Alt+LEFT etc)
+
+        // Left
+        // Level 1 (outermost): LCTL → keep-mods passthrough
         win_cursor_left: win_cursor_left_passthrough {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&win_cursor_left_gui>, <&kp LEFT>;
+            bindings = <&win_cursor_left_alt>, <&kp LEFT>;
             mods = <(MOD_LCTL)>;
             keep-mods = <(MOD_LCTL)>;
         };
 
-        // --- RIGHT ---
-        win_cursor_right_alt: win_cursor_right_word {
+        // Level 2: LALT → branche vers alt_gui (LALT consommé)
+        win_cursor_left_alt: win_cursor_left_word {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT>, <&kp LC(RIGHT)>;
+            bindings = <&win_cursor_left_gui>, <&win_cursor_left_alt_gui>;
             mods = <(MOD_LALT)>;
         };
-        win_cursor_right_gui: win_cursor_right_end {
+
+        // Level 3a: LGUI → HOME (branche sans LALT)
+        win_cursor_left_gui: win_cursor_left_home {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&win_cursor_right_alt>, <&kp END>;
+            bindings = <&kp LEFT>, <&kp HOME>;
             mods = <(MOD_LGUI)>;
         };
+
+        // Level 3b:  LALT déjà consommé, LGUI → keep + LA(LEFT) pour tab switch
+        win_cursor_left_alt_gui: win_cursor_left_tab {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT)>, <&kp LA(LEFT)>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
+
+        // Right
+        // Level 1 (outermost): LCTL → keep-mods passthrough
         win_cursor_right: win_cursor_right_passthrough {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&win_cursor_right_gui>, <&kp RIGHT>;
+            bindings = <&win_cursor_right_alt>, <&kp RIGHT>;
             mods = <(MOD_LCTL)>;
             keep-mods = <(MOD_LCTL)>;
+        };
+
+        // Level 2: LALT → branche vers alt_gui (LALT consommé)
+        win_cursor_right_alt: win_cursor_right_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_right_gui>, <&win_cursor_right_alt_gui>;
+            mods = <(MOD_LALT)>;
+        };
+
+        // Level 3a: LGUI → END (branche sans LALT)
+        win_cursor_right_gui: win_cursor_right_end {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT>, <&kp END>;
+            mods = <(MOD_LGUI)>;
+        };
+
+        // Level 3b (NOUVEAU): LALT déjà consommé, LGUI → keep + LA(RIGHT) pour tab switch
+        win_cursor_right_alt_gui: win_cursor_right_tab {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT)>, <&kp LA(RIGHT)>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
         };
 
         };
