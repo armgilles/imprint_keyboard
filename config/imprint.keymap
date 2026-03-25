@@ -2694,18 +2694,48 @@
             layers = <1>; // layer Windows
         };
 
-        // Suppression de la fin de la ligne "ldp"
+        // Suppression début de ligne (cmd + backspae) : "'ou"
+        combo_del_begin_of_line_mac {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <26 27 28>; // ' (position 26) + o (position 27) + u (position 28)
+            bindings = <&kp LG(BACKSPACE)>;
+            layers = <0>;  // Layer Mac
+        };
+        // Win "'ou"
+        combo_del_begin_of_line_win {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <26 27 28>; // ' (position 26) + o (position 27) + u (position 28)
+            bindings = <&delete_begin_of_line_win>;
+            layers = <1>;  // Layer Windows
+        };
+
+        // Suppression de la fin de la ligne "gdp"
         combo_del_end_of_line_mac {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
+            key-positions = <32 33 31>; // d (position 32) + p (position 33) + g (position 31)
             bindings = <&kp LC(K)>;
             layers = <0>;  // Layer Mac
         };
-        // Win "ldp"
+        // Win "gdp"
         combo_del_end_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
+            key-positions = <32 33 31>; // d (position 32) + p (position 33) + g (position 31)
             bindings = <&delete_rest_of_line_win>;
+            layers = <1>;  // Layer Windows
+        };
+
+        // Select all "ldp"
+        combo_select_all_mac {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
+            bindings = <&kp LG(A)>;
+            layers = <0>;  // Layer Mac
+        };
+        // Win "ldp"
+        combo_select_all_win {
+            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
+            bindings = <&kp LC(A)>;
             layers = <1>;  // Layer Windows
         };
     };
@@ -2717,6 +2747,13 @@
             wait-ms = <30>;
             tap-ms = <30>;
             bindings = <&kp LS(END) &kp DELETE>;
+        )
+
+        // Pour la combo combo_del_begin_of_line_win
+        ZMK_MACRO(delete_begin_of_line_win,
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LS(HOME) &kp DELETE>;
         )
 
         // Réserver pour le Mac (avec Layout dédié)
