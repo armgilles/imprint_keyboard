@@ -23,7 +23,7 @@ Wireless Cyboard keyboard configuration repository template for using ZMK firmwa
 
   Reproduction of common navigation shortcuts (Mac) into Windows and ZMK layers for consistency across platforms:
 
-  | Action                              | Mac                      | Windows                  | ZMK Windows                      |
+| Action                              | Mac                      | Windows                  | ZMK Windows                      |
 |--------------------------------------|--------------------------|--------------------------|-----------------------------------|
 | Aller au début de la ligne           | Cmd + ←                  | Home                     | HOME                              |
 | Aller à la fin de la ligne           | Cmd + →                  | End                      | END                               |
