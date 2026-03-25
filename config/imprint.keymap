@@ -2606,7 +2606,21 @@
             keep-mods = <(MOD_LGUI)>;
         };
 
+        // Pour faire la sélection de la ligne actuelle
+        select_line_morph_mac: select_line_morph_mac {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&select_line_mac>, <&select_line_mac>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        select_line_morph_win: select_line_morph_win {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&select_line_win>, <&select_line_win>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
 
     combos {
         compatible = "zmk,combos";
@@ -7992,6 +8006,19 @@
             bindings = <&kp SPACE>, <&kp LG(ENTER)>;
             tapping-term-ms = <190>;
         };
+
+        // Pour sélectionnée la ligne entière actuelle
+        select_line_mac: select_line_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LEFT) &kp LS(LG(RIGHT))>;
+        };
+
+        select_line_win: select_line_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>;
+        };
     };
 
     ////////////////////////////////////////////////////////////////
@@ -8133,12 +8160,12 @@
 
         layer_Cursor {
             bindings = <
-&trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
-&trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
-&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO  &kp _REDO  &sk LSHFT  &trans
-&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans     &trans
-&trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
-&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans                 &trans     &trans     &trans
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans                 &trans     &trans     &trans
+&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO              &kp _REDO  &sk LSHFT  &trans
+&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP                 &kp RIGHT  &trans     &trans
+&trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &select_line_morph_mac &trans     &trans     &trans
+&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans                 &trans     &trans     &trans
                                                                     &mod_tab _A_TAB     &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
             >;
@@ -8237,12 +8264,12 @@
 
         layer_Cursor_win {
             bindings = <
-&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans     &trans             &trans     &trans
-&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans     &trans             &trans     &trans
-&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC          &kp SPACE  &kp _UNDO  &kp _REDO          &sk LSHFT  &trans
-&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &win_cursor_left  &kp DOWN   &kp UP     &win_cursor_right  &trans     &trans
-&trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none             &kp F11    &trans     &trans             &trans     &trans
-&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                        &trans     &trans     &trans             &trans     &trans
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans                 &trans             &trans     &trans
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans                 &trans             &trans     &trans
+&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC          &kp SPACE  &kp _UNDO              &kp _REDO          &sk LSHFT  &trans
+&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &win_cursor_left  &kp DOWN   &kp UP                 &win_cursor_right  &trans     &trans
+&trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none             &kp F11    &select_line_morph_win &trans             &trans     &trans
+&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                        &trans     &trans                 &trans             &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans            &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans            &kp TAB    &kp SPACE
             >;
