@@ -2631,9 +2631,9 @@
         combo_begin_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_CURSOR_WIN>;
             //key-positions = <39 42>; // e (position 39) + k (position 42)
-            key-positions = <66 67>; // e (position 39) + k (position 42)
+            key-positions = <66 67>; // [ (position 66) + ] (position 67)
             bindings = <&kp HOME>;
-            layers = <1 18>;  // LAYER_Cursor_win
+            layers = <18>;  // LAYER_Cursor_win
         };
 
         // Win "en" -> cmd + right
