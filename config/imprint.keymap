@@ -2549,6 +2549,9 @@
         #ifndef COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE
         #define COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE 36
         #endif
+        #ifndef COMBO_FIRING_DECAY_CURSOR_WIN
+        #define COMBO_FIRING_DECAY_CURSOR_WIN 150
+        #endif
         
         #ifdef _A_TAB
         combo_alt_tab_switcher {
@@ -2626,7 +2629,7 @@
 
         // Win "ek" -> cmd + left
         combo_begin_of_line_win {
-            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            timeout-ms = <COMBO_FIRING_DECAY_CURSOR_WIN>;
             key-positions = <39 42>; // e (position 39) + k (position 42)
             bindings = <&kp HOME>;
             layers = <18>;  // LAYER_Cursor_win
@@ -2634,7 +2637,7 @@
 
         // Win "en" -> cmd + right
         combo_end_of_line_win {
-            timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
+            timeout-ms = <COMBO_FIRING_DECAY_CURSOR_WIN>;
             key-positions = <39 45>; // e (position 39) + n (position 45)
             bindings = <&kp END>;
             layers = <18>;  // LAYER_Cursor_win
