@@ -2624,9 +2624,6 @@
         #ifndef COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE
         #define COMBO_FIRING_DECAY_SPECIAL_CARAC_E_GRAVE 36
         #endif
-        #ifndef COMBO_FIRING_DECAY_CURSOR_WIN
-        #define COMBO_FIRING_DECAY_CURSOR_WIN 150
-        #endif
         
         #ifdef _A_TAB
         combo_alt_tab_switcher {
@@ -2697,29 +2694,6 @@
             bindings = <&delete_rest_of_line_win>;
             layers = <1>;  // Layer Windows
         };
-
-        // combo pour les déplacements sur la layer cursor Win
-        // afin de reproduire les déplacements sur Mac (cmd + left etc)
-        // Uniquement sur le layer de cursor Win
-
-        // Win "ek" -> cmd + left
-        combo_begin_of_line_win {
-            timeout-ms = <COMBO_FIRING_DECAY_CURSOR_WIN>;
-            key-positions = <39 42>; // e (position 39) + k (position 42)
-            //key-positions = <66 67>; // [ (position 66) + ] (position 67)
-            bindings = <&kp HOME>;
-            layers = <18>;  // LAYER_Cursor_win
-        };
-
-        // Win "en" -> cmd + right
-        combo_end_of_line_win {
-            timeout-ms = <COMBO_FIRING_DECAY_CURSOR_WIN>;
-            key-positions = <39 45>; // e (position 39) + n (position 45)
-            bindings = <&kp END>;
-            layers = <18>;  // LAYER_Cursor_win
-        };
-
-        
     };
 
     macros {
@@ -8263,12 +8237,12 @@
 
         layer_Cursor_win {
             bindings = <
-&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans                        &trans     &trans     &trans
-&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans                        &trans     &trans     &trans
-&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC          &kp SPACE  &kp _UNDO                     &kp _REDO  &sk LSHFT  &trans
-&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &win_cursor_left  &kp DOWN   &kp UP     &win_cursor_right  &kp A      &trans
-&trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none             &kp F11    &trans                        &trans     &trans     &trans
-&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                        &trans     &trans                        &trans     &trans     &trans
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans     &trans             &trans     &trans
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans     &trans             &trans     &trans
+&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC          &kp SPACE  &kp _UNDO  &kp _REDO          &sk LSHFT  &trans
+&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &win_cursor_left  &kp DOWN   &kp UP     &win_cursor_right  &trans     &trans
+&trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none             &kp F11    &trans     &trans             &trans     &trans
+&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                        &trans     &trans     &trans             &trans     &trans
                                                                     &mod_tab LALT       &mod_tab _G_TAB  &none  &trans            &trans     &kp RET
                                                                     &none               &mod_tab LCTL    &none  &trans            &kp TAB    &kp SPACE
             >;
