@@ -2709,17 +2709,17 @@
             layers = <1>;  // Layer Windows
         };
 
-        // Suppression de la fin de la ligne "ldp"
+        // Suppression de la fin de la ligne "gdp"
         combo_del_end_of_line_mac {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
+            key-positions = <32 33 31>; // d (position 32) + p (position 33) + g (position 31)
             bindings = <&kp LC(K)>;
             layers = <0>;  // Layer Mac
         };
-        // Win "ldp"
+        // Win "gdp"
         combo_del_end_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_SPECIAL_CARAC>;
-            key-positions = <32 33 43>; // d (position 32) + p (position 33) + l (position 43)
+            key-positions = <32 33 31>; // d (position 32) + p (position 33) + g (position 31)
             bindings = <&delete_rest_of_line_win>;
             layers = <1>;  // Layer Windows
         };
