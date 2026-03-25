@@ -2531,7 +2531,56 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-            };
+        // --- Windows cursor navigation mod-morphs ---
+        // Chaîné : LGUI → HOME/END | LALT → Ctrl+Arrow | sinon → Arrow
+        // Shift est automatiquement préservé (pas dans mods) pour les variantes sélection
+        // On garde aussi (ctrl + alt + left / right) le switch left / right tab 
+        // --- LEFT ---
+        // Niveau 3 (innermost): LALT → Ctrl+LEFT (saut de mot)
+        win_cursor_left_alt: win_cursor_left_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT>, <&kp LC(LEFT)>;
+            mods = <(MOD_LALT)>;
+        };
+        // Niveau 2: LGUI → HOME (début de ligne)
+        win_cursor_left_gui: win_cursor_left_home {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_left_alt>, <&kp HOME>;
+            mods = <(MOD_LGUI)>;
+        };
+        // Niveau 1 (outermost): LCTL → pass-through total (préserve Ctrl+Alt+LEFT etc)
+        win_cursor_left: win_cursor_left_passthrough {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_left_gui>, <&kp LEFT>;
+            mods = <(MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL)>;
+        };
+
+        // --- RIGHT ---
+        win_cursor_right_alt: win_cursor_right_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT>, <&kp LC(RIGHT)>;
+            mods = <(MOD_LALT)>;
+        };
+        win_cursor_right_gui: win_cursor_right_end {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_right_alt>, <&kp END>;
+            mods = <(MOD_LGUI)>;
+        };
+        win_cursor_right: win_cursor_right_passthrough {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_right_gui>, <&kp RIGHT>;
+            mods = <(MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL)>;
+        };
+
+        };
 
     combos {
         compatible = "zmk,combos";
@@ -2630,8 +2679,8 @@
         // Win "ek" -> cmd + left
         combo_begin_of_line_win {
             timeout-ms = <COMBO_FIRING_DECAY_CURSOR_WIN>;
-            //key-positions = <39 42>; // e (position 39) + k (position 42)
-            key-positions = <66 67>; // [ (position 66) + ] (position 67)
+            key-positions = <39 42>; // e (position 39) + k (position 42)
+            //key-positions = <66 67>; // [ (position 66) + ] (position 67)
             bindings = <&kp HOME>;
             layers = <18>;  // LAYER_Cursor_win
         };
