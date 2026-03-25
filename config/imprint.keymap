@@ -2531,7 +2531,82 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-            };
+        // --- Windows cursor navigation mod-morphs ---
+        // Chaîné : LGUI → HOME/END | LALT → Ctrl+Arrow | sinon → Arrow
+        // Shift est automatiquement préservé (pas dans mods) pour les variantes sélection
+        // On garde aussi (ctrl + alt + left / right) le switch left / right tab 
+
+        // Left
+        // Level 1 (outermost): LCTL → keep-mods passthrough
+        win_cursor_left: win_cursor_left_passthrough {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_left_alt>, <&kp LEFT>;
+            mods = <(MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL)>;
+        };
+
+        // Level 2: LALT → branche vers alt_gui (LALT consommé)
+        win_cursor_left_alt: win_cursor_left_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_left_gui>, <&win_cursor_left_alt_gui>;
+            mods = <(MOD_LALT)>;
+        };
+
+        // Level 3a: LGUI → HOME (branche sans LALT)
+        win_cursor_left_gui: win_cursor_left_home {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT>, <&kp HOME>;
+            mods = <(MOD_LGUI)>;
+        };
+
+        // Level 3b:  LALT déjà consommé, LGUI → keep + LA(LEFT) pour tab switch
+        win_cursor_left_alt_gui: win_cursor_left_tab {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT)>, <&kp LA(LEFT)>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
+
+        // Right
+        // Level 1 (outermost): LCTL → keep-mods passthrough
+        win_cursor_right: win_cursor_right_passthrough {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_right_alt>, <&kp RIGHT>;
+            mods = <(MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL)>;
+        };
+
+        // Level 2: LALT → branche vers alt_gui (LALT consommé)
+        win_cursor_right_alt: win_cursor_right_word {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&win_cursor_right_gui>, <&win_cursor_right_alt_gui>;
+            mods = <(MOD_LALT)>;
+        };
+
+        // Level 3a: LGUI → END (branche sans LALT)
+        win_cursor_right_gui: win_cursor_right_end {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT>, <&kp END>;
+            mods = <(MOD_LGUI)>;
+        };
+
+        // Level 3b (NOUVEAU): LALT déjà consommé, LGUI → keep + LA(RIGHT) pour tab switch
+        win_cursor_right_alt_gui: win_cursor_right_tab {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT)>, <&kp LA(RIGHT)>;
+            mods = <(MOD_LGUI)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
+
+        };
 
     combos {
         compatible = "zmk,combos";
@@ -7948,7 +8023,7 @@
 &none             &kp Z                                 &kp COMMA                             &kp DOT                               &world_e_acute_windows                  &kp W                                    &kp J       &kp M                                  &kp V                                    &kp B                                  &kp H                                  &none
 &none             &none                                 &kp UP                                &kp DOWN                              &none                                                                                        &none                                  &kp LBKT                                 &kp RBKT                               &none                                  &none
                                                                                                                                     &thumb LAYER_Function ESC               &kp DELETE                      &none    &none       &thumb LAYER_System _KP_N0             &thumb_world LAYER_WORLD_WINDOWS ENTER
-                                                                                                                                    &thumb LAYER_Cursor SPACE               &thumb LAYER_Number TAB         &none    &caps_word  &thumb LAYER_Mouse BACKSPACE           &space LAYER_Symbol R
+                                                                                                                                    &thumb LAYER_Cursor_win SPACE           &thumb LAYER_Number TAB         &none    &caps_word  &thumb LAYER_Mouse BACKSPACE           &space LAYER_Symbol R
             >;
         };
 
@@ -8162,14 +8237,14 @@
 
         layer_Cursor_win {
             bindings = <
-&trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
-&trans  &trans              &trans              &trans              &trans              &trans                  &trans    &trans     &trans     &trans     &trans     &trans
-&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC  &kp SPACE  &kp _UNDO  &kp _REDO  &sk LSHFT  &trans
-&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans     &trans
-&trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none     &kp F11    &trans     &trans     &trans     &trans
-&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                &trans     &trans     &trans     &trans     &trans
-                                                                    &mod_tab LALT       &mod_tab _G_TAB  &none  &trans    &trans     &kp RET
-                                                                    &none               &mod_tab LCTL    &none  &trans    &kp TAB    &kp SPACE
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans     &trans             &trans     &trans
+&trans  &trans              &trans              &trans              &trans              &trans                  &trans            &trans     &trans     &trans             &trans     &trans
+&trans  &kp LA(LG(E))       &kp LA(R)           &kp LA(V)           &kp LA(A)           &kp _CUT                &kp BSPC          &kp SPACE  &kp _UNDO  &kp _REDO          &sk LSHFT  &trans
+&trans  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD  &kp _COPY               &win_cursor_left  &kp DOWN   &kp UP     &win_cursor_right  &trans     &trans
+&trans  &kp LG(A)           &kp LA(T)           &kp LA(LG(J))       &kp LA(LG(L))       &kp _PASTE              &none             &kp F11    &trans     &trans             &trans     &trans
+&trans  &trans              &kp _UNDO           &kp _REDO           &trans                                                        &trans     &trans     &trans             &trans     &trans
+                                                                    &mod_tab LALT       &mod_tab _G_TAB  &none  &trans            &trans     &kp RET
+                                                                    &none               &mod_tab LCTL    &none  &trans            &kp TAB    &kp SPACE
             >;
         };
 
