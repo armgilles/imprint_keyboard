@@ -21,6 +21,19 @@ Wireless Cyboard keyboard configuration repository template for using ZMK firmwa
 - **Multi-OS Layouts:**  
   Easily switch between Mac and Windows specific layers. Each OS layer provides adapted shortcuts and character access (accents, symbols, etc.).
 
+  Reproduction of common navigation shortcuts (Mac) into Windows and ZMK layers for consistency across platforms:
+
+  | Action                              | Mac                      | Windows                  | ZMK Windows                      |
+|--------------------------------------|--------------------------|--------------------------|-----------------------------------|
+| Aller au début de la ligne           | Cmd + ←                  | Home                     | HOME                              |
+| Aller à la fin de la ligne           | Cmd + →                  | End                      | END                               |
+| Sélectionner jusqu'au début de la ligne | Shift + Cmd + ←        | Shift + Home             | LS(HOME)                          |
+| Sélectionner jusqu'à la fin de la ligne | Shift + Cmd + →        | Shift + End              | LS(END)                           |
+| Reculer d'un mot                     | Alt + ←                  | Ctrl + ←                 | LC(LEFT)                          |
+| Avancer d'un mot                     | Alt + →                  | Ctrl + →                 | LC(RIGHT)                         |
+| Sélectionner le mot précédent        | Shift + Alt + ←          | Shift + Ctrl + ←         | LS(LC(LEFT))                      |
+| Sélectionner le mot suivant          | Shift + Alt + →          | Shift + Ctrl + →         | LS(LC(RIGHT))                     |
+
 - **Bluetooth Profile Integration:**  
   Bluetooth slot selection automatically activates the corresponding OS layer (e.g., slot 0 for Mac, slot 1 for Windows).
 
