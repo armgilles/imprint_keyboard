@@ -7096,11 +7096,11 @@
 
         // On layer gaming
         gaming_toggle: gaming_toggle {
-            label = "GAMING_TOtGLE";
+            label = "GAMING_TOGGLE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&to LAYER_Gaming>;
+                <&to LAYER_GAMING>;
         };
 
 
