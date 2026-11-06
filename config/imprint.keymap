@@ -8333,6 +8333,19 @@
                                                                                    &trans               &trans  &none    &none      &none                &none
             >;
         };
+
+        layer_Gaming {
+            bindings = <
+&none                         &none                         &none                         &none                         &none                           &none                                             &none       &none                          &none                           &none                          &none                          &none
+&none                         &kp N1                        &kp N2                        &kp N3                        &kp N4                          &kp N5                                            &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &none
+&kp Y                         &kp Q                         &kp SQT                       &kp O                         &kp U                           &kp G                                             &kp Y       &kp G                          &kp D                           &kp P                          &kp F                          &none
+&kp LCTRL                     &kp C                         &kp I                         &kp E                         &kp A                           &kp D                                             &kp K       &RightIndex (L, LAYER_ENTHIUM) &RightMiddy (T, LAYER_ENTHIUM)  &RightRingy (N, LAYER_ENTHIUM) &RightPinky (S, LAYER_ENTHIUM) &kp X
+&none                         &kp Z                         &kp COMMA                     &kp DOT                       &kp F                           &kp W                                             &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
+&none                         &none                         &kp N                         &kp S                         &none                                                                                         &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                             &thumb LAYER_Function ESC       &kp K    &kp K       &kp K                &thumb LAYER_System _KP_N0     &thumb_world LAYER_WORLD_ENTHIUM ENTER
+                                                                                                             &thumb LAYER_Cursor SPACE       &kp L    &kp T       &caps_word           &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
+            >;
+        };
 };
 
 ////////////////////////////////////////////////////////////////
