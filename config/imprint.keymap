@@ -36,6 +36,7 @@
         #define LAYER_WORLD_WINDOWS 17
         #define LAYER_Cursor_win 18
         #define LAYER_WORLD_ENTHIUM 19
+        #define LAYER_GAMING 20
 
         //#define LAYER_Magic 24
 
@@ -7093,6 +7094,16 @@
                 <&to LAYER_QWERTY_WINDOWS>; // Passe sur le layer Windows (désactive tous les autres)
         };
 
+        // On layer gaming
+        gaming_toggle: gaming_toggle {
+            label = "GAMING_TOGGLE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&to LAYER_GAMING>;
+        };
+
+
 
         //////////////////////////////////////////////////////////////////////////
         ///
@@ -8066,14 +8077,14 @@
         compatible = "zmk,keymap";
         layer_Enthium {
             bindings = <
-&none                         &none                         &none                         &none                         &none                           &none                                    &none       &none                          &none                           &none                          &none                          &none
-&none                         &kp N1                        &kp N2                        &none                         &none                           &kp N5                                   &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
-&none                         &kp Q                         &kp SQT                       &kp O                         &kp U                           &world_a_grave_lower_macro               &kp Y       &kp G                          &kp D                           &kp P                          &kp F                          &none
-&mo LAYER_System              &LeftPinky (C, LAYER_ENTHIUM) &LeftRingy (I, LAYER_ENTHIUM) &LeftMiddy (E,LAYER_ENTHIUM)  &LeftIndex (A, LAYER_ENTHIUM)   &world_e_grave_lower_macro               &kp K       &RightIndex (L, LAYER_ENTHIUM) &RightMiddy (T, LAYER_ENTHIUM)  &RightRingy (N, LAYER_ENTHIUM) &RightPinky (S, LAYER_ENTHIUM) &kp X
-&none                         &kp Z                         &kp COMMA                     &kp DOT                       &world_e_acute                  &kp W                                    &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
-&none                         &none                         &kp UP                        &kp DOWN                      &none                                                                                &none                          &kp LBKT                        &kp RBKT                       &none                          &none
-                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &none       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_WORLD_ENTHIUM ENTER
-                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none       &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
+&none                         &none                         &none                         &none                         &none                           &none                                             &none       &none                          &none                           &none                          &none                          &none
+&none                         &kp N1                        &kp N2                        &kp N3                        &kp N4                          &kp N5                                            &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &os_toggle_win
+&none                         &kp Q                         &kp SQT                       &kp O                         &kp U                           &world_a_grave_lower_macro                        &kp Y       &kp G                          &kp D                           &kp P                          &kp F                          &none
+&mo LAYER_System              &LeftPinky (C, LAYER_ENTHIUM) &LeftRingy (I, LAYER_ENTHIUM) &LeftMiddy (E,LAYER_ENTHIUM)  &LeftIndex (A, LAYER_ENTHIUM)   &world_e_grave_lower_macro                        &kp K       &RightIndex (L, LAYER_ENTHIUM) &RightMiddy (T, LAYER_ENTHIUM)  &RightRingy (N, LAYER_ENTHIUM) &RightPinky (S, LAYER_ENTHIUM) &kp X
+&kp FSLH                      &kp Z                         &kp COMMA                     &kp DOT                       &world_e_acute                  &kp W                                             &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
+&none                         &none                         &kp UP                        &kp DOWN                      &none                                                                                         &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                             &thumb LAYER_Function ESC       &kp DELETE                   &gaming_toggle       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_WORLD_ENTHIUM ENTER
+                                                                                                             &thumb LAYER_Cursor SPACE       &thumb LAYER_Number TAB      &none                &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
             >;
         };
 
@@ -8322,6 +8333,19 @@
 &none  &none                          &none          &none                         &none                &none            &none      &none                &none          &none           &none      &none
                                                                                    &trans               &none   &none    &none      &none                &none
                                                                                    &trans               &trans  &none    &none      &none                &none
+            >;
+        };
+
+        layer_Gaming {
+            bindings = <
+&none                         &none                         &none                         &none                         &none                           &none                                             &none       &none                          &none                           &none                          &none                          &none
+&none                         &kp N1                        &kp N2                        &kp N3                        &kp N4                          &kp N5                                            &kp N6      &kp N7                         &msc SCRL_RIGHT                 &msc SCRL_LEFT                 &kp N0                         &none
+&kp TAB                       &kp Q                         &kp SQT                       &kp O                         &kp U                           &kp Y                                             &kp Y       &kp G                          &kp D                           &kp P                          &kp F                          &none
+&kp LCTRL                     &kp C                         &kp I                         &kp E                         &kp A                           &kp G                                             &kp K       &RightIndex (L, LAYER_ENTHIUM) &RightMiddy (T, LAYER_ENTHIUM)  &RightRingy (N, LAYER_ENTHIUM) &RightPinky (S, LAYER_ENTHIUM) &kp X
+&kp FSLH                      &kp Z                         &kp COMMA                     &kp DOT                       &kp D                           &kp W                                             &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
+&none                         &none                         &kp P                         &kp F                         &none                                                                                         &none                          &kp LBKT                        &kp RBKT                       &none                          &none
+                                                                                                             &thumb LAYER_Function ESC       &kp K                        &os_toggle_mac       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_WORLD_ENTHIUM ENTER
+                                                                                                             &thumb LAYER_Cursor SPACE       &kp L                        &none                &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
             >;
         };
     };
