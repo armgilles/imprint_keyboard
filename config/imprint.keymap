@@ -8345,7 +8345,7 @@
 &kp FSLH                      &kp Z                         &kp COMMA                     &kp DOT                       &kp D                           &kp W                                             &kp J       &kp M                          &kp V                           &kp B                          &kp H                          &none
 &none                         &none                         &kp P                         &kp F                         &none                                                                                         &none                          &kp LBKT                        &kp RBKT                       &none                          &none
                                                                                                              &thumb LAYER_Function ESC       &kp K                        &os_toggle_mac       &none       &thumb LAYER_System _KP_N0     &thumb_world LAYER_WORLD_ENTHIUM ENTER
-                                                                                                             &thumb LAYER_Cursor SPACE       &kp L                        &none                &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
+                                                                                                             &kp SPACE                       &kp L                        &none                &caps_word  &thumb LAYER_Mouse BACKSPACE   &space LAYER_Symbol R
             >;
         };
     };
